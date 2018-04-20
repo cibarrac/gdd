@@ -57,6 +57,7 @@
 
 
  function createTable($view){
+        
          include 'listViews.php';
          $table = $table[$view];
 

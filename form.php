@@ -1,7 +1,6 @@
 
 <?php
   include 'listViews.php';
-
 /**
  * En este metodo se debe poner la tabla y la vista a la que pertenece
  * esta funcion construye un formulario para registro ya incluyendole los parametros necesarios para el post

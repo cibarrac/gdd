@@ -1,8 +1,22 @@
 <?php
+include "CursosDAO.php";
+class Curso { 
+    private $nombre;  
+    public function get($k){ return $this->$k; } public function set($k, $v){ return $this->$k = $v; } } 
+    
+class CursosService {
+function listarCursos() {
+  
+    $cursosDao =  new CursosDAO; 
+    $listaCursos = $cursosDao->getCursos();
+    foreach ($listaCursos as $curso) {
+        echo $curso->get("nombre");
+    }
+    
+   
+}
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+}
 
+$cursos = new CursosService();
+$cursos->listarCursos();
