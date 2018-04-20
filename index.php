@@ -1,5 +1,6 @@
 <?php
  /**
+  * Proyecto git
   * Seccion 0
   *  Todas las referencias a funciones php deben estar aqui
   */

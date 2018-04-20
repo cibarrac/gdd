@@ -13,8 +13,8 @@ function save($table) {
 
                   foreach($_HTTP as $KEY => $VALUE){
                        if($i<(count($_HTTP )) && $i > $id_use) {
-                  		if ($i<(count($_HTTP)-1)) {  $coma = ",";}
-                  		   else {
+                                if ($i<(count($_HTTP)-1)) {  $coma = ",";}
+                                   else {
                                         $coma = "";
 
                                    }

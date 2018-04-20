@@ -19,7 +19,10 @@ function getList() {
    */
   $profeList = array();
   $idcurso= $_GET['curso'];
-  $SQL = " SELECT NumeroCurso, NombreProfesorInscrito, RFCProfesor from Inscripcion, Profesor where NombreProfesorInscrito = concat(NombreProfesor,' ',ApellidoPaternoProfesor,' ',ApellidoMaternoProfesor) and NumeroCurso= '"$idcurso"';"
+  $SQL = " SELECT NumeroCurso, NombreProfesorInscrito, "
+          . "RFCProfesor from Inscripcion, Profesor where "
+          . "NombreProfesorInscrito = concat(NombreProfesor,' ',"
+          . "ApellidoPaternoProfesor,' ',ApellidoMaternoProfesor) and NumeroCurso= '$idcurso';";
   $lista = mysql_query($SQL);
 
   if(mysql_num_rows($lista)>0){
