@@ -1,9 +1,5 @@
 <?php
- /**
-  * Proyecto git
-  * Seccion 0
-  *  Todas las referencias a funciones php deben estar aqui
-  */
+
 include "sec/login/loginheader.php";
 
 //include_once 'firmar.php';
