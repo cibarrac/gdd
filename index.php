@@ -1,7 +1,6 @@
 <?php
 
 include "sec/login/loginheader.php";
-
 //include_once 'firmar.php';
 include "model/Modal.php";
 include 'conn.php';
@@ -77,22 +76,22 @@ select * from members inner join JefeDepartamento on IdJefeDepartamento = idRole
              $role = ismenu();
              if( $role == 'su')
              {
-                include 'Table_SU.php';
+                include 'model/su_table.php';
                 createTable($contentView);
              }
              elseif ($role == 'user')
              {
-               include 'Table_USER.php';
+               include 'model/user_table.php';
                createTable($contentView);
              }
              elseif ($role == 'admin')
              {
-               include 'Table_ADMIN.php';
+               include 'model/admin_table.php';
                createTable($contentView);
              }
              elseif($role == 'boss')
              {
-               include 'Table_BOSS.php';
+               include 'model/boss_table.php';
                createTable($contentView);
              }
 
