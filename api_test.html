@@ -1,0 +1,14 @@
+<script>
+    var ajax =    new XMLHttpRequest();
+    ajax.onload = function () {
+        var result=JSON.parse(this.response);
+        alert(result.result.nombre);
+        alert(result.result.edad);
+        alert(result.result.ocupacion);
+
+        // CON LA API PODREMOS HACER LAS VISTAS SIN MODIFICAR EL DISEÑO (MENOS TRABAJO)
+    }
+
+    ajax.open('GET','/diplomas.org-2018/api.php?oper=2', false);
+    ajax.send();
+</script>
