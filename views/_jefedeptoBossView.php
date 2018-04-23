@@ -29,19 +29,18 @@
 
 
 <div class="row">
-    <!--
     
    <div class="col-md-6">
       <div class="form-group">
           <label for="">Correo: </label>
-          <input type="email" class="form-control" name="CorreoJefe" value="<?//=$_SESSION['username']?>" readonly="readonly">
+          <input type="email" class="form-control" name="CorreoJefe" value="<?=$_SESSION['username']?>" readonly="readonly">
       </div>
   </div>
-   -->
+   
     
   <div class="col-md-6">
       <div class="form-group">
-        <label for="">Departamento:</label>
+        <label for="">Preteneciente al departamento de:</label>
         <select class="form-control" name="IdDepartamentoJefe">
         <?php
           fillOptionsNombresAndId("Departamento",1);

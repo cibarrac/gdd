@@ -5,7 +5,7 @@
     <div class="col-md-4">
       <div class="form-group">
         <label for="">Preteneciente al departamento de:</label>
-        <select class="form-control" name="IdDepartamento">
+        <select class="form-control" name="IdDepartamentoCarrera">
         <?php
           fillOptionsNombresAndId("Departamento",1);
         ?>
@@ -13,6 +13,7 @@
       </div>
     </div>
 
+      
     <div class="col-md-4">
       <div class="form-group">
         <label for="">Nombre de la carrera:</label>

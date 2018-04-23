@@ -14,6 +14,7 @@ $table = array('_InscripcionesUser' => 'Inscripcion',
 //'_Diagnostico' => 'Diagnostico',
 '_infoescuela' => 'InfoEscuela',
 '_jefedepto' => 'JefeDepartamento',
+'_jefedeptoBoss' => 'JefeDepartamento',
 '_PresidenteAcademia' => 'PresidenteAcademia'
 //'_FichaTecnica' => 'Fichatecnica'
 );

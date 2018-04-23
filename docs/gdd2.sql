@@ -29,7 +29,7 @@ CREATE TABLE `Aula` (
   `UbicacionAula` text NOT NULL,
   `TipoAula` text NOT NULL,
   PRIMARY KEY (`IdAula`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `Aula` (
 
 LOCK TABLES `Aula` WRITE;
 /*!40000 ALTER TABLE `Aula` DISABLE KEYS */;
-INSERT INTO `Aula` VALUES (1,'7LAB',30,'Edificios de sistemas','Laboratorio de computo'),(2,'Sala de capacitacion ',30,'Centro de informaciÃ³n ','Sala de juntas y reuniones'),(3,'Laboratorio de computo',30,'Edificios de arquitectura','Laboratorio'),(4,'Sala audiovisual',40,'Centro de informaciÃ³n ','Sala de precentaciones y proyecciones');
+INSERT INTO `Aula` VALUES (1,'7LA',30,'Laboratorios de sistemas ','Laboratorio de computo');
 /*!40000 ALTER TABLE `Aula` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,11 +53,11 @@ CREATE TABLE `Carrera` (
   `IdCarrera` int(11) NOT NULL AUTO_INCREMENT,
   `NombreCarrera` text NOT NULL,
   `Abreviacion` text NOT NULL,
-  `IdDepartamento` int(11) NOT NULL,
+  `IdDepartamentoCarrera` int(11) NOT NULL,
   PRIMARY KEY (`IdCarrera`),
-  KEY `IdDepartamento` (`IdDepartamento`),
-  CONSTRAINT `Carrera_ibfk_1` FOREIGN KEY (`IdDepartamento`) REFERENCES `Departamento` (`IdDepartamento`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  KEY `IdDepartamentoCarrera` (`IdDepartamentoCarrera`),
+  CONSTRAINT `Carrera_ibfk_1` FOREIGN KEY (`IdDepartamentoCarrera`) REFERENCES `Departamento` (`IdDepartamento`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `Carrera` (
 
 LOCK TABLES `Carrera` WRITE;
 /*!40000 ALTER TABLE `Carrera` DISABLE KEYS */;
-INSERT INTO `Carrera` VALUES (1,'Ingenieri­a en Sistemas Computacionales','I.S.C.',1),(2,'IngenierÃ­a BioquÃ­mica','I.B.Q.',2),(3,'Licenciatura en Adminstracion ','L.A.',3),(4,'IngenierÃ­a en GestiÃ³n Empresarial','I.G.E',3),(5,'Contador Publico','C.P.',3),(6,'Arquitectura','ARQ',5);
+INSERT INTO `Carrera` VALUES (1,'Ingenieria en Sistemas Computacionales','ISC',1),(2,'IngenierÃ­a Bioquimica','IBQ',2);
 /*!40000 ALTER TABLE `Carrera` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +108,6 @@ CREATE TABLE `Curso` (
 
 LOCK TABLES `Curso` WRITE;
 /*!40000 ALTER TABLE `Curso` DISABLE KEYS */;
-INSERT INTO `Curso` VALUES ('1.1','Programacion','qohovh','Generico','07:00:00','11:00:00','2018-03-12','2018-03-16',30,'Enero-Junio',1,'1','1','','Sistemas y Computacion','Juan Miguel Hernandez Bravo','Rafael Hernandez Reyna','Eduardo  De la Cruz Gamez','Jose Francisco Gazga Portillo','7LAB'),('2.1','Matematicas1','iuofyukgkl','Generico','07:00:00','11:00:00','2018-03-12','2018-03-16',20,'Enero-Junio',1,'1','1','','Ciencias basicas','Amin Bahena Salgado','Alan Rafael Mendoza Martinez','Miguel Angel Cabello Quintero','','Sala de capacitacion '),('3.1','Diplomado para docentes Mod 1','kjhbwhbjsdhfkjbsdf','Generico','08:00:00','12:00:00','2018-04-16','2018-04-20',11,'Enero-Junio',1,'1','1','','Sistemas y Computacion','Juan Miguel Hernandez Bravo','Rafael Hernandez Reyna','Rolando Palacios Ortega','','Sala de capacitacion '),('3.2','Diplomado para docentes Mod 2','dvfkjhabdjfha','Generico','07:00:00','10:00:00','2018-04-16','2018-04-20',20,'Enero-Junio',1,'1','1','','Sistemas y Computacion','Juan Miguel Hernandez Bravo','Rafael Hernandez Reyna','Eduardo  De la Cruz Gamez','Miguel Angel Cabello Quintero','Sala audiovisual'),('3.7','Inteligencia art','asdasd','Generico','21:23:00','12:32:00','2018-04-21','2018-04-22',2,'Enero-Junio',1,'1','1','','Sistemas y Computacion','Juan Miguel Hernandez Bravo','Rafael Hernandez Reyna','Jose Francisco Gazga Portillo','Miguel Angel Cabello Quintero','7LAB'),('4.2','Inteligencia Artificial ','Los docentes aprenderÃ¡n conceptos avanzados de inteligencia artificial','Especialidad','12:00:00','15:00:00','2018-03-12','2018-03-16',8,'Enero-Junio',1,'1','1','','Sistemas y Computacion','Juan Miguel Hernandez Bravo','Rafael Hernandez Reyna','Jose Francisco Gazga Portillo','Eduardo  De la Cruz Gamez','7LAB'),('4.2.1','Estuctura de datos','dsfsfseef','Especialidad','12:34:00','23:34:00','2018-04-18','2018-04-13',2,'Enero-Junio',0,'','','','Sistemas y Computacion','Juan Miguel Hernandez Bravo','Rafael Hernandez Reyna','Eduardo  De la Cruz Gamez','Rolando Palacios Ortega','Sala de capacitacion '),('5.1','Diplomado para docentes Mod 3','sdfadgfasf','Generico','07:00:00','10:00:00','2018-04-16','2018-04-20',15,'Enero-Junio',1,'1','1','','Sistemas y Computacion','Juan Miguel Hernandez Bravo','Rafael Hernandez Reyna','Jose Francisco Gazga Portillo','','Sala de capacitacion '),('5.1.2','<sdgafg','adfgadfg','Generico','07:00:00','10:00:00','2018-04-16','2018-04-20',12,'Enero-Junio',0,'','','','Sistemas y Computacion','Juan Miguel Hernandez Bravo','Rafael Hernandez Reyna','Miguel Angel Cabello Quintero','','Sala audiovisual'),('6.2','Prueba4','asfdas','Generico','12:12:00','12:21:00','2018-04-27','2018-04-21',1,'Enero-Junio',1,'1','1','','Sistemas y Computacion','Juan Miguel Hernandez Bravo','Rafael Hernandez Reyna','Jose Francisco Gazga Portillo','Eduardo  De la Cruz Gamez','Laboratorio de computo'),('8.1','Programacion ii','sasdfgsdf','Generico','03:32:00','23:32:00','2018-04-12','2018-04-13',1,'Enero-Junio',1,'1','1','','Sistemas y Computacion','Juan Miguel Hernandez Bravo','Rafael Hernandez Reyna','Eduardo  De la Cruz Gamez','','7LAB');
 /*!40000 ALTER TABLE `Curso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,14 +121,8 @@ DROP TABLE IF EXISTS `Departamento`;
 CREATE TABLE `Departamento` (
   `IdDepartamento` int(11) NOT NULL AUTO_INCREMENT,
   `NombreDepartamento` text NOT NULL,
-  `IdJefeDepartamento` int(11) NOT NULL,
-  `IdPresidenteAcademia` int(11) NOT NULL,
-  PRIMARY KEY (`IdDepartamento`),
-  KEY `IdJefeDepartamento` (`IdJefeDepartamento`),
-  KEY `IdPresidenteAcademia` (`IdPresidenteAcademia`),
-  CONSTRAINT `Departamento_ibfk_1` FOREIGN KEY (`IdJefeDepartamento`) REFERENCES `JefeDepartamento` (`IdJefeDepartamento`),
-  CONSTRAINT `Departamento_ibfk_2` FOREIGN KEY (`IdPresidenteAcademia`) REFERENCES `PresidenteAcademia` (`IdPresidenteAcademia`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`IdDepartamento`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +131,7 @@ CREATE TABLE `Departamento` (
 
 LOCK TABLES `Departamento` WRITE;
 /*!40000 ALTER TABLE `Departamento` DISABLE KEYS */;
-INSERT INTO `Departamento` VALUES (1,'Sistemas y Computacion',1,1),(2,'QuÃ­mica y BioquÃ­mica',2,2),(3,'Ciencias EconÃ³mico Administrativas',4,3),(4,'Ciencias basicas',3,4),(5,'Ciencias de la tierrra',5,5);
+INSERT INTO `Departamento` VALUES (1,'Sistemas y ComputaciÃ³n '),(2,'QuÃ­mica y Bioquimica'),(3,'Ciencias BÃ¡sicas');
 /*!40000 ALTER TABLE `Departamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +156,7 @@ CREATE TABLE `InfoEscuela` (
   `NombreSubdirector` text NOT NULL,
   `ApellidoPaternoSubdirector` text NOT NULL,
   `ApellidoMaternoSubdirector` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Contiene toda la informacion util de la institucion.';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +165,6 @@ CREATE TABLE `InfoEscuela` (
 
 LOCK TABLES `InfoEscuela` WRITE;
 /*!40000 ALTER TABLE `InfoEscuela` DISABLE KEYS */;
-INSERT INTO `InfoEscuela` VALUES (1,'Instituto Tecnologico de Acapulco','4429010','Avd. Instituto Tecnológico S/N Crucero del cayaco C.P. 39905 ','itacapulco@it-acapulco.edu.mx','Guerrero','Acapulco de Juarez','Eliot','Jofre','Vazquez','Laura','Sanchez','Hernandez'),(1,'sdfgdsf','53453','sdfsd','sdgf@gmail.com','sdfsdf','sdfsf','sdfsd','fsdf','sdf','sdfs','fsdf','sdfsd');
 /*!40000 ALTER TABLE `InfoEscuela` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -209,7 +201,7 @@ CREATE TABLE `Inscripcion` (
   CONSTRAINT `Inscripcion_ibfk_3` FOREIGN KEY (`IdInstructor2`) REFERENCES `Instructor` (`IdInstructor`),
   CONSTRAINT `Inscripcion_ibfk_4` FOREIGN KEY (`IdProfesor`) REFERENCES `Profesor` (`IdProfesor`),
   CONSTRAINT `Inscripcion_ibfk_5` FOREIGN KEY (`IdAula`) REFERENCES `Aula` (`IdAula`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -218,7 +210,6 @@ CREATE TABLE `Inscripcion` (
 
 LOCK TABLES `Inscripcion` WRITE;
 /*!40000 ALTER TABLE `Inscripcion` DISABLE KEYS */;
-INSERT INTO `Inscripcion` VALUES (1,'1.1',NULL,NULL,NULL,NULL,'Juan Jose Bedolla Solano','Programacion','2018-03-12','2018-03-16','Eduardo  De la Cruz Gamez','Generico','7LAB','Jose Francisco Gazga Portillo'),(18,'4.2',NULL,NULL,NULL,NULL,'Jose Antonio Montero  Valverde','Inteligencia Artificial ','2018-03-12','2018-03-16','Jose Francisco Gazga Portillo','Especialidad','7LAB','Eduardo  De la Cruz Gamez'),(19,'4.2',NULL,NULL,NULL,NULL,'Juan Jose Bedolla Solano','Inteligencia Artificial ','2018-03-12','2018-03-16','Jose Francisco Gazga Portillo','Especialidad','7LAB','Eduardo  De la Cruz Gamez'),(20,'1.1',NULL,NULL,NULL,NULL,'Silvestre  Bedolla Solano','Programacion','2018-03-12','2018-03-16','Eduardo  De la Cruz Gamez','Generico','7LAB','Jose Francisco Gazga Portillo'),(21,'4.2',NULL,NULL,NULL,NULL,'Silvestre  Bedolla Solano','Inteligencia Artificial ','2018-03-12','2018-03-16','Jose Francisco Gazga Portillo','Especialidad','7LAB','Eduardo  De la Cruz Gamez'),(22,'2.1',NULL,NULL,NULL,NULL,'','Matematicas1','2018-03-12','2018-03-16','Miguel Angel Cabello Quintero','Generico','Sala de capacitacion ',''),(23,'1.1',NULL,NULL,NULL,NULL,'Jorge Carranza Gomez','Programacion','2018-03-12','2018-03-16','Eduardo  De la Cruz Gamez','Generico','7LAB','Jose Francisco Gazga Portillo'),(24,'1.1',NULL,NULL,NULL,NULL,'marcial ozuna crisantos','Programacion','2018-03-12','2018-03-16','Eduardo  De la Cruz Gamez','Generico','7LAB','Jose Francisco Gazga Portillo'),(25,'2.1',NULL,NULL,NULL,NULL,'                    Jorge Carranza Gomez                              ','Matematicas1','2018-03-12','2018-03-16','Miguel Angel Cabello Quintero','Generico','Sala de capacitacion ',''),(26,'4.2',NULL,NULL,NULL,NULL,'                    Jorge Carranza Gomez                              ','Inteligencia Artificial ','2018-03-12','2018-03-16','Jose Francisco Gazga Portillo','Especialidad','7LAB','Eduardo  De la Cruz Gamez'),(27,'4.2',NULL,NULL,NULL,NULL,'                    marcial ozuna crisantos                              ','Inteligencia Artificial ','2018-03-12','2018-03-16','Jose Francisco Gazga Portillo','Especialidad','7LAB','Eduardo  De la Cruz Gamez'),(28,'5.1',NULL,NULL,NULL,NULL,'                    Jorge Carranza Gomez                              ','Diplomado para docentes Mod 3','2018-04-16','2018-04-20','Jose Francisco Gazga Portillo','Generico','Sala de capacitacion ',''),(29,'2.1',NULL,NULL,NULL,NULL,'                    Jorge Carranza Gomez                              ','Matematicas1','2018-03-12','2018-03-16','Miguel Angel Cabello Quintero','Generico','Sala de capacitacion ',''),(30,'5.1',NULL,NULL,NULL,NULL,'Jorge Carranza Gomez','Diplomado para docentes Mod 3','2018-04-16','2018-04-20','Jose Francisco Gazga Portillo','Generico','Sala de capacitacion ',''),(31,'5.1',NULL,NULL,NULL,NULL,'                    Jorge Carranza Gomez                              ','Diplomado para docentes Mod 3','2018-04-16','2018-04-20','Jose Francisco Gazga Portillo','Generico','Sala de capacitacion ',''),(32,'2.1',NULL,NULL,NULL,NULL,'                    Jorge Carranza Gomez                              ','Matematicas1','2018-03-12','2018-03-16','Miguel Angel Cabello Quintero','Generico','Sala de capacitacion ',''),(33,'4.2.1',NULL,NULL,NULL,NULL,'                    Jorge Carranza Gomez                              ','Estuctura de datos','2018-04-18','2018-04-13','Eduardo  De la Cruz Gamez','Especialidad','Sala de capacitacion ','Rolando Palacios Ortega'),(34,'1.1',NULL,NULL,NULL,NULL,'                    Jorge Carranza Gomez                              ','Programacion','2018-03-12','2018-03-16','Eduardo  De la Cruz Gamez','Generico','7LAB','Jose Francisco Gazga Portillo'),(35,'5.1',NULL,NULL,NULL,NULL,'                    Jorge Carranza Gomez                              ','Diplomado para docentes Mod 3','2018-04-16','2018-04-20','Jose Francisco Gazga Portillo','Generico','Sala de capacitacion ',''),(36,'2.1',NULL,NULL,NULL,NULL,'Jorge Carranza Gomez','Matematicas1','2018-03-12','2018-03-16','Miguel Angel Cabello Quintero','Generico','Sala de capacitacion ',''),(37,'4.2.1',NULL,NULL,NULL,NULL,'','Estuctura de datos','2018-04-18','2018-04-13','Eduardo  De la Cruz Gamez','Especialidad','Sala de capacitacion ','Rolando Palacios Ortega'),(38,'3.1',NULL,NULL,NULL,NULL,'marcial ozuna crisantos','Diplomado para docentes Mod 1','2018-04-16','2018-04-20','Rolando Palacios Ortega','Generico','Sala de capacitacion ',''),(39,'4.2.1',NULL,NULL,NULL,NULL,'Isaias Pelaes Pelaes','Estuctura de datos','2018-04-18','2018-04-13','Eduardo  De la Cruz Gamez','Especialidad','Sala de capacitacion ','Rolando Palacios Ortega'),(40,'4.2.1',NULL,NULL,NULL,NULL,'','Estuctura de datos','2018-04-18','2018-04-13','Eduardo  De la Cruz Gamez','Especialidad','Sala de capacitacion ','Rolando Palacios Ortega'),(41,'4.2.1',NULL,NULL,NULL,NULL,'','Estuctura de datos','2018-04-18','2018-04-13','Eduardo  De la Cruz Gamez','Especialidad','Sala de capacitacion ','Rolando Palacios Ortega'),(42,'4.2.1',NULL,NULL,NULL,NULL,'','Estuctura de datos','2018-04-18','2018-04-13','Eduardo  De la Cruz Gamez','Especialidad','Sala de capacitacion ','Rolando Palacios Ortega'),(43,'4.2.1',NULL,NULL,NULL,NULL,'','Estuctura de datos','2018-04-18','2018-04-13','Eduardo  De la Cruz Gamez','Especialidad','Sala de capacitacion ','Rolando Palacios Ortega'),(44,'5.1.2',NULL,NULL,NULL,NULL,'','<sdgafg','2018-04-16','2018-04-20','Miguel Angel Cabello Quintero','Generico','Sala audiovisual',''),(45,'3.1',NULL,NULL,NULL,NULL,'   Olegario Martinez Nava','Diplomado para docentes Mod 1','2018-04-16','2018-04-20','Rolando Palacios Ortega','Generico','Sala de capacitacion ',''),(46,'3.1',NULL,NULL,NULL,NULL,'   Olegario Martinez Nava','Diplomado para docentes Mod 1','2018-04-16','2018-04-20','Rolando Palacios Ortega','Generico','Sala de capacitacion ',''),(47,'3.2',NULL,NULL,NULL,NULL,'   Olegario Martinez Nava','Diplomado para docentes Mod 2','2018-04-16','2018-04-20','Eduardo  De la Cruz Gamez','Generico','Sala audiovisual','Miguel Angel Cabello Quintero'),(48,'3.2',NULL,NULL,NULL,NULL,'Silvestre  Bedolla Solano','Diplomado para docentes Mod 2','2018-04-16','2018-04-20','Eduardo  De la Cruz Gamez','Generico','Sala audiovisual','Miguel Angel Cabello Quintero'),(49,'1.1',NULL,NULL,NULL,NULL,'Jorge Carranza Gomez','Programacion','2018-03-12','2018-03-16','Eduardo  De la Cruz Gamez','Generico','7LAB','Jose Francisco Gazga Portillo');
 /*!40000 ALTER TABLE `Inscripcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,7 +231,7 @@ CREATE TABLE `Instructor` (
   `NumeroTelefonoInstructor` varchar(20) NOT NULL,
   `CorreoInstructor` varchar(30) NOT NULL,
   PRIMARY KEY (`IdInstructor`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -249,7 +240,7 @@ CREATE TABLE `Instructor` (
 
 LOCK TABLES `Instructor` WRITE;
 /*!40000 ALTER TABLE `Instructor` DISABLE KEYS */;
-INSERT INTO `Instructor` VALUES (1,'Eduardo ','De la Cruz','Gamez','1973-12-03','DGE89609390DFY7','DGE095098','7440923145','gamez@gmail.com'),(2,'Rolando','Palacios','Ortega','1950-03-09','POR9827359876GJ','POR348957','7441215241','rpalacios@gmail.com'),(3,'Jose Francisco','Gazga','Portillo','1973-03-05','GPJF93845768HT','GPJF98476','7449242232','gazga@gmail.com'),(4,'Miguel Angel','Cabello','Quintero','1960-02-19','CQMA9872354LD','CQMA3455','7441439835','cabello@gmail.com'),(5,'Melquisedec','Ojeda','Justo','2018-05-04','dfsdfsfsd','fsdfsdfsdfsd','7441815003','mel@gmail.com');
+INSERT INTO `Instructor` VALUES (1,'Jose','Cruz','Garcia','2018-04-29','CGJ674856','CGJ872395629','74413220584','josecruz@gmail.com');
 /*!40000 ALTER TABLE `Instructor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,8 +257,11 @@ CREATE TABLE `JefeDepartamento` (
   `ApellidoPaternoJefeDepto` text NOT NULL,
   `ApellidoMaternoJefeDepto` text NOT NULL,
   `CorreoJefe` varchar(65) NOT NULL,
-  PRIMARY KEY (`IdJefeDepartamento`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `IdDepartamentoJefe` int(11) NOT NULL,
+  PRIMARY KEY (`IdJefeDepartamento`),
+  KEY `IdDepartamentoJefe` (`IdDepartamentoJefe`),
+  CONSTRAINT `JefeDepartamento_ibfk_1` FOREIGN KEY (`IdDepartamentoJefe`) REFERENCES `Departamento` (`IdDepartamento`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -276,7 +270,7 @@ CREATE TABLE `JefeDepartamento` (
 
 LOCK TABLES `JefeDepartamento` WRITE;
 /*!40000 ALTER TABLE `JefeDepartamento` DISABLE KEYS */;
-INSERT INTO `JefeDepartamento` VALUES (1,'Juan Miguel','Hernandez','Bravo','coca@gmail.com'),(2,'Alejandra','Florez','Castro','alejandra@gmail.com'),(3,'Amin','Bahena','Salgado',''),(4,'Sherry LLovisna','Roque','Quintana',''),(5,'Eloy','Mata','Carrillo',''),(6,'Neo','Castellanos','Rebolledo','');
+INSERT INTO `JefeDepartamento` VALUES (1,'Juan Miguel','Hernadez','Bravo','jefeisc@gmail.com',1),(2,'Alejandra','Flores','Castro','jefeibq@gmail.com',2);
 /*!40000 ALTER TABLE `JefeDepartamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,8 +286,12 @@ CREATE TABLE `PresidenteAcademia` (
   `NombrePresidenteAcad` text NOT NULL,
   `ApellidoPaternoPresidenteAcad` text NOT NULL,
   `ApellidoMaternoPresidenteAcad` text NOT NULL,
-  PRIMARY KEY (`IdPresidenteAcademia`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `CorreoPresidente` varchar(65) NOT NULL,
+  `IdDepartamentoPresidente` int(11) NOT NULL,
+  PRIMARY KEY (`IdPresidenteAcademia`),
+  KEY `IdDepartamentoPresidente` (`IdDepartamentoPresidente`),
+  CONSTRAINT `PresidenteAcademia_ibfk_1` FOREIGN KEY (`IdDepartamentoPresidente`) REFERENCES `Departamento` (`IdDepartamento`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -302,7 +300,6 @@ CREATE TABLE `PresidenteAcademia` (
 
 LOCK TABLES `PresidenteAcademia` WRITE;
 /*!40000 ALTER TABLE `PresidenteAcademia` DISABLE KEYS */;
-INSERT INTO `PresidenteAcademia` VALUES (1,'Rafael','Hernandez','Reyna'),(2,'Jose Manuel','Ramirez','Galindo'),(3,'Alan Rafael','Mendoza','Martinez'),(4,'Jose Luis','Mena','Sanchez'),(5,'Rogelio','Alvares','Pena');
 /*!40000 ALTER TABLE `PresidenteAcademia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,10 +325,8 @@ CREATE TABLE `Profesor` (
   `CarreraCursadaProfesor` text NOT NULL,
   `IdDepartamentoProfesor` int(11) NOT NULL,
   `IdJefeInmediatoProfesor` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL,
-  PRIMARY KEY (`IdProfesor`),
-  KEY `IdCarrera` (`IdCarrera`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`IdProfesor`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -340,7 +335,7 @@ CREATE TABLE `Profesor` (
 
 LOCK TABLES `Profesor` WRITE;
 /*!40000 ALTER TABLE `Profesor` DISABLE KEYS */;
-INSERT INTO `Profesor` VALUES (1,'Juan Jose','Bedolla','Solano','SBJJ859478W',1,'7441542314','bedoll@gmail.com','Docente',0,'Doctor(a)','Desarrollo Regional',1,1,0),(2,'Jose Antonio','Montero ','Valverde','MVJA0969286',1,'7442098492','montero@gmail.comn','Docente',0,'Doctor(a)','TecnologÃ­as de la informaciÃ³n',1,1,0),(3,'Silvestre ','Bedolla','Solano','BSS750265',1,'7441098314','silvestre@hotmail.com','Docente',0,'Maestro(a)','TecnologÃ­as de la informaciÃ³n',1,1,0),(4,'Jorge','Carranza','Gomez','CGJ05839683',1,'74409838407','carranza@yahoo.com','Docente',0,'Maestro(a)','TecnologÃ­as de la informaciÃ³n',1,1,0),(5,'   Olegario','Martinez','Nava','sdfsdfsd',3,'7441815003','nada@gmail.com','Docente',0,'Maestro(a)','IEM',3,4,0),(6,'Isaias','Pelaes','Pelaes','sefsefs',2,'7441815003','pelaes@gmail.com','Docente',0,'Doctor(a)','IBQ',2,2,0),(7,'Roberto','Mondragon','Carrillo','sdgfsdfds',6,'7441815003','Eloy@gmail.com','Docente',0,'Licenciado(a)','ARQ',5,5,0),(8,'Noe','Castellanos','Rebolledo','sdgfsdfs',3,'7441815003','Noe@gmail.com','Docente',0,'Licenciado(a)','LA',4,4,0),(9,'Carolina','Flores','Nava','safsdfsdsd',1,'7441815003','caro@gmail.com','docente',0,'Licenciado(a)','ISC',1,1,0),(16,'marcial','ozuna','crisantos','afksdfjsdlb',1,'13546468','ozunamarcial@gmail.com','docente',0,'Licenciado(a)','isc',1,1,0);
+INSERT INTO `Profesor` VALUES (1,'Juan Jose ','Bedolla','Solano','BSJJ0575987',1,'74413235685','bedollaisc@gmail.com','Docente',0,'Doctor(a)','Desarrollo regional ',1,1);
 /*!40000 ALTER TABLE `Profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,7 +353,7 @@ CREATE TABLE `loginAttempts` (
   `Username` varchar(65) DEFAULT NULL,
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -367,6 +362,7 @@ CREATE TABLE `loginAttempts` (
 
 LOCK TABLES `loginAttempts` WRITE;
 /*!40000 ALTER TABLE `loginAttempts` DISABLE KEYS */;
+INSERT INTO `loginAttempts` VALUES ('::1',2,'2018-04-23 18:31:37','jefedepartamento@gmail.com',1),('::1',1,'2018-04-23 18:38:20','desacad@gmail.com',2),('::1',1,'2018-04-23 18:48:35','jefeisc@gmail.com',3),('::1',1,'2018-04-23 18:55:36','bedollaisc@gmail.com',4),('::1',1,'2018-04-23 19:16:33','jefeibq@gmail.com',5);
 /*!40000 ALTER TABLE `loginAttempts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -393,7 +389,7 @@ CREATE TABLE `members` (
   UNIQUE KEY `idUser` (`idUser`),
   UNIQUE KEY `idRole` (`idUser`),
   UNIQUE KEY `idUser_2` (`idUser`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -402,6 +398,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
+INSERT INTO `members` VALUES ('','sdfsdfesfsefe','000000','desacsaefead@gmail.com',1,'2018-04-23 20:21:08','boss',15),('10803686435ade272f2a3a4','Jose Montero','$2y$10$6ZVIleKXuxKlebInW0HY/OXEjsGibFmkF0cOfQT00YrNeZjXD6gWC','monteroisc@gmail.com',1,'2018-04-23 18:36:52','user',5),('11416101145ade43348ae9a','silvestre2','$2y$10$fU8K4Ge2/ZdSyj5l25Ty6uebGIZz24FZ9BFAB.e6cUCNPAh/yEmUe','silvestre2@gmail.com',0,'2018-04-23 20:33:56','',20),('11785718045ade428722454','Silvestre','$2y$10$QStWzjm/bf79weWAz0.YuuZL6j2Dw7vOwxBCCfhHsoGL/4kmZ719u','silvestre@gmail.com',0,'2018-04-23 20:31:03','',19),('12000490105ade26a8c2f1c','DesarrolloAcademico','$2y$10$TD8Il74Mv/sjujoyhfnfDOwnPtCSXZ9SpLIE/JmBJkt76OrlL2B3K','desacad@gmail.com',1,'2018-04-23 18:37:05','su',1),('12943351245ade2777d8028','Fernando Ortiz','$2y$10$IDiWdvjaIFPq8PX6psxHSeFF0.LVA/aed9y0SfWRECdDJxXlyMx3G','ortizibq@gmail.com',1,'2018-04-23 18:37:27','user',7),('13309447845ade2708167df','Alejandra Flores','$2y$10$J9oA66DZNp445rx5HEkBVO/R8yWkdgIKTAn7jb9vThrlnHDtmDUgS','jefeibq@gmail.com',1,'2018-04-23 18:37:36','boss',4),('16746161505ade275967540','Juan Jose Bedolla','$2y$10$9Pc9w02kMviIEE0b8yALV.H3mRr2TE4sDqL0D9QCr0XF34RZ2b0hS','bedollaisc@gmail.com',1,'2018-04-23 18:37:52','user',6),('5414787065ade26f4c4753','Juan Miguel','$2y$10$EETkPB24/whk8wtTGz1Doujz9/WN2ewO0pwh3HA3kyi8gmEWbHI/6','jefeisc@gmail.com',1,'2018-04-23 18:38:00','boss',3),('6441657845ade26c6a70e4','SubdireccionAcademica','$2y$10$pw.2cWg5KDjsYTp3t53Vk.MRAE0f0pt/kx9I0W0Gh9/bF3VKGG.Re','subacad@gmail.com',1,'2018-04-23 18:37:17','admin',2);
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -414,4 +411,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-20 18:43:39
+-- Dump completed on 2018-04-23 15:38:09
