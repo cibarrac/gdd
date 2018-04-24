@@ -1,6 +1,6 @@
 
 
-<input type="number" name="id" hidden   value="0">
+<input type="number" name="id" hidden value="0">
 
   <div class="row">
 
