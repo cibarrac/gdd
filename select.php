@@ -73,6 +73,7 @@
           ?>
 
 
+
             <?php function OptieneNombre($correo, $col = 0) {
               $lista = mysql_query("select NombreProfesor, ApellidoPaternoProfesor, ApellidoMaternoProfesor from Profesor where CorreoProfesor = '".$correo."' ");
               if(mysql_num_rows($lista)>0){
@@ -82,6 +83,61 @@
               }
             } ?>
 
+
+            <?php function OptieneNombreJefe($correo, $col = 0) {
+              $lista = mysql_query("select NombreJefeDepto, ApellidoPaternoJefeDepto, ApellidoMaternoJefeDepto from JefeDepartamento where CorreoJefe = '".$correo."' ");
+              if(mysql_num_rows($lista)>0){
+                while($fila = mysql_fetch_array($lista)){
+                  return $fila[$col] . " " . $fila[$col+1] . " " . $fila[$col+2];
+                }
+              }
+            } ?>
+
+
+
+            <?php function OptieneCorreoBoss($table,$col = 0) {
+              $lista = mysql_query("select email from ". $table );
+              if(mysql_num_rows($lista)>0){
+                while($fila = mysql_fetch_array($lista)){ ?>
+                  <option value="<?php echo $fila[$col]; ?>"><?php echo $fila[$col]; ?></option>
+                <?php }}?>
+
+              <?php } ?>
+
+
+
+            <?php function OptienePresidente($correo, $col = 0) {
+              $lista = mysql_query("select NombrePresidenteAcad, ApellidoPaternoPresidenteAcad, ApellidoMaternoPresidenteAcad from PresidenteAcademia inner join JefeDepartamento on IdDepartamentoPresidente = IdDepartamentoJefe where CorreoJefe ='".$correo."' ");
+              if(mysql_num_rows($lista)>0){
+                while($fila = mysql_fetch_array($lista)){
+                  return $fila[$col] . " " . $fila[$col+1] . " " . $fila[$col+2];
+                }
+              }
+            } ?>
+
+
+
+            <?php function OptieneCarrera($correoJefe,$col = 0) {
+              $lista = mysql_query(" select NombreCarrera from Carrera inner join JefeDepartamento on IdDepartamentoCarrera = IdDepartamentoJefe where CorreoJefe = '".$correoJefe."' ");
+              if(mysql_num_rows($lista)>0){
+                while($fila = mysql_fetch_array($lista)){
+                  return $fila[$col];
+                }
+              }
+            } ?>
+
+
+
+
+            <?php function OptieneDepartamento($correoJefe,$col = 0) {
+
+              $lista = mysql_query(" select NombreDepartamento from Departamento inner join JefeDepartamento on IdDepartamento = IdDepartamentoJefe where CorreoJefe = '".$correoJefe."' ");
+              if(mysql_num_rows($lista)>0){
+                while($fila = mysql_fetch_array($lista)){
+                  return $fila[$col];
+                }
+              }
+            } ?>
 
 
 

@@ -21,7 +21,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <!-- <li> <a class="dropdown-item"  href="index.php?view=_Diagnostico">D N borrador</a></li> -->
                     <li><a class="dropdown-item"  href="index.php?view=_jefedeptoBoss">Mi Perfil</a></li>
-                    <li> <a class="dropdown-item"  href="index.php?view=_Curso">Detectar Necesidades </a> </li>
+                    <li> <a class="dropdown-item"  href="index.php?view=_CursoBoss">Detectar Necesidades </a> </li>
                     <li> <a class="dropdown-item"  href="index.php?view=_Inscripciones">Inscripciones</a> </li>
                     <li> <a class="dropdown-item"  href="index.php?view=_Instructor">Instructores</a> </li>
                     <!--<li> <a class="dropdown-item"  href="index.php?view=_FichaTecnica">Ficha Tecnica</a></li> -->
@@ -30,7 +30,7 @@
                     <li><a class="dropdown-item"  href="index.php?view=_Profesor">Registrar profesor</a></li>
                     <!-- <li>  <a class="dropdown-item"  href="index.php?view=_Materia">Registrar materia</a></li> -->
                     <!-- <li><a class="dropdown-item"  href="index.php?view=_Departamento">Registrar departamento</a></li> -->
-                    
+
                     <li><a class="dropdown-item"  href="index.php?view=_PresidenteAcademia">Registrar presidente de academia</a></li>
                    <!-- <li><a class="dropdown-item"  href="index.php?view=_Carrera">Registrar carrera</a></li> -->
 

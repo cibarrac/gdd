@@ -2,6 +2,7 @@
 $table = array('_InscripcionesUser' => 'Inscripcion',
 '_Inscripciones' => 'Inscripcion', // su,user
 '_Curso' => 'Curso', //su, admin
+'_CursoBoss' => 'Curso', //su, admin
 '_Instructor' => 'Instructor',
 '_Profesor' => 'Profesor', //user
 '_Encuensta' => 'Encuesta', //user

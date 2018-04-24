@@ -7,8 +7,7 @@
      <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $NumeroCurso;?>);">
      </button>
 
-     <button  type="checkbox" class="btn btn-warning fa fa-edit" onclick="firmar(<?php echo $NumeroCurso;?>,<?php echo $NumeroCurso;?>);">
-     </button>
+    
 
    <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $NumeroCurso;?>');">
      </button>
@@ -57,7 +56,7 @@
 
 
  function createTable($view){
-        
+
          include 'listViews.php';
          $table = $table[$view];
 

@@ -29,16 +29,21 @@
 
 
 <div class="row">
-    <!--
-    
+
+
    <div class="col-md-6">
       <div class="form-group">
           <label for="">Correo: </label>
-          <input type="email" class="form-control" name="CorreoJefe" value="<?//=$_SESSION['username']?>" readonly="readonly">
+          <select class="form-control" name="CorreoJefe">
+          <?php
+           OptieneCorreoBoss("members",0);
+          ?>
+          </select>
+
       </div>
   </div>
-   -->
-    
+
+
   <div class="col-md-6">
       <div class="form-group">
         <label for="">Departamento:</label>
@@ -49,7 +54,7 @@
         </select>
       </div>
     </div>
-    
-    
-    
+
+
+
 </div>

@@ -23,8 +23,19 @@ function fillOptionsInscriptionByNum($numero)
     }
 }
 
+/*
+function ObtieneCarrera($CorreoJefe)
+{
 
+    $lista = mysql_query("select NombreCarrera from Carrera inner join JefeDepartamento on IdDepartamentoCarrera = IdDepartamentoJefe where CorreoJefe = '$CorreoJefe'");
 
+    if (mysql_num_rows($lista)>0) {
+        return mysql_fetch_assoc($lista);
+    } else {
+        return ['nomcarrera' =>  $CorreoJefe, 'message' => 'No se obtuvieron datos'];
+    }
+}
+*/
 
 
 
@@ -44,5 +55,13 @@ if ($_GET['oper'])
 
     }
 }
+ /*
+if ($_GET['oper'])
+  {
+    $numcurso = $_GET['nomcarrera'];
+    echo json_encode([ 'status'=> 200, 'data' => ObtieneCarrera($numcurso)]);
+
+  }
+*/
 
 ?>
