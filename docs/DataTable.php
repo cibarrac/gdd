@@ -33,14 +33,14 @@
 				<td>Juan Ernesto</td>
 				<td>2018-03-29  </td>
 				<td>2018-04-01  </td>
-				<td><a href="mailto:jecluna@hotmail.com" class="btn btn-default " <i class="fa fa-phone fa-2x">
+				<td><a href="mailto:jecluna@hotmail.com" class="btn btn-default "> <i class="fa fa-phone fa-2x">
 
             </i>
                   jecluna@hotmail.com
                 </a> </td>
 				<td>2017-10-12 14:07:28</td>
                 <td>Twin</td>
-				<td> <a href="tel:57773978" class="btn btn-default " <i class="fa fa-phone fa-2x">
+				<td> <a href="tel:57773978" class="btn btn-default "> <i class="fa fa-phone fa-2x">
 
             </i>
                   57773978
@@ -72,14 +72,14 @@ Quedamos a la espera de su garantia para generar su reserva.
 				<td>Angélica Espinoza Jardón </td>
 				<td>2018-03-09  </td>
 				<td>2018-03-11  </td>
-				<td><a href="mailto:angelica.ejardon@gmail.com" class="btn btn-default " <i class="fa fa-phone fa-2x">
+				<td><a href="mailto:angelica.ejardon@gmail.com" class="btn btn-default "> <i class="fa fa-phone fa-2x">
 
             </i>
                   angelica.ejardon@gmail.com
                 </a> </td>
 				<td>2017-02-23 15:34:21</td>
                 <td>Standar</td>
-				<td> <a href="tel:0445515326221" class="btn btn-default " <i class="fa fa-phone fa-2x">
+				<td> <a href="tel:0445515326221" class="btn btn-default "> <i class="fa fa-phone fa-2x">
 
             </i>
                   0445515326221

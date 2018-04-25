@@ -47,7 +47,7 @@ if (isset($_SESSION['username'])) {
 
         <div class="col-md-5">
 
-          <a href="main_login.php" <button   name="Sing up" id="singup" class="btn btn-primary   btn-block" type="submit">Regresar</button>  </a>
+          <a href="main_login.php" ><button   name="Sing up" id="singup" class="btn btn-primary   btn-block" type="submit">Regresar</button>  </a>
         </div>
 
 

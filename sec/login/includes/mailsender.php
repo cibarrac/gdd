@@ -15,7 +15,7 @@ class MailSender
 
         // Create a new PHPMailer object
         // ADD sendmail_path = "env -i /usr/sbin/sendmail -t -i" to php.ini on UNIX servers
-        $mail = new PHPMailer;
+        //$mail = new PHPMailer;
         $mail->isHTML(true);
         $mail->CharSet = "text/html; charset=UTF-8;";
         $mail->WordWrap = 80;
@@ -71,11 +71,9 @@ class MailSender
 
             $mail->Send();
 
-        } catch (phpmailerException $e) {
-
-            echo $e->errorMessage();// Error messages from PHPMailer
-
-        } catch (Exception $e) {
+        } 
+        //catch (phpmailerException $e) {    echo $e->errorMessage();// Error messages from PHPMailer} 
+        catch (Exception $e) {
 
             echo $e->getMessage();// Something else
 

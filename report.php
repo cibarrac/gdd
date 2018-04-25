@@ -78,7 +78,7 @@ function getList() {
      <div class="row">
         <div class="col-md-12">
 
-        <label for="">Nombre del curso  <u><?php  echo $nombre;?> </u> </label>
+             <label for="">Nombre del curso  <u> <?php  echo $nombre;?> </u> </label>
              <label for="">Lugar  <u><?php echo $aula;?> </u></label>
              <label for="">Instructor (s)  <u><?php echo $idinstructor;?> </u> </label>
              <label for="">Periodo  <u><?php echo $periodo;?></u></label>

@@ -2,7 +2,7 @@
 
 date_default_timezone_set("America/Mexico_City");
 
-$conexion = mysql_connect('localhost', 'root', 'Get7usa7') or die ('MySQL Not found // Could Not Connect.');
+$conexion = mysql_connect('localhost', 'root', 'root') or die ('MySQL Not found // Could Not Connect.');
 
 mysql_select_db('gdd2', $conexion);
 
