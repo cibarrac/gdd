@@ -49,7 +49,7 @@
         <label for="">Departamento:</label>
         <select class="form-control" name="IdDepartamentoJefe">
         <?php
-          fillOptionsNombresAndId("Departamento",1);
+          fillOptionsNombresAndId("departamento",1);
         ?>
         </select>
       </div>

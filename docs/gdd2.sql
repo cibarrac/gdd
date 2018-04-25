@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Aula`
+-- Table structure for table `aula`
 --
 
-DROP TABLE IF EXISTS `Aula`;
+DROP TABLE IF EXISTS `aula`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Aula` (
+CREATE TABLE `aula` (
   `IdAula` int(11) NOT NULL AUTO_INCREMENT,
   `NombreOrNumeroAula` varchar(40) NOT NULL,
   `CapacidadAula` int(11) NOT NULL,
@@ -33,51 +33,51 @@ CREATE TABLE `Aula` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Aula`
+-- Dumping data for table `aula`
 --
 
-LOCK TABLES `Aula` WRITE;
-/*!40000 ALTER TABLE `Aula` DISABLE KEYS */;
-INSERT INTO `Aula` VALUES (1,'7LA',30,'Laboratorios de sistemas ','Laboratorio de computo');
-/*!40000 ALTER TABLE `Aula` ENABLE KEYS */;
+LOCK TABLES `aula` WRITE;
+/*!40000 ALTER TABLE `aula` DISABLE KEYS */;
+INSERT INTO `aula` VALUES (1,'7LA',30,'Laboratorios de sistemas ','Laboratorio de computo');
+/*!40000 ALTER TABLE `aula` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Carrera`
+-- Table structure for table `carrera`
 --
 
-DROP TABLE IF EXISTS `Carrera`;
+DROP TABLE IF EXISTS `carrera`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Carrera` (
+CREATE TABLE `carrera` (
   `IdCarrera` int(11) NOT NULL AUTO_INCREMENT,
   `NombreCarrera` text NOT NULL,
   `Abreviacion` text NOT NULL,
   `IdDepartamentoCarrera` int(11) NOT NULL,
   PRIMARY KEY (`IdCarrera`),
   KEY `IdDepartamentoCarrera` (`IdDepartamentoCarrera`),
-  CONSTRAINT `Carrera_ibfk_1` FOREIGN KEY (`IdDepartamentoCarrera`) REFERENCES `Departamento` (`IdDepartamento`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  CONSTRAINT `carrera_ibfk_1` FOREIGN KEY (`IdDepartamentoCarrera`) REFERENCES `departamento` (`IdDepartamento`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Carrera`
+-- Dumping data for table `carrera`
 --
 
-LOCK TABLES `Carrera` WRITE;
-/*!40000 ALTER TABLE `Carrera` DISABLE KEYS */;
-INSERT INTO `Carrera` VALUES (1,'Ingenieria en Sistemas Computacionales','ISC',1),(2,'IngenierÃ­a Bioquimica','IBQ',2);
-/*!40000 ALTER TABLE `Carrera` ENABLE KEYS */;
+LOCK TABLES `carrera` WRITE;
+/*!40000 ALTER TABLE `carrera` DISABLE KEYS */;
+INSERT INTO `carrera` VALUES (1,'Ingenieria en Sistemas Computacionales','ISC',1),(2,'IngenierÃ­a Bioquimica','IBQ',2),(3,'Arquitectura','ARQ',4);
+/*!40000 ALTER TABLE `carrera` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Curso`
+-- Table structure for table `curso`
 --
 
-DROP TABLE IF EXISTS `Curso`;
+DROP TABLE IF EXISTS `curso`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Curso` (
+CREATE TABLE `curso` (
   `NumeroCurso` varchar(10) NOT NULL,
   `NombreCurso` text NOT NULL,
   `ObjetivoCurso` text NOT NULL,
@@ -103,46 +103,47 @@ CREATE TABLE `Curso` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Curso`
+-- Dumping data for table `curso`
 --
 
-LOCK TABLES `Curso` WRITE;
-/*!40000 ALTER TABLE `Curso` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Curso` ENABLE KEYS */;
+LOCK TABLES `curso` WRITE;
+/*!40000 ALTER TABLE `curso` DISABLE KEYS */;
+INSERT INTO `curso` VALUES ('1.1','Alimentos de procesos','fomentar el proceso de los alimentos','Generico','12:21:00','21:12:00','2018-04-24','2018-04-25',1,'Enero-Junio',0,'1','','','QuÃ­mica y Bioquimica','Alejandra Flores Castro','Isaias Pelaes Pelaes','Jose Cruz Garcia','','7LA');
+/*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Departamento`
+-- Table structure for table `departamento`
 --
 
-DROP TABLE IF EXISTS `Departamento`;
+DROP TABLE IF EXISTS `departamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Departamento` (
+CREATE TABLE `departamento` (
   `IdDepartamento` int(11) NOT NULL AUTO_INCREMENT,
   `NombreDepartamento` text NOT NULL,
   PRIMARY KEY (`IdDepartamento`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Departamento`
+-- Dumping data for table `departamento`
 --
 
-LOCK TABLES `Departamento` WRITE;
-/*!40000 ALTER TABLE `Departamento` DISABLE KEYS */;
-INSERT INTO `Departamento` VALUES (1,'Sistemas y ComputaciÃ³n '),(2,'QuÃ­mica y Bioquimica'),(3,'Ciencias BÃ¡sicas');
-/*!40000 ALTER TABLE `Departamento` ENABLE KEYS */;
+LOCK TABLES `departamento` WRITE;
+/*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
+INSERT INTO `departamento` VALUES (1,'Sistemas y ComputaciÃ³n '),(2,'QuÃ­mica y Bioquimica'),(3,'Ciencias BÃ¡sicas'),(4,'Ciencias de la tierra');
+/*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `InfoEscuela`
+-- Table structure for table `infoescuela`
 --
 
-DROP TABLE IF EXISTS `InfoEscuela`;
+DROP TABLE IF EXISTS `infoescuela`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `InfoEscuela` (
+CREATE TABLE `infoescuela` (
   `Id` int(11) DEFAULT '1',
   `NombreInstitucion` text NOT NULL,
   `NumeroTelefono` varchar(11) DEFAULT NULL,
@@ -160,22 +161,22 @@ CREATE TABLE `InfoEscuela` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `InfoEscuela`
+-- Dumping data for table `infoescuela`
 --
 
-LOCK TABLES `InfoEscuela` WRITE;
-/*!40000 ALTER TABLE `InfoEscuela` DISABLE KEYS */;
-/*!40000 ALTER TABLE `InfoEscuela` ENABLE KEYS */;
+LOCK TABLES `infoescuela` WRITE;
+/*!40000 ALTER TABLE `infoescuela` DISABLE KEYS */;
+/*!40000 ALTER TABLE `infoescuela` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Inscripcion`
+-- Table structure for table `inscripcion`
 --
 
-DROP TABLE IF EXISTS `Inscripcion`;
+DROP TABLE IF EXISTS `inscripcion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Inscripcion` (
+CREATE TABLE `inscripcion` (
   `IdInscripcion` int(11) NOT NULL AUTO_INCREMENT,
   `NumeroCurso` varchar(10) DEFAULT NULL,
   `IdInstructor1` int(11) DEFAULT NULL,
@@ -196,31 +197,31 @@ CREATE TABLE `Inscripcion` (
   KEY `IdInstructor2` (`IdInstructor2`),
   KEY `IdProfesor` (`IdProfesor`),
   KEY `IdAula` (`IdAula`),
-  CONSTRAINT `Inscripcion_ibfk_1` FOREIGN KEY (`NumeroCurso`) REFERENCES `Curso` (`NumeroCurso`),
-  CONSTRAINT `Inscripcion_ibfk_2` FOREIGN KEY (`IdInstructor1`) REFERENCES `Instructor` (`IdInstructor`),
-  CONSTRAINT `Inscripcion_ibfk_3` FOREIGN KEY (`IdInstructor2`) REFERENCES `Instructor` (`IdInstructor`),
-  CONSTRAINT `Inscripcion_ibfk_4` FOREIGN KEY (`IdProfesor`) REFERENCES `Profesor` (`IdProfesor`),
-  CONSTRAINT `Inscripcion_ibfk_5` FOREIGN KEY (`IdAula`) REFERENCES `Aula` (`IdAula`)
+  CONSTRAINT `inscripcion_ibfk_1` FOREIGN KEY (`NumeroCurso`) REFERENCES `curso` (`NumeroCurso`),
+  CONSTRAINT `inscripcion_ibfk_2` FOREIGN KEY (`IdInstructor1`) REFERENCES `instructor` (`IdInstructor`),
+  CONSTRAINT `inscripcion_ibfk_3` FOREIGN KEY (`IdInstructor2`) REFERENCES `instructor` (`IdInstructor`),
+  CONSTRAINT `inscripcion_ibfk_4` FOREIGN KEY (`IdProfesor`) REFERENCES `profesor` (`IdProfesor`),
+  CONSTRAINT `inscripcion_ibfk_5` FOREIGN KEY (`IdAula`) REFERENCES `aula` (`IdAula`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Inscripcion`
+-- Dumping data for table `inscripcion`
 --
 
-LOCK TABLES `Inscripcion` WRITE;
-/*!40000 ALTER TABLE `Inscripcion` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Inscripcion` ENABLE KEYS */;
+LOCK TABLES `inscripcion` WRITE;
+/*!40000 ALTER TABLE `inscripcion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `inscripcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Instructor`
+-- Table structure for table `instructor`
 --
 
-DROP TABLE IF EXISTS `Instructor`;
+DROP TABLE IF EXISTS `instructor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Instructor` (
+CREATE TABLE `instructor` (
   `IdInstructor` int(11) NOT NULL AUTO_INCREMENT,
   `NombreInstructor` text NOT NULL,
   `ApellidoPaternoInstructor` text NOT NULL,
@@ -235,23 +236,23 @@ CREATE TABLE `Instructor` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Instructor`
+-- Dumping data for table `instructor`
 --
 
-LOCK TABLES `Instructor` WRITE;
-/*!40000 ALTER TABLE `Instructor` DISABLE KEYS */;
-INSERT INTO `Instructor` VALUES (1,'Jose','Cruz','Garcia','2018-04-29','CGJ674856','CGJ872395629','74413220584','josecruz@gmail.com');
-/*!40000 ALTER TABLE `Instructor` ENABLE KEYS */;
+LOCK TABLES `instructor` WRITE;
+/*!40000 ALTER TABLE `instructor` DISABLE KEYS */;
+INSERT INTO `instructor` VALUES (1,'Jose','Cruz','Garcia','2018-04-29','CGJ674856','CGJ872395629','74413220584','josecruz@gmail.com');
+/*!40000 ALTER TABLE `instructor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `JefeDepartamento`
+-- Table structure for table `jefedepartamento`
 --
 
-DROP TABLE IF EXISTS `JefeDepartamento`;
+DROP TABLE IF EXISTS `jefedepartamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `JefeDepartamento` (
+CREATE TABLE `jefedepartamento` (
   `IdJefeDepartamento` int(11) NOT NULL AUTO_INCREMENT,
   `NombreJefeDepto` text NOT NULL,
   `ApellidoPaternoJefeDepto` text NOT NULL,
@@ -260,83 +261,18 @@ CREATE TABLE `JefeDepartamento` (
   `IdDepartamentoJefe` int(11) NOT NULL,
   PRIMARY KEY (`IdJefeDepartamento`),
   KEY `IdDepartamentoJefe` (`IdDepartamentoJefe`),
-  CONSTRAINT `JefeDepartamento_ibfk_1` FOREIGN KEY (`IdDepartamentoJefe`) REFERENCES `Departamento` (`IdDepartamento`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  CONSTRAINT `jefedepartamento_ibfk_1` FOREIGN KEY (`IdDepartamentoJefe`) REFERENCES `departamento` (`IdDepartamento`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `JefeDepartamento`
+-- Dumping data for table `jefedepartamento`
 --
 
-LOCK TABLES `JefeDepartamento` WRITE;
-/*!40000 ALTER TABLE `JefeDepartamento` DISABLE KEYS */;
-INSERT INTO `JefeDepartamento` VALUES (1,'Juan Miguel','Hernadez','Bravo','jefeisc@gmail.com',1),(2,'Alejandra','Flores','Castro','jefeibq@gmail.com',2);
-/*!40000 ALTER TABLE `JefeDepartamento` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `PresidenteAcademia`
---
-
-DROP TABLE IF EXISTS `PresidenteAcademia`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `PresidenteAcademia` (
-  `IdPresidenteAcademia` int(11) NOT NULL AUTO_INCREMENT,
-  `NombrePresidenteAcad` text NOT NULL,
-  `ApellidoPaternoPresidenteAcad` text NOT NULL,
-  `ApellidoMaternoPresidenteAcad` text NOT NULL,
-  `CorreoPresidente` varchar(65) NOT NULL,
-  `IdDepartamentoPresidente` int(11) NOT NULL,
-  PRIMARY KEY (`IdPresidenteAcademia`),
-  KEY `IdDepartamentoPresidente` (`IdDepartamentoPresidente`),
-  CONSTRAINT `PresidenteAcademia_ibfk_1` FOREIGN KEY (`IdDepartamentoPresidente`) REFERENCES `Departamento` (`IdDepartamento`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `PresidenteAcademia`
---
-
-LOCK TABLES `PresidenteAcademia` WRITE;
-/*!40000 ALTER TABLE `PresidenteAcademia` DISABLE KEYS */;
-/*!40000 ALTER TABLE `PresidenteAcademia` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Profesor`
---
-
-DROP TABLE IF EXISTS `Profesor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Profesor` (
-  `IdProfesor` int(11) NOT NULL AUTO_INCREMENT,
-  `NombreProfesor` text NOT NULL,
-  `ApellidoPaternoProfesor` text NOT NULL,
-  `ApellidoMaternoProfesor` text NOT NULL,
-  `RFCProfesor` varchar(11) NOT NULL,
-  `IdCarrera` int(11) NOT NULL,
-  `NumeroTelefonoProfesor` varchar(11) NOT NULL,
-  `CorreoProfesor` varchar(50) NOT NULL,
-  `PuestoProfesor` text NOT NULL,
-  `NumeroTarjetaProfesor` int(15) NOT NULL,
-  `GradoEstudiosProfesor` text NOT NULL,
-  `CarreraCursadaProfesor` text NOT NULL,
-  `IdDepartamentoProfesor` int(11) NOT NULL,
-  `IdJefeInmediatoProfesor` int(11) NOT NULL,
-  PRIMARY KEY (`IdProfesor`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Profesor`
---
-
-LOCK TABLES `Profesor` WRITE;
-/*!40000 ALTER TABLE `Profesor` DISABLE KEYS */;
-INSERT INTO `Profesor` VALUES (1,'Juan Jose ','Bedolla','Solano','BSJJ0575987',1,'74413235685','bedollaisc@gmail.com','Docente',0,'Doctor(a)','Desarrollo regional ',1,1);
-/*!40000 ALTER TABLE `Profesor` ENABLE KEYS */;
+LOCK TABLES `jefedepartamento` WRITE;
+/*!40000 ALTER TABLE `jefedepartamento` DISABLE KEYS */;
+INSERT INTO `jefedepartamento` VALUES (1,'Juan Miguel','Hernadez','Bravo','jefeisc@gmail.com',1),(2,'Alejandra','Flores','Castro','jefeibq@gmail.com',2),(5,'Meqluisedec','Ojeda','Justo','',4),(6,'Amin','Bahena','Salgado','',3),(7,'Noe','castellanos','Rebolledo','noe@gmail.com',3);
+/*!40000 ALTER TABLE `jefedepartamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -353,7 +289,7 @@ CREATE TABLE `loginAttempts` (
   `Username` varchar(65) DEFAULT NULL,
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -362,7 +298,7 @@ CREATE TABLE `loginAttempts` (
 
 LOCK TABLES `loginAttempts` WRITE;
 /*!40000 ALTER TABLE `loginAttempts` DISABLE KEYS */;
-INSERT INTO `loginAttempts` VALUES ('::1',2,'2018-04-23 18:31:37','jefedepartamento@gmail.com',1),('::1',1,'2018-04-23 18:38:20','desacad@gmail.com',2),('::1',1,'2018-04-23 18:48:35','jefeisc@gmail.com',3),('::1',1,'2018-04-23 18:55:36','bedollaisc@gmail.com',4),('::1',1,'2018-04-23 19:16:33','jefeibq@gmail.com',5);
+INSERT INTO `loginAttempts` VALUES ('::1',2,'2018-04-23 18:31:37','jefedepartamento@gmail.com',1),('::1',1,'2018-04-23 18:38:20','desacad@gmail.com',2),('::1',1,'2018-04-23 18:48:35','jefeisc@gmail.com',3),('::1',1,'2018-04-23 18:55:36','bedollaisc@gmail.com',4),('::1',1,'2018-04-23 19:16:33','jefeibq@gmail.com',5),('::1',1,'2018-04-24 14:57:06','Subacad@gmail.com',6),('::1',2,'2018-04-24 20:19:25','noe@gmail.com',7),('::1',2,'2018-04-25 02:43:25','montero@gmail.com',8),('::1',1,'2018-04-25 02:43:52','monteroisc@gmail.com',9);
 /*!40000 ALTER TABLE `loginAttempts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -389,7 +325,7 @@ CREATE TABLE `members` (
   UNIQUE KEY `idUser` (`idUser`),
   UNIQUE KEY `idRole` (`idUser`),
   UNIQUE KEY `idUser_2` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -398,8 +334,74 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
-INSERT INTO `members` VALUES ('','sdfsdfesfsefe','000000','desacsaefead@gmail.com',1,'2018-04-23 20:21:08','boss',15),('10803686435ade272f2a3a4','Jose Montero','$2y$10$6ZVIleKXuxKlebInW0HY/OXEjsGibFmkF0cOfQT00YrNeZjXD6gWC','monteroisc@gmail.com',1,'2018-04-23 18:36:52','user',5),('11416101145ade43348ae9a','silvestre2','$2y$10$fU8K4Ge2/ZdSyj5l25Ty6uebGIZz24FZ9BFAB.e6cUCNPAh/yEmUe','silvestre2@gmail.com',0,'2018-04-23 20:33:56','',20),('11785718045ade428722454','Silvestre','$2y$10$QStWzjm/bf79weWAz0.YuuZL6j2Dw7vOwxBCCfhHsoGL/4kmZ719u','silvestre@gmail.com',0,'2018-04-23 20:31:03','',19),('12000490105ade26a8c2f1c','DesarrolloAcademico','$2y$10$TD8Il74Mv/sjujoyhfnfDOwnPtCSXZ9SpLIE/JmBJkt76OrlL2B3K','desacad@gmail.com',1,'2018-04-23 18:37:05','su',1),('12943351245ade2777d8028','Fernando Ortiz','$2y$10$IDiWdvjaIFPq8PX6psxHSeFF0.LVA/aed9y0SfWRECdDJxXlyMx3G','ortizibq@gmail.com',1,'2018-04-23 18:37:27','user',7),('13309447845ade2708167df','Alejandra Flores','$2y$10$J9oA66DZNp445rx5HEkBVO/R8yWkdgIKTAn7jb9vThrlnHDtmDUgS','jefeibq@gmail.com',1,'2018-04-23 18:37:36','boss',4),('16746161505ade275967540','Juan Jose Bedolla','$2y$10$9Pc9w02kMviIEE0b8yALV.H3mRr2TE4sDqL0D9QCr0XF34RZ2b0hS','bedollaisc@gmail.com',1,'2018-04-23 18:37:52','user',6),('5414787065ade26f4c4753','Juan Miguel','$2y$10$EETkPB24/whk8wtTGz1Doujz9/WN2ewO0pwh3HA3kyi8gmEWbHI/6','jefeisc@gmail.com',1,'2018-04-23 18:38:00','boss',3),('6441657845ade26c6a70e4','SubdireccionAcademica','$2y$10$pw.2cWg5KDjsYTp3t53Vk.MRAE0f0pt/kx9I0W0Gh9/bF3VKGG.Re','subacad@gmail.com',1,'2018-04-23 18:37:17','admin',2);
+INSERT INTO `members` VALUES ('10803686435ade272f2a3a4','Jose Montero','$2y$10$6ZVIleKXuxKlebInW0HY/OXEjsGibFmkF0cOfQT00YrNeZjXD6gWC','monteroisc@gmail.com',1,'2018-04-23 18:36:52','user',5),('11416101145ade43348ae9a','silvestre2','$2y$10$fU8K4Ge2/ZdSyj5l25Ty6uebGIZz24FZ9BFAB.e6cUCNPAh/yEmUe','silvestre2@gmail.com',0,'2018-04-23 20:33:56','',20),('11785718045ade428722454','Silvestre','$2y$10$QStWzjm/bf79weWAz0.YuuZL6j2Dw7vOwxBCCfhHsoGL/4kmZ719u','silvestre@gmail.com',0,'2018-04-23 20:31:03','',19),('12000490105ade26a8c2f1c','DesarrolloAcademico','$2y$10$TD8Il74Mv/sjujoyhfnfDOwnPtCSXZ9SpLIE/JmBJkt76OrlL2B3K','desacad@gmail.com',1,'2018-04-23 18:37:05','su',1),('12943351245ade2777d8028','Fernando Ortiz','$2y$10$IDiWdvjaIFPq8PX6psxHSeFF0.LVA/aed9y0SfWRECdDJxXlyMx3G','ortizibq@gmail.com',1,'2018-04-23 18:37:27','user',7),('13309447845ade2708167df','Alejandra Flores','$2y$10$J9oA66DZNp445rx5HEkBVO/R8yWkdgIKTAn7jb9vThrlnHDtmDUgS','jefeibq@gmail.com',1,'2018-04-23 18:37:36','boss',4),('16746161505ade275967540','Juan Jose Bedolla','$2y$10$9Pc9w02kMviIEE0b8yALV.H3mRr2TE4sDqL0D9QCr0XF34RZ2b0hS','bedollaisc@gmail.com',1,'2018-04-23 18:37:52','user',6),('5414787065ade26f4c4753','Juan Miguel','$2y$10$EETkPB24/whk8wtTGz1Doujz9/WN2ewO0pwh3HA3kyi8gmEWbHI/6','jefeisc@gmail.com',1,'2018-04-23 18:38:00','boss',3),('6441657845ade26c6a70e4','SubdireccionAcademica','$2y$10$pw.2cWg5KDjsYTp3t53Vk.MRAE0f0pt/kx9I0W0Gh9/bF3VKGG.Re','subacad@gmail.com',1,'2018-04-23 18:37:17','admin',2),('9285281945adf911a23656','noe castellanos','$2y$10$jZQmtime8rvXodDbXyNxY.PC9xFinl/BlohyzA5MSJMoiATQSnaAO','noe@gmail.com',0,'2018-04-24 20:18:34','',22);
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `presidenteacademia`
+--
+
+DROP TABLE IF EXISTS `presidenteacademia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `presidenteacademia` (
+  `IdPresidenteAcademia` int(11) NOT NULL AUTO_INCREMENT,
+  `NombrePresidenteAcad` text NOT NULL,
+  `ApellidoPaternoPresidenteAcad` text NOT NULL,
+  `ApellidoMaternoPresidenteAcad` text NOT NULL,
+  `CorreoPresidente` varchar(65) NOT NULL,
+  `IdDepartamentoPresidente` int(11) NOT NULL,
+  PRIMARY KEY (`IdPresidenteAcademia`),
+  KEY `IdDepartamentoPresidente` (`IdDepartamentoPresidente`),
+  CONSTRAINT `presidenteacademia_ibfk_1` FOREIGN KEY (`IdDepartamentoPresidente`) REFERENCES `departamento` (`IdDepartamento`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `presidenteacademia`
+--
+
+LOCK TABLES `presidenteacademia` WRITE;
+/*!40000 ALTER TABLE `presidenteacademia` DISABLE KEYS */;
+INSERT INTO `presidenteacademia` VALUES (1,'Rafael','Hernadez','Reyna','presidenteisc@gmail.com',1),(2,'Isaias','Pelaes','Pelaes','presidenteibq@gmail.com',2);
+/*!40000 ALTER TABLE `presidenteacademia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `profesor`
+--
+
+DROP TABLE IF EXISTS `profesor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profesor` (
+  `IdProfesor` int(11) NOT NULL AUTO_INCREMENT,
+  `NombreProfesor` text NOT NULL,
+  `ApellidoPaternoProfesor` text NOT NULL,
+  `ApellidoMaternoProfesor` text NOT NULL,
+  `RFCProfesor` varchar(11) NOT NULL,
+  `IdCarrera` int(11) NOT NULL,
+  `NumeroTelefonoProfesor` varchar(11) NOT NULL,
+  `CorreoProfesor` varchar(50) NOT NULL,
+  `PuestoProfesor` text NOT NULL,
+  `NumeroTarjetaProfesor` int(15) NOT NULL,
+  `GradoEstudiosProfesor` text NOT NULL,
+  `CarreraCursadaProfesor` text NOT NULL,
+  `IdDepartamentoProfesor` int(11) NOT NULL,
+  `IdJefeInmediatoProfesor` int(11) NOT NULL,
+  PRIMARY KEY (`IdProfesor`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `profesor`
+--
+
+LOCK TABLES `profesor` WRITE;
+/*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
+INSERT INTO `profesor` VALUES (1,'Juan Jose ','Bedolla','Solano','BSJJ0575987',1,'74413235685','bedollaisc@gmail.com','Docente',0,'Doctor(a)','Desarrollo regional ',1,1);
+/*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -411,4 +413,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-23 15:38:09
+-- Dump completed on 2018-04-24 22:53:37

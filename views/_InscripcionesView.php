@@ -10,7 +10,7 @@
       <select class="form-control" name="NombreCurso" id="NombreCurso" onchange="getCurso()" required>
         <option value=""></option>
         <?php
-        $numero = fillOptionsSingle("Curso",1)
+        $numero = fillOptionsSingle("curso",1)
         ?>
       </select>
     </div>
@@ -98,7 +98,7 @@
       <select class="form-control"  id="NombreProfesorInscrito"   name="NombreProfesorInscrito" >
         <option value=""> </option>
         <?php
-        fillOptionsDouble("Profesor",1)
+        fillOptionsDouble("profesor",1)
         ?>
       </select>
     </div>

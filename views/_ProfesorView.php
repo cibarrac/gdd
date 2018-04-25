@@ -95,7 +95,7 @@
       <label for="">Unidad responsable(Departamento)</label>
       <select class="form-control" name="IdDepartamentoProfesor" required>
       <?php
-      fillOptionsNombresAndId("Departamento",1);
+      fillOptionsNombresAndId("departamento",1);
       ?>
       </select>
     </div>
@@ -106,7 +106,7 @@
       <label for="">Área(Carrera)</label>
       <select class="form-control" name="IdCarrera" required>
       <?php
-      fillOptionsNombresAndId("Carrera",1)
+      fillOptionsNombresAndId("carrera",1)
       ?>
       </select>
     </div>
@@ -131,7 +131,7 @@
       <label for="">Nombre del jefe inmediato</label>
       <select class="form-control" name="IdJefeInmediatoProfesor" required>
       <?php
-      fillOptionsNombresAndId("JefeDepartamento",1)
+      fillOptionsNombresAndId("jefedepartamento",1)
       ?>
       </select>
     </div>

@@ -7,7 +7,7 @@
         <label for="">Preteneciente al departamento de:</label>
         <select class="form-control" name="IdDepartamentoCarrera">
         <?php
-          fillOptionsNombresAndId("Departamento",1);
+          fillOptionsNombresAndId("departamento",1);
         ?>
         </select>
       </div>

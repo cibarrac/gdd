@@ -104,7 +104,7 @@
             <label for="">Intructor propuesto 1:</label>
             <select class="form-control" name="NombreCompletoInstructor1">
                 <option value="">
-                  <?php fillOptionsDouble("Instructor",1) ?>
+                  <?php fillOptionsDouble("instructor",1) ?>
                 </option>
             </select>
         </div>
@@ -115,7 +115,7 @@
             <label for="">Intructor propuesto 2:</label>
             <select class="form-control" name="NombreCompletoInstructor2">
                 <option value="">
-                    <?php fillOptionsDouble("Instructor",1) ?>
+                    <?php fillOptionsDouble("instructor",1) ?>
                 </option>
             </select>
         </div>
@@ -220,7 +220,7 @@
           <label for="">Aula Propuesta:</label>
           <select class="form-control" name="AulaPropuesta">
               <option value="">
-                  <?php fillOptionsSingle("Aula",1) ?>
+                  <?php fillOptionsSingle("aula",1) ?>
               </option>
           </select>
       </div>

@@ -1,22 +1,22 @@
 <?php // admin black, su white , user blue, editor green
-$table = array('_InscripcionesUser' => 'Inscripcion',
-'_Inscripciones' => 'Inscripcion', // su,user
-'_Curso' => 'Curso', //su, admin
-'_CursoBoss' => 'Curso', //su, admin
-'_Instructor' => 'Instructor',
-'_Profesor' => 'Profesor', //user
-'_Encuensta' => 'Encuesta', //user
+$table = array('_InscripcionesUser' => 'inscripcion',
+'_Inscripciones' => 'inscripcion', // su,user
+'_Curso' => 'curso', //su, admin
+'_CursoBoss' => 'curso', //su, admin
+'_Instructor' => 'instructor',
+'_Profesor' => 'profesor', //user
+'_Encuensta' => 'encuesta', //user
 //'_CargarAsistencia' => 'Asistencias', //su, editor
-'_Aula' => 'Aula', //su
-'_Carrera' => 'Carrera', //su
-'_Departamento' => 'Departamento', //su
+'_Aula' => 'aula', //su
+'_Carrera' => 'carrera', //sus
+'_Departamento' => 'departamento', //su
 '_Usuario' => 'members', //su
-'_Listas' => 'Curso', //su
+'_Listas' => 'curso', //su
 //'_Diagnostico' => 'Diagnostico',
-'_infoescuela' => 'InfoEscuela',
-'_jefedepto' => 'JefeDepartamento',
-'_jefedeptoBoss' => 'JefeDepartamento',
-'_PresidenteAcademia' => 'PresidenteAcademia'
+'_infoescuela' => 'infoescuela',
+'_jefedepto' => 'jefedepartamento',
+'_jefedeptoBoss' => 'jefedepartamento',
+'_PresidenteAcademia' => 'presidenteacademia'
 //'_FichaTecnica' => 'Fichatecnica'
 );
 
