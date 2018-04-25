@@ -2,7 +2,7 @@
  <?php
   function evaluate_cursos($table,$NumeroCurso)
   {
-        if($table=="Curso") {
+        if($table=="curso") {
       ?>
      <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $NumeroCurso;?>);">
      </button>

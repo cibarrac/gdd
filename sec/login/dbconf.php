@@ -2,8 +2,8 @@
 //DATABASE CONNECTION VARIABLES
 $host = "localhost"; // Host name
 $username = "root"; // Mysql username
-$password = "root"; // Mysql password
-$db_name = "gdd2"; // Database name
+$password = "Get7usa7"; // Mysql password
+$db_name = "gdd"; // Database name
 
 //DO NOT CHANGE BELOW THIS LINE UNLESS YOU CHANGE THE NAMES OF THE MEMBERS AND LOGINATTEMPTS TABLES
 

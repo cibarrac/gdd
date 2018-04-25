@@ -2,7 +2,7 @@
  <?php
   function evaluate_cursos($table,$NumeroCurso)
   {
-        if($table=="Curso") {
+        if($table=="curso") {
       ?>
 
       <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $NumeroCurso;?>');">

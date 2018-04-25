@@ -54,9 +54,9 @@ class LoginForm extends DbConn
               $iduser =  $result['idUser'];
 
                  if ( $role == 'user')
-                  $query_data = "SELECT  NombreProfesor nombre,  ApellidoPaternoProfesor apellidop,  ApellidoMaternoProfesor apellidom FROM Profesor WHERE IdProfesor = :idrole";
+                  $query_data = "SELECT  NombreProfesor nombre,  ApellidoPaternoProfesor apellidop,  ApellidoMaternoProfesor apellidom FROM profesor WHERE IdProfesor = :idrole";
                   else if ( $role == 'boss' )
-                      $query_data = "SELECT NombreJefeDepto nombre,  ApellidoPaternoJefeDepto apellidop,  ApellidoMaternoJefeDepto apellidom FROM JefeDepartamento WHERE IdJefeDepartamento = :idrole";
+                      $query_data = "SELECT NombreJefeDepto nombre,  ApellidoPaternoJefeDepto apellidop,  ApellidoMaternoJefeDepto apellidom FROM jefedepartamento WHERE IdJefeDepartamento = :idrole";
                   else $query_data = null;
 
               if (isset($query_data)) {

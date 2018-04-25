@@ -2,12 +2,12 @@
  <?php
   function evaluate_cursos($table,$NumeroCurso)
   {
-        if($table=="Curso") {
+        if($table=="curso") {
       ?>
      <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $NumeroCurso;?>);">
      </button>
 
-    
+
 
    <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $NumeroCurso;?>');">
      </button>

@@ -3,7 +3,7 @@
 require 'conn.php';
 
 function fillOptionsInscription($nombre) {
-    $lista = mysql_query("select NumeroCurso, FechaInicioCurso, FechaFinCurso, NombreCompletoInstructor1, NombreCompletoInstructor2, TipoCurso, AulaPropuesta from Curso where NombreCurso ='$nombre'");
+    $lista = mysql_query("select NumeroCurso, FechaInicioCurso, FechaFinCurso, NombreCompletoInstructor1, NombreCompletoInstructor2, TipoCurso, AulaPropuesta from curso where NombreCurso ='$nombre'");
     if(mysql_num_rows($lista)>0)
         return mysql_fetch_assoc($lista);
     else
@@ -14,7 +14,7 @@ function fillOptionsInscription($nombre) {
 function fillOptionsInscriptionByNum($numero)
 {
 
-    $lista = mysql_query("select NombreCurso, NumeroCurso, FechaInicioCurso, FechaFinCurso, NombreCompletoInstructor1, NombreCompletoInstructor2, TipoCurso, AulaPropuesta from Curso where NumeroCurso ='$numero'");
+    $lista = mysql_query("select NombreCurso, NumeroCurso, FechaInicioCurso, FechaFinCurso, NombreCompletoInstructor1, NombreCompletoInstructor2, TipoCurso, AulaPropuesta from curso where NumeroCurso ='$numero'");
 
     if (mysql_num_rows($lista)>0) {
         return mysql_fetch_assoc($lista);

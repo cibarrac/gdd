@@ -2,7 +2,7 @@
 <?php
  function evaluate_cursos($table,$NumeroCurso)
  {
-       if($table=="Curso") {
+       if($table=="curso") {
      ?>
 
     <button  type="checkbox" class="btn btn-warning fa fa-edit" onclick="firmar(<?php echo $NumeroCurso;?>,<?php echo $NumeroCurso;?>);">
