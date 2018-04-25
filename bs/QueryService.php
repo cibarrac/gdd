@@ -22,5 +22,5 @@ function querySelect($sql) {
     return $lista;
 }
 function queryInsert($param) {
-    ;
+    
 }
