@@ -1,16 +1,8 @@
+
+
 <?php
 include "conn.php";
 include "model/enty.php";
-
-/*
-$horainicio = "08:00PM";
-$nombre = "POO";
-$aula = "Lab-ISC";
-$idinstructor= "Juan Miguel";
-$periodo = "Ago-Dic";
-$fechaalta = "17/01/18";
-
-*/
 
 function getList() {
   /**
@@ -28,7 +20,7 @@ function getList() {
   if(mysql_num_rows($lista)>0){
        while($fila = mysql_fetch_array($lista)){
         $profesor = new profesores();
-               $horainicio  = $fila['horainicio'];
+               $horainicio  = $fila['HoraHnicio'];
                $nombre  = $fila['NombreCurso'];
                $aula  = $fila['aula'];
                $idinstructor  = $fila['idinstructor'];
@@ -103,7 +95,7 @@ function getList() {
                             <th>Area</th>
                             <th>No. Tarjeta</th>
                             <th>RFC</th>
-                            <th>Firma</th>
+                            <th>Firma:</th>
                         </tr>
 
 
@@ -143,3 +135,7 @@ function getList() {
       </div>
 </body>
 </html>
+
+
+
+<!--                                                                        -->

@@ -2,7 +2,7 @@
  <?php
   function evaluate_cursos($table,$NumeroCurso)
   {
-        if($table=="curso") {
+    if($table=="curso") {
       ?>
      <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $NumeroCurso;?>);">
      </button>
@@ -28,16 +28,9 @@
 
 ?>
 
-
+<!-- Inicio Tabla Cusos ****************************************************************************************************************-->
 
  <?php
- /**
-  *
-
-
-
-  */
-
 
  function getheaders($table)
  {        $out = array();
@@ -52,10 +45,11 @@
         foreach ($header as $value) { ?>
                         <th class="header"> <?php echo  $value;?></th>
                 <?php }?>
+
+
+
 <?php
  }
-
-
  function createTable($view){
          include 'listViews.php';
          $table = $table[$view];
@@ -90,7 +84,7 @@
      <tbody>
 
 
-    <?php  $list = mysql_query("SELECT * FROM ".$table);
+    <?php  $list = mysql_query("SELECT  * FROM ".$table);
     $i = 0;
     if(mysql_num_rows($list)>0){
              while($row = mysql_fetch_array($list)){   ?>
@@ -111,10 +105,6 @@
                                         <?php
                                            echo $col; ?>
                                         </td>
-
-
-
-
                                  <?php $flag = false; } else { $flag=true;}
 
                                 }  ?>
@@ -138,6 +128,18 @@
     </table>
 
 <?php  } ?>
+
+
+<!-- Fin Tabla Curso ****************************************************************************************************************-->
+
+
+
+<!-- Inicio Tabla Inscripcion ****************************************************************************************************************-->
+
+
+
+
+
 <script>
 
   function inscribir(numerocurso) {

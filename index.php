@@ -1,5 +1,7 @@
 <?php
 
+$conexion=mysqli_connect('localhost','root','Get7usa7','gdd');
+
 include "sec/login/loginheader.php";
 //include_once 'firmar.php';
 include "model/Modal.php";

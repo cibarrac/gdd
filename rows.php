@@ -1,7 +1,7 @@
 
-<?php 
+<?php
 /**
- * 
+ *
  */
 function rows()
 {
@@ -11,24 +11,24 @@ function rows()
         if(mysql_num_rows($list)>0){
                  while($row = mysql_fetch_array($list)){   ?>
                        <tr>
-                       <?php $flag = true; foreach ($row as $col) { 
+                       <?php $flag = true; foreach ($row as $col) {
                                      //print_r($row);
                                     if($flag) { ?>
                                     <td> <?php echo $col; ?> </td>
-    
+
                                      <?php $flag = false; } else { $flag=true;}    
-                                     
-                                    }  ?> 
+
+                                    }  ?>
                                     <td>
-                                              <?php  
-                                              
+                                              <?php
+
                                               //$modal = new Modal('btn1','Tabla',$contentView,'?');
                                               //$modal->getContent();?>
-                                            
+
                                             </td>
                     </tr>
                   <?php  $i++; }  } else { }
 
-                                
-                            
+
+
 }?>
