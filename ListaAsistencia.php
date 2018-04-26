@@ -1,5 +1,5 @@
 <?php
-$conexion=mysqli_connect('localhost','root','Get7usa7','gdd');
+include 'bs/QueryService.php';
  ?>
 
 <!DOCTYPE html>
@@ -53,20 +53,21 @@ $conexion=mysqli_connect('localhost','root','Get7usa7','gdd');
 
       <?php
   		$sql="SELECT NumeroCurso, NombreCurso, ObjetivoCurso, FechaInicioCurso, FechaFinCurso, TipoCurso,PeriodoCurso from curso";
-  		$result=mysqli_query($conexion,$sql);
-
-  		while($mostrar=mysqli_fetch_array($result)){
-  		 ?>
-
-  		<tr>
+  		$result= querySelect($sql);
+                
+                  foreach ($result as $mostrar) {
+        	 ?>
+                        		<tr>
   			<td><?php echo $mostrar['NumeroCurso'] ?></td>
   			<td><?php echo $mostrar['NombreCurso'] ?></td>
   			<td><?php echo $mostrar['ObjetivoCurso'] ?></td>
   			<td><?php echo $mostrar['FechaInicioCurso'] ?></td>
-        <td><?php echo $mostrar['FechaFinCurso'] ?></td>
-        <td><?php echo $mostrar['TipoCurso'] ?></td>
+                        <td><?php echo $mostrar['FechaFinCurso'] ?></td>
+                       <td><?php echo $mostrar['TipoCurso'] ?></td>
   			<td><?php echo $mostrar['PeriodoCurso'] ?></td>
   		</tr>
+ 
+                     
   	<?php
   	}
   	 ?>
