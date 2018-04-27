@@ -1,9 +1,6 @@
-
-
 <input type="number" name="IdJefeDepartamento" hidden value="0">
 
 <div class="row">
-
   <div class="col-md-4">
     <div class="form-group">
       <label for="">Nombre(s): </label>
@@ -27,34 +24,22 @@
 
 </div>
 
-
 <div class="row">
-
-
    <div class="col-md-6">
       <div class="form-group">
           <label for="">Correo: </label>
           <select class="form-control" name="CorreoJefe">
-          <?php
-           OptieneCorreoBoss("members",0);
-          ?>
+          <?php OptieneCorreoBoss("members",0); ?>
           </select>
-
       </div>
   </div>
-
-
+    
   <div class="col-md-6">
       <div class="form-group">
-        <label for="">Departamento:</label>
-        <select class="form-control" name="IdDepartamentoJefe">
-        <?php
-          fillOptionsNombresAndId("departamento",1);
-        ?>
-        </select>
+            <label for="">Departamento:</label>
+            <select class="form-control" name="IdDepartamentoJefe">
+                <?php  fillOptionsNombresAndId("departamento",1);  ?>
+            </select>
       </div>
     </div>
-
-
-
 </div>
