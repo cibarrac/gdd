@@ -1,10 +1,6 @@
 <?php
 include 'AbstractDAO.php';
-/**
- * incluir: include "bs/QueryService.php"
- * @param type $sql
- * @return type
- */
+ 
 function querySelect($sql) {
     $lista;
     $conn = AbstractDAO::getConnect();
