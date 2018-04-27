@@ -1,6 +1,16 @@
+<?php 
+ include 'bs/QueryService.php';
 
+ function fillOptionsNombresAndId($table,$col ){
+    $array = querySelect("select * from ". $table );
+    foreach ($array as $fila) { ?> 
+            <option value="<?php echo $fila[$col-1]; ?>">
+              <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>
+           </option>           
+
+ <?php }}?>
 <!-- llena opcion de acuerdo a una columna -->
-<?php function fillOptionsNombresAndId($table,$col) {
+<?php function fillOptionsNombresAndId_($table,$col) {
   $lista = mysql_query("select * from ". $table );
   if(mysql_num_rows($lista)>0){
     while($fila = mysql_fetch_array($lista)){ ?>
