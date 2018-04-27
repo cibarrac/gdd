@@ -7,8 +7,9 @@
             <option value="<?php echo $fila[$col-1]; ?>">
               <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>
            </option>           
-
  <?php }}?>
+           
+           
 <!-- llena opcion de acuerdo a una columna -->
 <?php function fillOptionsNombresAndId_($table,$col) {
   $lista = mysql_query("select * from ". $table );
@@ -21,8 +22,16 @@
   <?php } ?>
 
 
+     <?php function fillOptionDouble($table, $col) {
+          $array = querySelect("select * from ". $table );
+          foreach ($array as $value) {
+              ?> <option value="<?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>">
+          <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>
+        </option>
+    <?php }}?>
 
-  <?php function fillOptionsDouble($table,$col) {
+        
+  <?php function fillOptionsDouble_($table,$col) {
     $lista = mysql_query("select * from ". $table );
     if(mysql_num_rows($lista)>0){
       while($fila = mysql_fetch_array($lista)){ ?>
@@ -33,8 +42,21 @@
     <?php } ?>
 
 
-
-    <?php function OPCarrera($table, $idjefe, $col=0) {
+        
+<?php function OpCarrera($table, $idjefe, $col=0) {
+    $listaCarreras = querySelect("select NombreProfesor, ApellidoPaternoProfesor,"
+        . " ApellidoMaternoProfesor from '".$table."' inner join "
+        . "JefeDepartamento on IdJefeInmediatoProfesor = IdJefeDepartamento"
+        . " where idJefeDepartamento = '".$idjefe."'");
+    foreach ($listaCarreras as $value) { ?>
+         <option value="<?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>">
+            <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>
+        </option>
+<?php }}?> 
+        
+        
+    
+    <?php function OPCarrera_($table, $idjefe, $col=0) {
       $lista = mysql_query("select NombreProfesor, ApellidoPaternoProfesor, ApellidoMaternoProfesor from '".$table."' inner join
       JefeDepartamento on IdJefeInmediatoProfesor = IdJefeDepartamento where idJefeDepartamento = '".$idjefe."'");
       if(mysql_num_rows($lista)>0){
