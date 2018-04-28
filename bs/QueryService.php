@@ -37,3 +37,43 @@ function queryInsert($sql) {
     
     $conn->close();
 }
+
+
+function queryUpdate($sql) {
+    
+    $conn = AbstractDAO::getConnect();
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
+    
+    $conn->close();
+}
+
+function queryDelete($sql) {
+     
+    // Create connection
+    $conn = AbstractDAO::getConnect();
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
+    // sql to delete a record
+    $sql = "DELETE FROM MyGuests WHERE id=3";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Record deleted successfully";
+    } else {
+        echo "Error deleting record: " . $conn->error;
+    }
+    
+    $conn->close();
+    
+}
