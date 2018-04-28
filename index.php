@@ -1,6 +1,5 @@
 <?php
 
-$conexion=mysqli_connect('localhost','root','Get7usa7','gdd');
 
 include "sec/login/loginheader.php";
 //include_once 'firmar.php';
@@ -9,7 +8,7 @@ include 'conn.php';
 include 'form.php';
 //include 'Table_SU.php';
 
-include_once 'select.php';
+include_once 'common.php';
  /**
   * Se valida si se manda a crear la vista
   */

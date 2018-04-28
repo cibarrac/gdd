@@ -12,7 +12,7 @@
  
    
        
-<?php function fillOptionDouble($table, $col) {
+<?php function fillOptionsDouble($table, $col) {
      $array = querySelect("select * from ". $table );
      foreach ($array as $fila) {
          ?> <option value="<?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>">
@@ -46,7 +46,7 @@
       
 
             
- <?php function fillOptionSingle($table,$col) {
+ <?php function fillOptionsSingle($table,$col) {
      $listaSingle = querySelect("select * from ". $table);
      foreach ($listaSingle as $fila) { ?>
         <option value="<?php echo $fila[$col]; ?>"><?php echo $fila[$col]; ?></option>
