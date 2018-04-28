@@ -44,52 +44,31 @@ include 'bs/QueryService.php';
 
   		</tr>
   </thead>
-  </div>
-  </div>
-
-  <div class="row">
-
-    <div class="col-md-12">
-
-      <?php
-  		$sql="SELECT NumeroCurso, NombreCurso, ObjetivoCurso, FechaInicioCurso, FechaFinCurso, TipoCurso,PeriodoCurso from curso";
-  		$result= querySelect($sql);
-                
-                  foreach ($result as $mostrar) {
-        	 ?>
-                        		<tr>
-  			<td><?php echo $mostrar['NumeroCurso'] ?></td>
-  			<td><?php echo $mostrar['NombreCurso'] ?></td>
-  			<td><?php echo $mostrar['ObjetivoCurso'] ?></td>
-  			<td><?php echo $mostrar['FechaInicioCurso'] ?></td>
-                        <td><?php echo $mostrar['FechaFinCurso'] ?></td>
-                       <td><?php echo $mostrar['TipoCurso'] ?></td>
-  			<td><?php echo $mostrar['PeriodoCurso'] ?></td>
-  		</tr>
- 
-                     
-  	<?php
-  	}
-  	 ?>
+  
+    <?php $sql="SELECT NumeroCurso, NombreCurso, ObjetivoCurso, FechaInicioCurso, FechaFinCurso, TipoCurso,PeriodoCurso from curso";
+  		  $result= querySelect($sql);
+          foreach ($result as $mostrar) {?>
+                  <tr>
+                    <td><?php echo $mostrar['NumeroCurso'] ?></td>
+                    <td><?php echo $mostrar['NombreCurso'] ?></td>
+                    <td><?php echo $mostrar['ObjetivoCurso'] ?></td>
+                    <td><?php echo $mostrar['FechaInicioCurso'] ?></td>
+                    <td><?php echo $mostrar['FechaFinCurso'] ?></td>
+                    <td><?php echo $mostrar['TipoCurso'] ?></td>
+                    <td><?php echo $mostrar['PeriodoCurso'] ?></td>
+            		</tr>                     
+  	<?php } ?>
   	</table>
-
     </div>
-
   </div>
-
-
-
-
-
-
 
 <div class="row">
      <div class="col-md-6">
          <label for="">MC. DANIEL MULATO AGUERO</label>
      </div>
      <div class="col-md-6">
-        <label for="">  MC. NOE CASTELLANOS BEBOLLEDO</div>
-    </label>
+        <label for="">  MC. NOE CASTELLANOS BEBOLLEDO </label></div>
+    
 </div>
 
 </div>
