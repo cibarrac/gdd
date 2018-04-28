@@ -1,5 +1,6 @@
 <?php
 include('conn.php');
+include 'bs/QueryService.php';
 
 /**
  * COMO PARAMETRO SE RECIBE EL NOMBRE DE LA TABLA EN LA BASE DE DATOS
@@ -26,7 +27,9 @@ function save($table) {
                   }
 
                   $SQL_INSERT = "INSERT INTO ". $table." ".$config['fields'].") VALUES ".$config['values'].")";
-                   mysql_query($SQL_INSERT);
+                  
+                  mysql_query($SQL_INSERT);
+                  queryInsert($SQL_INSERT);
                   echo $SQL_INSERT;
 
 
