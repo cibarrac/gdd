@@ -21,6 +21,19 @@ function querySelect($sql) {
     $conn->close();
     return $lista;
 }
-function queryInsert($param) {
+function queryInsert($sql) {
+    // Create connection
+    $conn = AbstractDAO::getConnect();
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
     
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    
+    $conn->close();
 }

@@ -36,7 +36,7 @@ if (isset($_SESSION['username'])) {
         <input name="password1" id="password1" type="password" class="form-control" placeholder="Contraseña">
         <input name="password2" id="password2" type="password" class="form-control" placeholder="Repite la contraseña">
         <br>
-  <input type="text" id="role" name="role" value="user" hidden>
+  <input type="hidden" id="role" name="role" value="user" >
         <input type="number" id="verified" name="verified" value="1" hidden>
 
 
