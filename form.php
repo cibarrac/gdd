@@ -13,9 +13,9 @@ function createView($view) {
 <form class="form" action="post.php" method="post">
 
           <!-- Parametros start -->
-          <input type="text" name="view" hidden value="<?php echo $view;?>">
-          <input type="text"  name="table" hidden value="<?php echo $table[$view];?>">
-          <input id="action" type="text"  name="action" hidden value="save">
+          <input type="hidden" name="view"  value="<?php echo $view;?>">
+          <input type="hidden"  name="table"  value="<?php echo $table[$view];?>">
+          <input id="action" type="text"  name="action"  value="save">
           <!-- Parametros end -->
 
             <?php
