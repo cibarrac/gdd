@@ -1,5 +1,4 @@
 <?php
-include('conn.php');
 include 'bs/QueryService.php';
 
 /**
@@ -27,8 +26,6 @@ function save($table) {
                   }
 
                   $SQL_INSERT = "INSERT INTO ". $table." ".$config['fields'].") VALUES ".$config['values'].")";
-                  
-                  mysql_query($SQL_INSERT);
                   queryInsert($SQL_INSERT);
                   echo $SQL_INSERT;
 
@@ -58,7 +55,7 @@ function update($id,$table) {
 
                     $SQL_UPDATE = "UPDATE ". $table." SET ".$values." WHERE id = '".$id."'";
                     echo $SQL_UPDATE;
-                      mysql_query($SQL_UPDATE);
+                    queryUpdate($SQL_UPDATE);
 
 }
 
