@@ -78,7 +78,7 @@
     $listaId = querySelect("select * from ". $table);
     foreach ($listaId as $fila) { ?>
          <option value="<?php echo $fila[$k]; ?>"><?php echo $fila[$v]; ?></option>
-<?php}}?>
+<?php }}  ?>
 
       <!-- llena opcion de acuerdo a una columna y su valor  -->
       <?php function fillOptionId_($table,$k,$v) {
@@ -91,7 +91,7 @@
 
 
             
- <?phpfunction fillOptionSingle($table, $col) {
+ <?php function fillOptionSingle($table, $col) {
      $listaSingle = querySelect("select * from ". $table);
      foreach ($listaSingle as $fila) { ?>
         <option value="<?php echo $fila[$col]; ?>"><?php echo $fila[$col]; ?></option>
@@ -111,15 +111,16 @@
 
               
               
-<?phpfunction ismenu() {
+<?php function ismenu() {
     $listaMenu = querySelect("select role from members "
         . "WHERE email='".$_SESSION['username']."'" );
         foreach ($listaMenu as $fila) {
           $role = $fila['role'];  
-        } return $role;
-}?>
+        } 
+        return $role; }
+?>
            
-          <?php
+    <?php
           function ismenu_() {
             $lista = mysql_query("select role from members WHERE email='".$_SESSION['username']."'" );
             if(mysql_num_rows($lista)>0){
@@ -177,7 +178,7 @@
     $listaCorreoBoss = querySelect("select email from ". $table);
     foreach ($listaCorreoBoss as $fila) { ?>
         <option value="<?php echo $fila[$col]; ?>"><?php echo $fila[$col]; ?></option>
-<?php}}?>
+<?php }} ?>
 
         
             <?php function OptieneCorreoBoss_($table,$col = 0) {
@@ -192,7 +193,7 @@
 
 
                   
-<?phpfunction OptienePresidente($correo, $col=0) {
+<?php function OptienePresidente($correo, $col=0) {
     $listaPresidente = querySelect("select NombrePresidenteAcad, ApellidoPaternoPresidenteAcad,"
         . " ApellidoMaternoPresidenteAcad from presidenteacademia inner join"
         . " jefedepartamento on IdDepartamentoPresidente = IdDepartamentoJefe"

@@ -41,22 +41,22 @@
     $listaId = querySelect("select * from ". $table);
     foreach ($listaId as $fila) { ?>
          <option value="<?php echo $fila[$k]; ?>"><?php echo $fila[$v]; ?></option>
-<?php}}?>
+<?php }} ?>
 
       
 
             
- <?phpfunction fillOptionSingle($table,$col) {
+ <?php function fillOptionSingle($table,$col) {
      $listaSingle = querySelect("select * from ". $table);
      foreach ($listaSingle as $fila) { ?>
         <option value="<?php echo $fila[$col]; ?>"><?php echo $fila[$col]; ?></option>
-<?php }}?>          
+<?php }} ?>          
             
         
 
               
               
-<?phpfunction ismenu() {
+<?php function ismenu() {
     $listaMenu = querySelect("select role from members "
         . "WHERE email='".$_SESSION['username']."'" );
         foreach ($listaMenu as $fila) {
@@ -73,7 +73,7 @@
             . " CorreoProfesor = '".$correo."' ");
     foreach ($listaNombre as $fila) { 
          return $fila[$col] . " " . $fila[$col+1] . " " . $fila[$col+2];
-}}?>
+}} ?>
 
             
 
@@ -94,11 +94,11 @@
     $listaCorreoBoss = querySelect("select email from ". $table);
     foreach ($listaCorreoBoss as $fila) { ?>
         <option value="<?php echo $fila[$col]; ?>"><?php echo $fila[$col]; ?></option>
-<?php}}?>
+<?php }} ?>
 
         
         
-<?phpfunction OptienePresidente($correo, $col=0) {
+<?php function OptienePresidente($correo, $col=0) {
     $listaPresidente = querySelect("select NombrePresidenteAcad, ApellidoPaternoPresidenteAcad,"
         . " ApellidoMaternoPresidenteAcad from presidenteacademia inner join"
         . " jefedepartamento on IdDepartamentoPresidente = IdDepartamentoJefe"
