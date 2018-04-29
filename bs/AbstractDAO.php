@@ -2,6 +2,9 @@
 class AbstractDAO {
     
     public static function getConnect() {
-        return new mysqli("localhost", "root", "Get7usa7", "gdd");  
+        switch (gethostname()) {
+            case "C":     return new mysqli("localhost", "root", "root", "gdd2");break;
+            default:     return new mysqli("localhost", "root", "Get7usa77", "gdd"); break;
+        }
     }    
 }

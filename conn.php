@@ -1,10 +1,19 @@
 <?php
 
 date_default_timezone_set("America/Mexico_City");
+$conexion;
+switch (gethostname()) {
+    case "C":    
+        $conexion = mysql_connect('localhost', 'root', 'root') or die ('MySQL Not found // Could Not Connect.');
+        mysql_select_db('gdd2', $conexion);
+        break;
+    default:
+        $conexion = mysql_connect('localhost', 'root', 'Get7usa77') or die ('MySQL Not found // Could Not Connect.');
+        mysql_select_db('gdd', $conexion);
+        break;
+}
 
-$conexion = mysql_connect('localhost', 'root', 'Get7usa7') or die ('MySQL Not found // Could Not Connect.');
 
-mysql_select_db('gdd', $conexion);
 
 function fechaNormal($fecha){
 		$nfecha = date('d/m/Y',strtotime($fecha));

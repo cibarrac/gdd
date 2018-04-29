@@ -1,5 +1,8 @@
 <?php
-include "sec/login/loginheader.php";
+if (gethostname()=="C") {
+    include "sec/login/loginheader.php";
+    
+}
 
 include 'bs/QueryService.php';
 include_once 'common.php';
@@ -50,7 +53,7 @@ if(isset($_GET['view'])){
 
   }
   else {
-    include "views/menubar/navbar_admin.php";
+    include "views/menubar/navbar_su.php";
   }
   ?>
    <div class="container-fluid">
