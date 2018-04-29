@@ -5,8 +5,7 @@ function querySelect($sql) {
      
     $lista = array();
     $conn = AbstractDAO::getConnect();
-    
-    if ($conn->connect_error) {
+  if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
     $result = $conn->query($sql);
@@ -19,31 +18,25 @@ function querySelect($sql) {
     } else {
         echo "0 results";
     }
-    $conn->close();
+    //$conn->close();
     return $lista;
 }
 function queryInsert($sql) {
-    // Create connection
     $conn = AbstractDAO::getConnect();
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-    
-    $conn->close();
 }
 
 
 function queryUpdate($sql) {
     
     $conn = AbstractDAO::getConnect();
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
@@ -53,8 +46,6 @@ function queryUpdate($sql) {
     } else {
         echo "Error updating record: " . $conn->error;
     }
-    
-    $conn->close();
 }
 
 function queryDelete($sql) {
@@ -71,7 +62,4 @@ function queryDelete($sql) {
     } else {
         echo "Error deleting record: " . $conn->error;
     }
-    
-    $conn->close();
-    
 }
