@@ -10,7 +10,7 @@ switch (gethostname()) {
     default:
         $conexion = mysql_connect('localhost', 'root', 'Get7usa77') or die ('MySQL Not found // Could Not Connect.');
         mysql_select_db('gdd', $conexion);
-        break;
+        
 }
 
 

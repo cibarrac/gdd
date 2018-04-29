@@ -3,7 +3,6 @@ if (gethostname()=="localhost.localdomain") {
     include "sec/login/loginheader.php";
     
 }
-
 include 'bs/QueryService.php';
 include_once 'common.php';
 //include_once 'firmar.php';
