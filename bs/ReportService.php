@@ -23,7 +23,7 @@ class ReportService {
       AND INSCRIPCIONES.nombrecurso='".$idcurso."'
    GROUP BY PROFESORES.id";
         $lista = querySelect($SQL);
-        foreach ($array_expression as $value) {
+        foreach ($lista as $value) {
             $profesor = new profesores();
             $profesor->__SET('nombrecurso',$fila['nombrecurso']);
             $profesor->__SET('id',$fila['id']);
