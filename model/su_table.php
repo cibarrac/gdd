@@ -32,7 +32,14 @@
 
  <?php
 
- function getheaders($table)
+ function getheaders($table) {
+     
+     $fields = querySelect("describe ".$table);
+     foreach ($fields as $field) {
+         echo "<th class='header'>". $field[0] ."</th>";
+     }    
+ }
+ function getheaders_($table)
  {        $out = array();
         $campos = mysql_query("describe ".$table);
 
@@ -44,7 +51,7 @@
         $header = $out;
         foreach ($header as $value) { ?>
                         <th class="header"> <?php echo  $value;?></th>
-                <?php }?>
+<?php }?>
 
 
 
