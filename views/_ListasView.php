@@ -6,7 +6,7 @@
         <label for="">Seleccionar curso</label>
         <select class="form-control" onchange="report(this)" id="curso" required>
         <?php
-        fillOptionId("cursos",0,1);
+        fillOptionId("curso",0,1);
         ?>
         </select>
             <a href="report.php"></a>

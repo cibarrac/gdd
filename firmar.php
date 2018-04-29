@@ -10,13 +10,12 @@ function update()
 {
     $NumeroCurso = $_GET['curso'];
     $firma = "sign";
-    $public = $_GET["ispublic"];
+    //$public = $_GET["ispublic"];
 
     switch (ismenu()) {
         case 'su': $firma.="1";break;
         case 'admin': $firma.="2";break;
 
-        default:break;
     }
 
  $SQL_UPDATE1 = "UPDATE curso SET $firma = 1 WHERE NumeroCurso = '$NumeroCurso'";
