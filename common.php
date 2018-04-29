@@ -59,11 +59,15 @@ function fillOptionsDouble($table, $col) {
               
               
 <?php function ismenu() {
+     if(isset($SESSION['username'])) {
+      
     $listaMenu = querySelect("select role from members "
         . "WHERE email='".$_SESSION['username']."'" );
         foreach ($listaMenu as $fila) {
           $role = $fila['role'];  
-        } return $role;
+        } return $role;   
+     }
+     else {return "su";}
 }?>
            
     

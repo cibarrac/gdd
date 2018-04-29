@@ -50,7 +50,7 @@ if(isset($_GET['view'])){
 
   }
   else {
-    //include "navbar_admin.php";
+    include "views/menubar/navbar_admin.php";
   }
   ?>
    <div class="container-fluid">
