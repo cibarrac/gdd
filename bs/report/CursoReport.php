@@ -9,9 +9,9 @@
     <meta charset="utf-8">
     <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <script src="assets/js/jquery-1.11.3.min.js"></script>
-    <script src="assets/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <script src="../../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../../assets/js/bootstrap.js"></script>
 </head>
 <body> <br>
 <div class="container">
@@ -30,13 +30,8 @@
             <td>Periodo curso</td>
   		</tr>
   </thead>
-  <?php 
-   include 'bs/CursoDAO.php';
-
- 
-    //$cursosList = CursoService::getCursos();
-    $cursoDAO = new CursoDAO();
-    $cursosList = $cursoDAO->getCursos();
+  <?php  include '../../bs/curso/CursoService.php';
+    $cursosList = CursoService::getCursos();
     
           foreach ($cursosList as $curso) {?>
                   <tr>

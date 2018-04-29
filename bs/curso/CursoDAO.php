@@ -1,6 +1,6 @@
 <?php
 
-include 'QueryService.php';
+include '../../bs/QueryService.php';
 include 'Curso.php';
 
 class CursoDAO {

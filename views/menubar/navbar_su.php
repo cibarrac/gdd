@@ -97,7 +97,7 @@
 
                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                     <li><a class="dropdown-item"  href="cursosReport.php?type=1"> Reportes </a></li>
+                     <li><a class="dropdown-item"  href="bs/report/CursoReport.php?type=1"> Reporte de Cursos  </a></li>
                       <li><a class="dropdown-item"  href="sec/login/logout.php">Cerrar sesion. </a></li>
 
 
