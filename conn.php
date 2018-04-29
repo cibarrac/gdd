@@ -6,7 +6,7 @@ switch (gethostname()) {
     
     case "localhost.localdomain":
         
-        $conexion = mysql_connect('localhost', 'root', 'Get7usa77') or die ('MySQL Not found // Could Not Connect.');
+        $conexion = mysql_connect('localhost', 'root', 'Get7usa7') or die ('MySQL Not found // Could Not Connect.');
         mysql_select_db('gdd', $conexion);
         
         break;
