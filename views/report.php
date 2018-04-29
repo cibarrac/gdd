@@ -124,8 +124,8 @@ FROM profesores PROFESORES, inscripciones INSCRIPCIONES,cursos CURSO  WHERE  PRO
                <label for="">MC. DANIEL MULATO AGUERO</label>
            </div>
            <div class="col-md-6"> 
-              <label for="">  MC. NOE CASTELLANOS BEBOLLEDO</div>
-          </label>
+              <label for="">  MC. NOE CASTELLANOS BEBOLLEDO </label></div>
+          
       </div>
  
       </div>
