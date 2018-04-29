@@ -1,7 +1,4 @@
-<?php 
-include 'bs/CursoService.php';
 
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,9 +30,14 @@ include 'bs/CursoService.php';
             <td>Periodo curso</td>
   		</tr>
   </thead>
-  
-    <?php $cursosList = cursoService::getCursos();
-          
+  <?php 
+   include 'bs/CursoDAO.php';
+
+ 
+    //$cursosList = CursoService::getCursos();
+    $cursoDAO = new CursoDAO();
+    $cursosList = $cursoDAO->getCursos();
+    
           foreach ($cursosList as $curso) {?>
                   <tr>
                     <td><?php echo $curso->__GET('NumeroCurso'); ?> </td>
