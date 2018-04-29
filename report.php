@@ -1,90 +1,33 @@
-
-
-<?php
-include "conn.php";
-include "model/enty.php";
-
-function getList() {
-  /**
-   * SELECT C.id, gradoestudios, nombre, apellidop, apellidom, departamento, numerotarjeta, rfc   FROM profesores C, inscripciones O
-* WHERE C.id = O.nombreprofesor
-   */
-  $profeList = array();
-  $idcurso= $_GET['curso'];
-  $SQL = " SELECT NumeroCurso, NombreProfesorInscrito, "
-          . "RFCProfesor from Inscripcion, Profesor where "
-          . "NombreProfesorInscrito = concat(NombreProfesor,' ',"
-          . "ApellidoPaternoProfesor,' ',ApellidoMaternoProfesor) and NumeroCurso= '$idcurso';";
-  $lista = mysql_query($SQL);
-
-  if(mysql_num_rows($lista)>0){
-       while($fila = mysql_fetch_array($lista)){
-        $profesor = new profesores();
-               $horainicio  = $fila['HoraHnicio'];
-               $nombre  = $fila['NombreCurso'];
-               $aula  = $fila['aula'];
-               $idinstructor  = $fila['idinstructor'];
-               $periodo  = $fila['periodo'];
-               $fechaalta  = $fila['fechaalta'];
-               $profesor->__SET('NombeCurso',$fila['nombrecurso']);
-               $profesor->__SET('id',$fila['id']);
-               $profesor->__SET('gradoestudios',$fila['gradoestudios']);
-               $profesor->__SET('NombreProfesorInscrito',$fila['nombre']);
-               $profesor->__SET('departamento',$fila['departamento']);
-               $profesor->__SET('NumeroTarjeta',$fila['numerotarjeta']);
-               $profesor->__SET('RFCProfesor',$fila['rfc']);
-
-
-
-
-
-        $profeList [] = $profesor;
-             }}
-         return $profeList;
-        }?>
-
-
-
-
+<?php include "conn.php";
+      include "model/enty.php";
+      include 'bs/ReportService.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+<head> <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <meta charset="utf-8">
+    <title>Document</title> <meta charset="utf-8">
     <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
-
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <!-- Bootstrap -->
-      <link rel="stylesheet" href="assets/css/bootstrap.css">
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="assets/js/jquery-1.11.3.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="assets/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">     
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
 </head>
 <body>
      <div class="container">
      <br><br>
      <div class="row">
         <div class="col-md-12">
-
              <label for="">Nombre del curso  <u> <?php  echo $nombre;?> </u> </label>
              <label for="">Lugar  <u><?php echo $aula;?> </u></label>
              <label for="">Instructor (s)  <u><?php echo $idinstructor;?> </u> </label>
              <label for="">Periodo  <u><?php echo $periodo;?></u></label>
              <label for="">Fecha <u> <?php echo $fechaalta;?></u> </label>
              <label for="">Horario  <u><?php echo $horainicio;?> </u></label>
-
-
-
         </div>
-     </div>
-     <br>
-
-     <div class="row">
-
+ </div>
+ <br>
+  <div class="row">
             <div class="col-md-12">
                 <table class="table table-bordered">
                     <thead style="background:#dad9d9">
@@ -97,11 +40,9 @@ function getList() {
                             <th>RFC</th>
                             <th>Firma:</th>
                         </tr>
-
-
                     </thead>
                     <tbody>
-                       <?php  $list = getList();
+                       <?php  $list = ReportService::getList();
                        $i=1;
                         foreach ($list as $profe) { ?>
                                  <tr>
@@ -116,20 +57,17 @@ function getList() {
                                  </tr>
                              <?php $i++;}
                            ?>
-
                     </tbody>
                 </table>
             </div>
-
             </div>
-
       <div class="row">
            <div class="col-md-6">
                <label for="">MC. DANIEL MULATO AGUERO</label>
            </div>
            <div class="col-md-6">
-              <label for="">  MC. NOE CASTELLANOS BEBOLLEDO</div>
-          </label>
+              <label for="">  MC. NOE CASTELLANOS BEBOLLEDO  </label></div>
+         
       </div>
 
       </div>

@@ -12,14 +12,13 @@ include 'bs/ReportService.php';
     <title>Document</title>
     <meta charset="utf-8">
     <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
-
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <!-- Bootstrap -->
-      <link rel="stylesheet" href="assets/css/bootstrap.css">
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="assets/js/jquery-1.11.3.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="assets/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.js"></script>
 </head>
 <body>
      <div class="container">
