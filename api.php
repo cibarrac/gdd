@@ -9,13 +9,9 @@ function fillOptionsInscription($nombre) {
     else
         return ['numcurso' =>  $nombre, 'message' => 'No se obtuvieron datos'];
 }
-
-
 function fillOptionsInscriptionByNum($numero)
 {
-
     $lista = mysql_query("select NombreCurso, NumeroCurso, FechaInicioCurso, FechaFinCurso, NombreCompletoInstructor1, NombreCompletoInstructor2, TipoCurso, AulaPropuesta from curso where NumeroCurso ='$numero'");
-
     if (mysql_num_rows($lista)>0) {
         return mysql_fetch_assoc($lista);
     } else {
