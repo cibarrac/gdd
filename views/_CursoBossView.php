@@ -14,14 +14,14 @@
        <div class="col-md-6">
            <div class="form-group">
                <label for="">Para los(as) profesores(as) de la(s) carrera(s) de:</label>
-                <input class="form-control" name="NombreCarrera" readonly value="<?php echo OptieneCarrera($_SESSION['username'])?>">
+                <input class="form-control" name="NombreCarrera" readonly value="<?php echo OptieneCarrera($_SESSION['username']);?>">
            </div>
        </div>
 
        <div class="col-md-6">
             <div class="form-group">
                  <label for="">Del departamento de:</label>
-                  <input class="form-control" name="DelDepartamentoDe" readonly value="<?php echo OptieneDepartamento($_SESSION['username'])?>">
+                  <input class="form-control" name="DelDepartamentoDe" readonly value="<?php echo OptieneDepartamento($_SESSION['username']);?>">
             </div>
       </div>
 

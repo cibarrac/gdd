@@ -1,14 +1,14 @@
 <?php
-
-
 include "sec/login/loginheader.php";
+
+include 'bs/QueryService.php';
+include_once 'common.php';
 //include_once 'firmar.php';
 include "model/Modal.php";
 include 'conn.php';
 include 'form.php';
 //include 'Table_SU.php';
 
-include_once 'common.php';
  /**
   * Se valida si se manda a crear la vista
   */

@@ -2,7 +2,8 @@
 include 'AbstractDAO.php';
  
 function querySelect($sql) {
-    $lista;
+    echo  $sql;
+    $lista = array();
     $conn = AbstractDAO::getConnect();
     
     if ($conn->connect_error) {
@@ -12,7 +13,7 @@ function querySelect($sql) {
     
     if ($result->num_rows > 0) {
         // output data of each row
-        while($row = $result->fetch_assoc()) { 
+        while($row = $result->fetch_array()) { 
                $lista[] = $row;        
         }
     } else {

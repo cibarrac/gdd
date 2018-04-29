@@ -1,5 +1,4 @@
 <?php 
- include 'bs/QueryService.php';
 
  function fillOptionsNombresAndId($table,$col ){
     $array = querySelect("select * from ". $table );
@@ -12,12 +11,14 @@
  
    
        
-<?php function fillOptionsDouble($table, $col) {
+<?php 
+
+function fillOptionsDouble($table, $col) {
      $array = querySelect("select * from ". $table );
-     foreach ($array as $fila) {
-         ?> <option value="<?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>">
-     <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>
-   </option>
+     foreach ($array as $fila) { ?> 
+           <option value="<?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>">
+             <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>
+           </option>
 <?php }}?>
 
         
@@ -47,6 +48,7 @@
 
             
  <?php function fillOptionsSingle($table,$col) {
+      
      $listaSingle = querySelect("select * from ". $table);
      foreach ($listaSingle as $fila) { ?>
         <option value="<?php echo $fila[$col]; ?>"><?php echo $fila[$col]; ?></option>
