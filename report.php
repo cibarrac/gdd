@@ -1,5 +1,6 @@
 <?php include "conn.php";
       include "model/enty.php";
+      include 'bs/QueryService.php';
       include 'bs/ReportService.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
