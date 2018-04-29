@@ -1,5 +1,5 @@
 <?php
-if (gethostname()=="C") {
+if (gethostname()=="localhost.localdomain") {
     include "sec/login/loginheader.php";
     
 }
