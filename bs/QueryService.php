@@ -2,7 +2,7 @@
 include 'AbstractDAO.php';
  
 function querySelect($sql) {
-    echo  $sql;
+     
     $lista = array();
     $conn = AbstractDAO::getConnect();
     
