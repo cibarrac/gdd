@@ -1,9 +1,9 @@
 <?php 
+include "../bs/QueryService.php";
 
 function gen_models()
 {
 $out = "";
-include "QueryService.php";
 $tablas = querySelect("show tables");
 
 foreach($tablas as $row){ 
@@ -18,4 +18,14 @@ foreach($tablas as $row){
             }
 return $out;   
 }
+function truncateDatabase() {
+    $out = "SET FOREIGN_KEY_CHECKS=0  <br>";
+    $tables = querySelect("show tables");
+    foreach ($tables as $table) {
+            
+        $out.=" TRUNCATE ".$table[0] .";  <br>";
+        
+    } return $out . " SET FOREIGN_KEY_CHECKS=1;  <br>  <br> ";
+}
+echo  truncateDatabase();
 echo gen_models();
