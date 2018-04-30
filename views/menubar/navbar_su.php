@@ -21,6 +21,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <!-- <li> <a class="dropdown-item"  href="index.php?view=_Diagnostico">D N borrador</a></li> -->
                     <li> <a class="dropdown-item"  href="index.php?view=_Curso">Detectar Necesidades</a> </li>
+                    <li> <a class="dropdown-item"  href="index.php?view=_Asistencia">Asistencias</a> </li>
                     <li> <a class="dropdown-item"  href="index.php?view=_Inscripciones">Inscripciones</a> </li>
                     <li> <a class="dropdown-item"  href="index.php?view=_Instructor">Instructores</a> </li>
                     <!--<li> <a class="dropdown-item"  href="index.php?view=_FichaTecnica">Ficha Tecnica</a></li> -->
