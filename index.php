@@ -27,9 +27,9 @@ $contentView = ""; if(isset($_GET['view'])){
           <div id="content">
            <?php if(isset($_GET['view'])) {
                       $role = ismenu();
-                    if( $role == 'su') {  include 'model/su_table.php'; createTable($contentView); }
-                elseif ($role == 'user'){ include 'model/user_table.php';createTable($contentView); }
-             elseif ($role == 'admin') {  include 'model/admin_table.php';createTable($contentView);}
+                    if( $role == 'su') {  include 'model/su_table.php'; createTable($contentView);   }
+                elseif ($role == 'user'){ include 'model/user_table.php';createTable($contentView);  }
+             elseif ($role == 'admin') {  include 'model/admin_table.php';createTable($contentView); }
              elseif($role == 'boss') {    include 'model/boss_table.php';  createTable($contentView);
              }
           } ?>
