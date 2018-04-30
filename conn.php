@@ -10,14 +10,14 @@ switch (gethostname()) {
         mysql_select_db('gdd', $conexion);
         
         break;
-        
-    
     case "C":    
         $conexion = mysql_connect('localhost', 'root', 'root') or die ('MySQL Not found // Could Not Connect.');
-        mysql_select_db('gdd2', $conexion);
+        mysql_select_db('gdd', $conexion);
         break;
-        
-        
+    default:     
+                 $conexion = mysql_connect('localhost', 'root', 'Get7usa7') or die ('MySQL Not found // Could Not Connect.');
+                 mysql_select_db('gdd', $conexion);
+    
 }
 
 

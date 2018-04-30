@@ -25,7 +25,7 @@ class Database {
     private function __construct() {
         
         switch (gethostname()) {
-            case "C":    $this->_connection = new mysqli("localhost", "root", "root", "gdd2");break;
+            case "C":    $this->_connection = new mysqli("localhost", "root", "root", "gdd");break;
             default:     $this->_connection = new mysqli("localhost", "root", "Get7usa7", "gdd");
         }
         ;
