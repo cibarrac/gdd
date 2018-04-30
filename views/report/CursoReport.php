@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +52,7 @@
          <label for="">MC. DANIEL MULATO AGUERO</label>
      </div>
      <div class="col-md-6">
-        <label for="">  MC. NOE CASTELLANOS BEBOLLEDO </label></div>
+        <label for="">  MC. NOE CASTELLANOS BEBOLLEDO. </label></div>
      </div>
 </div>
 </body>
