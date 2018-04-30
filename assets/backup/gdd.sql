@@ -89,8 +89,8 @@ CREATE TABLE `curso` (
   `NumeroProfesoresCurso` int(11) NOT NULL,
   `PeriodoCurso` text NOT NULL,
   `ispublic` int(11) NOT NULL,
-  `sign1` varchar(100) NOT NULL,
-  `sign2` varchar(100) NOT NULL,
+  `sign1` int(11) NOT NULL,
+  `sign2` int(11) NOT NULL,
   `ParaLosProfesoresDe` text NOT NULL,
   `DelDepartamentoDe` text NOT NULL,
   `NombreCompletoJefeDepto` text NOT NULL,
@@ -108,7 +108,7 @@ CREATE TABLE `curso` (
 
 LOCK TABLES `curso` WRITE;
 /*!40000 ALTER TABLE `curso` DISABLE KEYS */;
-INSERT INTO `curso` VALUES ('1.1','Alimentos de procesos','fomentar el proceso de los alimentos','Generico','12:21:00','21:12:00','2018-04-24','2018-04-25',1,'Enero-Junio',0,'1','','','QuÃ­mica y Bioquimica','Alejandra Flores Castro','Isaias Pelaes Pelaes','Jose Cruz Garcia','','7LA');
+INSERT INTO `curso` VALUES ('1.1','Alimentos de procesos','fomentar el proceso de los alimentos','Generico','12:21:00','21:12:00','2018-04-24','2018-04-25',1,'Enero-Junio',0,1,0,'','QuÃ­mica y Bioquimica','Alejandra Flores Castro','Isaias Pelaes Pelaes','Jose Cruz Garcia','','7LA'),('2.1','Inteligencia Artificial','por ahora nada','Especialidad','12:13:00','12:32:00','2018-04-27','2018-04-27',89,'Enero-Junio',0,1,0,'','Sistemas y ComputaciÃ³n ','Juan Miguel Hernadez Bravo','Rafael Hernadez Reyna','Jose Cruz Garcia','','7LA'),('2.2','rigo','rigo','Especialidad','14:21:00','12:21:00','2018-04-27','2018-04-26',2,'Enero-Junio',0,0,0,'','Sistemas y ComputaciÃ³n ','Juan Miguel Hernadez Bravo','Rafael Hernadez Reyna','Jose Cruz Garcia','','7LA');
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,6 +191,7 @@ CREATE TABLE `inscripcion` (
   `TipoCurso` text NOT NULL,
   `Aula` text NOT NULL,
   `NombreInstructor2` text,
+  `IdCarrera` int(11) NOT NULL,
   PRIMARY KEY (`IdInscripcion`),
   KEY `NumeroCurso` (`NumeroCurso`),
   KEY `IdInstructor1` (`IdInstructor1`),
@@ -202,7 +203,7 @@ CREATE TABLE `inscripcion` (
   CONSTRAINT `inscripcion_ibfk_3` FOREIGN KEY (`IdInstructor2`) REFERENCES `instructor` (`IdInstructor`),
   CONSTRAINT `inscripcion_ibfk_4` FOREIGN KEY (`IdProfesor`) REFERENCES `profesor` (`IdProfesor`),
   CONSTRAINT `inscripcion_ibfk_5` FOREIGN KEY (`IdAula`) REFERENCES `aula` (`IdAula`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,6 +212,7 @@ CREATE TABLE `inscripcion` (
 
 LOCK TABLES `inscripcion` WRITE;
 /*!40000 ALTER TABLE `inscripcion` DISABLE KEYS */;
+INSERT INTO `inscripcion` VALUES (1,'1.1',NULL,NULL,1,NULL,'Juan Jose  Bedolla Solano','Alimentos de procesos','2018-04-24','2018-04-25','Jose Cruz Garcia','Generico','7LA','',1),(4,'2.1',NULL,NULL,2,NULL,'Jose Antonio Montero Valverde','Inteligencia Artificial','2018-04-27','2018-04-27','Jose Cruz Garcia','Especialidad','7LA','',0),(5,'2.1',NULL,NULL,NULL,NULL,'Jose Antonio Montero Valverde','Inteligencia Artificial','2018-04-27','2018-04-27','Jose Cruz Garcia','Especialidad','7LA','',0),(6,'2.2',NULL,NULL,NULL,NULL,'Jose Antonio Montero Valverde','rigo','2018-04-27','2018-04-26','Jose Cruz Garcia','Especialidad','7LA','',0);
 /*!40000 ALTER TABLE `inscripcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -325,7 +327,7 @@ CREATE TABLE `members` (
   UNIQUE KEY `idUser` (`idUser`),
   UNIQUE KEY `idRole` (`idUser`),
   UNIQUE KEY `idUser_2` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -334,7 +336,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
-INSERT INTO `members` VALUES ('10803686435ade272f2a3a4','Jose Montero','$2y$10$6ZVIleKXuxKlebInW0HY/OXEjsGibFmkF0cOfQT00YrNeZjXD6gWC','monteroisc@gmail.com',1,'2018-04-23 18:36:52','user',5),('11416101145ade43348ae9a','silvestre2','$2y$10$fU8K4Ge2/ZdSyj5l25Ty6uebGIZz24FZ9BFAB.e6cUCNPAh/yEmUe','silvestre2@gmail.com',0,'2018-04-23 20:33:56','',20),('11785718045ade428722454','Silvestre','$2y$10$QStWzjm/bf79weWAz0.YuuZL6j2Dw7vOwxBCCfhHsoGL/4kmZ719u','silvestre@gmail.com',0,'2018-04-23 20:31:03','',19),('12000490105ade26a8c2f1c','DesarrolloAcademico','$2y$10$TD8Il74Mv/sjujoyhfnfDOwnPtCSXZ9SpLIE/JmBJkt76OrlL2B3K','desacad@gmail.com',1,'2018-04-23 18:37:05','su',1),('12943351245ade2777d8028','Fernando Ortiz','$2y$10$IDiWdvjaIFPq8PX6psxHSeFF0.LVA/aed9y0SfWRECdDJxXlyMx3G','ortizibq@gmail.com',1,'2018-04-23 18:37:27','user',7),('13309447845ade2708167df','Alejandra Flores','$2y$10$J9oA66DZNp445rx5HEkBVO/R8yWkdgIKTAn7jb9vThrlnHDtmDUgS','jefeibq@gmail.com',1,'2018-04-23 18:37:36','boss',4),('16746161505ade275967540','Juan Jose Bedolla','$2y$10$9Pc9w02kMviIEE0b8yALV.H3mRr2TE4sDqL0D9QCr0XF34RZ2b0hS','bedollaisc@gmail.com',1,'2018-04-23 18:37:52','user',6),('5414787065ade26f4c4753','Juan Miguel','$2y$10$EETkPB24/whk8wtTGz1Doujz9/WN2ewO0pwh3HA3kyi8gmEWbHI/6','jefeisc@gmail.com',1,'2018-04-23 18:38:00','boss',3),('6441657845ade26c6a70e4','SubdireccionAcademica','$2y$10$pw.2cWg5KDjsYTp3t53Vk.MRAE0f0pt/kx9I0W0Gh9/bF3VKGG.Re','subacad@gmail.com',1,'2018-04-23 18:37:17','admin',2),('9285281945adf911a23656','noe castellanos','$2y$10$jZQmtime8rvXodDbXyNxY.PC9xFinl/BlohyzA5MSJMoiATQSnaAO','noe@gmail.com',0,'2018-04-24 20:18:34','',22);
+INSERT INTO `members` VALUES ('10803686435ade272f2a3a4','Jose Montero','$2y$10$6ZVIleKXuxKlebInW0HY/OXEjsGibFmkF0cOfQT00YrNeZjXD6gWC','monteroisc@gmail.com',1,'2018-04-23 18:36:52','user',5),('11416101145ade43348ae9a','silvestre2','$2y$10$fU8K4Ge2/ZdSyj5l25Ty6uebGIZz24FZ9BFAB.e6cUCNPAh/yEmUe','silvestre2@gmail.com',0,'2018-04-23 20:33:56','',20),('11785718045ade428722454','Silvestre','$2y$10$QStWzjm/bf79weWAz0.YuuZL6j2Dw7vOwxBCCfhHsoGL/4kmZ719u','silvestre@gmail.com',0,'2018-04-23 20:31:03','',19),('12000490105ade26a8c2f1c','DesarrolloAcademico','$2y$10$TD8Il74Mv/sjujoyhfnfDOwnPtCSXZ9SpLIE/JmBJkt76OrlL2B3K','desacad@gmail.com',1,'2018-04-23 18:37:05','su',1),('12943351245ade2777d8028','Fernando Ortiz','$2y$10$IDiWdvjaIFPq8PX6psxHSeFF0.LVA/aed9y0SfWRECdDJxXlyMx3G','ortizibq@gmail.com',1,'2018-04-23 18:37:27','user',7),('13309447845ade2708167df','Alejandra Flores','$2y$10$J9oA66DZNp445rx5HEkBVO/R8yWkdgIKTAn7jb9vThrlnHDtmDUgS','jefeibq@gmail.com',1,'2018-04-23 18:37:36','boss',4),('16746161505ade275967540','Juan Jose Bedolla','$2y$10$9Pc9w02kMviIEE0b8yALV.H3mRr2TE4sDqL0D9QCr0XF34RZ2b0hS','bedollaisc@gmail.com',1,'2018-04-23 18:37:52','user',6),('3292322545ae50cb33fe47','c','$2y$10$FByc3eJH.cPocrEhn3Tom.1zlTLsbnxZ1PurI5Qx9OS8szZn8906i','cic.innsy@gmail.com',0,'2018-04-29 00:07:15','',23),('5414787065ade26f4c4753','Juan Miguel','$2y$10$EETkPB24/whk8wtTGz1Doujz9/WN2ewO0pwh3HA3kyi8gmEWbHI/6','jefeisc@gmail.com',1,'2018-04-23 18:38:00','boss',3),('6441657845ade26c6a70e4','SubdireccionAcademica','$2y$10$pw.2cWg5KDjsYTp3t53Vk.MRAE0f0pt/kx9I0W0Gh9/bF3VKGG.Re','subacad@gmail.com',1,'2018-04-23 18:37:17','admin',2),('9285281945adf911a23656','noe castellanos','$2y$10$jZQmtime8rvXodDbXyNxY.PC9xFinl/BlohyzA5MSJMoiATQSnaAO','noe@gmail.com',0,'2018-04-24 20:18:34','',22);
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,7 +393,7 @@ CREATE TABLE `profesor` (
   `IdDepartamentoProfesor` int(11) NOT NULL,
   `IdJefeInmediatoProfesor` int(11) NOT NULL,
   PRIMARY KEY (`IdProfesor`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -400,7 +402,7 @@ CREATE TABLE `profesor` (
 
 LOCK TABLES `profesor` WRITE;
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
-INSERT INTO `profesor` VALUES (1,'Juan Jose ','Bedolla','Solano','BSJJ0575987',1,'74413235685','bedollaisc@gmail.com','Docente',0,'Doctor(a)','Desarrollo regional ',1,1);
+INSERT INTO `profesor` VALUES (1,'Juan Jose ','Bedolla','Solano','BSJJ0575987',1,'74413235685','bedollaisc@gmail.com','Docente',0,'Doctor(a)','Desarrollo regional ',1,1),(2,'Jose Antonio','Montero','Valverde','sdgsadgsdg',2,'ertwetyerwy','desacad@gmail.com','Docente',0,'Licenciado(a)','ISC',2,2);
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -413,4 +415,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-25 12:49:40
+-- Dump completed on 2018-04-29 21:52:47
