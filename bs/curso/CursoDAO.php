@@ -5,11 +5,13 @@ include 'Curso.php';
 
 class CursoDAO {
     
-    public function getCursos() {
-        $sql="SELECT NumeroCurso, NombreCurso, ObjetivoCurso, FechaInicioCurso, FechaFinCurso, TipoCurso, PeriodoCurso from curso";
+    public function cargarCursos() {
+        $sql="SELECT NumeroCurso, NombreCurso, ObjetivoCurso,"
+                . " FechaInicioCurso, FechaFinCurso, TipoCurso,"
+                . " PeriodoCurso from curso";
         
         $result= querySelect($sql);
-        $cursoList;
+        $cursoList = array();
         foreach($result as $row)
         {
             $curso = new Curso();
@@ -23,5 +25,8 @@ class CursoDAO {
             $cursoList [] = $curso;
         }
         return $cursoList;
+    }
+    public function cargarAsistencias() {
+        return array();
     }
 }
