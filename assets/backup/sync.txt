@@ -1,0 +1,18 @@
+option batch abort
+option confirm off
+
+open sftp://root:Get7usa77%2B@25.46.195.90/ -hostkey="ssh-ed25519 256 5y+sTmsAw/hNwmKZQPJOkgMewTOgpccEBA8nkdcyvmM="
+
+synchronize remote C:\xampp\htdocs\gdd\assets /var/www/html/assets/
+synchronize remote C:\xampp\htdocs\gdd\bs /var/www/html/bs/
+synchronize remote C:\xampp\htdocs\gdd\model /var/www/html/model/
+synchronize remote C:\xampp\htdocs\gdd\sec /var/www/html/sec/
+synchronize remote C:\xampp\htdocs\gdd\views /var/www/html/views/
+
+put C:\xampp\htdocs\gdd\*.php /var/www/html/
+
+
+exit
+
+# Execute the script using a command like:
+# "C:\Program Files (x86)\WinSCP\WinSCP.exe" /log="C:\writable\path\to\log\WinSCP.log" /ini=nul /script="C:\path\to\script\script.txt"
