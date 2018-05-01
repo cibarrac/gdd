@@ -4,7 +4,7 @@
     $array = querySelect("select * from ". $table );
     foreach ($array as $fila) { ?> 
             <option value="<?php echo $fila[$col-1]; ?>">
-              <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>
+              <?php echo $fila[$col];?> <!-- Las columnas se desbordan, por eso el error-->
            </option>           
  <?php }}?>
            
