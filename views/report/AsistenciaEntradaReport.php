@@ -31,18 +31,18 @@
   		</tr>
   </thead>
   <?php  include '../../bs/curso/CursoService.php';
-    $cursosList = CursoService::getCursos();
+    $cursosList = CursoService::getAsistencias();
     
           foreach ($cursosList as $curso) {?>
-                  <tr >
+                <tr >
                     <td><?php echo $curso->__GET('NumeroCurso'); ?> </td>
-                    <td><?php echo $curso->__GET('NombreCurso'); ?></td>
-                    <td><?php echo $curso->__GET('ObjetivoCurso'); ?></td>
-                    <td><?php echo $curso->__GET('FechaInicioCurso'); ?></td>
-                    <td><?php echo $curso->__GET('FechaFinCurso'); ?></td>
-                    <td><?php echo $curso->__GET('TipoCurso'); ?></td>
-                    <td><?php echo $curso->__GET('PeriodoCurso'); ?></td>
-            		</tr>                     
+                    <td><?php echo $curso->__GET('NumeroTarjeta'); ?></td>
+                    <td><?php echo $curso->__GET('Grado'); ?></td>
+                    <td><?php echo $curso->__GET('Participante'); ?></td>
+                    <td><?php echo $curso->__GET('Carrera'); ?></td>
+                    <td><?php echo $curso->__GET('RFC'); ?></td>
+                    <td><?php echo $curso->__GET('Firma'); ?></td>
+                </tr>                     
   	<?php } ?>
   	</table>
     </div>

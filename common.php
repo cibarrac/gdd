@@ -4,7 +4,7 @@
     $array = querySelect("select * from ". $table );
     foreach ($array as $fila) { ?> 
             <option value="<?php echo $fila[$col-1]; ?>">
-              <?php echo $fila[$col];?> <!-- Las columnas se desbordan, por eso el error-->
+              <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2];?> <!-- Las columnas se desbordan, por eso el error-->
            </option>           
  <?php }}?>
            
@@ -47,15 +47,14 @@ function fillOptionsDouble($table, $col) {
       
 
             
- <?php function fillOptionsSingle($table,$col) {
+<?php function fillOptionsSingle($table,$col) {
       
      $listaSingle = querySelect("select * from ". $table);
      foreach ($listaSingle as $fila) { ?>
-        <option value="<?php echo $fila[$col]; ?>"><?php echo $fila[$col]; ?></option>
+        <option value="<?php echo $fila[$col]; ?>"> <?php echo $fila[$col]; ?> </option>
 <?php }} ?>          
             
         
-
               
               
 <?php function ismenu() {

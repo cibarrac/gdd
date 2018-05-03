@@ -60,7 +60,7 @@ function report(){
 }
 function reportBy(id){
   alert();
-  window.location = "report.php?curso="+id; 
+  window.location = "views/report/AsistenciaEntradaReport.php?curso="+id; 
    
 }
 function firmar(s,id){

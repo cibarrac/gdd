@@ -7,26 +7,26 @@
   </div>
 
 
+
   <div class="row">
-
-       <div class="col-md-6">
-           <div class="form-group">
-               <label for="">Para los(as) profesores(as) de la(s) carrera(s) de: </label>
-                <select class="form-control"  id="Paralosprofesoresde"   name="Paralosprofesoresde" >
-                <option value=""> </option>
-                <?php fillOptionsSingle("carrera",1) ?>
-                </select>           
-           </div>
-       </div>
-
+      
        <div class="col-md-6">
             <div class="form-group">
                  <label for="">Del departamento de:</label>
                   <select class="form-control" name="DelDepartamentoDe" >
-                    <?php fillOptionsDouble("departamento",1); ?>
+                    <?php fillOptionsDouble("departamento",1) ?>
                   </select>
             </div>
       </div>
+      
+      <div class="col-md-6">
+            <div class="form-group">
+                 <label for="">Para los profesores de la carrera de: </label>
+                  <select class="form-control" name="ParaLosProfesoresDe" >
+                    <?php fillOptionsSingle("carrera",1); ?>
+                  </select>
+            </div>
+    </div>
 
 </div>
 
@@ -40,7 +40,7 @@
         <div class="form-group">
             <label for="">Jefe del departamento academico</label>
               <select class="form-control" name="NombreCompletoJefeDepto" >
-                <?php fillOptionsDouble("jefedepartamento",1);?>
+                <?php fillOptionsDouble("jefedepartamento",1)?>
               </select>
         </div>
     </div>
@@ -50,7 +50,7 @@
         <div class="form-group">
             <label for="">Presidente de academia</label>
               <select class="form-control" name="NombreCompletoPresiAcad" >
-                <?php fillOptionsDouble("presidenteacademia",1);?>
+                <?php fillOptionsDouble("presidenteacademia",1)?>
               </select>
         </div>
     </div>
@@ -221,7 +221,8 @@
 </div>
 <br><br>
 <div class="row">
-  <div class="col-md-12">
+    
+  
   <div class="col-md-4">
       <div class="form-group">
           <label for="">Aula Propuesta:</label>
@@ -232,5 +233,5 @@
           </select>
       </div>
   </div>
-</div>
+
 </div>

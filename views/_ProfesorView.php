@@ -33,26 +33,33 @@
 
   <div class="row">
 
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="form-group">
         <label for="">Registro federal (rfc)</label>
         <input type="text" class="form-control" name="RFCProfesor" >
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="form-group">
         <label for="">Numero de telefono:</label>
         <input type="text" class="form-control" name="NumeroTelefonoProfesor">
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="form-group">
         <label for="">Correo</label>
         <input type="email" class="form-control" readonly="readonly" name="CorreoProfesor" value="<?=$_SESSION['username']?>">
       </div>
     </div>
+      
+      <div class="col-md-3">
+          <div class="form-group">
+              <label for="">Numero de tarjeta</label>
+              <input type="number" class="form-control" name="NumeroTarjetaProfesor">
+          </div>   
+      </div>
 
   </div>
 
