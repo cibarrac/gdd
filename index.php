@@ -1,4 +1,6 @@
-<?php if (gethostname()=="localhost.localdomain") {
+<?php
+
+if (gethostname()=="localhost.localdomain") {
             include "sec/login/loginheader.php"; }
 include_once 'bs/QueryService.php';
 include_once 'common.php';
