@@ -20,13 +20,14 @@
     <table class="table table-bordered" >
       <thead style="background:#dad9d9">
           <tr align="center" style="color: #000000">
-  			<td>Numero del curso</td>
-  			<td>Nombre del curso</td>
-  			<td>Objetivo</td>
-  			<td>Fecha Inicio</td>
-            <td>Fecha Fin</td>
-            <td>Tipo curso</td>
-            <td>Periodo curso</td>
+  			<td>No.</td>
+  			<td>Numero tarjeta</td>
+  			<td>Grado</td>
+  			<td>Participante</td>
+                        <td>Departamento/Carrera</td>
+                        <td>RFC</td>
+                        <td>Firma de entrada</td>
+           
   		</tr>
   </thead>
   <?php  include '../../bs/curso/CursoService.php';

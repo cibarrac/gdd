@@ -26,6 +26,9 @@ function fillOptionsInscriptionByNum($numero)
         return ['numcurso' =>  $numero, 'message' => 'No se obtuvieron datos'];
     }
 }
+
+
+
 if ($_GET['oper'])
 {
     if ($_GET['oper']=='getcurso'){
@@ -38,8 +41,9 @@ if ($_GET['oper'])
           $numcurso = $_GET['nomcurso'];
           echo json_encode([ 'status'=> 200, 'data' => fillOptionsInscription($numcurso)]);
       }
-
+       
     }
+    
 }
  /*
 if ($_GET['oper'])

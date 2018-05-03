@@ -1,30 +1,25 @@
 
  <?php
-  function evaluate_cursos($table,$NumeroCurso)
+  function evaluate_cursos($table,$NumeroCurso , $IdJefeDepartamento)
   {
         if($table=="curso") {
       ?>
-     <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $NumeroCurso;?>);">
-     </button>
-
-
-
-   <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $NumeroCurso;?>');">
-     </button>
+     <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $NumeroCurso;?>);"> </button>
+     <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $NumeroCurso;?>');"></button>
+   
 
 <?php
-/*
-     //En esta parte se pondria el evento click, que asociará el id del curso, obtendrá los datos y los enviara a
-     //la vista _InscripcionesView.php
-*/
+
+}
+ elseif($table=="jefedepartamento") { //Boton para editar el jefe de departamento
+     ?>
+         <button  type="checkbox" class="btn btn-info fa fa-edit" data-toggle="modal" data-target="#JefeDepto" onclick="editarBoss (<?php echo $IdJefeDepartamento;?>,<?php echo $IdJefeDepartamento;?>);"> </button>
+     <?php
+    
 }
 
   }
-  function evaluate_profile() {
-
-
-  }
-
+  
 ?>
 
 
@@ -62,7 +57,7 @@
 
         // include "Buscar.php";
          ?>
-
+ 
 
          <div class="col-md-3">
 
@@ -70,6 +65,9 @@
               $modal->getContent();
 
               $_subscribe = new Modal('inscripcion_modal', 'Inscripción al curso', '_Inscripciones', 'Inscribir');
+              $_subscribe->getContent(true);
+              
+              $_subscribe = new Modal('JefeDepto', 'Editar Jefe de departamento', '_JefedeptoBoss', 'editarBoss');
               $_subscribe->getContent(true);
 
 
@@ -96,7 +94,7 @@
              while($row = mysql_fetch_array($list)){   ?>
                    <tr <?php
                    if(isset($row['ispublic'])){
-                         if($row['ispublic']==1 ){ echo "class='success'";} else {echo "class='warning'";}
+                         if($row['ispublic']==1 ){ echo "class='info'";} else {echo "class='warning'";}
                    }
 
 
@@ -172,3 +170,4 @@
   }
 
 </script>
+

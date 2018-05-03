@@ -11,11 +11,11 @@
 
        <div class="col-md-6">
            <div class="form-group">
-               <label for="">Para los(as) profesores(as) de la(s) carrera(s) de:</label>
-                <select class="form-control" name="ParaLosProfesoresDe">
-                   <?php fillOptionsSingle("carrera",1); ?>
-                   <option value="Todas las ingenierias">Todas las ingenierias</option>
-               </select>
+               <label for="">Para los(as) profesores(as) de la(s) carrera(s) de: </label>
+                <select class="form-control"  id="Paralosprofesoresde"   name="Paralosprofesoresde" >
+                <option value=""> </option>
+                <?php fillOptionsSingle("carrera",1) ?>
+                </select>           
            </div>
        </div>
 
@@ -23,7 +23,7 @@
             <div class="form-group">
                  <label for="">Del departamento de:</label>
                   <select class="form-control" name="DelDepartamentoDe" >
-                    <?php fillOptionsSingle("departamento",1); ?>
+                    <?php fillOptionsDouble("departamento",1); ?>
                   </select>
             </div>
       </div>

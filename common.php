@@ -59,15 +59,15 @@ function fillOptionsDouble($table, $col) {
               
               
 <?php function ismenu() {
-     if(isset($SESSION['username'])) {
+    //if(isset($SESSION['username'])) {
       
     $listaMenu = querySelect("select role from members "
         . "WHERE email='".$_SESSION['username']."'" );
         foreach ($listaMenu as $fila) {
           $role = $fila['role'];  
         } return $role;   
-     }
-     else {return "su";}
+     //}
+     //else {return "su";}
 }?>
            
     
@@ -100,6 +100,18 @@ function fillOptionsDouble($table, $col) {
     $listaCorreoBoss = querySelect("select email from ". $table);
     foreach ($listaCorreoBoss as $fila) { ?>
         <option value="<?php echo $fila[$col]; ?>"><?php echo $fila[$col]; ?></option>
+<?php }} ?>
+        
+        
+        
+<?php function ProfesoresPorDepartamento($correojefe, $col=0){
+    $listaprofesores = querySelect("SELECT NombreProfesor, ApellidoPaternoProfesor, "
+        . "ApellidoMaternoProfesor from profesor inner join jefedepartamento"
+        . " on IdJefeInmediatoProfesor = IdJefeDepartamento where"
+        . " CorreoJefe = '".$correojefe."' ");
+    foreach ($listaprofesores as $fila) { ?>
+        <option value="<?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[col+2];?>">
+        <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[col+2]; ?> </option>
 <?php }} ?>
 
         
@@ -139,8 +151,7 @@ function fillOptionsDouble($table, $col) {
 }} ?>
             
 
-
-
+       
 
                   
 <?php function fullpublic($table,$k,$v) {

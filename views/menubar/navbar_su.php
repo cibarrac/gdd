@@ -76,7 +76,7 @@
                          Asistente<span class="caret"></span></a>
 
                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                     <li> <a class="dropdown-item"  href="index.php?view=_CargarAsistencia">   Cargar asistencias</a></li>
+                     <li> <a class="dropdown-item"  href="index.php?view=_Asistencia">   Cargar asistencias</a></li>
 
                     <!-- <li> <a class="dropdown-item"  href="index.php?view=_Temario">Registrar temario</a></li> -->
 
@@ -98,7 +98,10 @@
 
                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                     <li><a class="dropdown-item"  href="views/report/CursoReport.php?type=1"> Reporte de Cursos  </a></li>
+                     <li><a class="dropdown-item"  href="views/report/CursoReport.php?type=1"> Concentrado de Cursos  </a></li>
+                     <li><a class="dropdown-item"  href="views/report/AsistenciaEntradaReport.php?type=1"> Lista de asistencia Entrada</a></li>
+                     <li><a class="dropdown-item"  href="views/report/AsistenciaSeguimientoReport.php?type=1"> Lista de asistencia Seguimiento</a></li>
+                     <li><a class="dropdown-item"  href="views/report/AsistenciaSalidaReport.php?type=1"> Lista de asistencia Salida </a></li>
                       <li><a class="dropdown-item"  href="sec/login/logout.php">Cerrar sesion. </a></li>
 
 
