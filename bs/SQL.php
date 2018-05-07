@@ -13,7 +13,7 @@ class SQL {
             . "INSCRIPCION.NumeroCurso, CARRERA.NombreCarrera from profesor "
             . "PROFESOR, inscripcion INSCRIPCION, carrera CARRERA WHERE "
             . "PROFESOR.IdProfesor = INSCRIPCION.IdProfesor AND "
-            . "INSCRIPCION.NumeroCurso = '5.1' AND "
+            . "INSCRIPCION.NumeroCurso = '9.1' AND "
             . "CARRERA.IdCarrera = PROFESOR.IdCarrera"; 
 
      

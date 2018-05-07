@@ -102,13 +102,11 @@
 </div>
 
 
-
-<label for="">Instructores propuestos:</label>
 <div class="row">
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="">Intructor propuesto 1:</label>
+            <label for="">Intructor propuesto:</label>
             <select class="form-control" name="NombreCompletoInstructor1">
                 <option value="">
                   <?php fillOptionsDouble("instructor",1) ?>
@@ -116,18 +114,18 @@
             </select>
         </div>
     </div>
-
+    
     <div class="col-md-6">
         <div class="form-group">
-            <label for="">Intructor propuesto 2:</label>
-            <select class="form-control" name="NombreCompletoInstructor2">
-                <option value="">
-                    <?php fillOptionsDouble("instructor",1) ?>
-                </option>
-            </select>
-        </div>
+          <label for="">Aula Propuesta:</label>
+          <select class="form-control" name="AulaPropuesta">
+              <option value="">
+                  <?php fillOptionsSingle("aula",1) ?>
+              </option>
+          </select>
+      </div>
     </div>
-
+    
 </div>
 
 
@@ -147,6 +145,8 @@
     </div>
 
 </div>
+
+
 
 <div class="row">
 
@@ -219,19 +219,32 @@
     </div>
 
 </div>
-<br><br>
+
+<br>
+
 <div class="row">
     
-  
-  <div class="col-md-4">
-      <div class="form-group">
-          <label for="">Aula Propuesta:</label>
-          <select class="form-control" name="AulaPropuesta">
-              <option value="">
-                  <?php fillOptionsSingle("aula",1) ?>
-              </option>
-          </select>
-      </div>
-  </div>
-
+    <div class="col-md-4 col-md-offset-2">
+        <label> DIPLOMADO  </label>
+        <div class="form-check">
+            <input class="form-check-input" name="group100" type="radio" id="radio100">
+            <label class="form-check-label" for="radio100">DFT </label> 
+            <input class="form-check-input" name="group100" type="radio" id="radio101" checked>
+            <label class="form-check-label" for="radio101">DFTD</label>
+        </div>
+    </div>
+    
+    
+    <div class="col-md-4 col-md-offset-1" >
+        <label> CURSO </label>
+        <div class="form-check">
+            <input class="form-check-input" name="group100" type="radio" id="radio100">
+            <label class="form-check-label" for="radio100">Docente </label> 
+            <input class="form-check-input" name="group100" type="radio" id="radio101" checked>
+            <label class="form-check-label" for="radio101">Profesional</label>
+        </div>
+    </div>
+    
+    
+    
 </div>

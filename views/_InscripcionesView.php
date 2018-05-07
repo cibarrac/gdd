@@ -95,7 +95,7 @@
       <label for="">Inscribir al profesor:  </label>
       <!-- CONSULTA: Aqui solo tiene que mostrar profesores solo de su carrera. -->
 
-      <select class="form-control"  id="NombreProfesorInscrito"   name="IdProfesor" >
+      <select class="form-control"  name="IdProfesor" >
         <option value=""> </option>
         <?php
            fillOptionsNombresAndId("profesor",1)

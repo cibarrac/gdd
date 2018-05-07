@@ -1,4 +1,5 @@
 <input id="IdInscripcion" type="number" name="IdInscripcion" hidden value="0">
+<input name="IdProfesor" hidden value="<?php echo OpIdPorCorreo($_SESSION['username']) ?> ">
 
 
 <div class="row">

@@ -87,7 +87,7 @@
 
 
     <?php
-    if($table == "Curso")
+    if($table == "curso")
     {
       $list = mysql_query("SELECT * FROM ".$table." WHERE ispublic = 1");
     }

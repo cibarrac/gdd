@@ -20,8 +20,8 @@ function fillOptionsDouble($table, $col) {
              <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?>
            </option>
 <?php }}?>
-
-        
+           
+           
        
         
 <?php function OpCarrera($table, $idjefe, $col=0) {
@@ -80,9 +80,15 @@ function fillOptionsDouble($table, $col) {
          return $fila[$col] . " " . $fila[$col+1] . " " . $fila[$col+2];
 }} ?>
 
+        
+<?php function OpIdPorCorreo ($correo, $col=0){
+    $lista = querySelect("SELECT IdProfesor from profesor WHERE"
+            . " CorreoProfesor = '".$correo."'");
+    foreach ($lista as $fila) { 
+        return  $fila[$col];
+ }} ?>
             
-
-              
+          
 <?php function OptieneNombreJefe($correo, $col = 0) {
     $listaNombreJefe = querySelect("select NombreJefeDepto, ApellidoPaternoJefeDepto,"
             . " ApellidoMaternoJefeDepto from jefedepartamento where"
