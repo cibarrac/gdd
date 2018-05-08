@@ -22,7 +22,7 @@
                     <!-- <li> <a class="dropdown-item"  href="index.php?view=_Diagnostico">D N borrador</a></li> -->
                     <!-- <li><a class="dropdown-item"  href="index.php?view=_jefedeptoBoss">Mi Perfil</a></li> -->
                     <li> <a class="dropdown-item"  href="index.php?view=_CursoBoss">Detectar Necesidades </a> </li>
-                    <li> <a class="dropdown-item"  href="index.php?view=_Inscripciones">Inscripciones</a> </li>
+                    <li> <a class="dropdown-item"  href="index.php?view=_InscripcionesBoss">Inscripciones</a> </li>
                     <li> <a class="dropdown-item"  href="index.php?view=_Instructor">Instructores</a> </li>
                     <!--<li> <a class="dropdown-item"  href="index.php?view=_FichaTecnica">Ficha Tecnica</a></li> -->
                     <li> <a class="dropdown-item"  href="index.php?view=_Listas">Listas</a></li>

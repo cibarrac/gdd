@@ -1,6 +1,7 @@
 <?php // admin black, su white , user blue, editor green
 $table = array('_InscripcionesUser' => 'inscripcion',
-'_Inscripciones' => 'inscripcion', // su,user
+'_Inscripciones' => 'inscripcion',
+'_InscripcionesBoss' => 'inscripcion',// su,user
 '_Curso' => 'curso', //su, admin
 '_CursoBoss' => 'curso', //su, admin
 '_Instructor' => 'instructor',

@@ -53,7 +53,11 @@ function fillOptionsDouble($table, $col) {
      foreach ($listaSingle as $fila) { ?>
         <option value="<?php echo $fila[$col]; ?>"> <?php echo $fila[$col]; ?> </option>
 <?php }} ?>          
-            
+           
+        
+<?php function ProfesoresPorCarrera($param) {
+    
+} ?>
         
               
               
@@ -110,12 +114,12 @@ function fillOptionsDouble($table, $col) {
         
         
 <?php function ProfesoresPorDepartamento($correojefe, $col=0){
-    $listaprofesores = querySelect("SELECT NombreProfesor, ApellidoPaternoProfesor, "
+    $listaprofesores = querySelect("SELECT IdProfesor, NombreProfesor, ApellidoPaternoProfesor, "
         . "ApellidoMaternoProfesor from profesor inner join jefedepartamento"
         . " on IdJefeInmediatoProfesor = IdJefeDepartamento where"
         . " CorreoJefe = '".$correojefe."' ");
     foreach ($listaprofesores as $fila) { ?>
-        <option value="<?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[col+2];?>">
+        <option value="<?php echo $fila[$col];?>">
         <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[col+2]; ?> </option>
 <?php }} ?>
 

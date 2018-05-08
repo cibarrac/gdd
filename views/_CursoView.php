@@ -95,7 +95,7 @@
     <div class="col-md-6">
           <div class="form-group">
               <label for="">Numero del curso:</label>
-              <input type="text" name="NumeroCurso" class="form-control">
+              <input type="float" name="NumeroCurso" class="form-control">
           </div>
     </div>
 
@@ -222,29 +222,71 @@
 
 <br>
 
-<div class="row">
-    
-    <div class="col-md-4 col-md-offset-2">
-        <label> DIPLOMADO  </label>
-        <div class="form-check">
-            <input class="form-check-input" name="group100" type="radio" id="radio100">
-            <label class="form-check-label" for="radio100">DFT </label> 
-            <input class="form-check-input" name="group100" type="radio" id="radio101" checked>
-            <label class="form-check-label" for="radio101">DFTD</label>
+<div class="container">
+    <div class="row">
+        
+
+        
+    <div class="col-md-3 col-md-offset-1">        
+        <div class="alert alert-success alert-dismissable">
+            <a href="javascript:mostrar();"> <input class="form-check-input" name=""  type="checkbox"  > DIPLOMADO </a>
+            <div id="flotante" style="display:none;">
+                <div class="form-check">
+                    <input class="form-check-input" name="DiplomadoDFT" value="1" type="radio" id="DiplomadoDFT">
+                    <label class="form-check-label" for="radio1">DFT </label> 
+                    <input class="form-check-input" name="DiplomadoDFT" value="2" type="radio" id="DiplomadoDFT" >
+                    <label class="form-check-label" for="radio1">DFTD</label>
+                    <div id="close"><a href="javascript:cerrar();">Cancelar</a></div>
+                    <input class=""   hidden="">
+                    </div>
+            </div>
+            
         </div>
     </div>
-    
-    
-    <div class="col-md-4 col-md-offset-1" >
-        <label> CURSO </label>
-        <div class="form-check">
-            <input class="form-check-input" name="group100" type="radio" id="radio100">
-            <label class="form-check-label" for="radio100">Docente </label> 
-            <input class="form-check-input" name="group100" type="radio" id="radio101" checked>
-            <label class="form-check-label" for="radio101">Profesional</label>
+        
+        
+        
+        <div class="col-md-3 col-md-offset-1" >
+        <div class="alert alert-info alert-dismissable">
+            <label> CURSO </label>
+            <div class="form-check">
+                <input class="form-check-input" name="CursoDocente" value="1" type="radio" id="CursoDocente">
+                <label class="form-check-label" for="radio2">Docente </label> 
+                <input class="form-check-input" name="CursoDocente" value="2" type="radio" id="CursoDocente" >
+                <label class="form-check-label" for="radio2">Profesional</label>
+                
+               
+                    <div class="col-md-18 col-md-offset-1">
+                        <input class="form-check-input" name="CursoCertificacion" value="1" type="checkbox" id="CursoCertificacion" >
+                        <label class="form-check-label" for="radio2">Certificacion</label>
+                        <input class=""   hidden="">
+                        
+                    </div>
+            </div>
         </div>
     </div>
+        
+        
+</div>
     
     
     
 </div>
+
+
+    
+    
+    
+    
+    
+<script languague="javascript">
+        function mostrar() {
+            div = document.getElementById('flotante');
+            div.style.display = '';
+        }
+
+        function cerrar() {
+            div = document.getElementById('flotante');
+            div.style.display = 'none';
+        }
+</script>

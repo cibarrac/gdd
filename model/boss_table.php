@@ -88,7 +88,18 @@
      <tbody>
 
 
-    <?php  $list = mysql_query("SELECT * FROM ".$table);
+    <?php  
+    if($table == "curso")
+    {
+      $list = mysql_query("SELECT * FROM curso INNER JOIN jefedepartamento"
+            . " ON NombreCompletoJefeDepto = concat(NombreJefeDepto,' ',ApellidoPaternoJefeDepto,"
+            . "' ',ApellidoMaternoJefeDepto) where correojefe = '".$_SESSION['username']."'; " );
+    }
+    else
+    {
+      $list = mysql_query("SELECT * FROM ".$table);
+    }
+    
     $i = 0;
     if(mysql_num_rows($list)>0){
              while($row = mysql_fetch_array($list)){   ?>
