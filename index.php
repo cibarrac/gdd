@@ -5,7 +5,6 @@ if (gethostname()=="localhost.localdomain") {
 include_once 'bs/QueryService.php';
 include_once 'common.php';
 include_once "model/Modal.php";
-include_once 'conn.php';
 include_once 'form.php';
 $contentView = ""; if(isset($_GET['view'])){
                       $contentView = $_GET['view']; } ?>
