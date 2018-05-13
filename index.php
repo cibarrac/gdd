@@ -1,11 +1,11 @@
 <?php
-
 if (gethostname()=="localhost.localdomain") {
             include "sec/login/loginheader.php"; }
 include_once 'bs/QueryService.php';
 include_once 'common.php';
 include_once "model/Modal.php";
 include_once 'form.php';
+$pathModel = "model/menubar/";
 $contentView = ""; if(isset($_GET['view'])){
                       $contentView = $_GET['view']; } ?>
 <!DOCTYPE html>
@@ -28,10 +28,10 @@ $contentView = ""; if(isset($_GET['view'])){
           <div id="content">
            <?php if(isset($_GET['view'])) {
                       $role = ismenu();
-                    if( $role == 'su') {  include 'model/su_table.php'; createTable($contentView);   }
-                elseif ($role == 'user'){ include 'model/user_table.php';createTable($contentView);  }
-             elseif ($role == 'admin') {  include 'model/admin_table.php';createTable($contentView); }
-             elseif($role == 'boss') {    include 'model/boss_table.php';  createTable($contentView);
+                    if( $role == 'su') {  include $pathModel.'su_table.php'; createTable($contentView);   }
+                    elseif ($role == 'user'){ include $pathModel.'user_table.php';createTable($contentView);  }
+                    elseif ($role == 'admin') {  include $pathModel.'admin_table.php';createTable($contentView); }
+                    elseif($role == 'boss') {    include $pathModel.'boss_table.php';  createTable($contentView);
              }
           } ?>
          </div> </div>
