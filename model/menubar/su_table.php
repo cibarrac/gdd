@@ -62,12 +62,14 @@
                                  if($row['ispublic']==1){ echo "class='success'";} 
                                  else {echo "class='warning'";}
                            } ?> >
+                     <td> <?php evaluate_cursos($table,$row['NumeroCurso']); ?> </td>
+                          
                    <?php $flag = true;
                    foreach ($row as $col) {
                                 if($flag) { ?>
                                 <td> <?php echo $col; ?> </td>
                                  <?php $flag = false; } else { $flag=true;} }  ?>
-                                <td> <?php evaluate_cursos($table,$row['NumeroCurso']); ?> </td>
+                                 
                     </tr> <?php $i++; }   
                      ?>
             </tbody>
