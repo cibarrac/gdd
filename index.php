@@ -1,14 +1,16 @@
 <?php
+$PATH = "model/menubar/";
+$contentView = ""; 
 include_once 'bs/QueryService.php';
 include_once 'model/common/common.php';
 include_once "model/common/Modal.php";
 include_once 'model/common/form.php';
+
 if (gethostname()=="localhost.localdomain") {
             include "sec/login/loginheader.php"; }
-$pathModel = "model/menubar/";
-$contentView = ""; 
 if(isset($_GET['view'])){  $contentView = $_GET['view']; } ?>
 <!DOCTYPE html>
+
 <html lang="en"> <head> <title> Bienvenido <?php 
     if (isset($_SESSION['username'])) { echo $_SESSION['username']; } ?></title>
         <meta charset="utf-8">
@@ -28,10 +30,10 @@ if(isset($_GET['view'])){  $contentView = $_GET['view']; } ?>
           <div id="content">
            <?php if(isset($_GET['view'])) {
                       $role = ismenu();
-                    if( $role == 'su') {  include $pathModel.'su_table.php'; createTable($contentView);   }
-                    elseif ($role == 'user'){ include $pathModel.'user_table.php';createTable($contentView);  }
-                    elseif ($role == 'admin') {  include $pathModel.'admin_table.php';createTable($contentView); }
-                    elseif($role == 'boss') {    include $pathModel.'boss_table.php';  createTable($contentView);
+                    if( $role == 'su')      {    include $PATH.'su_table.php'; createTable($contentView);   }
+                    elseif ($role == 'user'){    include $PATH.'user_table.php';createTable($contentView);  }
+                    elseif ($role == 'admin') {  include $PATH.'admin_table.php';createTable($contentView); }
+                    elseif($role == 'boss') {    include $PATH.'boss_table.php';  createTable($contentView);
              }
           } ?>
          </div> </div>
