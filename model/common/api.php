@@ -4,10 +4,7 @@ require 'bs/QueryService.php';
 
 function fillOptionsInscription($nombre)
 {
-    $lista = querySelect("select NumeroCurso, FechaInicioCurso, FechaFinCurso,"
-            . " NombreCompletoInstructor1, NombreCompletoInstructor2,"
-            . " TipoCurso, AulaPropuesta from curso where "
-            . "NombreCurso ='$nombre'");
+    $lista = sql_query(SQL::$CURSO_POR_NOMBRE_API." ".$nombre);
     
     if (count($lista) > 0) {
         return $lista[0];
@@ -17,10 +14,7 @@ function fillOptionsInscription($nombre)
 }
 function fillOptionsInscriptionByNum($numero)
 {
-    $lista = querySelect("select NombreCurso, NumeroCurso,"
-            . " FechaInicioCurso, FechaFinCurso, NombreCompletoInstructor1, "
-            . "NombreCompletoInstructor2, TipoCurso, AulaPropuesta from curso"
-            . " where NumeroCurso ='$numero'");
+    $lista = querySelect(SQL::$CURSO_POR_NUMERO_API." ".$numero);
     if (count($lista)>0) {
         return $lista[0];
     } else {

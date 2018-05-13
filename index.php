@@ -6,6 +6,7 @@ include_once 'bs/QueryService.php';
 include_once 'model/common/common.php';
 include_once "model/common/Modal.php";
 include_once 'model/common/form.php';
+include 'bs/SQL.php'; 
 
 if (gethostname()=="localhost.localdomain") {
             include "sec/login/loginheader.php"; }

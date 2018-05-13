@@ -85,7 +85,8 @@ function createTable($view){
     <tbody>
 
 
-   <?php  $list = mysql_query("SELECT * FROM ".$table);
+   <?php 
+   $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
    $i = 0;
    if(mysql_num_rows($list)>0){
             while($row = mysql_fetch_array($list)){   ?>

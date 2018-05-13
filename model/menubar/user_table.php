@@ -89,11 +89,11 @@
     <?php
     if($table == "curso")
     {
-      $list = mysql_query("SELECT * FROM ".$table." WHERE ispublic = 1");
+      $list = querySelect(SQL::$CURSOS_APROBADOS);
     }
     else
     {
-      $list = mysql_query("SELECT * FROM ".$table);
+      $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
     }
 
     $i = 0;

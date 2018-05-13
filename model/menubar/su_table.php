@@ -56,7 +56,8 @@
         <table class="table table-hover table-striped table-responsive" id="tabla">
      <thead> <tr> <?php getheaders($table); ?> </tr>  </thead>
      <tbody>
-    <?php  $list = querySelect("SELECT  * FROM ".$table);
+    <?php  
+        $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
               $i = 0;
              foreach($list as $row) {   ?>       
                    <tr <?php if(isset($row['ispublic'])){
