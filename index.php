@@ -1,13 +1,13 @@
 <?php
+include_once 'bs/QueryService.php';
+include_once 'model/common/common.php';
+include_once "model/common/Modal.php";
+include_once 'model/common/form.php';
 if (gethostname()=="localhost.localdomain") {
             include "sec/login/loginheader.php"; }
-include_once 'bs/QueryService.php';
-include_once 'common.php';
-include_once "model/Modal.php";
-include_once 'form.php';
 $pathModel = "model/menubar/";
-$contentView = ""; if(isset($_GET['view'])){
-                      $contentView = $_GET['view']; } ?>
+$contentView = ""; 
+if(isset($_GET['view'])){  $contentView = $_GET['view']; } ?>
 <!DOCTYPE html>
 <html lang="en"> <head> <title> Bienvenido <?php 
     if (isset($_SESSION['username'])) { echo $_SESSION['username']; } ?></title>
