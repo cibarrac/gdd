@@ -38,6 +38,7 @@
      foreach ($fields as $field) {
          echo "<th class='header'>". $field[0] ."</th>";
      }    
+     echo "<th class='header'> Operacion</th>";	 
  }
  
  function createTable($view){
@@ -75,6 +76,23 @@
 <!-- Fin Tabla Curso ****************************************************************************************************************-->
 <!-- Inicio Tabla Inscripcion ****************************************************************************************************************-->
 <script>
+$(document).ready(function() {
+    $('#tabla').DataTable( {
+        dom: 'Bfrtip',
+        columnDefs: [
+        {
+            targets: 1,
+            className: 'noVis'
+        }
+        ],
+        buttons: [
+        {
+            extend: 'colvis',
+            columns: ':not(.noVis)'
+        }
+        ]
+    } );
+} );
 
   function inscribir(numerocurso) {
     var request = new XMLHttpRequest();
@@ -108,4 +126,6 @@
     request.send();
   }
 
-</script>
+
+  </script>
+
