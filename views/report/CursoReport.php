@@ -30,7 +30,7 @@
   		</tr>
   </thead>
   <?php  include '../../bs/curso/CursoService.php';
-    $cursosList = CursoService::getCursos();
+    $cursosList = CursoService::getCursos(); // La misma llamada a el metodo
     
           foreach ($cursosList as $curso) {?>
                   <tr >
