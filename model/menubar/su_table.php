@@ -35,10 +35,11 @@
  function getheaders($table) {
      
      $fields = querySelect("describe ".$table);
+     echo "<th class='header'> Operacion</th>";	 
      foreach ($fields as $field) {
          echo "<th class='header'>". $field[0] ."</th>";
      }    
-     echo "<th class='header'> Operacion</th>";	 
+    
  }
  
  function createTable($view){
