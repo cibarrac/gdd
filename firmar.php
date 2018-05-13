@@ -1,7 +1,6 @@
 <?php
 session_start();
-include "common.php";
-
+include "model/common/common.php";
 include 'bs/QueryService.php';
 
 update();
