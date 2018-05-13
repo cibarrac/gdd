@@ -80,6 +80,9 @@
 <script>
 $(document).ready(function() {
     $('#tabla').DataTable( {
+    	"oLanguage": {
+            "sSearch": "Buscar "
+            },
         dom: 'Bfrtip',
         columnDefs: [
         {
