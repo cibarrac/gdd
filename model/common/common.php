@@ -4,12 +4,11 @@
     $array = querySelect(SQL::$SELECCIONA_TODO." ".$table );
     foreach ($array as $fila) { ?> 
             <option value="<?php echo $fila[$col-1]; ?>">
-              <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2];?> <!-- Las columnas se desbordan, por eso el error-->
+              <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2];?> 
            </option>           
  <?php }}?>
            
- 
-   
+
        
 <?php 
 
@@ -122,7 +121,8 @@ function fillOptionsDouble($table, $col) {
 
 
                   
-<?php function OptieneCarrera($correoJefe, $col=0) {
+<?php function OptieneCarrera($correoJefe) {
+    $col=0;
      $listaCarrera = querySelect(SQL::$CARRERA_JEFE." ".$correoJefe);
     foreach ($listaCarrera as $fila) {
          return $fila[$col];
@@ -162,5 +162,16 @@ function fillOptionsDouble($table, $col) {
             <?php echo $fila[$v]; ?>
         </option>
 <?php }} ?>
+
+        
+        
+<?php function IdDepartamento() {
+    $col=0;
+    $lista = querySelect(SQL::$DEPARTAMENTO);
+    foreach ($lista as $fila) { ?>
+        <option value ="<?php echo $fila[$col];?>">
+            <?php echo $fila[$col+1];?>
+        </option>
+<?php }}?>
                 
          

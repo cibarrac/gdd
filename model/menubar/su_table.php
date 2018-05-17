@@ -20,11 +20,8 @@
 */
 }
 
-  }
-  function evaluate_profile() {
-
-
-  }
+}
+  
 
 ?>
 
@@ -43,9 +40,9 @@
  }
  
  function createTable($view){
-         include 'listViews.php';
-         $table = $table[$view];  ?>
-         <div class="col-md-3">
+    include 'listViews.php';
+        $table = $table[$view];  ?>
+        <div class="col-md-3">
               <?php
                 $modal = new Modal('btn1',$view,$view,"Insertar ".$view);
                 $modal->getContent();
@@ -53,28 +50,26 @@
                 $_subscribe->getContent(true);
               ?>
         </div> <br> <br>
-        <table class="table table-hover table-striped table-responsive" id="tabla">
-     <thead> <tr> <?php getheaders($table); ?> </tr>  </thead>
-     <tbody>
-    <?php  
-        $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
-              $i = 0;
-             foreach($list as $row) {   ?>       
-                   <tr <?php if(isset($row['ispublic'])){
+    <table class="table table-hover table-striped table-responsive" id="tabla">
+        <thead> <tr> <?php getheaders($table); ?> </tr>  </thead>
+        <tbody>
+            <?php  
+                $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
+                $i = 0;
+                foreach($list as $row) {   ?>       
+                    <tr <?php if(isset($row['ispublic'])){
                                  if($row['ispublic']==1){ echo "class='success'";} 
                                  else {echo "class='warning'";}
                            } ?> >
-                     <td> <?php evaluate_cursos($table,$row['NumeroCurso']); ?> </td>
+                        <td> <?php evaluate_cursos($table,$row['NumeroCurso']); ?> </td>
                           
-                   <?php $flag = true;
-                   foreach ($row as $col) {
-                                if($flag) { ?>
-                                <td> <?php echo $col; ?> </td>
-                                 <?php $flag = false; } else { $flag=true;} }  ?>
-                                 
-                    </tr> <?php $i++; }   
-                     ?>
-            </tbody>
+                        <?php $flag = true;
+                        foreach ($row as $col) {
+                            if($flag) { ?>
+                        <td> <?php echo $col; ?> </td>
+                                 <?php $flag = false; } else { $flag=true;} }  ?>                             
+                    </tr> <?php $i++; }  ?>
+        </tbody>
     </table>
 <?php  } ?>
 <!-- Fin Tabla Curso ****************************************************************************************************************-->

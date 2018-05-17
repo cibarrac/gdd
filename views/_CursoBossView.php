@@ -7,23 +7,40 @@
   </div>
 
 
-  <div class="row">
+<div class="row">
 
+<div class="col-md-12">
+        <label>Para los profesores de: </label>
+        <div class="form-group">   
+            
+            <input class="form-check-input" name="TodasLasCarreras" value="0" type="checkbox" id="TodasLasCarreras" >
+            <label class="form-check-label" for="radio2"> Para todas las careras</label>
+            
+            <input class="form-check-input" name="ParaISC" value="1" type="checkbox" id="ParaISC">
+            <label class="form-check-label" for="radio2">ISC</label>
 
+            <input class="form-check-input" name="ParaIBQ" value="3" type="checkbox" id="ParaIBQ" >
+            <label class="form-check-label" for="radio2">IBQ</label>
 
-       <div class="col-md-6">
-           <div class="form-group">
-               <label for="">Para los(as) profesores(as) de la(s) carrera(s) de:</label>
-                <input class="form-control" name="NombreCarrera" readonly value="<?php echo OptieneCarrera($_SESSION['username']);?>">
-           </div>
-       </div>
+            <input class="form-check-input" name="ParaIEM" value="5" type="checkbox" id="ParaIEM" >
+            <label class="form-check-label" for="radio2">IEM</label>
 
-       <div class="col-md-6">
-            <div class="form-group">
-                 <label for="">Del departamento de:</label>
-                  <input class="form-control" name="DelDepartamentoDe" readonly value="<?php echo OptieneDepartamento($_SESSION['username']);?>">
-            </div>
-      </div>
+            <input class="form-check-input" name="ParaIGE" value="6" type="checkbox" id="ParaIGE" >
+            <label class="form-check-label" for="radio2">IGE</label>
+
+            <input class="form-check-input" name="ParaARQ" value="7" type="checkbox" id="ParaARQ" >
+            <label class="form-check-label" for="radio2">ARQ</label>
+
+            <input class="form-check-input" name="ParaLA" value="8" type="checkbox" id="ParaLA" >
+            <label class="form-check-label" for="radio2">LA</label>
+
+            <input class="form-check-input" name="ParaCP" value="9" type="checkbox" id="ParaCP" >
+            <label class="form-check-label" for="radio2">CP</label>  
+            
+             <input class="form-control" type="text" id="final" />
+           
+        </div>
+    </div>       
 
 </div>
 
@@ -32,8 +49,16 @@
 
 
 <div class="row">
+    
+    <div class="col-md-4">
+            <div class="form-group">
+                 <label for="">Del departamento de:</label>
+                  <input class="form-control" name="DelDepartamentoDe" readonly value="<?php echo OptieneDepartamento($_SESSION['username']);?>">
+            </div>
+      </div>
 
-    <div class="col-md-6">
+    
+    <div class="col-md-4">
         <div class="form-group">
             <label for="">Jefe del departamento academico</label>
             <input class="form-control" name="NombreCompletoJefeDepto" readonly value="<?php echo OptieneNombreJefe($_SESSION['username'])?>">
@@ -41,7 +66,7 @@
     </div>
 
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group">
             <label for="">Presidente de academia</label>
             <input class="form-control" name="NombreCompletoPresiAcad" readonly value="<?php echo OptienePresidente($_SESSION['username'])?>">

@@ -71,18 +71,17 @@ CREATE TABLE `curso` (
   `ispublic` int(11) NOT NULL,
   `sign1` int(11) NOT NULL,
   `sign2` int(11) NOT NULL,
-  `DelDepartamentoDe` text NOT NULL,
+  `IdDepartamentoDe` int(11) NOT NULL,
   `NombreCompletoJefeDepto` text NOT NULL,
   `NombreCompletoPresiAcad` text NOT NULL,
-  `NombreCompletoInstructor1` text NOT NULL,
-  `NombreCompletoInstructor2` text NOT NULL,
+  `NombreCompletoInstructor` text NOT NULL,
   `AulaPropuesta` text NOT NULL,
-  `ParaLosProfesoresDe` text NOT NULL,
   `DiplomadoDFT` tinyint(1) NOT NULL,
   `DiplomadoDFCD` tinyint(1) NOT NULL,
   `CursoDocente` tinyint(1) NOT NULL,
   `CursoProfesional` tinyint(1) NOT NULL,
   `CursoCertificacion` tinyint(1) NOT NULL,
+  `DirigidoA` varchar(10) NOT NULL,
   PRIMARY KEY (`NumeroCurso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -217,7 +216,7 @@ CREATE TABLE `loginAttempts` (
   `Username` varchar(65) DEFAULT NULL,
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +233,7 @@ CREATE TABLE `members` (
   `email` varchar(65) NOT NULL,
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `mod_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `role` text NOT NULL,
+  `role` text,
   `idUser` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`),
@@ -243,7 +242,7 @@ CREATE TABLE `members` (
   UNIQUE KEY `idUser` (`idUser`),
   UNIQUE KEY `idRole` (`idUser`),
   UNIQUE KEY `idUser_2` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,7 +288,7 @@ CREATE TABLE `profesor` (
   `IdDepartamentoProfesor` int(11) NOT NULL,
   `IdJefeInmediatoProfesor` int(11) NOT NULL,
   PRIMARY KEY (`IdProfesor`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -301,4 +300,4 @@ CREATE TABLE `profesor` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-08 16:31:25
+-- Dump completed on 2018-05-17 16:54:31

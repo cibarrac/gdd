@@ -4,7 +4,7 @@ class SQL {
     
     public static $CURSOS_OFERTADOS = "SELECT NumeroCurso, NombreCurso, ObjetivoCurso,"
             . " FechaInicioCurso, FechaFinCurso, TipoCurso,"
-            . " PeriodoCurso from curso";
+            . " PeriodoCurso FROM curso" ;
     
     
     public static $LISTA_ASISTENCIA = "SELECT INSCRIPCION.NombreCurso, "
@@ -30,7 +30,7 @@ class SQL {
     
     
     public static $SELECCIONA_ROLE = "SELECT role FROM members "
-            . "WHERE email='";
+            . "WHERE email=";
     
     
     public static $NOMBRE_PROFESOR = "SELECT NombreProfesor, ApellidoPaternoProfesor, "
@@ -80,5 +80,7 @@ class SQL {
             . " FechaInicioCurso, FechaFinCurso, NombreCompletoInstructor1, "
             . "NombreCompletoInstructor2, TipoCurso, AulaPropuesta FROM curso"
             . " WHERE NumeroCurso =";
+    
+    public static $DEPARTAMENTO = "SELECT * FROM departamento";
 }
 

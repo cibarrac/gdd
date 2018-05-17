@@ -143,7 +143,7 @@ function getCurso() {
         document.querySelector('#Aula').value = data.AulaPropuesta;
       }
     };
-    request.open('GET', 'api.php?oper=getcurso&nomcurso='  + numcurso.value, true);
+    request.open('GET', '../model/common/api.php?oper=getcurso&nomcurso='  + numcurso.value, true);
     request.send();
   }
 

@@ -25,28 +25,17 @@
 
 
  <?php
- /**
-  *
 
 
 
-  */
-
-
- function getheaders($table)
- {        $out = array();
-        $campos = mysql_query("describe ".$table);
-
-                    if(mysql_num_rows($campos)>0){
-                        while($r = mysql_fetch_array($campos)){
-                        $out [] = $r[0];
-                        }}
-
-        $header = $out;
-        foreach ($header as $value) { ?>
-                        <th class="header"> <?php echo  $value;?></th>
-                <?php }?>
-<?php
+ function getheaders($table) {
+     
+     $fields = querySelect("describe ".$table);
+     echo "<th class='header'> Operacion</th>";	 
+     foreach ($fields as $field) {
+         echo "<th class='header'>". $field[0] ."</th>";
+     }    
+    
  }
 
 
@@ -70,8 +59,6 @@
               $_subscribe = new Modal('JefeDepto', 'Editar Jefe de departamento', '_JefedeptoBoss', 'editarBoss');
               $_subscribe->getContent(true);
 
-
-
               ?>
         </div>
 
@@ -93,53 +80,27 @@
     {
       $list = querySelect(SQL::$CURSOS_POR_JEFE." ".$_SESSION['username'] );
     }
+    
+    
     else
     {
       $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
     }
     
     $i = 0;
-    if(mysql_num_rows($list)>0){
-             while($row = mysql_fetch_array($list)){   ?>
-                   <tr <?php
-                   if(isset($row['ispublic'])){
-                         if($row['ispublic']==1 ){ echo "class='info'";} else {echo "class='warning'";}
-                   }
-
-
-                   ?> >
-                   <?php
-                   $flag = true;
-                   foreach ($row as $col) {
-                                 //print_r($row);
-                                if($flag) { ?>
-
-                                        <td>
-                                        <?php
-                                           echo $col; ?>
-                                        </td>
-
-
-
-
-                                 <?php $flag = false; } else { $flag=true;}
-
-                                }  ?>
-                                <td>
-                                    <?php
-                                          evaluate_cursos($table,$row['NumeroCurso']);
-                                          //$modal = new Modal('btn1','Tabla',$contentView,'?');
-                                          //$modal->getContent();?>
-
-                                        </td>
-                </tr>
-                <?php $i++; }  } else {
-
-                        ?>
-                                <tr> <td colspan="6">No se encontraron resultados <?php echo $table; ?> </td> </tr>
-                        <?php  } ?>
-
-
+    foreach($list as $row) {   ?>       
+                    <tr <?php if(isset($row['ispublic'])){
+                                 if($row['ispublic']==1){ echo "class='success'";} 
+                                 else {echo "class='warning'";}
+                           } ?> >
+                        <td> <?php evaluate_cursos($table,$row['NumeroCurso']); ?> </td>
+                          
+                        <?php $flag = true;
+                        foreach ($row as $col) {
+                            if($flag) { ?>
+                        <td> <?php echo $col; ?> </td>
+                                 <?php $flag = false; } else { $flag=true;} }  ?>                             
+                    </tr> <?php $i++; }  ?>
             </tbody>
     </table>
 

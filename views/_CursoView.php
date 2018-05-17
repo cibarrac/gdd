@@ -1,5 +1,4 @@
 
-
   <div class="row">
     <p><center>INSTITUTO TEGNOLOGICO DE ACAPULCO</center></p>
     <p><center>Subdireccion Academica</center></p>
@@ -7,57 +6,81 @@
   </div>
 
 
-
-  <div class="row">
-      
-       <div class="col-md-6">
-            <div class="form-group">
-                 <label for="">Del departamento de:</label>
-                  <select class="form-control" name="DelDepartamentoDe" >
-                    <?php fillOptionsDouble("departamento",1) ?>
-                  </select>
-            </div>
-      </div>
-      
-      <div class="col-md-6">
-            <div class="form-group">
-                 <label for="">Para los profesores de la carrera de: </label>
-                  <select class="form-control" name="ParaLosProfesoresDe" >
-                    <?php fillOptionsSingle("carrera",1); ?>
-                  </select>
-            </div>
-    </div>
-
-</div>
-
-
-
-
-
 <div class="row">
-
-    <div class="col-md-6">
+    
+    <div class="col-md-4">
         <div class="form-group">
             <label for="">Jefe del departamento academico</label>
               <select class="form-control" name="NombreCompletoJefeDepto" >
-                <?php fillOptionsDouble("jefedepartamento",1)?>
+                  <option>
+                      <?php fillOptionsDouble("jefedepartamento",1)?>
+                  </option>
               </select>
         </div>
     </div>
+    
+    
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="">Del departamento de</label>
+            <select class="form-control" name="IdDepartamentoDe">
+                <option>
+                    <?php IdDepartamento()?>
+                </option>
+                
+            </select>
+        </div>
+    </div>
 
-
-    <div class="col-md-6">
+    
+    <div class="col-md-4">
         <div class="form-group">
             <label for="">Presidente de academia</label>
               <select class="form-control" name="NombreCompletoPresiAcad" >
-                <?php fillOptionsDouble("presidenteacademia",1)?>
+                  <option>
+                      <?php fillOptionsDouble("presidenteacademia",1)?>
+                  </option>          
               </select>
         </div>
     </div>
-
+    
 </div>
 
 
+<div class="row">
+    <div class="col-md-12">
+        <label>Para los profesores de: </label>
+        <div class="form-group">   
+            
+            <input class="form-check-input" name="TodasLasCarreras" value="0" type="checkbox" id="TodasLasCarreras" >
+            <label class="form-check-label" for="radio2"> Para todas las careras</label>
+            
+            <input class="form-check-input" name="ParaISC" value="1" type="checkbox" id="ParaISC">
+            <label class="form-check-label" for="radio2">ISC</label>
+
+            <input class="form-check-input" name="ParaIBQ" value="3" type="checkbox" id="ParaIBQ" >
+            <label class="form-check-label" for="radio2">IBQ</label>
+
+            <input class="form-check-input" name="ParaIEM" value="5" type="checkbox" id="ParaIEM" >
+            <label class="form-check-label" for="radio2">IEM</label>
+
+            <input class="form-check-input" name="ParaIGE" value="6" type="checkbox" id="ParaIGE" >
+            <label class="form-check-label" for="radio2">IGE</label>
+
+            <input class="form-check-input" name="ParaARQ" value="7" type="checkbox" id="ParaARQ" >
+            <label class="form-check-label" for="radio2">ARQ</label>
+
+            <input class="form-check-input" name="ParaLA" value="8" type="checkbox" id="ParaLA" >
+            <label class="form-check-label" for="radio2">LA</label>
+
+            <input class="form-check-input" name="ParaCP" value="9" type="checkbox" id="ParaCP" >
+            <label class="form-check-label" for="radio2">CP</label>  
+            
+           
+        </div>
+    </div>
+      
+</div>
 
 
 
@@ -107,7 +130,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Intructor propuesto:</label>
-            <select class="form-control" name="NombreCompletoInstructor1">
+            <select class="form-control" name="NombreCompletoInstructor">
                 <option value="">
                   <?php fillOptionsDouble("instructor",1) ?>
                 </option>
@@ -229,7 +252,7 @@
         
     <div class="col-md-3 col-md-offset-1">        
         <div class="alert alert-success alert-dismissable">
-            <a href="javascript:mostrar();"> <input class="form-check-input" name=""  type="checkbox"  > DIPLOMADO </a>
+            <a href="javascript:mostrar();" >  <input class="form-check-input" name=""  type="checkbox"  > CLICK PARA SELECCIONAR DIPLOMADO </a>
             <div id="flotante" style="display:none;">
                 <div class="form-check">
                     <input class="form-check-input" name="DiplomadoDFT" value="1" type="radio" id="DiplomadoDFT">
@@ -256,11 +279,11 @@
                 <label class="form-check-label" for="radio2">Profesional</label>
                 
                
-                    <div class="col-md-18 col-md-offset-1">
+                    <div class="col-md-12 col-md-offset-1">
                         <input class="form-check-input" name="CursoCertificacion" value="1" type="checkbox" id="CursoCertificacion" >
                         <label class="form-check-label" for="radio2">Certificacion</label>
-                        <input class=""   hidden="">
                         
+                        <input class=""   hidden="">
                     </div>
             </div>
         </div>
@@ -274,10 +297,9 @@
 </div>
 
 
-    
-    
-    
-    
+
+
+  
     
 <script languague="javascript">
         function mostrar() {
@@ -290,3 +312,5 @@
             div.style.display = 'none';
         }
 </script>
+
+
