@@ -8,6 +8,7 @@ class Curso {
     private $HoraFinCurso;
     private $FechaInicioCurso;
     private $FechaFinCurso;
+    private $FechaLimite; //Agregar a la bd del servidor del tec
     private $NumeroProfesoresCurso;
     private $PeriodoCurso;
     private $ispublic;
@@ -20,5 +21,6 @@ class Curso {
     private $NombreCompletoInstructor1;
     private $NombreCompletoInstructor2;
     private $AulaPropuesta;
+    private $IdDepartamentoDe;
     public function __GET($k){ return $this->$k; } 
     public function __SET($k, $v) { return $this->$k = $v; } } 

@@ -7,8 +7,24 @@ class CursoService
     {   $cursoDAO = new CursoDAO();
         return $cursoDAO->cargarCursos();   
     }
+    
     public static function getAsistencias() {
         $cursoDAO = new CursoDAO();
         return $cursoDAO->cargarAsistencias();
+    }
+    
+    public static function getProfesorInscrito($IdProfesor, $IdCurso){
+        $cursoDAO = new CursoDAO();
+        return $cursoDAO->validarProfesorInscrito($IdProfesor, $IdCurso);
+    }
+    
+    public static function getFechaLimiteInscripcion($IdCurso){
+        $cursoDAO = new CursoDAO();
+        return $cursoDAO->validarFechaLimiteInscripcion($IdCurso);
+    }
+    
+    public static function getEspacioEnElAula($IdCurso){
+        $cursoDAO = new CursoDAO();
+        return $cursoDAO->validarEspacioEnElAula($IdCurso);
     }
 }

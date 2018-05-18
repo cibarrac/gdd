@@ -45,4 +45,25 @@ class CursoDAO {
         }
         return $cursoList;
     }
+    
+    //validar que el profesor no este incrito en otro curso a la misma hora
+    public function validarProfesorInscrito($IdProfesor, $IdCurso){
+        $result = querySelect(SQL::$VALIDAR_PROFESOR." '".$IdProfesor."' AND ".SQL::VALIDAR_PROFESOR2."='".$IdCurso."'");
+        if(isset($result)) {  return true; }
+        else{ return false;}
+    }
+    
+    
+    public function validarFechaLimiteInscripcion ($IdCurso){
+        $result = querySelect(SQL::$VALIDA_FECHA_LIMITE."'".$IdCurso."'");
+        if(isset($result)) {  return true; }
+        else{ return false;}
+    }
+    
+    public function validarEspacioEnElAula ($IdCurso){
+        $result = querySelect(SQL::$VALIDAR_HORA_CURSO);
+        if(isset($result)) {  return true; }
+        else{ return false;}
+    }
+    
 }

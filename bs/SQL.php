@@ -82,5 +82,7 @@ class SQL {
             . " WHERE NumeroCurso =";
     
     public static $DEPARTAMENTO = "SELECT * FROM departamento";
+    
+    public static $VALIDAR_PROFESOR = "SELECT * FROM incripciones WHERE IdProfesor =";
 }
 
