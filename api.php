@@ -1,14 +1,17 @@
 <?php
 
 require 'bs/QueryService.php';
-
+ 
 function fillOptionsInscription($nombre)
 {
-    $lista = sql_query(SQL::$CURSO_POR_NOMBRE_API." ".$nombre);
+    $lista = querySelect("SELECT NumeroCurso, FechaInicioCurso, FechaFinCurso, "
+            . "NombreCompletoInstructor, TipoCurso, AulaPropuesta FROM curso"
+            . " WHERE  NombreCurso = '".$nombre."'");
     
     if (count($lista) > 0) {
         return $lista[0];
     } else {
+        
         return ['numcurso' => $nombre, 'message' => 'No se obtuvieron datos'];
     }
 }
@@ -30,6 +33,7 @@ if ($_GET['oper']) {
             echo json_encode(['status'=> 500 , 'message'=>'Error al realizar petici&oacute;n, falta parametros']);
         } elseif (isset($_GET['numcurso'])) {
             $numcurso = $_GET['numcurso'];
+           
             echo json_encode([ 'status'=> 200, 'data' => fillOptionsInscriptionByNum($numcurso)]);
         } else {
             $numcurso = $_GET['nomcurso'];

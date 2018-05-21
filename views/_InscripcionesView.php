@@ -8,7 +8,7 @@
     <div class="form-group">
       <label for="">Nombre del curso: </label>
       <select class="form-control" name="NombreCurso" id="NombreCurso" onchange="getCurso()" required>
-        <option value=""></option>
+        <option value="Seleccionar"> Seleccionar</option>
         <?php
         $numero = fillOptionsSingle("curso",1)
         ?>
@@ -19,7 +19,7 @@
   <div class="col-md-3">
     <div class="form-group">
       <label for="">Numero del curso: </label>
-      <input type="text" class="form-control" name="NumeroCurso" id="NumeroCurso" value=" ">
+      <input type="text" class="form-control" name="NumeroCurso" id="NumeroCurso" value="">
     </div>
   </div>
 
@@ -56,16 +56,11 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="">Instructor 1:</label>
-      <input type="text" class="form-control" name="NombreInstructor1"  id="NombreInstructor1" readonly=”readonly” >
+      <input type="text" class="form-control" name="NombreInstructor"  id="NombreInstructor" readonly=”readonly” >
     </div>
   </div>
 
-  <div class="col-md-6">
-    <div class="form-group">
-      <label for="">Instructor 2 (En caso de ser necesario):</label>
-      <input type="text" class="form-control" name="NombreInstructor2"  id="NombreInstructor2"readonly=”readonly” >
-    </div>
-  </div>
+
 
 
 </div>
@@ -122,28 +117,30 @@ function getCurso() {
       var response = this.response;
 
       if (typeof response === 'undefined' || response === "")
-      throw "No se recuperó la información de la respuesta a la petición."
+             throw "No se recuperó la información de la respuesta a la petición.";
 
       var res = JSON.parse(response);
-
-      if (res.status == 200) {
+ console.log(res);
+     
+       if (res.status == 200) {
         var data = res.data;
 
         if (data.length == 0)
         return;
-
+       
+       
         // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
         document.querySelector('#NumeroCurso').value = data.NumeroCurso;
         document.querySelector('#FechaInicio').value = data.FechaInicioCurso;
         document.querySelector('#FechaFin').value = data.FechaFinCurso;
-        document.querySelector('#NombreInstructor1').value = data.NombreCompletoInstructor1;
-        document.querySelector('#NombreInstructor2').value = data.NombreCompletoInstructor2;
+        document.querySelector('#NombreInstructor').value = data.NombreCompletoInstructor;
+        //(document.querySelector('#NombreInstructor2').value = data.NombreCompletoInstructor2;
         document.querySelector('#TipoCurso').value = data.TipoCurso;
         //document.querySelector('#horario').value = data.horainicio;
         document.querySelector('#Aula').value = data.AulaPropuesta;
       }
     };
-    request.open('GET', '../model/common/api.php?oper=getcurso&nomcurso='  + numcurso.value, true);
+    request.open('GET', 'api.php?oper=getcurso&nomcurso='  + numcurso.value, true);
     request.send();
   }
 

@@ -16,7 +16,7 @@ function querySelect($sql) {
                $lista[] = $row;        
         }
     } else {
-        echo "0 results";
+        echo "";
     }
     //$conn->close();
     return $lista;

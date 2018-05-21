@@ -1,5 +1,5 @@
 <?php 
-include "../bs/QueryService.php";
+include "bs/QueryService.php";
 
 function gen_models()
 {
@@ -27,5 +27,5 @@ function truncateDatabase() {
         
     } return $out . " SET FOREIGN_KEY_CHECKS=1;  <br>  <br> ";
 }
-echo  truncateDatabase();
+
 echo gen_models();
