@@ -16,6 +16,7 @@ class CursoService
     public static function getProfesorInscrito($IdProfesor, $IdCurso){
         $cursoDAO = new CursoDAO();
         return $cursoDAO->validarProfesorInscrito($IdProfesor, $IdCurso);
+        //return false;
     }
     
     public static function getFechaLimiteInscripcion($IdCurso){

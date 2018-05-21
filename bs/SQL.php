@@ -83,6 +83,8 @@ class SQL {
     
     public static $DEPARTAMENTO = "SELECT * FROM departamento";
     
-    public static $VALIDAR_PROFESOR = "SELECT * FROM incripciones WHERE IdProfesor =";
+    public static $VALIDAR_PROFESOR = "SELECT * FROM inscripcion WHERE IdProfesor =";
+    
+    public static $VALIDAR_PROFESOR2 = "NumeroCurso = ";
 }
 

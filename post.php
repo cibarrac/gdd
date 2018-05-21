@@ -1,10 +1,25 @@
 <?php
 include 'bs/QueryService.php';
+include 'bs/curso/CursoService.php';
 
 /**
  * COMO PARAMETRO SE RECIBE EL NOMBRE DE LA TABLA EN LA BASE DE DATOS
  * CADA CAMPO SE LEERA DEL ARREGLO POST O GET PARA CONCATENARLO EN UNA CADENA PARA CREAR UN INSERT
  */
+
+function validation(){
+     $formData = getPOST_GET();
+    $table = $formData['table'];
+    
+    if($table=="inscripcion") {
+        $IdCurso = $formData['NumeroCurso'];
+        $IdProfesor = $formData['IdProfesor']; 
+     return CursoService::getProfesorInscrito($IdProfesor, $IdCurso);    
+    }
+    
+    
+    
+}
 function save($table) {
 
              $config = ["table_name"=>"reservas","fields"=>"(","values"=>"(","update_v"=>" "];
@@ -24,11 +39,13 @@ function save($table) {
                                }
                                $i++;
                   }
-
+                  if(validation()) {
                   $SQL_INSERT = "INSERT INTO ". $table." ".$config['fields'].") VALUES ".$config['values'].")";
                   queryInsert($SQL_INSERT);
                   echo $SQL_INSERT;
-
+                  }
+                  else{echo "No se guardo"; }
+                 
 
 
 }
@@ -52,6 +69,7 @@ function update($id,$table) {
                   }
                   $i++;
       }
+
 
                     $SQL_UPDATE = "UPDATE ". $table." SET ".$values." WHERE id = '".$id."'";
                     echo $SQL_UPDATE;

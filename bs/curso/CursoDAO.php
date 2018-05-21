@@ -48,9 +48,10 @@ class CursoDAO {
     
     //validar que el profesor no este incrito en otro curso a la misma hora
     public function validarProfesorInscrito($IdProfesor, $IdCurso){
-        $result = querySelect(SQL::$VALIDAR_PROFESOR." '".$IdProfesor."' AND ".SQL::VALIDAR_PROFESOR2."='".$IdCurso."'");
-        if(isset($result)) {  return true; }
-        else{ return false;}
+        $result = querySelect("SELECT * FROM inscripcion WHERE IdProfesor = '".$IdProfesor."' "
+                . "AND NumeroCurso ='".$IdCurso."' ");
+        if(count($result)>0) {  return false; }
+        else{ return true;}
     }
     
     
