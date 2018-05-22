@@ -1,4 +1,3 @@
-
  <?php
   function evaluate_cursos($table,$NumeroCurso)
   {
@@ -75,26 +74,21 @@
 <!-- Fin Tabla Curso ****************************************************************************************************************-->
 <!-- Inicio Tabla Inscripcion ****************************************************************************************************************-->
 <script>
-$(document).ready(function() {
-    $('#tabla').DataTable( {
-    	"oLanguage": {
+  $(document).ready(function() {
+	   $('#tabla').DataTable( {
+    	   "oLanguage": {
             "sSearch": "Buscar "
-            },
-        dom: 'Bfrtip',
-        columnDefs: [
-        {
-            targets: 1,
-            className: 'noVis'
-        }
-        ],
-        buttons: [
-        {
-            extend: 'colvis',
-            columns: ':not(.noVis)'
-        }
-        ]
-    } );
-} );
+            }, 
+            dom: 'Bfrtip',
+            columnDefs: [ { targets: -1 } ],
+            buttons: ['columnsToggle' ] ,
+            
+      });
+     
+   
+  });
+
+
 
   function inscribir(numerocurso) {
     var request = new XMLHttpRequest();
