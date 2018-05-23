@@ -46,7 +46,7 @@ class CursoDAO {
         return $cursoList;
     }
     
-    //validar que el profesor no este incrito en otro curso a la misma hora
+    //validar que el profesor no este incrito en otro en el mismo curso 2 veces 
     public function validarProfesorInscrito($IdProfesor, $IdCurso){
         $result = querySelect("SELECT * FROM inscripcion WHERE IdProfesor = '".$IdProfesor."' "
                 . "AND NumeroCurso ='".$IdCurso."' ");
@@ -54,13 +54,15 @@ class CursoDAO {
         else{ return true;}
     }
     
-    
+    //validar la fecha limite de inscripcion de un cruso  
     public function validarFechaLimiteInscripcion ($IdCurso){
         $result = querySelect(SQL::$VALIDA_FECHA_LIMITE."'".$IdCurso."'");
         if(isset($result)) {  return true; }
         else{ return false;}
     }
     
+    //Validar que el aula propuesta no este ocupada en la misma hora por
+    //otro curso
     public function validarEspacioEnElAula ($IdCurso){
         $result = querySelect(SQL::$VALIDAR_HORA_CURSO);
         if(isset($result)) {  return true; }

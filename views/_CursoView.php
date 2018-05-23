@@ -127,7 +127,7 @@
 
 <div class="row">
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group">
             <label for="">Intructor propuesto:</label>
             <select class="form-control" name="NombreCompletoInstructor">
@@ -138,7 +138,7 @@
         </div>
     </div>
     
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group">
           <label for="">Aula Propuesta:</label>
           <select class="form-control" name="AulaPropuesta">
@@ -147,6 +147,14 @@
               </option>
           </select>
       </div>
+    </div>
+    
+     
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="">Fecha limite de inscripcion:</label>
+            <input type="date" name="FechaLimite" class="form-control">
+        </div>
     </div>
     
 </div>
@@ -189,17 +197,17 @@
 
     <div class="col-md-3">
         <div class="form-group">
-            <label for="">Fecha de inicio:</label>
+            <label for="">De inicio:</label>
             <input type="date" name="FechaInicioCurso" class="form-control" required>
         </div>
     </div>
 
     <div class="col-md-3">
         <div class="form-group">
-            <label for="">Fecha de terminacion:</label>
+            <label for="">De terminacion:</label>
             <input type="date" name="FechaFinCurso" class="form-control">
         </div>
-    </div>
+    </div>  
 
 </div>
 
