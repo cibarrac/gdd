@@ -29,7 +29,7 @@ CREATE TABLE `aula` (
   `UbicacionAula` text NOT NULL,
   `TipoAula` text NOT NULL,
   PRIMARY KEY (`IdAula`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,6 +82,7 @@ CREATE TABLE `curso` (
   `CursoProfesional` tinyint(1) NOT NULL,
   `CursoCertificacion` tinyint(1) NOT NULL,
   `DirigidoA` varchar(10) NOT NULL,
+  `FechaLimite` date NOT NULL,
   PRIMARY KEY (`NumeroCurso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -142,7 +143,7 @@ CREATE TABLE `inscripcion` (
   `NombreCurso` text NOT NULL,
   `FechaInicio` text NOT NULL,
   `FechaFin` text NOT NULL,
-  `NombreInstructor1` text NOT NULL,
+  `NombreInstructor` text NOT NULL,
   `TipoCurso` text NOT NULL,
   `Aula` text NOT NULL,
   `NombreInstructor2` text,
@@ -158,7 +159,7 @@ CREATE TABLE `inscripcion` (
   CONSTRAINT `inscripcion_ibfk_3` FOREIGN KEY (`IdInstructor2`) REFERENCES `instructor` (`IdInstructor`),
   CONSTRAINT `inscripcion_ibfk_4` FOREIGN KEY (`IdProfesor`) REFERENCES `profesor` (`IdProfesor`),
   CONSTRAINT `inscripcion_ibfk_5` FOREIGN KEY (`IdAula`) REFERENCES `aula` (`IdAula`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,7 +217,7 @@ CREATE TABLE `loginAttempts` (
   `Username` varchar(65) DEFAULT NULL,
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,7 +243,7 @@ CREATE TABLE `members` (
   UNIQUE KEY `idUser` (`idUser`),
   UNIQUE KEY `idRole` (`idUser`),
   UNIQUE KEY `idUser_2` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,4 +301,4 @@ CREATE TABLE `profesor` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-17 16:54:31
+-- Dump completed on 2018-05-23 15:34:29
