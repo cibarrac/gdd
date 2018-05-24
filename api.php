@@ -17,7 +17,10 @@ function fillOptionsInscription($nombre)
 }
 function fillOptionsInscriptionByNum($numero)
 {
-    $lista = querySelect(SQL::$CURSO_POR_NUMERO_API." ".$numero);
+    $lista = querySelect("SELECT NombreCurso, NumeroCurso,"
+            . " FechaInicioCurso, FechaFinCurso, NombreCompletoInstructor, "
+            . " TipoCurso, AulaPropuesta FROM curso"
+            . " WHERE NumeroCurso = '".$numero."' ");
     if (count($lista)>0) {
         return $lista[0];
     } else {

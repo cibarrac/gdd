@@ -71,14 +71,13 @@ class SQL {
     public static $CURSO_PUBLIC = "SELECT * FROM curso WHERE sign1=1 and sign2=1";
     
     
-    public static $CURSO_POR_NOMBRE_API = "SELECT NumeroCurso, FechaInicioCurso, FechaFinCurso,"
-            . " NombreCompletoInstructor1, NombreCompletoInstructor2,"
-            . " TipoCurso, AulaPropuesta FROM curso WHERE "
-            . "NombreCurso =";
+    public static $CURSO_POR_NOMBRE_API = "SELECT NumeroCurso, FechaInicioCurso, FechaFinCurso, "
+            . "NombreCompletoInstructor, TipoCurso, AulaPropuesta FROM curso"
+            . " WHERE  NombreCurso =";
     
     public static $CURSO_POR_NUMERO_API = "SELECT NombreCurso, NumeroCurso,"
-            . " FechaInicioCurso, FechaFinCurso, NombreCompletoInstructor1, "
-            . "NombreCompletoInstructor2, TipoCurso, AulaPropuesta FROM curso"
+            . " FechaInicioCurso, FechaFinCurso, NombreCompletoInstructor, "
+            . " TipoCurso, AulaPropuesta FROM curso"
             . " WHERE NumeroCurso =";
     
     public static $DEPARTAMENTO = "SELECT * FROM departamento";

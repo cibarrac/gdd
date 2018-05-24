@@ -12,9 +12,7 @@
         <div class="form-group">
             <label for="">Jefe del departamento academico</label>
               <select class="form-control" name="NombreCompletoJefeDepto" >
-                  <option>
-                      <?php fillOptionsDouble("jefedepartamento",1)?>
-                  </option>
+                    <?php fillOptionsDouble("jefedepartamento",1)?>
               </select>
         </div>
     </div>
@@ -24,10 +22,7 @@
         <div class="form-group">
             <label for="">Del departamento de</label>
             <select class="form-control" name="IdDepartamentoDe">
-                <option>
-                    <?php IdDepartamento()?>
-                </option>
-                
+                <?php IdDepartamento()?>
             </select>
         </div>
     </div>
@@ -37,9 +32,7 @@
         <div class="form-group">
             <label for="">Presidente de academia</label>
               <select class="form-control" name="NombreCompletoPresiAcad" >
-                  <option>
-                      <?php fillOptionsDouble("presidenteacademia",1)?>
-                  </option>          
+                    <?php fillOptionsDouble("presidenteacademia",1)?>       
               </select>
         </div>
     </div>
@@ -76,6 +69,8 @@
             <input class="form-check-input" name="ParaCP" value="9" type="checkbox" id="ParaCP" >
             <label class="form-check-label" for="radio2">CP</label>  
             
+            <input type="text" hidden name="DIrigidoA" value="0">
+            <input type="text" hidden name="NumeroProfesoresCurso" value="0">
            
         </div>
     </div>
@@ -109,7 +104,6 @@
     <div class="col-md-6">
         <label for="">Tipo de curso</label>
         <select name="TipoCurso" class="form-control">
-        <option value=""> </option>
             <option value="Generico">Generico</option>
             <option value="Especialidad">Especialidad</option>
         </select>
@@ -127,42 +121,41 @@
 
 <div class="row">
 
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="">Intructor propuesto:</label>
             <select class="form-control" name="NombreCompletoInstructor">
-                <option value="">
-                  <?php fillOptionsDouble("instructor",1) ?>
-                </option>
+                <?php fillOptionsDouble("instructor",1) ?>
             </select>
         </div>
     </div>
     
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
           <label for="">Aula Propuesta:</label>
           <select class="form-control" name="AulaPropuesta">
-              <option value="">
-                  <?php fillOptionsSingle("aula",1) ?>
-              </option>
+                <?php fillOptionsSingle("aula",1) ?>
           </select>
       </div>
     </div>
     
-    <div class="col-md-3">
-    <div class="form-group">
-      <label for="">Turno</label>
-      <select class="form-control" name="Turno" id="Turno" required>
-        <option value=""> </option>
-        <option value="M"> Matutino</option>
-        <option value="V"> Vespertino</option>
-        
-      </select>
-    </div>
-  </div>
+</div>
+
+
+
+<div class="row">
     
-     
-    <div class="col-md-4">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Turno</label>
+            <select class="form-control" name="Turno" id="Turno" required>
+                <option value="M"> Matutino</option>
+                <option value="V"> Vespertino</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
         <div class="form-group">
             <label for="">Fecha limite de inscripcion:</label>
             <input type="date" name="FechaLimite" class="form-control">
@@ -249,7 +242,7 @@
         </div>
 
         <div class="col-md-3">
-            <input type="number" name="NumeroProfesoresCurso" class="form-control">
+            <input type="number" name="capacidadmaxima" class="form-control">
         </div>
 
         <div class="col-md-3">
@@ -268,59 +261,50 @@
 <div class="container">
     <div class="row">
         
-
-        
-    <div class="col-md-3 col-md-offset-1">        
-        <div class="alert alert-success alert-dismissable">
-            <a href="javascript:mostrar();" >  <input class="form-check-input" name=""  type="checkbox"  > CLICK PARA SELECCIONAR DIPLOMADO </a>
-            <div id="flotante" style="display:none;">
-                <div class="form-check">
-                    <input class="form-check-input" name="DiplomadoDFT" value="1" type="radio" id="DiplomadoDFT">
-                    <label class="form-check-label" for="radio1">DFT </label> 
-                    <input class="form-check-input" name="DiplomadoDFT" value="2" type="radio" id="DiplomadoDFT" >
-                    <label class="form-check-label" for="radio1">DFTD</label>
-                    <div id="close"><a href="javascript:cerrar();">Cancelar</a></div>
-                    <input class=""   hidden="">
-                    </div>
-            </div>
-            
-        </div>
-    </div>
-        
-        
-        
-        <div class="col-md-3 col-md-offset-1" >
-        <div class="alert alert-info alert-dismissable">
-            <label> CURSO </label>
-            <div class="form-check">
-                <input class="form-check-input" name="CursoDocente" value="1" type="radio" id="CursoDocente">
-                <label class="form-check-label" for="radio2">Docente </label> 
-                <input class="form-check-input" name="CursoDocente" value="2" type="radio" id="CursoDocente" >
-                <label class="form-check-label" for="radio2">Profesional</label>
-                
-               
-                    <div class="col-md-12 col-md-offset-1">
-                        <input class="form-check-input" name="CursoCertificacion" value="1" type="checkbox" id="CursoCertificacion" >
-                        <label class="form-check-label" for="radio2">Certificacion</label>
-                        
+        <div class="col-md-3 col-md-offset-1">        
+            <div class="alert alert-success alert-dismissable">
+                <a href="javascript:mostrar();" >  <input class="form-check-input" name=""  type="checkbox"  > CLICK PARA SELECCIONAR DIPLOMADO </a>
+                <div id="flotante" style="display:none;">
+                    <div class="form-check">
+                        <input class="form-check-input" name="DiplomadoDFT" value="1" type="radio" id="DiplomadoDFT">
+                        <label class="form-check-label" for="radio1">DFT </label> 
+                        <input class="form-check-input" name="DiplomadoDFT" value="2" type="radio" id="DiplomadoDFT" >
+                        <label class="form-check-label" for="radio1">DFTD</label>
+                        <div id="close"><a href="javascript:cerrar();">Cancelar</a></div>
                         <input class=""   hidden="">
-                    </div>
+                        </div>
+                </div>
+
             </div>
         </div>
-    </div>
+
+
+
+        <div class="col-md-3 col-md-offset-1" >
+            <div class="alert alert-info alert-dismissable">
+                <label> CURSO </label>
+                <div class="form-check">
+                    <input class="form-check-input" name="CursoDocente" value="1" type="radio" id="CursoDocente">
+                    <label class="form-check-label" for="radio2">Docente </label> 
+                    <input class="form-check-input" name="CursoDocente" value="2" type="radio" id="CursoDocente" >
+                    <label class="form-check-label" for="radio2">Profesional</label>
+
+
+                        <div class="col-md-12 col-md-offset-1">
+                            <input class="form-check-input" name="CursoCertificacion" value="1" type="checkbox" id="CursoCertificacion" >
+                            <label class="form-check-label" for="radio2">Certificacion</label>
+
+                            <input class=""   hidden="">
+                        </div>
+                </div>
+            </div>
+        </div>
         
-        
-</div>
-    
-    
-    
+    </div>  
 </div>
 
 
 
-
-  
-    
 <script languague="javascript">
         function mostrar() {
             div = document.getElementById('flotante');
