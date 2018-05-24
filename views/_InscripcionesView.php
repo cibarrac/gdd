@@ -45,6 +45,8 @@
       <input type="date" name="FechaFin" id="FechaFin" class="form-control"readonly=”readonly” >
     </div>
   </div>
+    
+    
 
 </div>
 

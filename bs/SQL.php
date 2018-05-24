@@ -86,5 +86,11 @@ class SQL {
     public static $VALIDAR_PROFESOR = "SELECT * FROM inscripcion WHERE IdProfesor =";
     
     public static $VALIDAR_PROFESOR2 = "NumeroCurso = ";
+    
+    public static $TOTAL_INSCRPCIONES=  "select Count(NumeroCurso) as cantidad from inscripcion where NumeroCurso=";
+    
+    public static $CAPACIDAD_MAXIMA_CURSO = "select capacidadmaxima from curso where NumeroCurso= ";
+    
+    public static $VALIDAR_AULA_OCUPADA = "select NumeroCurso, NombreCurso, AulaPropuesta, Turno from curso where sign1 and sign2 ="; 
 }
 

@@ -149,6 +149,18 @@
       </div>
     </div>
     
+    <div class="col-md-3">
+    <div class="form-group">
+      <label for="">Turno</label>
+      <select class="form-control" name="Turno" id="Turno" required>
+        <option value=""> </option>
+        <option value="M"> Matutino</option>
+        <option value="V"> Vespertino</option>
+        
+      </select>
+    </div>
+  </div>
+    
      
     <div class="col-md-4">
         <div class="form-group">
