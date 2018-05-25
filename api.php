@@ -15,6 +15,8 @@ function fillOptionsInscription($nombre)
         return ['numcurso' => $nombre, 'message' => 'No se obtuvieron datos'];
     }
 }
+
+
 function fillOptionsInscriptionByNum($numero)
 {
     $lista = querySelect("SELECT NombreCurso, NumeroCurso,"
@@ -28,6 +30,21 @@ function fillOptionsInscriptionByNum($numero)
     }
 }
 
+function NombresJefePresi($idDepartamento)
+{
+    $lista = querySelect("SELECT concat(JEFE.NombreJefeDepto,' ',JEFE.ApellidoPaternoJefeDepto,' '"
+            . ",JEFE.ApellidoMaternoJefeDepto) AS NombreJefe, concat(PRESI.NombrePresidenteAcad,' '"
+            . ",PRESI.ApellidoPaternoPresidenteAcad,' ',PRESI.ApellidoMaternoPresidenteAcad)"
+            . " AS NombrePresidente FROM  jefedepartamento JEFE, presidenteacademia PRESI "
+            . "WHERE JEFE.IdDepartamentoJefe ='".$idDepartamento."' AND "
+            . "PRESI.IdDepartamentoPresidente = '".$idDepartamento."' ");
+        if (count($lista)>0) {
+            return $lista[0]; 
+        } else {
+            return ['idDepartamento' => $idDepartamento, 'message' => 'No se obtuvieron datos'];
+        }
+}
+
 
 
 if ($_GET['oper']) {
@@ -35,38 +52,21 @@ if ($_GET['oper']) {
         if (!isset($_GET['nomcurso']) && !isset($_GET['numcurso'])) {
             echo json_encode(['status'=> 500 , 'message'=>'Error al realizar petici&oacute;n, falta parametros']);
         } elseif (isset($_GET['numcurso'])) {
-            $numcurso = $_GET['numcurso'];
-           
+            $numcurso = $_GET['numcurso'];     
             echo json_encode([ 'status'=> 200, 'data' => fillOptionsInscriptionByNum($numcurso)]);
         } else {
             $numcurso = $_GET['nomcurso'];
             echo json_encode([ 'status'=> 200, 'data' => fillOptionsInscription($numcurso)]);
         }
+        
     }
+    elseif ($_GET['oper']=='getnombres'){
+        $idDepartamento = $_GET['idDepartamento'];
+        echo json_encode([ 'status' => 200, 'data' => NombresJefePresi($idDepartamento)]);
+    }
+    
 } else {
     echo json_encode(['status' => 200, 'message' => 'Bienvenido a la aplicaci&oacute;n de GDD.']);
 }
- /*
-if ($_GET['oper'])
-  {
-    $numcurso = $_GET['nomcarrera'];
-    echo json_encode([ 'status'=> 200, 'data' => ObtieneCarrera($numcurso)]);
-
-  }
-*/
-/*
-function ObtieneCarrera($CorreoJefe)
-{
-
-    $lista = mysql_query("select NombreCarrera from Carrera inner join JefeDepartamento on IdDepartamentoCarrera = IdDepartamentoJefe where CorreoJefe = '$CorreoJefe'");
-
-    if (mysql_num_rows($lista)>0) {
-        return mysql_fetch_assoc($lista);
-    } else {
-        return ['nomcarrera' =>  $CorreoJefe, 'message' => 'No se obtuvieron datos'];
-    }
-}
-*/
-
 
 ?>

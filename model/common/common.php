@@ -173,5 +173,5 @@ function fillOptionsDouble($table, $col) {
             <?php echo $fila[$col+1];?>
         </option>
 <?php }}?>
-                
-         
+
+            

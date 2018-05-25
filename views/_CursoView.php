@@ -6,36 +6,38 @@
   </div>
 
 
+
+
 <div class="row">
-    
     <div class="col-md-4">
         <div class="form-group">
-            <label for="">Jefe del departamento academico</label>
-              <select class="form-control" name="NombreCompletoJefeDepto" >
-                    <?php fillOptionsDouble("jefedepartamento",1)?>
-              </select>
+            <label for="">Presidente de academia</label>
+            <input type="text" class="form-control" name="NombreCompletoPresiAcad" id="NombreCompletoPresiAcad" readonly>
+                    
         </div>
     </div>
     
-    
     <div class="col-md-4">
         <div class="form-group">
-            <label for="">Del departamento de</label>
-            <select class="form-control" name="IdDepartamentoDe">
-                <?php IdDepartamento()?>
-            </select>
+            <label for="">Jefe de departamento</label>
+            <input type="text" class="form-control" name="NombreCompletoJefeDepto" id="NombreCompletoJefeDepto" readonly>
+                   
         </div>
     </div>
 
     
     <div class="col-md-4">
         <div class="form-group">
-            <label for="">Presidente de academia</label>
-              <select class="form-control" name="NombreCompletoPresiAcad" >
-                    <?php fillOptionsDouble("presidenteacademia",1)?>       
-              </select>
+            <label for="">Del departamento de</label>
+            <select class="form-control" name="IdDepartamentoDe" id="IdDepartamentoDe" onchange="getNombres()">
+                <option> </option>
+                <?php IdDepartamento()?>
+            </select>
         </div>
     </div>
+
+    
+    
     
 </div>
 
@@ -104,6 +106,7 @@
     <div class="col-md-6">
         <label for="">Tipo de curso</label>
         <select name="TipoCurso" class="form-control">
+            <option> </option>
             <option value="Generico">Generico</option>
             <option value="Especialidad">Especialidad</option>
         </select>
@@ -125,6 +128,7 @@
         <div class="form-group">
             <label for="">Intructor propuesto:</label>
             <select class="form-control" name="NombreCompletoInstructor">
+                <option> </option>
                 <?php fillOptionsDouble("instructor",1) ?>
             </select>
         </div>
@@ -134,6 +138,7 @@
         <div class="form-group">
           <label for="">Aula Propuesta:</label>
           <select class="form-control" name="AulaPropuesta">
+              <option> </option>
                 <?php fillOptionsSingle("aula",1) ?>
           </select>
       </div>
@@ -318,3 +323,34 @@
 </script>
 
 
+<script>
+
+function getNombres() {
+    var idDepartamento = document.querySelector("#IdDepartamentoDe");
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+      var response = this.response;
+
+      if (typeof response === 'undefined' || response === "")
+             throw "No se recuperó la información de la respuesta a la petición.";
+
+      var res = JSON.parse(response);
+ console.log(res);
+     
+       if (res.status == 200) {
+        var data = res.data;
+
+        if (data.length == 0)
+        return;
+       
+       
+        // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
+        document.querySelector('#NombreCompletoJefeDepto').value = data.NombreJefe;
+        document.querySelector('#NombreCompletoPresiAcad').value = data.NombrePresidente;
+      }
+    };
+    request.open('GET', 'api.php?oper=getnombres&idDepartamento='  + idDepartamento.value, true);
+    request.send();
+  }
+
+</script>
