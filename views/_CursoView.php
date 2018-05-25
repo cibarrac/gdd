@@ -242,7 +242,7 @@
         </div>
 
         <div class="col-md-3">
-            <input type="number" name="capacidadmaxima" class="form-control">
+            <input type="number" name="capacidadmaxima" class="form-control" placeholder="Capacidad maxima">
         </div>
 
         <div class="col-md-3">

@@ -16,6 +16,7 @@ function validation(){
         $IdProfesor = $formData['IdProfesor']; 
      return CursoService::getProfesorInscrito($IdProfesor, $IdCurso);    
     }
+    else {return true;}
     
     
     
