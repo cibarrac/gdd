@@ -83,6 +83,8 @@ CREATE TABLE `curso` (
   `CursoCertificacion` tinyint(1) NOT NULL,
   `DirigidoA` varchar(10) NOT NULL,
   `FechaLimite` date NOT NULL,
+  `capacidadmaxima` int(50) NOT NULL,
+  `Turno` text NOT NULL,
   PRIMARY KEY (`NumeroCurso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -159,7 +161,7 @@ CREATE TABLE `inscripcion` (
   CONSTRAINT `inscripcion_ibfk_3` FOREIGN KEY (`IdInstructor2`) REFERENCES `instructor` (`IdInstructor`),
   CONSTRAINT `inscripcion_ibfk_4` FOREIGN KEY (`IdProfesor`) REFERENCES `profesor` (`IdProfesor`),
   CONSTRAINT `inscripcion_ibfk_5` FOREIGN KEY (`IdAula`) REFERENCES `aula` (`IdAula`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -301,4 +303,4 @@ CREATE TABLE `profesor` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-23 15:34:29
+-- Dump completed on 2018-05-26  0:37:07

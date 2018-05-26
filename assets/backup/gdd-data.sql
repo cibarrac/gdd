@@ -40,7 +40,6 @@ UNLOCK TABLES;
 
 LOCK TABLES `curso` WRITE;
 /*!40000 ALTER TABLE `curso` DISABLE KEYS */;
-INSERT INTO `curso` VALUES ('1.2','Energías Renovables ','ssdfdf','Generico','08:00:00','11:00:00','2018-05-14','2018-05-18',9,'Enero-Junio',1,1,1,1,'Juan Miguel Hernadez Bravo','Rafael Hernadez Reyna','Jose Cruz Garcia','7LAB',0,0,1,0,0,'51','0000-00-00'),('2.1','Produccion de energias renovables con utilizacion de paneles solares','dfarafg','Generico','07:59:00','04:58:00','2018-05-14','2018-05-18',3,'Enero-Junio',1,1,1,1,'Juan Miguel Hernadez Bravo','Rafael Hernadez Reyna','Jose Cruz Garcia','7LAB',0,0,1,0,0,'0','0000-00-00'),('3.1','PHP','Programar','Generico','11:00:00','14:00:00','2018-05-17','2018-05-19',5,'Enero-Junio',0,0,1,0,'Juan Miguel Hernadez Bravo','Rafael Hernadez Reyna','Jose Cruz Garcia','7LB',0,0,0,0,0,'1','0000-00-00'),('4.1','Paneles Solares','sdfsdf','Generico','07:00:00','11:00:00','2018-05-17','2018-05-19',12,'Enero-Junio',0,0,0,0,'Juan Miguel Hernadez Bravo','Rafael Hernadez Reyna','Jose Cruz Garcia','Sala Magna',0,0,0,0,1,'15','0000-00-00');
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +68,6 @@ UNLOCK TABLES;
 
 LOCK TABLES `inscripcion` WRITE;
 /*!40000 ALTER TABLE `inscripcion` DISABLE KEYS */;
-INSERT INTO `inscripcion` VALUES (1,'3.1',NULL,NULL,9,NULL,'','PHP','2018-05-17','2018-05-19','Jose Cruz Garcia','Generico','7LB',NULL,0),(2,'3.1',NULL,NULL,13,NULL,'','PHP','2018-05-17','2018-05-19','Jose Cruz Garcia','Generico','7LB',NULL,0),(3,'3.1',NULL,NULL,12,NULL,'','PHP','2018-05-17','2018-05-19','Jose Cruz Garcia','Generico','7LB',NULL,0),(4,'2.1',NULL,NULL,8,NULL,'','Produccion de energias renovables con utilizacion de paneles solares','2018-05-14','2018-05-18','Jose Cruz Garcia','Generico','7LAB',NULL,0);
 /*!40000 ALTER TABLE `inscripcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-23 15:34:33
+-- Dump completed on 2018-05-26  0:37:12
