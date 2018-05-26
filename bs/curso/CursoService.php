@@ -28,4 +28,16 @@ class CursoService
         $cursoDAO = new CursoDAO();
         return $cursoDAO->validarEspacioEnElAula($IdCurso);
     }
+    
+    public static function getTotalInscripciones($idCurso){
+        $cursoDAO = new CursoDAO();
+        return $cursoDAO->validarTotalInscripciones($idCurso);
+    }
+    
+    public static function getCapacidadMaximaCurso($idCurso){
+        $cursoDAO = new CursoDAO();
+        return $curdoDAO->validarCapacidadMaximaCurso($idCurso);
+    }
+    
+    
 }

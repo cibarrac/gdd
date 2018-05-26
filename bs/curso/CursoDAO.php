@@ -64,9 +64,22 @@ class CursoDAO {
     //Validar que el aula propuesta no este ocupada en la misma hora por
     //otro curso
     public function validarEspacioEnElAula ($IdCurso){
-        $result = querySelect(SQL::$VALIDAR_HORA_CURSO);
+        $result = querySelect(SQL::$VALIDAR_AULA_OCUPADA);
         if(isset($result)) {  return true; }
         else{ return false;}
+    }
+    
+    //validar total de inscripciones
+    public function validarTotalInscripciones ($idCurso){
+        $result = querySelect(SQL::$TOTAL_INSCRPCIONES."'".$idCurso."'");
+        if(isset($result)) { return $result; }    
+    }
+    
+    
+    //validar la capacidad maxima del curso 
+    public function validarCapacidadMaximaCurso ($idCurso){
+        $result = querySelect(SQL::$CAPACIDAD_MAXIMA_CURSO."'".$idCurso."'");
+        if(isset($result)) { return $result; }
     }
     
 }
