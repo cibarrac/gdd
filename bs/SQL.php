@@ -90,6 +90,6 @@ class SQL {
     
     public static $CAPACIDAD_MAXIMA_CURSO = "select capacidadmaxima from curso where NumeroCurso= ";
     
-    public static $VALIDAR_AULA_OCUPADA = "select NumeroCurso, NombreCurso, AulaPropuesta, Turno from curso where sign1 and sign2 ="; 
+    public static $AULA_OCUPADA = "SELECT NumeroCurso, NombreCurso, AulaPropuesta, Turno FROM curso WHERE AulaPropuesta = "; 
 }
 

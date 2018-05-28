@@ -63,8 +63,8 @@ class CursoDAO {
     
     //Validar que el aula propuesta no este ocupada en la misma hora por
     //otro curso
-    public function validarEspacioEnElAula ($IdCurso){
-        $result = querySelect(SQL::$VALIDAR_AULA_OCUPADA);
+    public function validarAulaDisponible ($idAula, $turno){
+        $result = querySelect(SQL::$AULA_OCUPADA." '".$idAula."'  AND Turno = '".$turno."' " );
         if(isset($result)) {  return true; }
         else{ return false;}
     }

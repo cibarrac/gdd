@@ -10,21 +10,21 @@
     <div class="col-md-4">
       <div class="form-group">
         <label for="">Nombre(s)</label>
-        <input type="text" class="form-control" name="NombreProfesor" >
+        <input type="text" class="form-control"   pattern="[A-Za-z ]+" name="NombreProfesor"  required="" title="Ingresa tu nombre sin numeros, por favor" >
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="form-group">
         <label for="">Apellido paterno</label>
-        <input type="text" class="form-control" name="ApellidoPaternoProfesor" >
+        <input type="text" class="form-control" name="ApellidoPaternoProfesor" required="">
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="form-group">
         <label for="">Apellido materno</label>
-        <input type="text" class="form-control" name="ApellidoMaternoProfesor" >
+        <input type="text" class="form-control" name="ApellidoMaternoProfesor" required="">
       </div>
     </div>
 
@@ -43,7 +43,7 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="">Numero de telefono:</label>
-        <input type="text" class="form-control" name="NumeroTelefonoProfesor">
+        <input type="number" class="form-control" name="NumeroTelefonoProfesor">
       </div>
     </div>
 

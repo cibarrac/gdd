@@ -40,6 +40,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `curso` WRITE;
 /*!40000 ALTER TABLE `curso` DISABLE KEYS */;
+INSERT INTO `curso` VALUES ('1.2.3','prueba de rigooooooooooooooo','sesf','Generico','23:32:00','12:21:00','2018-05-18','2018-05-26',0,'Enero-Junio',0,0,0,10,'Antonio Santos Silva','Jose Luis  RiaÃ±o Hernandez','Jose Cruz Garcia','7LAB',0,0,1,0,0,'0','2018-05-29',1,'V'),('5.7','Metodlogia SCRUM','efrsfse','Generico','12:21:00','12:32:00','2018-05-30','2018-05-29',0,'Enero-Junio',0,1,0,5,'Juan Miguel Hernadez Bravo','','Mel  ojeda justo','7LB',0,0,1,0,0,'0','2018-05-27',1,'V'),('6.8','ESCRUM 2','swfsdf','Generico','21:32:00','12:21:00','2018-05-19','2018-05-26',0,'Enero-Junio',0,0,0,5,'Juan Miguel Hernadez Bravo','Rafael Hernadez Reyna','Mel  ojeda justo','7LB',0,0,0,0,0,'0','2018-05-18',1,'V'),('6.9','wwefrrwef','sefsef','Generico','12:32:00','21:32:00','2018-05-18','2018-05-23',0,'Enero-Junio',0,0,0,12,'Federico Zagal Leon','Eloy Mata Carrillo','Mel  ojeda justo','7LB',0,0,0,0,0,'0','2018-05-19',8,'M');
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -68,6 +69,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `inscripcion` WRITE;
 /*!40000 ALTER TABLE `inscripcion` DISABLE KEYS */;
+INSERT INTO `inscripcion` VALUES (1,'5.7',NULL,NULL,NULL,NULL,'','Metodlogia SCRUM','2018-05-30','2018-05-29','Mel  ojeda justo','Generico','7LB',NULL,0),(2,'6.8',NULL,NULL,10,NULL,'','ESCRUM 2','2018-05-19','2018-05-26','Mel  ojeda justo','Generico','7LB',NULL,0);
 /*!40000 ALTER TABLE `inscripcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,7 +79,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `instructor` WRITE;
 /*!40000 ALTER TABLE `instructor` DISABLE KEYS */;
-INSERT INTO `instructor` VALUES (1,'Jose','Cruz','Garcia','2018-04-29','CGJ674856','CGJ872395629','74413220584','josecruz@gmail.com');
+INSERT INTO `instructor` VALUES (1,'Jose','Cruz','Garcia','2018-04-29','CGJ674856','CGJ872395629','74413220584','josecruz@gmail.com'),(2,'Mel ','ojeda','justo','2018-05-26','vyfctydytdytd','fukfukfuuy','7441815003','melojeda27@gmail.com');
 /*!40000 ALTER TABLE `instructor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-26  0:37:12
+-- Dump completed on 2018-05-28 13:08:43

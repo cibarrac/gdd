@@ -1,4 +1,5 @@
 
+
   <div class="row">
     <p><center>INSTITUTO TEGNOLOGICO DE ACAPULCO</center></p>
     <p><center>Subdireccion Academica</center></p>
@@ -71,7 +72,7 @@
             <input class="form-check-input" name="ParaCP" value="9" type="checkbox" id="ParaCP" >
             <label class="form-check-label" for="radio2">CP</label>  
             
-            <input type="text" hidden name="DIrigidoA" value="0">
+            <input type="text" hidden name="DirigidoA" value="0">
             <input type="text" hidden name="NumeroProfesoresCurso" value="0">
            
         </div>
@@ -115,7 +116,7 @@
     <div class="col-md-6">
           <div class="form-group">
               <label for="">Numero del curso:</label>
-              <input type="float" name="NumeroCurso" class="form-control">
+              <input type="text" name="NumeroCurso" class="form-control">
           </div>
     </div>
 

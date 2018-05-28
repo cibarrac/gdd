@@ -24,9 +24,9 @@ class CursoService
         return $cursoDAO->validarFechaLimiteInscripcion($IdCurso);
     }
     
-    public static function getEspacioEnElAula($IdCurso){
+    public static function getAulaDisponible($idAula, $turno){
         $cursoDAO = new CursoDAO();
-        return $cursoDAO->validarEspacioEnElAula($IdCurso);
+        return $cursoDAO->validarAulaDisponible($idAula, $turno);
     }
     
     public static function getTotalInscripciones($idCurso){

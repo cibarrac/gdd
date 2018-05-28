@@ -8,7 +8,7 @@ include 'bs/curso/CursoService.php';
  */
 
 function validation(){
-     $formData = getPOST_GET();
+    $formData = getPOST_GET();
     $table = $formData['table'];
     
     if($table=="inscripcion") {
@@ -45,7 +45,7 @@ function save($table) {
                   queryInsert($SQL_INSERT);
                   echo $SQL_INSERT;
                   }
-                  else{echo "No se guardo"; }
+                  else{echo "No se guardó"; }
                  
 
 
@@ -96,6 +96,7 @@ function show($list) {
 
 }
 }
+
 function getPOST_GET() {
     if(!empty($_POST)){
          echo "Es un post <br>";
