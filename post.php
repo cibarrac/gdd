@@ -14,9 +14,25 @@ function validation(){
     if($table=="inscripcion") {
         $IdCurso = $formData['NumeroCurso'];
         $IdProfesor = $formData['IdProfesor']; 
-     return CursoService::getProfesorInscrito($IdProfesor, $IdCurso);    
+     return CursoService::getProfesorInscrito($IdProfesor, $IdCurso);
     }
-    else {return true;}
+    
+    if($table == "incripcion"){
+        $idCurso = $formData['NumeroCurso'];
+        return CursoService::getFechaLimiteInscripcion($IdCurso);
+    }
+    
+    if($talbe == "inscripcion"){
+        $idCurso = $formData['NumeroCurso'];
+        return CursoService::getLimiteCurso($idCurso);
+    }
+    
+    if($table=="curso"){
+        $idAula = $formData['AulaPropuesta'];
+        $turno = $formData['Turno'];
+    return CursoService::getAulaDisponible($idAula, $turno);
+    }
+    
     
     
     

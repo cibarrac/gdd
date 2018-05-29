@@ -21,22 +21,35 @@ class CursoService
     
     public static function getFechaLimiteInscripcion($IdCurso){
         $cursoDAO = new CursoDAO();
-        return $cursoDAO->validarFechaLimiteInscripcion($IdCurso);
+        $fechaLimite = $cursoDAO->validarFechaLimiteInscripcion($IdCurso);
+        $fechaActual = $cursoDAO->validaFechaActual();
+        
+        if($fechaLimite == $fechaActual)
+        {
+            return false;
+        }
+        else{ return true; }
     }
     
+    
+    
+   public static function getLimiteCurso($idCurso){
+       $cursoDAO = new CursoDAO();
+       $totalInscripciones = $cursoDAO->validarTotalInscripciones($idCurso);
+       $capacidadMaxima = $cursoDAO->validarCapacidadMaximaCurso($idCurso);
+       
+       if ($totalInscripciones <= $capacidadMaxima)
+       {
+           return true;
+       }
+       else { return false;}
+   }
+   
+   
+   
     public static function getAulaDisponible($idAula, $turno){
         $cursoDAO = new CursoDAO();
         return $cursoDAO->validarAulaDisponible($idAula, $turno);
-    }
-    
-    public static function getTotalInscripciones($idCurso){
-        $cursoDAO = new CursoDAO();
-        return $cursoDAO->validarTotalInscripciones($idCurso);
-    }
-    
-    public static function getCapacidadMaximaCurso($idCurso){
-        $cursoDAO = new CursoDAO();
-        return $curdoDAO->validarCapacidadMaximaCurso($idCurso);
     }
     
     

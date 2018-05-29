@@ -10,7 +10,7 @@
     <div class="col-md-4">
       <div class="form-group">
         <label for="">Nombre(s)</label>
-        <input type="text" class="form-control"   pattern="[A-Za-z ]+" name="NombreProfesor"  required="" title="Ingresa tu nombre sin numeros, por favor" >
+        <input type="text" class="form-control"   pattern="[A-Za-z ]+" name="NombreProfesor"  required="" id="NombreProfesor" >
       </div>
     </div>
 
@@ -145,3 +145,16 @@
   </div>
 
 </div>
+
+
+<!-- 
+
+<script> 
+    var input = document.getElementById('NombreProfesor');
+    
+    input.oninvalid = function(event) {
+    event.target.setCustomValidity('No se permiten numeros ni caracters especiales');
+    }
+</script>
+
+-->

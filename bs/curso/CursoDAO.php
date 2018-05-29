@@ -46,6 +46,7 @@ class CursoDAO {
         return $cursoList;
     }
     
+    
     //validar que el profesor no este incrito en otro en el mismo curso 2 veces 
     public function validarProfesorInscrito($IdProfesor, $IdCurso){
         $result = querySelect("SELECT * FROM inscripcion WHERE IdProfesor = '".$IdProfesor."' "
@@ -54,32 +55,47 @@ class CursoDAO {
         else{ return true;}
     }
     
+    
+    
     //validar la fecha limite de inscripcion de un cruso  
     public function validarFechaLimiteInscripcion ($IdCurso){
-        $result = querySelect(SQL::$VALIDA_FECHA_LIMITE."'".$IdCurso."'");
-        if(isset($result)) {  return true; }
-        else{ return false;}
+        $fechaLimite = querySelect("SELECT FechaLimite FROM curso WHERE NumeroCurso = '".$IdCurso."' ");
+        if(isset($fechaLimite)){return $fechaLimite;}
     }
     
-    //Validar que el aula propuesta no este ocupada en la misma hora por
-    //otro curso
-    public function validarAulaDisponible ($idAula, $turno){
-        $result = querySelect(SQL::$AULA_OCUPADA." '".$idAula."'  AND Turno = '".$turno."' " );
-        if(isset($result)) {  return true; }
-        else{ return false;}
+    //valida la fecha actual
+    public function validaFechaActual (){
+        $fechaActual = querySelect("SELECT curdate()");
+        if(isset($fechaActual)) {return $fechaActual;}
     }
+    
+    
+    
     
     //validar total de inscripciones
     public function validarTotalInscripciones ($idCurso){
-        $result = querySelect(SQL::$TOTAL_INSCRPCIONES."'".$idCurso."'");
+        $result = querySelect("SELECT Count(NumeroCurso) AS cantidad FROM inscripcion "
+                . "WHERE NumeroCurso= '".$idCurso."' ");
         if(isset($result)) { return $result; }    
     }
     
-    
     //validar la capacidad maxima del curso 
     public function validarCapacidadMaximaCurso ($idCurso){
-        $result = querySelect(SQL::$CAPACIDAD_MAXIMA_CURSO."'".$idCurso."'");
+        $result = querySelect("SELECT capacidadmaxima FROM curso WHERE "
+                . "NumeroCurso= '".$idCurso."' ");
         if(isset($result)) { return $result; }
+    }
+    
+    
+    
+     //Validar que el aula propuesta no este ocupada en la misma hora por
+    //otro curso
+    public function validarAulaDisponible ($idAula, $turno){
+        $result = querySelect("SELECT NumeroCurso, NombreCurso, AulaPropuesta, "
+                . "Turno FROM curso WHERE AulaPropuesta = '".$idAula."'  AND "
+                . "Turno = '".$turno."'");
+        if(isset($result)) {  return true; }
+        else {  return false; }
     }
     
 }
