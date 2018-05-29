@@ -14,10 +14,10 @@ function validation(){
     if($table=="inscripcion") {
         $IdCurso = $formData['NumeroCurso'];
         $IdProfesor = $formData['IdProfesor']; 
-     return CursoService::getProfesorInscrito($IdProfesor, $IdCurso);
+     return CursoService::getProfesorInscrito($IdProfesor, $IdCurso);    
     }
-    
-    if($table == "incripcion"){
+   
+     if($table == "incripcion"){
         $idCurso = $formData['NumeroCurso'];
         return CursoService::getFechaLimiteInscripcion($IdCurso);
     }
@@ -32,7 +32,6 @@ function validation(){
         $turno = $formData['Turno'];
     return CursoService::getAulaDisponible($idAula, $turno);
     }
-    
     
     
     
