@@ -23,7 +23,7 @@ function validation(){
 }
 function save($table) {
 
-             $config = ["table_name"=>"reservas","fields"=>"(","values"=>"(","update_v"=>" "];
+             $config = ["fields"=>"(","values"=>"(","update_v"=>" "];
              $i = 0; $id_use = 3;
               $_HTTP = getPOST_GET();
 
@@ -56,7 +56,7 @@ function save($table) {
  *
  */
 function update($id,$table) {
-     $config = ["table_name"=>"reservas","fields"=>"(","values"=>"","update_v"=>" "];
+     $config = ["fields"=>"(","values"=>"","update_v"=>" "];
      $values =  $config['values'];
      $_HTTP = getPOST_GET();   $i=0; $id_use = 3;
 
