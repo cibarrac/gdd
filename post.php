@@ -1,40 +1,32 @@
 <?php
 include 'bs/QueryService.php';
 include 'bs/curso/CursoService.php';
-
 /**
  * COMO PARAMETRO SE RECIBE EL NOMBRE DE LA TABLA EN LA BASE DE DATOS
  * CADA CAMPO SE LEERA DEL ARREGLO POST O GET PARA CONCATENARLO EN UNA CADENA PARA CREAR UN INSERT
  */
-
 function validation(){
     $formData = getPOST_GET();
     $table = $formData['table'];
-    
+     
     if($table=="inscripcion") {
+        
         $IdCurso = $formData['NumeroCurso'];
         $IdProfesor = $formData['IdProfesor']; 
-     return CursoService::getProfesorInscrito($IdProfesor, $IdCurso);    
+        
+        $profesor    =  CursoService::getProfesorInscrito($IdProfesor, $IdCurso);    
+        $fechaLimite =  CursoService::getFechaLimiteInscripcion($IdCurso);
+        $cupo = CursoService::getLimiteCurso($IdCurso);   
+        
+        if($profesor && $fechaLimite && $cupo){
+            return true;
+        }
     }
-   
-     if($table == "incripcion"){
-        $idCurso = $formData['NumeroCurso'];
-        return CursoService::getFechaLimiteInscripcion($IdCurso);
-    }
-    
-    if($talbe == "inscripcion"){
-        $idCurso = $formData['NumeroCurso'];
-        return CursoService::getLimiteCurso($idCurso);
-    }
-    
     if($table=="curso"){
         $idAula = $formData['AulaPropuesta'];
         $turno = $formData['Turno'];
     return CursoService::getAulaDisponible($idAula, $turno);
-    }
-    
-    
-    
+    }    
 }
 function save($table) {
 
