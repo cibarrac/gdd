@@ -16,12 +16,14 @@ function validation(){
         
         $profesor    =  CursoService::getProfesorInscrito($IdProfesor, $IdCurso);    
         $fechaLimite =  CursoService::getFechaLimiteInscripcion($IdCurso);
-        $cupo = CursoService::getLimiteCurso($IdCurso);   
+        $cupo = CursoService::getLimiteCurso($IdCurso);
+        //$turno = CursoService::getTurnoCurso($IdCurso, $IdProfesor);
         
-        if($profesor && $fechaLimite && $cupo){
+        if($profesor && $fechaLimite && $cupo){  
             return true;
         }
     }
+    
     if($table=="curso"){
         $idAula = $formData['AulaPropuesta'];
         $turno = $formData['Turno'];
@@ -145,3 +147,5 @@ switch ($_POST['action']) {
 }
 $view = $_POST['view'];
 header('location:index.php?view='.$view);
+
+

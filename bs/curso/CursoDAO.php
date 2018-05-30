@@ -98,4 +98,20 @@ class CursoDAO {
         else {  return true; }
     }
     
+    
+    
+    public function validarTurnoCursoInscrito($idCurso, $idProfesor)
+    {
+        $result = querySelect("SELECT CURSO.Turno FROM curso CURSO, inscripcion INSCRIPCION "
+            . "WHERE INSCRIPCION.IdProfesor = '".$idProfesor."' AND INSCRIPCION.NumeroCurso "
+            . "= '".$idProfesor."' AND CURSO.NumeroCurso = '".$idCurso."' ");
+        if(count($result)>0) { return $result; }
+    }
+    
+    
+    public function validarTurnoCursoPorInscribir($idCurso)
+    {
+        $result = querySelect("SELECT Turno FROM curso WHERE NumeroCurso = '".$idCurso."'");
+        if(count($result)>0) {return $reulst; }
+    }
 }

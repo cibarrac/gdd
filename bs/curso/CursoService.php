@@ -52,4 +52,18 @@ class CursoService
     }
     
     
+    
+    public static function getTurnoCurso($idCurso, $idProfesor)
+    {
+        $cursoDAO = new CursoDAO();
+        $turnoCursoInscrito = $cursoDAO->validaTurnoCursoInscrito($idCurso, $idProfesor);
+        $turnoInscripcion = $cursoDAO->validarTurnoCursoPorInscribir($idCurso);
+        
+        if($turnoCursoInscrito == $turnoInscripcion)
+        {
+            return false;
+        }
+        else{ return true; }
+    }
+    
 }
