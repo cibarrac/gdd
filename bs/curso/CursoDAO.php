@@ -60,13 +60,13 @@ class CursoDAO {
     //validar la fecha limite de inscripcion de un cruso  
     public function validarFechaLimiteInscripcion ($IdCurso){
         $fechaLimite = querySelect("SELECT FechaLimite FROM curso WHERE NumeroCurso = '".$IdCurso."' ");
-        if(isset($fechaLimite)){return $fechaLimite;}
+        if(count($fechaLimite)>0){return $fechaLimite;}
     }
     
     //valida la fecha actual
     public function validaFechaActual (){
         $fechaActual = querySelect("SELECT curdate()");
-        if(isset($fechaActual)) {return $fechaActual;}
+        if(count($fechaActual)>0) {return $fechaActual;}
     }
     
     
@@ -76,14 +76,14 @@ class CursoDAO {
     public function validarTotalInscripciones ($idCurso){
         $result = querySelect("SELECT Count(NumeroCurso) AS cantidad FROM inscripcion "
                 . "WHERE NumeroCurso= '".$idCurso."' ");
-        if(isset($result)) { return $result; }    
+        if(count($result)>0) { return $result; }    
     }
     
     //validar la capacidad maxima del curso 
     public function validarCapacidadMaximaCurso ($idCurso){
         $result = querySelect("SELECT capacidadmaxima FROM curso WHERE "
                 . "NumeroCurso= '".$idCurso."' ");
-        if(isset($result)) { return $result; }
+        if(count($result)>0) { return $result; }
     }
     
     
@@ -94,7 +94,7 @@ class CursoDAO {
         $result = querySelect("SELECT NumeroCurso, NombreCurso, AulaPropuesta, "
                 . "Turno FROM curso WHERE AulaPropuesta = '".$idAula."'  AND "
                 . "Turno = '".$turno."'");
-        if(isset($result)) {  return true; }
+        if(count($result)>0) {  return true; }
         else {  return false; }
     }
     
