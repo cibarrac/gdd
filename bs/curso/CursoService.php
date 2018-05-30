@@ -24,13 +24,12 @@ class CursoService
         $fechaLimite = $cursoDAO->validarFechaLimiteInscripcion($IdCurso);
         $fechaActual = $cursoDAO->validaFechaActual();
         
-        if($fechaLimite == $fechaActual)
+        if($fechaActual > $fechaLimite )
         {
             return false;
         }
         else{ return true; }
     }
-    
     
     
    public static function getLimiteCurso($idCurso){

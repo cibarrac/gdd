@@ -94,8 +94,8 @@ class CursoDAO {
         $result = querySelect("SELECT NumeroCurso, NombreCurso, AulaPropuesta, "
                 . "Turno FROM curso WHERE AulaPropuesta = '".$idAula."'  AND "
                 . "Turno = '".$turno."'");
-        if(count($result)>0) {  return true; }
-        else {  return false; }
+        if(count($result)>0) {  return false; }
+        else {  return true; }
     }
     
 }
