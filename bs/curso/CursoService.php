@@ -66,4 +66,11 @@ class CursoService
         else{ return true; }
     }
     
+    
+    public static function getNombreInstructor($NombreInstructor)
+    {
+       $cursoDAO = new CursoDAO();
+       return $porfesor = $cursoDAO->validaInstructorCurso($NombreInstructor);
+    }
+    
 }
