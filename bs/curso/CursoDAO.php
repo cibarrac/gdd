@@ -114,4 +114,12 @@ class CursoDAO {
         $result = querySelect("SELECT Turno FROM curso WHERE NumeroCurso = '".$idCurso."'");
         if(count($result)>0) {return $reulst; }
     }
+    
+    public function validaInstructorCurso($NombreInstructor)
+    {
+        $result = querySelect("SELECT NombreCompletoInstructor FROM curso WHERE "
+                . "NombreCompletoInstructor = '".$NombreInstructor."' ");
+        if(count($result)>0) { return false; }
+        else { return true; }
+    }
 }
