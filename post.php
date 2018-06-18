@@ -27,7 +27,15 @@ function validation(){
     if($table=="curso"){
         $idAula = $formData['AulaPropuesta'];
         $turno = $formData['Turno'];
-    return CursoService::getAulaDisponible($idAula, $turno);
+        $NombreInstructor = $formData['NombreCompletoInstructor'];
+        
+        $aula = CursoService::getAulaDisponible($idAula, $turno);
+        $instructor = CursoService::getNombreInstructor($NombreInstructor);
+        
+        if($aula && $instructor){
+            return true;
+        }
+        
     }    
 }
 function save($table) {
