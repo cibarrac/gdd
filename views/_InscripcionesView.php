@@ -81,7 +81,7 @@
 
   <div class="col-md-3">
     <div class="form-group">
-      <label for="">En el aula:</label>
+      <label for="">Aula propuesta:</label>
       <input type="text" class="form-control" name="Aula" id="Aula"readonly=”readonly” >
     </div>
   </div>
@@ -89,7 +89,7 @@
 <div class="row">
   <div class="col-md-6">
     <div class="from-group">
-      <label for="">Inscribir al profesor:  </label>
+      <label for="">Nombre del profesor: </label>
       <!-- CONSULTA: Aqui solo tiene que mostrar profesores solo de su carrera. -->
 
       <select class="form-control"  name="IdProfesor" >
