@@ -57,7 +57,7 @@
 
   <div class="col-md-6">
     <div class="form-group">
-      <label for="">Instructor 1:</label>
+      <label for="">Nombre Instructor:</label>
       <input type="text" class="form-control" name="NombreInstructor"  id="NombreInstructor" readonly=”readonly” >
     </div>
   </div>
