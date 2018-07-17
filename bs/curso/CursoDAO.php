@@ -1,7 +1,7 @@
 <?php
 
-include '../../bs/QueryService.php';
-include '../../bs/SQL.php';
+include '../bs/QueryService.php';
+include '../bs/SQL.php';
 include 'Curso.php';
 
 class CursoDAO {
@@ -73,16 +73,16 @@ class CursoDAO {
     
     
     //validar total de inscripciones
-    public function validarTotalInscripciones ($idCurso){
+    public function validarTotalInscripciones ($IdCurso){
         $result = querySelect("SELECT Count(NumeroCurso) AS cantidad FROM inscripcion "
-                . "WHERE NumeroCurso= '".$idCurso."' ");
+                . "WHERE NumeroCurso= '".$IdCurso."' ");
         if(count($result)>0) { return $result; }    
     }
     
     //validar la capacidad maxima del curso 
-    public function validarCapacidadMaximaCurso ($idCurso){
+    public function validarCapacidadMaximaCurso ($IdCurso){
         $result = querySelect("SELECT capacidadmaxima FROM curso WHERE "
-                . "NumeroCurso= '".$idCurso."' ");
+                . "NumeroCurso= '".$IdCurso."' ");
         if(count($result)>0) { return $result; }
     }
     
@@ -100,19 +100,19 @@ class CursoDAO {
     
     
     
-    public function validarTurnoCursoInscrito($idCurso, $idProfesor)
+    public function validarTurnoCursoInscrito($IdProfesor)
     {
-        $result = querySelect("SELECT CURSO.Turno FROM curso CURSO, inscripcion INSCRIPCION "
-            . "WHERE INSCRIPCION.IdProfesor = '".$idProfesor."' AND INSCRIPCION.NumeroCurso "
-            . "= '".$idProfesor."' AND CURSO.NumeroCurso = '".$idCurso."' ");
+        $result = querySelect("SELECT Turno FROM curso INNER JOIN inscripcion "
+                . "on curso.NumeroCurso = inscripcion.NumeroCurso WHERE "
+                . "inscripcion.IdProfesor = '".$IdProfesor."' ");
         if(count($result)>0) { return $result; }
     }
     
     
-    public function validarTurnoCursoPorInscribir($idCurso)
+    public function validarTurnoCursoPorInscribir($IdCurso)
     {
-        $result = querySelect("SELECT Turno FROM curso WHERE NumeroCurso = '".$idCurso."'");
-        if(count($result)>0) {return $reulst; }
+        $result = querySelect("SELECT Turno FROM curso WHERE NumeroCurso = '".$IdCurso."'");
+        if(count($result)>0) {return $result; }
     }
     
     public function validaInstructorCurso($NombreInstructor)
@@ -122,4 +122,14 @@ class CursoDAO {
         if(count($result)>0) { return false; }
         else { return true; }
     }
+    
+    
+    public function validaCursoAprobado($IdCurso)
+    {
+        $result = querySelect("SELECT NumeroCurso, NombreCurso FROM curso"
+                . " WHERE ispublic = 1 AND NumeroCurso = '".$IdCurso."'  ");
+        if(count($result)>0) { return true; }
+        else { return false; }
+    }
+    
 }

@@ -32,10 +32,10 @@ class CursoService
     }
     
     
-   public static function getLimiteCurso($idCurso){
+   public static function getLimiteCurso($IdCurso){
        $cursoDAO = new CursoDAO();
-       $totalInscripciones = $cursoDAO->validarTotalInscripciones($idCurso);
-       $capacidadMaxima = $cursoDAO->validarCapacidadMaximaCurso($idCurso);
+       $totalInscripciones = $cursoDAO->validarTotalInscripciones($IdCurso);
+       $capacidadMaxima = $cursoDAO->validarCapacidadMaximaCurso($IdCurso);
        
        if ($totalInscripciones <= $capacidadMaxima)
        {
@@ -46,18 +46,18 @@ class CursoService
    
    
    
-    public static function getAulaDisponible($idAula, $turno){
+    public static function  getAulaDisponible($idAula, $turno){
         $cursoDAO = new CursoDAO();
         return $cursoDAO->validarAulaDisponible($idAula, $turno);
     }
     
     
     
-    public static function getTurnoCurso($idCurso, $idProfesor)
+    public static function getTurnoCurso($IdCurso, $IdProfesor)
     {
         $cursoDAO = new CursoDAO();
-        $turnoCursoInscrito = $cursoDAO->validaTurnoCursoInscrito($idCurso, $idProfesor);
-        $turnoInscripcion = $cursoDAO->validarTurnoCursoPorInscribir($idCurso);
+        $turnoCursoInscrito = $cursoDAO->validarTurnoCursoInscrito($IdProfesor);
+        $turnoInscripcion = $cursoDAO->validarTurnoCursoPorInscribir($IdCurso);
         
         if($turnoCursoInscrito == $turnoInscripcion)
         {
@@ -71,6 +71,13 @@ class CursoService
     {
        $cursoDAO = new CursoDAO();
        return $porfesor = $cursoDAO->validaInstructorCurso($NombreInstructor);
+    }
+    
+    
+    public static function getCursoAprobado($IdCurso)
+    {
+        $cursoDAO = new CursoDAO();
+        return $cursoDAO->validaCursoAprobado($IdCurso);
     }
     
 }
