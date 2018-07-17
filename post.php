@@ -1,3 +1,4 @@
+
 <?php
 include 'bs/QueryService.php';
 include 'bs/curso/CursoService.php';
@@ -5,55 +6,99 @@ include 'bs/curso/CursoService.php';
  * COMO PARAMETRO SE RECIBE EL NOMBRE DE LA TABLA EN LA BASE DE DATOS
  * CADA CAMPO SE LEERA DEL ARREGLO POST O GET PARA CONCATENARLO EN UNA CADENA PARA CREAR UN INSERT
  */
+
+function dialog($msg)
+{
+    echo '<script> alert("'.$msg.'"); </script> ';
+}
 function validation(){
     $formData = getPOST_GET();
     $table = $formData['table'];
      
-    if($table=="inscripcion") {
-        
+    if($table=="inscripcion")
+    {
         $IdCurso = $formData['NumeroCurso'];
-        $IdProfesor = $formData['IdProfesor']; 
+        $IdProfesor = $formData['IdProfesor'];
         
-        $profesor    =  CursoService::getProfesorInscrito($IdProfesor, $IdCurso);    
-        $fechaLimite =  CursoService::getFechaLimiteInscripcion($IdCurso);
+        $cursoAprobado = CursoService::getCursoAprobado($IdCurso);
+        $profesor = CursoService::getProfesorInscrito($IdProfesor, $IdCurso); 
+        $fechalimite = CursoService::getFechaLimiteInscripcion($IdCurso);
         $cupo = CursoService::getLimiteCurso($IdCurso);
-        //$turno = CursoService::getTurnoCurso($IdCurso, $IdProfesor);
+        $turno = CursoService::getTurnoCurso($IdCurso, $IdProfesor);
+       
+       
         
-        if($profesor && $fechaLimite && $cupo){  
-            return true;
+        if($cursoAprobado == false)
+        {
+            dialog('No puede hacer una inscripcion, el curso no esta apobado');
+            return false;
         }
+        
+        
+        if($profesor == false)
+        {
+            dialog('No se puede inscribir, ya esta inscrito');
+            return false;
+        } 
+        
+        elseif($fechalimite == false)
+        {
+            dialog('No puede inscribirse al curso, la fecha limite expiro ');
+            return false;   
+        }
+        
+        elseif($cupo == false)
+        {
+            dialog('No puede inscribirse al curso, el curso esta lleno');
+            return false;
+        }
+        
+        elseif($turno == false)
+        {
+            dialog('No puede inscrirse al curso, ya tiene un curso en el mismo turno');
+            return false;
+        }
+        
+        else { return true; }
     }
+
     
-    if($table=="curso"){
+    if($table=="curso")
+    {
         $idAula = $formData['AulaPropuesta'];
         $turno = $formData['Turno'];
-        $NombreInstructor = $formData['NombreCompletoInstructor'];
         
         $aula = CursoService::getAulaDisponible($idAula, $turno);
-        $instructor = CursoService::getNombreInstructor($NombreInstructor);
         
-        if($aula && $instructor){
-            return true;
+        if($aula == false)
+        {
+            dialog('El aula propuesta esta ocupada, seleccione otra');
+            return false;
         }
         
-    }    
+        else { return true; }
+      
+    }
+    
+    else { return true; }
 }
-function save($table) {
 
+
+
+
+
+function save($table) {
              $config = ["fields"=>"(","values"=>"(","update_v"=>" "];
              $i = 0; $id_use = 3;
               $_HTTP = getPOST_GET();
-
                   foreach($_HTTP as $KEY => $VALUE){
                        if($i<(count($_HTTP )) && $i > $id_use) {
                                 if ($i<(count($_HTTP)-1)) {  $coma = ",";}
                                    else {
                                         $coma = "";
-
                                    }
                                  $config['fields'].=$KEY.$coma;
                                  $config['values'].="'".$VALUE."'".$coma;
-
                                }
                                $i++;
                   }
@@ -64,8 +109,6 @@ function save($table) {
                   }
                   else{echo "No se guardó"; }
                  
-
-
 }
 /**
  * METODO QUE UTILIZA UNA PETICION POST O GET COMO ARREGLO DE VALORES PARA CREAR UNA CONSULTA
@@ -76,25 +119,19 @@ function update($id,$table) {
      $config = ["fields"=>"(","values"=>"","update_v"=>" "];
      $values =  $config['values'];
      $_HTTP = getPOST_GET();   $i=0; $id_use = 3;
-
      foreach($_HTTP as $KEY => $VALUE){
           if($i<(count($_HTTP)) && $i > $id_use) {
                   if ($i<(count($_HTTP)-1)) {  $coma = ",";}
                   else { $coma = ""; }
                     //$config['fields'].=$KEY.$coma;
                     $values.="$KEY='".$VALUE."' ".$coma;
-
                   }
                   $i++;
       }
-
-
                     $SQL_UPDATE = "UPDATE ". $table." SET ".$values." WHERE id = '".$id."'";
                     echo $SQL_UPDATE;
                     queryUpdate($SQL_UPDATE);
-
 }
-
 /**
  *
  *
@@ -103,17 +140,10 @@ function update($id,$table) {
  *
  */
 function show($list) {
-
   foreach($list as $KEY => $VALUE){
-
-
              echo $KEY;
-
-
-
 }
 }
-
 function getPOST_GET() {
     if(!empty($_POST)){
          echo "Es un post <br>";
@@ -125,35 +155,29 @@ function getPOST_GET() {
     }
     echo '<script type="text/javascript">alert("Guardado");</script>';
 }
-
-
 function isvalid() {
-
-
                foreach($_POST as $KEY => $VALUE){
-
                             if($VALUE=='') {
                              return false;
                              echo "Falta un campo";
                             }
-
-
                }
-
-
                return true;
-
 }
-
-
 switch ($_POST['action']) {
-
           case 'save':  save($_POST['table']); break;
           case 'update':  update($_POST['id'],$_POST['table']); break;
-
           default: echo "Falta el atributo action en el formulario"; break;
 }
 $view = $_POST['view'];
-header('location:index.php?view='.$view);
+
+
+//echo'<script type="text/javascript"> alert("Tarea Guardada"); '
+//. 'window.location.href="index.php"; </script>';
+
+
+//header('location:index.php?view='.$view);
+
+
 
 
