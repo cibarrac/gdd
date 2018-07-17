@@ -4,10 +4,34 @@
     $array = querySelect(SQL::$SELECCIONA_TODO." ".$table );
     foreach ($array as $fila) { ?> 
             <option value="<?php echo $fila[$col-1]; ?>">
-              <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2];?> 
+              <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?> 
            </option>           
  <?php }}?>
            
+<?php
+    function fillNombreCompletoProfesor()
+    {   $col = 0;
+        $array = querySelect(SQL::$NOMBRE_COMPLETO_PROFESOR);
+        foreach ($array as $fila ) { ?>
+            <option value="<?php echo $fila[$col]; ?>" >
+                <?php echo $fila[$col]; ?>
+            </option>  <?php  
+        }
+    }
+?>
+  
+            
+<?php 
+    function ProfesoresPorCarrera($IdCarrera){
+        $col=0;
+        $array = querySelect(SQL::$PROFESORES_POR_CARRERA." ".$IdCarrera);
+        foreach ($array as $fila) { ?>
+            <option value="<?php echo $fila[$col]; ?>" >
+                 <?php echo $fila[$col]; ?> 
+            </option> <?php 
+        }
+    }
+?>            
 
        
 <?php 
