@@ -57,7 +57,7 @@
 
   <div class="col-md-6">
     <div class="form-group">
-      <label for="">Nombre Instructor:</label>
+      <label for="">Nombre de instructor:</label>
       <input type="text" class="form-control" name="NombreInstructor"  id="NombreInstructor" readonly=”readonly” >
     </div>
   </div>
@@ -81,25 +81,46 @@
 
   <div class="col-md-3">
     <div class="form-group">
-      <label for="">Aula propuesta:</label>
+      <label for="">En el aula:</label>
       <input type="text" class="form-control" name="Aula" id="Aula"readonly=”readonly” >
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-6">
-    <div class="from-group">
-      <label for="">Nombre del profesor: </label>
-      <!-- CONSULTA: Aqui solo tiene que mostrar profesores solo de su carrera. -->
 
-      <select class="form-control"  name="IdProfesor" >
-        <option value=""> </option>
-        <?php
-           fillOptionsNombresAndId("profesor",1)
-        ?>
-      </select>
+
+
+ <div class="row">
+    
+    <!--<div class="col-md-4">
+        <div class="form-group">
+            <label for="" >Seleccione la carrera del profesor</label>
+            <select class="form-control" id="CarreraProfe" >
+                <option value="">Seleccione</option>
+                <option value="1">ISC</option>
+                <option value="3">IBQ</option>
+                <option value="5">IEM</option>
+                <option value="6">IGE</option>
+                <option value="7">ARQ</option>
+                <option value="8">LA</option>
+                <option value="9">CP</option>
+                <option value="10">CB</option>
+                
+            </select>
+        </div>
+    </div> -->
+    
+    <div class="col-md-6">
+        <div class="from-group">
+            <label for="">Inscribir al profesor:  </label>
+            <select class="form-control"  name="NombreProfesorInscrito" id="NombreProfesorInscrito" onchange="getId()">
+                <option value=""> </option>
+                   <?php fillNombreCompletoProfesor() ?>
+          </select>
+        </div>
     </div>
-  </div>
+    
+    <input type="text" name="IdProfesor" id="IdProfesor" >
+    
 </div>
 
 
@@ -143,6 +164,68 @@ function getCurso() {
       }
     };
     request.open('GET', 'api.php?oper=getcurso&nomcurso='  + numcurso.value, true);
+    request.send();
+  }
+  
+  
+  
+  function getProfePorCarrera() {
+    var IdCarrera = document.querySelector("#CarreraProfe");
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+      var response = this.response;
+
+      if (typeof response === 'undefined' || response === "")
+             throw "No se recuperó la información de la respuesta a la petición.";
+
+      var res = JSON.parse(response);
+        console.log(res);
+     
+       if (res.status == 200) {
+        var data = res.data;
+
+        if (data.length == 0)
+        return;
+       
+       
+        // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
+        
+       
+        }
+    };
+    request.open('GET', 'api.php?oper=getProfeCarrera&IdCarrera='  + IdCarrera.value, true);
+    request.send();
+  }
+
+  
+  
+  
+  
+  function getId() {
+    var nombreProfe = document.querySelector("#NombreProfesorInscrito");
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+      var response = this.response;
+
+      if (typeof response === 'undefined' || response === "")
+             throw "No se recuperó la información de la respuesta a la petición.";
+
+      var res = JSON.parse(response);
+        console.log(res);
+     
+       if (res.status == 200) {
+        var data = res.data;
+
+        if (data.length == 0)
+        return;
+       
+       
+        // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
+        document.querySelector('#IdProfesor').value = data.IdProfesor;
+       
+      }
+    };
+    request.open('GET', 'api.php?oper=getIdProfesor&nombreProfe='  + nombreProfe.value, true);
     request.send();
   }
 

@@ -1,3 +1,4 @@
+
 <input type="number" name="IdProfesor" hidden value="0">
 
   <!-- Formularaio para capturara los datos del profesor -->
@@ -10,21 +11,21 @@
     <div class="col-md-4">
       <div class="form-group">
         <label for="">Nombre(s)</label>
-        <input type="text" class="form-control"   pattern="[A-Za-z ]+" name="NombreProfesor"  required="" id="NombreProfesor" >
+        <input type="text" class="form-control" name="NombreProfesor"  id="NombreProfesor" >
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="form-group">
         <label for="">Apellido paterno</label>
-        <input type="text" class="form-control" name="ApellidoPaternoProfesor" required="">
+        <input type="text" class="form-control" name="ApellidoPaternoProfesor" id="ApellidoPaternoProfesor" >
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="form-group">
         <label for="">Apellido materno</label>
-        <input type="text" class="form-control" name="ApellidoMaternoProfesor" required="">
+        <input type="text" class="form-control" name="ApellidoMaternoProfesor" id="ApellidoMaternoProfesor" >
       </div>
     </div>
 
@@ -43,7 +44,7 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="">Numero de telefono:</label>
-        <input type="number" class="form-control" name="NumeroTelefonoProfesor">
+        <input type="text" class="form-control" name="NumeroTelefonoProfesor" id="NumeroTelefonoProfesor">
       </div>
     </div>
 
@@ -57,7 +58,7 @@
       <div class="col-md-3">
           <div class="form-group">
               <label for="">Numero de tarjeta</label>
-              <input type="number" class="form-control" name="NumeroTarjetaProfesor">
+              <input type="text" class="form-control" name="NumeroTarjetaProfesor" id="NumeroTarjetaProfesor">
           </div>   
       </div>
 
@@ -74,14 +75,14 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="">Carrera cursada</label>
-      <input type="text" name="CarreraCursadaProfesor" class="form-control">
+      <input type="text" name="CarreraCursadaProfesor"  id="CarreraCursadaProfesor" class="form-control">
     </div>
   </div>
 
   <div class="col-md-6">
     <div class="form-group">
       <label for="">Grado de estudios</label>
-      <select class="form-control" name="GradoEstudiosProfesor" required>
+      <select class="form-control" name="GradoEstudiosProfesor" >
         <option value="Licenciado(a)">Licenciado(a)</option>
         <option value="Maestro(a)">Maestro(a)</option>
         <option value="Doctor(a)">Doctor(a)</option>
@@ -100,7 +101,7 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="">Unidad responsable(Departamento)</label>
-      <select class="form-control" name="IdDepartamentoProfesor" required>
+      <select class="form-control" name="IdDepartamentoProfesor" id="IdDepartamentoProfesor"  onchange="getDatosLaborales()">
       <?php
       fillOptionsNombresAndId("departamento",1);
       ?>
@@ -111,13 +112,11 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="">Área(Carrera)</label>
-      <select class="form-control" name="IdCarrera" required>
-      <?php
-      fillOptionsNombresAndId("carrera",1)
-      ?>
-      </select>
+      <input class="form-control" name="NombreCarreraProfesor" id="NombreCarreraProfesor"  readonly>
     </div>
   </div>
+    
+    <input name="IdCarrera" id="IdCarrera" placeholder="idacarrera" hidden>
 
 </div>
 
@@ -128,7 +127,7 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="">Puesto actual</label>
-      <input type="text" class="form-control" name="PuestoProfesor" required>
+      <input type="text" class="form-control" name="PuestoProfesor" id="PuestoProfesor"  >
     </div>
   </div>
 
@@ -136,25 +135,49 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="">Nombre del jefe inmediato</label>
-      <select class="form-control" name="IdJefeInmediatoProfesor" required>
-      <?php
-      fillOptionsNombresAndId("jefedepartamento",1)
-      ?>
-      </select>
+      <input class="form-control" name="JefeInmediatoProfesor" id="JefeInmediatoProfesor"  readonly>
     </div>
   </div>
+    
+    
+    
+    <input name="IdJefeInmediatoProfesor" id="IdJefeInmediatoProfesor" placeholder="idjefe" hidden=>
 
 </div>
 
 
-<!-- 
 
-<script> 
-    var input = document.getElementById('NombreProfesor');
-    
-    input.oninvalid = function(event) {
-    event.target.setCustomValidity('No se permiten numeros ni caracters especiales');
-    }
+<script>
+function getDatosLaborales() {
+    var idDepartamento = document.querySelector("#IdDepartamentoProfesor"); 
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+      var response = this.response;
+
+      if (typeof response === 'undefined' || response === "")
+             throw "No se recuperó la información de la respuesta a la petición.";
+
+      var res = JSON.parse(response);
+ console.log(res);
+     
+       if (res.status == 200) {
+        var data = res.data;
+
+        if (data.length == 0)
+        return;
+        // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
+        document.querySelector('#IdCarrera').value = data.IdCarrera;
+        document.querySelector('#NombreCarreraProfesor').value = data.NombreCarrera;
+        
+        document.querySelector('#IdJefeInmediatoProfesor').value = data.IdJefeDepartamento;
+        document.querySelector('#JefeInmediatoProfesor').value = data.NombreJefe;
+        
+      }
+    };
+    request.open('GET', 'api.php?oper=getDatosLaborales&idDepartamento='  + idDepartamento.value, true);
+    request.send();
+  }
+
 </script>
 
--->
+
