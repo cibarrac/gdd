@@ -90,6 +90,15 @@ class SQL {
     
     public static $CAPACIDAD_MAXIMA_CURSO = "select capacidadmaxima from curso where NumeroCurso= ";
     
-    public static $AULA_OCUPADA = "SELECT NumeroCurso, NombreCurso, AulaPropuesta, Turno FROM curso WHERE AulaPropuesta = "; 
+    public static $AULA_OCUPADA = "SELECT NumeroCurso, NombreCurso, AulaPropuesta, Turno FROM curso WHERE AulaPropuesta = ";
+    
+    public static $NOMBRE_COMPLETO_PROFESOR = "SELECT CONCAT(NombreProfesor,' ', "
+            . "ApellidoPaternoProfesor,' ', ApellidoMaternoProfesor ) "
+            . "AS NombreCompleto FROM profesor";
+    
+    
+    public static $PROFESORES_POR_CARRERA = "SELECT CONCAT(NombreProfesor,' ',ApellidoPaternoProfesor,' '"
+            . ",ApellidoMaternoProfesor) AS NombreProfe FROM profesor "
+            . "WHERE IdCarrera = ";
 }
 
