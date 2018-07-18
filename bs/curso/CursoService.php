@@ -8,9 +8,9 @@ class CursoService
         return $cursoDAO->cargarCursos();   
     }
     
-    public static function getAsistencias() {
+    public static function getAsistencias($id) {
         $cursoDAO = new CursoDAO();
-        return $cursoDAO->cargarAsistencias();
+        return $cursoDAO->cargarAsistencias($id);
     }
     
     public static function getProfesorInscrito($IdProfesor, $IdCurso){
