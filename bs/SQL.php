@@ -14,8 +14,8 @@ class SQL {
             . "INSCRIPCION.NumeroCurso, CARRERA.NombreCarrera from profesor "
             . "PROFESOR, inscripcion INSCRIPCION, carrera CARRERA WHERE "
             . "PROFESOR.IdProfesor = INSCRIPCION.IdProfesor AND "
-            . "INSCRIPCION.NumeroCurso = '9.1' AND "
-            . "CARRERA.IdCarrera = PROFESOR.IdCarrera"; 
+            . "CARRERA.IdCarrera = PROFESOR.IdCarrera AND "
+            . "INSCRIPCION.NumeroCurso = "; 
 
   
     public static $SELECCIONA_TODO = "SELECT * FROM";
