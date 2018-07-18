@@ -1,7 +1,7 @@
 <?php
 
-include '../bs/QueryService.php';
-include '../bs/SQL.php';
+include '../../bs/QueryService.php';
+include '../../bs/SQL.php';
 include 'Curso.php';
 
 class CursoDAO {
@@ -28,8 +28,8 @@ class CursoDAO {
     
     
     
-    public function cargarAsistencias() {
-        $result= querySelect(SQL::$LISTA_ASISTENCIA);
+    public function cargarAsistencias($id) {
+        $result= querySelect(SQL::$LISTA_ASISTENCIA." ".$id);
         $cursoList = array();
         foreach($result as $row)
         {
