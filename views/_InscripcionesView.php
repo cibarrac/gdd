@@ -119,7 +119,7 @@
         </div>
     </div>
     
-    <input type="text" name="IdProfesor" id="IdProfesor" >
+    <input type="text" name="IdProfesor" id="IdProfesor" hidden>
     
 </div>
 

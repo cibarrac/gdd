@@ -106,13 +106,13 @@
         if (data.length == 0)
         return;
 
-        // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
+     // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
         document.querySelector('#NombreCurso').value = data.NombreCurso;
         document.querySelector('#NumeroCurso').value = data.NumeroCurso;
         document.querySelector('#FechaInicio').value = data.FechaInicioCurso;
         document.querySelector('#FechaFin').value = data.FechaFinCurso;
-        document.querySelector('#NombreInstructor1').value = data.NombreCompletoInstructor1;
-        document.querySelector('#NombreInstructor2').value = data.NombreCompletoInstructor2;
+        document.querySelector('#NombreInstructor').value = data.NombreCompletoInstructor;
+        //document.querySelector('#NombreInstructor2').value = data.NombreCompletoInstructor2;
         document.querySelector('#TipoCurso').value = data.TipoCurso;
         //document.querySelector('#horario').value = data.horainicio;
         document.querySelector('#Aula').value = data.AulaPropuesta;
