@@ -33,7 +33,7 @@
     $cursosList = CursoService::getCursos(); // La misma llamada a el metodo
     
           foreach ($cursosList as $curso) {?>
-                  <tr >
+                <tr>
                     <td><?php echo $curso->__GET('NumeroCurso'); ?> </td>
                     <td><?php echo $curso->__GET('NombreCurso'); ?></td>
                     <td><?php echo $curso->__GET('ObjetivoCurso'); ?></td>
@@ -41,7 +41,7 @@
                     <td><?php echo $curso->__GET('FechaFinCurso'); ?></td>
                     <td><?php echo $curso->__GET('TipoCurso'); ?></td>
                     <td><?php echo $curso->__GET('PeriodoCurso'); ?></td>
-            		</tr>                     
+                </tr>                     
   	<?php } ?>
   	</table>
     </div>
@@ -52,7 +52,7 @@
          <label for="">MC. DANIEL MULATO AGUERO</label>
      </div>
      <div class="col-md-6">
-        <label for="">  MC. NOE CASTELLANOS BEBOLLEDO. </label></div>
+        <label for="">  MC. NOE CASTELLANOS REBOLLEDO </label></div>
      </div>
 </div>
 </body>
