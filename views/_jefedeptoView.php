@@ -28,9 +28,7 @@
    <div class="col-md-6">
       <div class="form-group">
           <label for="">Correo: </label>
-          <select class="form-control" name="CorreoJefe">
-          <?php OptieneCorreoBoss("members",0); ?>
-          </select>
+           <input type="email" name="CorreoJefe" class="form-control">
       </div>
   </div>
     
