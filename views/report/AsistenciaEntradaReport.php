@@ -26,12 +26,12 @@
   			<td>Participante</td>
                         <td>Departamento/Carrera</td>
                         <td>RFC</td>
-                        <td>Firma de entrada</td>
-           
+                        <td>Firma</td>
   		</tr>
   </thead>
   <?php  include '../../bs/curso/CursoService.php';
-    $cursosList = CursoService::getAsistencias();
+    $id = $_GET['curso'];
+    $cursosList = CursoService::getAsistencias($id);
     
           foreach ($cursosList as $curso) {?>
                 <tr >
