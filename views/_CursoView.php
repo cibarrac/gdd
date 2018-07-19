@@ -48,31 +48,32 @@
         <label>Para los profesores de: </label>
         <div class="form-group">   
             
-            <input class="form-check-input" name="TodasLasCarreras" value="0" type="checkbox" id="TodasLasCarreras" >
-            <label class="form-check-label" for="radio2"> Para todas las careras</label>
+            <input class="form-check-input" value="0" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >Para todas las careras</label>
             
-            <input class="form-check-input" name="ParaISC" value="1" type="checkbox" id="ParaISC">
-            <label class="form-check-label" for="radio2">ISC</label>
+            <input class="form-check-input" value="1" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >ISC</label>
 
-            <input class="form-check-input" name="ParaIBQ" value="3" type="checkbox" id="ParaIBQ" >
-            <label class="form-check-label" for="radio2">IBQ</label>
+            <input class="form-check-input" value="3" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >IBQ</label>
 
-            <input class="form-check-input" name="ParaIEM" value="5" type="checkbox" id="ParaIEM" >
-            <label class="form-check-label" for="radio2">IEM</label>
+            <input class="form-check-input" value="5" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >IEM</label>
 
-            <input class="form-check-input" name="ParaIGE" value="6" type="checkbox" id="ParaIGE" >
-            <label class="form-check-label" for="radio2">IGE</label>
+            <input class="form-check-input" value="6" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >IGE</label>
 
-            <input class="form-check-input" name="ParaARQ" value="7" type="checkbox" id="ParaARQ" >
-            <label class="form-check-label" for="radio2">ARQ</label>
+            <input class="form-check-input" value="7" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >ARQ</label>
 
-            <input class="form-check-input" name="ParaLA" value="8" type="checkbox" id="ParaLA" >
-            <label class="form-check-label" for="radio2">LA</label>
+            <input class="form-check-input" value="8" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >LA</label>
 
-            <input class="form-check-input" name="ParaCP" value="9" type="checkbox" id="ParaCP" >
-            <label class="form-check-label" for="radio2">CP</label>  
+            <input class="form-check-input" value="9" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >CP</label>  
+             
+            <input type="text" id="DirigidoA" name="DirigidoA" hidden>
             
-            <input type="text" hidden name="DirigidoA" value="0">
             <input type="text" hidden name="NumeroProfesoresCurso" value="0">
            
         </div>
@@ -354,4 +355,19 @@ function getNombres() {
     request.send();
   }
 
+</script>
+
+
+<script>
+    var elementoPaises = document.getElementById('DirigidoA')
+    var paisesElegidos = []
+
+    function elegirCarrera(element){
+        if (element.checked) {
+            paisesElegidos.push(element.value)
+        }else{
+            paisesElegidos.splice( paisesElegidos.indexOf( element.value ), 1 )
+        }
+        elementoPaises.value = paisesElegidos.join('')
+    }
 </script>
