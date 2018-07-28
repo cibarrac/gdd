@@ -29,7 +29,7 @@ CREATE TABLE `aula` (
   `UbicacionAula` text NOT NULL,
   `TipoAula` text NOT NULL,
   PRIMARY KEY (`IdAula`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `carrera` (
   PRIMARY KEY (`IdCarrera`),
   KEY `IdDepartamentoCarrera` (`IdDepartamentoCarrera`),
   CONSTRAINT `carrera_ibfk_1` FOREIGN KEY (`IdDepartamentoCarrera`) REFERENCES `departamento` (`IdDepartamento`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -81,7 +81,7 @@ CREATE TABLE `curso` (
   `CursoDocente` tinyint(1) NOT NULL,
   `CursoProfesional` tinyint(1) NOT NULL,
   `CursoCertificacion` tinyint(1) NOT NULL,
-  `DirigidoA` varchar(10) NOT NULL,
+  `DirigidoA` text NOT NULL,
   `FechaLimite` date NOT NULL,
   `capacidadmaxima` int(50) NOT NULL,
   `Turno` text NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE `departamento` (
   `IdDepartamento` int(11) NOT NULL AUTO_INCREMENT,
   `NombreDepartamento` text NOT NULL,
   PRIMARY KEY (`IdDepartamento`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +148,6 @@ CREATE TABLE `inscripcion` (
   `NombreInstructor` text NOT NULL,
   `TipoCurso` text NOT NULL,
   `Aula` text NOT NULL,
-  `NombreInstructor2` text,
   `IdCarrera` int(11) NOT NULL,
   PRIMARY KEY (`IdInscripcion`),
   KEY `NumeroCurso` (`NumeroCurso`),
@@ -161,7 +160,7 @@ CREATE TABLE `inscripcion` (
   CONSTRAINT `inscripcion_ibfk_3` FOREIGN KEY (`IdInstructor2`) REFERENCES `instructor` (`IdInstructor`),
   CONSTRAINT `inscripcion_ibfk_4` FOREIGN KEY (`IdProfesor`) REFERENCES `profesor` (`IdProfesor`),
   CONSTRAINT `inscripcion_ibfk_5` FOREIGN KEY (`IdAula`) REFERENCES `aula` (`IdAula`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,7 +201,7 @@ CREATE TABLE `jefedepartamento` (
   PRIMARY KEY (`IdJefeDepartamento`),
   KEY `IdDepartamentoJefe` (`IdDepartamentoJefe`),
   CONSTRAINT `jefedepartamento_ibfk_1` FOREIGN KEY (`IdDepartamentoJefe`) REFERENCES `departamento` (`IdDepartamento`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -219,7 +218,7 @@ CREATE TABLE `loginAttempts` (
   `Username` varchar(65) DEFAULT NULL,
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,7 +244,7 @@ CREATE TABLE `members` (
   UNIQUE KEY `idUser` (`idUser`),
   UNIQUE KEY `idRole` (`idUser`),
   UNIQUE KEY `idUser_2` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -265,7 +264,7 @@ CREATE TABLE `presidenteacademia` (
   PRIMARY KEY (`IdPresidenteAcademia`),
   KEY `IdDepartamentoPresidente` (`IdDepartamentoPresidente`),
   CONSTRAINT `presidenteacademia_ibfk_1` FOREIGN KEY (`IdDepartamentoPresidente`) REFERENCES `departamento` (`IdDepartamento`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -290,8 +289,10 @@ CREATE TABLE `profesor` (
   `CarreraCursadaProfesor` text NOT NULL,
   `IdDepartamentoProfesor` int(11) NOT NULL,
   `IdJefeInmediatoProfesor` int(11) NOT NULL,
+  `JefeInmediatoProfesor` text NOT NULL,
+  `NombreCarreraProfesor` text NOT NULL,
   PRIMARY KEY (`IdProfesor`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -303,4 +304,4 @@ CREATE TABLE `profesor` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-28 13:08:38
+-- Dump completed on 2018-07-27 19:20:52
