@@ -8,13 +8,11 @@
 
 
 
-
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Presidente de academia</label>
-            <input type="text" class="form-control" name="NombreCompletoPresiAcad" id="NombreCompletoPresiAcad" readonly>
-                    
+            <input type="text" class="form-control" name="NombreCompletoPresiAcad" id="NombreCompletoPresiAcad" readonly>         
         </div>
     </div>
     
@@ -54,23 +52,26 @@
             <input class="form-check-input" value="1" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >ISC</label>
 
-            <input class="form-check-input" value="3" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="2" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IBQ</label>
 
-            <input class="form-check-input" value="5" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="3" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IEM</label>
 
-            <input class="form-check-input" value="6" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="4" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IGE</label>
 
-            <input class="form-check-input" value="7" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="5" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >ARQ</label>
 
-            <input class="form-check-input" value="8" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="6" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >LA</label>
 
-            <input class="form-check-input" value="9" type="checkbox" onclick="elegirCarrera(this)">
-            <label class="form-check-label" >CP</label>  
+            <input class="form-check-input" value="7" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >CP</label> 
+            
+            <input class="form-check-input" value="8" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >CB</label> 
              
             <input type="text" id="DirigidoA" name="DirigidoA" hidden>
             
