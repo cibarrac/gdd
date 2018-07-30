@@ -66,7 +66,7 @@ function reportBy(id){
 function firmar(s,id){
  respuesta =  confirm("Esta seguro que desea firmar el curso para que sea publico para los profesores");
  if(respuesta){
-  get_("firmar.php?curso="+id); 
+  get_("firmar.php?curso="+id ); 
  }  
    
 }
