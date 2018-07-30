@@ -7,6 +7,7 @@
               <?php echo $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2]; ?> 
            </option>           
  <?php }}?>
+         
            
 <?php
     function fillNombreCompletoProfesor()
@@ -22,7 +23,7 @@
   
             
 <?php 
-    function ProfesoresPorCarrera($IdCarrera){
+    function ProfesoresPorCarrera(){
         $col=0;
         $array = querySelect(SQL::$PROFESORES_POR_CARRERA." ".$IdCarrera);
         foreach ($array as $fila) { ?>
@@ -80,43 +81,79 @@ function fillOptionsDouble($table, $col) {
         
           
               
-<?php function ismenu() {
-    if(isset($SESSION['username'])) {
+<?php function ismenu($email) {
+    //if(isset($SESSION['username'])) {
       
-    $listaMenu = querySelect(SQL::$SELECCIONA_ROLE." ".$_SESSION['username'] );
+    $listaMenu = querySelect(SQL::$SELECCIONA_ROLE." '".$email."'");
         foreach ($listaMenu as $fila) {
-          $role = $fila['role'];  
-        } return $role;   
-     }
-     else {return "su";}
+            return $fila['role'];  
+        }          
+     //}
+     //else {return "user";}
 }?>
            
     
+<?php function getIdDepartamentoJefe($email){
+    $col=0;
+    $lista = querySelect(SQL::$ID_JEFE_DEPOT_CURSO." '".$email."' ");
+    foreach ($lista as $fila){
+        return $fila[$col];
+    }
+}
+?>
 
+
+<?php function getIdJefe($email){
+    $col=0;
+    $lista = querySelect(SQL::$ID_JEFE." '".$email."' ");
+    foreach ($lista as $fila){
+        return $fila[$col];
+    }
+}
+?>
+        
+<?php function getIdCarreraJefe($email){
+    $col=0;
+    $lista= querySelect(SQL::$ID_CARRERA_JEFE." '".$email."' ");
+    foreach ($lista as $fila){
+        return $fila[$col];
+    }
+}
+?>
+        
+        
+<?php function getIdCArreraProfe($email){
+    $col = 0;
+    $lista = querySelect(SQL::$ID_CARRERA_PROFESOR." '".$email."' ");
+    foreach ($lista as $fila) {
+        return $fila[$col]; 
+    }
+}?>
               
-<?php function OptieneNombre($correo, $col = 0) {
-   $listaNombre = querySelect(SQL::$NOMBRE_PROFESOR." ".$correo);
+<?php function OptieneNombre($correo) {
+    $col = 0;
+   $listaNombre = querySelect(SQL::$NOMBRE_PROFESOR." '".$correo."' ");
     foreach ($listaNombre as $fila) { 
          return $fila[$col] . " " . $fila[$col+1] . " " . $fila[$col+2];
 }} ?>
 
         
-<?php function OpIdPorCorreo ($correo, $col=0){
-    $lista = querySelect(SQL::$ID_PROFESOR_POR_CORREO." ".$correo);
+<?php function OpIdPorCorreo ($correo){
+    $col=0;
+    $lista = querySelect(SQL::$ID_PROFESOR_POR_CORREO." '".$correo."' ");
     foreach ($lista as $fila) { 
         return  $fila[$col];
  }} ?>
             
           
-<?php function OptieneNombreJefe($correo, $col = 0) {
-    $listaNombreJefe = querySelect(SQL::$NOMBRE_JEFE_POR_CORREO." ".$correo);
+<?php function OptieneNombreJefe($correo) {
+    $col = 0;
+    $listaNombreJefe = querySelect(SQL::$NOMBRE_JEFE_POR_CORREO." '".$correo."' ");
     foreach ($listaNombreJefe as $fila){
         return $fila[$col] . " " . $fila[$col+1] . " " . $fila[$col+2];
 }}?>
               
          
-
-
               
 <?php  function OptieneCorreoBoss() {
     $listaCorreoBoss = querySelect(SQL::$CORREO_JEFE);
@@ -135,8 +172,9 @@ function fillOptionsDouble($table, $col) {
 
         
         
-<?php function OptienePresidente($correo, $col=0) {
-    $listaPresidente = querySelect(SQL::$PRESIDENTE_ACADEMIA." ".$correo);
+<?php function OptienePresidente($correo) {
+    $col=0;
+    $listaPresidente = querySelect(SQL::$PRESIDENTE_ACADEMIA." '".$correo."' ");
         foreach ($listaPresidente as $fila) { 
              return $fila[$col] . " " . $fila[$col+1] . " " . $fila[$col+2];
 }} ?>
@@ -157,8 +195,9 @@ function fillOptionsDouble($table, $col) {
 
 
                   
-<?php function OptieneDepartamento($correoJefe, $col=0) {
-     $listaDepartamento = querySelect(SQL::DEPARTAMENTO_JEFE." ".$correoJefe);
+<?php function OptieneDepartamento($correoJefe) {
+    $col=0;
+     $listaDepartamento = querySelect(SQL::$DEPARTAMENTO_JEFE." '".$correoJefe."' ");
     foreach ($listaDepartamento as $fila) {
       return $fila[$col];  
 }} ?>
