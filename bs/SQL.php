@@ -21,16 +21,11 @@ class SQL {
     public static $SELECCIONA_TODO = "SELECT * FROM";
     
     
-    public static $CURSOS_POR_JEFE = "SELECT * FROM curso INNER JOIN jefedepartamento"
-            . " ON NombreCompletoJefeDepto = concat(NombreJefeDepto,' ',ApellidoPaternoJefeDepto,"
-            . "' ',ApellidoMaternoJefeDepto) where correojefe = ";
-    
-    
     public static $CURSOS_APROBADOS = "SELECT * FROM curso WHERE ispublic = 1";
     
     
     public static $SELECCIONA_ROLE = "SELECT role FROM members "
-            . "WHERE email=";
+            . "WHERE email= ";
     
     
     public static $NOMBRE_PROFESOR = "SELECT NombreProfesor, ApellidoPaternoProfesor, "
@@ -39,7 +34,7 @@ class SQL {
     
     
     public static $ID_PROFESOR_POR_CORREO = "SELECT IdProfesor FROM profesor WHERE"
-            . " CorreoProfesor = ";
+            . " CorreoProfesor =";
     
     
     public static $NOMBRE_JEFE_POR_CORREO = "SELECT NombreJefeDepto, ApellidoPaternoJefeDepto,"
@@ -100,5 +95,34 @@ class SQL {
     public static $PROFESORES_POR_CARRERA = "SELECT CONCAT(NombreProfesor,' ',ApellidoPaternoProfesor,' '"
             . ",ApellidoMaternoProfesor) AS NombreProfe FROM profesor "
             . "WHERE IdCarrera = ";
+    
+    
+    public static $CURSOS_POR_CARRERA = "SELECT * FROM curso WHERE DirigidoA like '%0%' "
+            . "OR DirigidoA like ";
+    
+    public static $ID_CARRERA_PROFESOR = "SELECT IdCarrera FROM profesor WHERE"
+            . " CorreoProfesor = ";
+    
+    public static $ID_JEFE_DEPOT_CURSO = "SELECT IdCarrera FROM carrera, "
+            . "jefedepartamento WHERE carrera.IdDepartamentoCarrera = "
+            . "jefedepartamento.IdDepartamentoJefe AND "
+            . "jefedepartamento.CorreoJefe =";
+    
+    public static $ID_JEFE ="SELECT IdJefeDepartamento FROM jefedepartamento "
+            . "WHERE CorreoJefe =";
+    
+    public static $PROFESORES_POR_JEFE = "SELECT * FROM profesor WHERE "
+            . "IdJefeInmediatoProfesor =";
+    
+    public static $PERFIL_PROFESOR = "SELECT * FROM profesor WHERE CorreoProfesor =";
+    
+    public static $INSCRIPCIONES_PROFESOR = "SELECT * FROM inscripcion WHERE "
+            . "IdProfesor = (SELECT IdProfesor from profesor WHERE CorreoProfesor =";
+    
+    public static $ID_CARRERA_JEFE = "SELECT IdCarrera FROM carrera INNER JOIN"
+            . " jefedepartamento ON IdDepartamentoCarrera = IdDepartamentoJefe"
+            . " WHERE CorreoJefe =";
+    
+    public static $INSCRIPCIONES_POR_JEFE = "SELECT * FROM inscripcion WHERE IdCarrera =";
 }
 
