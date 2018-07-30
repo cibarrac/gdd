@@ -81,10 +81,24 @@ function getheaders($table) {
 
 
     <?php
+    
     if($table == "curso")
     {
-      $list = querySelect(SQL::$CURSOS_APROBADOS);
+        
+      $idCarreraProfe = getIdCArreraProfe( $_SESSION['username'] );   
+      $list = querySelect(SQL::$CURSOS_POR_CARRERA." '%".$idCarreraProfe."%' AND ispublic = 1");
     }
+    
+    elseif($table == "profesor")
+    {
+        $list = querySelect(SQL::$PERFIL_PROFESOR." '".$_SESSION['username']."' ");
+    }
+    
+    elseif($table == "inscripcion")
+    {
+        $list = querySelect(SQL::$INSCRIPCIONES_PROFESOR." '".$_SESSION['username']."') ");
+    }
+    
     else
     {
       $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
@@ -119,38 +133,35 @@ function getheaders($table) {
  } ?>
 
  function inscribir(numerocurso) {
-   var request = new XMLHttpRequest();
-   request.onload = function () {
-     var response = this.response;
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+      var response = this.response;
 
-     if (typeof response === 'undefined' || response === "")
-     throw "No se recuperó la información de la respuesta a la petición."
+      if (typeof response === 'undefined' || response === "")
+      throw "No se recuperó la información de la respuesta a la petición."
 
-     var res = JSON.parse(response);
+      var res = JSON.parse(response);
 
-     if (res.status == 200) {
-       var data = res.data;
+      if (res.status == 200) {
+        var data = res.data;
 
-       if (data.length == 0)
-       return;
+        if (data.length == 0)
+        return;
 
-       // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
-       document.querySelector('#NombreCurso').value = data.NombreCurso;
-       document.querySelector('#NumeroCurso').value = data.NumeroCurso;
-       document.querySelector('#FechaInicio').value = data.FechaInicioCurso;
-       document.querySelector('#FechaFin').value = data.FechaFinCurso;
-       document.querySelector('#NombreInstructor1').value = data.NombreCompletoInstructor1;
-       document.querySelector('#NombreInstructor2').value = data.NombreCompletoInstructor2;
-       document.querySelector('#TipoCurso').value = data.TipoCurso;
-       //document.querySelector('#horario').value = data.horainicio;
-       document.querySelector('#Aula').value = data.AulaPropuesta;
-
-        if (typeof userdata !== 'undefined')
-            document.querySelector('#NombreProfesorInscrito').value = userdata.nombre + " " + userdata.apellidop + " " + userdata.apellidom;
-     }
-   };
-   request.open('GET', 'api.php?oper=getcurso&numcurso='  + numerocurso, true);
-   request.send();
- }
+     // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
+        document.querySelector('#NombreCurso').value = data.NombreCurso;
+        document.querySelector('#NumeroCurso').value = data.NumeroCurso;
+        document.querySelector('#FechaInicio').value = data.FechaInicioCurso;
+        document.querySelector('#FechaFin').value = data.FechaFinCurso;
+        document.querySelector('#NombreInstructor').value = data.NombreCompletoInstructor;
+        //document.querySelector('#NombreInstructor2').value = data.NombreCompletoInstructor2;
+        document.querySelector('#TipoCurso').value = data.TipoCurso;
+        //document.querySelector('#horario').value = data.horainicio;
+        document.querySelector('#Aula').value = data.AulaPropuesta;
+      }
+    };
+    request.open('GET', 'api.php?oper=getcurso&numcurso='  + numerocurso, true);
+    request.send();
+  }
 
 </script>
