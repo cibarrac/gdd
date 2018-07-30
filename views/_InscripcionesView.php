@@ -30,8 +30,7 @@
 
 
 <div class="row">
-
-
+    
   <div class="col-md-3">
     <div class="form-group">
       <label for="">Fecha de inicio:</label>
@@ -46,8 +45,6 @@
     </div>
   </div>
     
-    
-
 </div>
 
 
@@ -94,7 +91,7 @@
     <!--<div class="col-md-4">
         <div class="form-group">
             <label for="" >Seleccione la carrera del profesor</label>
-            <select class="form-control" id="CarreraProfe" >
+            <select class="form-control" method="post" id="CarreraProfe" name="CarreraProfe" onchange="enviar_id(this.value);">
                 <option value="">Seleccione</option>
                 <option value="1">ISC</option>
                 <option value="3">IBQ</option>
@@ -103,8 +100,7 @@
                 <option value="7">ARQ</option>
                 <option value="8">LA</option>
                 <option value="9">CP</option>
-                <option value="10">CB</option>
-                
+                <option value="10">CB</option>    
             </select>
         </div>
     </div> -->
@@ -120,6 +116,7 @@
     </div>
     
     <input type="text" name="IdProfesor" id="IdProfesor" hidden>
+    <input type="text" name="IdCarrera" id="IdCarrera" hidden>
     
 </div>
 
@@ -168,39 +165,6 @@ function getCurso() {
   }
   
   
-  
-  function getProfePorCarrera() {
-    var IdCarrera = document.querySelector("#CarreraProfe");
-    var request = new XMLHttpRequest();
-    request.onload = function () {
-      var response = this.response;
-
-      if (typeof response === 'undefined' || response === "")
-             throw "No se recuperó la información de la respuesta a la petición.";
-
-      var res = JSON.parse(response);
-        console.log(res);
-     
-       if (res.status == 200) {
-        var data = res.data;
-
-        if (data.length == 0)
-        return;
-       
-       
-        // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
-        
-       
-        }
-    };
-    request.open('GET', 'api.php?oper=getProfeCarrera&IdCarrera='  + IdCarrera.value, true);
-    request.send();
-  }
-
-  
-  
-  
-  
   function getId() {
     var nombreProfe = document.querySelector("#NombreProfesorInscrito");
     var request = new XMLHttpRequest();
@@ -222,11 +186,17 @@ function getCurso() {
        
         // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
         document.querySelector('#IdProfesor').value = data.IdProfesor;
+        document.querySelector('#IdCarrera').value = data.IdCarrera;
        
       }
     };
     request.open('GET', 'api.php?oper=getIdProfesor&nombreProfe='  + nombreProfe.value, true);
     request.send();
   }
+  
+  
+  
+  
+  
 
 </script>
