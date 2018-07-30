@@ -37,14 +37,14 @@ if(isset($_GET['view'])){  $contentView = $_GET['view']; } ?>
         
 </head> <body>
   <?php if(isset($_SESSION['username'])) {
-         $role = ismenu();
+         $role = ismenu($_SESSION['username']);
          include "views/menubar/navbar_".$role.".php";
     } else  { include "views/menubar/navbar_su.php"; }
   ?>
 <div class="container-fluid">
           <div id="content">
            <?php if(isset($_GET['view'])) {
-                      $role = ismenu();
+                      $role = ismenu($_SESSION['username']);
                     if( $role == 'su')      {    include $PATH.'su_table.php'; createTable($contentView);   }
                     elseif ($role == 'user'){    include $PATH.'user_table.php';createTable($contentView);  }
                     elseif ($role == 'admin') {  include $PATH.'admin_table.php';createTable($contentView); }
