@@ -7,75 +7,75 @@
   </div>
 
 
-<div class="row">
-
-<div class="col-md-12">
-        <label>Para los profesores de: </label>
-        <div class="form-group">   
-            
-            <input class="form-check-input" name="TodasLasCarreras" value="0" type="checkbox" id="TodasLasCarreras" >
-            <label class="form-check-label" for="radio2"> Para todas las careras</label>
-            
-            <input class="form-check-input" name="ParaISC" value="1" type="checkbox" id="ParaISC">
-            <label class="form-check-label" for="radio2">ISC</label>
-
-            <input class="form-check-input" name="ParaIBQ" value="3" type="checkbox" id="ParaIBQ" >
-            <label class="form-check-label" for="radio2">IBQ</label>
-
-            <input class="form-check-input" name="ParaIEM" value="5" type="checkbox" id="ParaIEM" >
-            <label class="form-check-label" for="radio2">IEM</label>
-
-            <input class="form-check-input" name="ParaIGE" value="6" type="checkbox" id="ParaIGE" >
-            <label class="form-check-label" for="radio2">IGE</label>
-
-            <input class="form-check-input" name="ParaARQ" value="7" type="checkbox" id="ParaARQ" >
-            <label class="form-check-label" for="radio2">ARQ</label>
-
-            <input class="form-check-input" name="ParaLA" value="8" type="checkbox" id="ParaLA" >
-            <label class="form-check-label" for="radio2">LA</label>
-
-            <input class="form-check-input" name="ParaCP" value="9" type="checkbox" id="ParaCP" >
-            <label class="form-check-label" for="radio2">CP</label>  
-            
-             <input class="form-control" type="text" id="final" />
-           
-        </div>
-    </div>       
-
-</div>
-
-
-
-
 
 <div class="row">
     
-    <div class="col-md-4">
-            <div class="form-group">
-                 <label for="">Del departamento de:</label>
-                  <input class="form-control" name="DelDepartamentoDe" readonly value="<?php echo OptieneDepartamento($_SESSION['username']);?>">
-            </div>
-      </div>
-
-    
-    <div class="col-md-4">
-        <div class="form-group">
-            <label for="">Jefe del departamento academico</label>
-            <input class="form-control" name="NombreCompletoJefeDepto" readonly value="<?php echo OptieneNombreJefe($_SESSION['username'])?>">
-        </div>
-    </div>
-
-
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Presidente de academia</label>
             <input class="form-control" name="NombreCompletoPresiAcad" readonly value="<?php echo OptienePresidente($_SESSION['username'])?>">
         </div>
     </div>
+    
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="">Jefe del departamento academico</label>
+            <input class="form-control" name="NombreCompletoJefeDepto" readonly value="<?php echo OptieneNombreJefe( $_SESSION['username'] )?>">
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+            <div class="form-group">
+                 <label for="">Del departamento de:</label>
+                  <input class="form-control" name="IdDepartamentoDe" readonly value="<?php echo OptieneDepartamento( $_SESSION['username'] )?>">
+            </div>
+      </div>
 
 </div>
 
 
+
+
+<div class="row">
+    <div class="col-md-12">
+        <label>Para los profesores de: </label>
+        <div class="form-group">   
+            
+            <input class="form-check-input" value="0" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >Para todas las careras</label>
+            
+            <input class="form-check-input" value="1" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >ISC</label>
+
+            <input class="form-check-input" value="2" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >IBQ</label>
+
+            <input class="form-check-input" value="3" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >IEM</label>
+
+            <input class="form-check-input" value="4" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >IGE</label>
+
+            <input class="form-check-input" value="5" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >ARQ</label>
+
+            <input class="form-check-input" value="6" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >LA</label>
+
+            <input class="form-check-input" value="7" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >CP</label> 
+            
+            <input class="form-check-input" value="8" type="checkbox" onclick="elegirCarrera(this)">
+            <label class="form-check-label" >CB</label> 
+             
+            <input type="text" id="DirigidoA" name="DirigidoA" hidden>
+            
+            <input type="text" hidden name="NumeroProfesoresCurso" value="0">
+           
+        </div>
+    </div>
+      
+</div>
 
 
 
@@ -104,7 +104,7 @@
     <div class="col-md-6">
         <label for="">Tipo de curso</label>
         <select name="TipoCurso" class="form-control">
-        <option value=""> </option>
+            <option> </option>
             <option value="Generico">Generico</option>
             <option value="Especialidad">Especialidad</option>
         </select>
@@ -120,32 +120,51 @@
 </div>
 
 
-
-<label for="">Instructores propuestos:</label>
 <div class="row">
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="">Intructor propuesto 1:</label>
-            <select class="form-control" name="NombreCompletoInstructor1">
-                <option value="">
-                  <?php fillOptionsDouble("instructor",1) ?>
-                </option>
+            <label for="">Intructor propuesto:</label>
+            <select class="form-control" name="NombreCompletoInstructor">
+                <option> </option>
+                <?php fillOptionsDouble("instructor",1) ?>
             </select>
         </div>
     </div>
-
+    
     <div class="col-md-6">
         <div class="form-group">
-            <label for="">Intructor propuesto 2:</label>
-            <select class="form-control" name="NombreCompletoInstructor2">
-                <option value="">
-                    <?php fillOptionsDouble("instructor",1) ?>
-                </option>
+          <label for="">Aula Propuesta:</label>
+          <select class="form-control" name="AulaPropuesta">
+              <option> </option>
+                <?php fillOptionsSingle("aula",1) ?>
+          </select>
+      </div>
+    </div>
+    
+</div>
+
+
+
+<div class="row">
+    
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Turno</label>
+            <select class="form-control" name="Turno" id="Turno" required>
+                <option value="M"> Matutino</option>
+                <option value="V"> Vespertino</option>
             </select>
         </div>
     </div>
-
+    
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Fecha limite de inscripcion:</label>
+            <input type="date" name="FechaLimite" class="form-control">
+        </div>
+    </div>
+    
 </div>
 
 
@@ -166,6 +185,8 @@
 
 </div>
 
+
+
 <div class="row">
 
     <div class="col-md-3">
@@ -184,17 +205,17 @@
 
     <div class="col-md-3">
         <div class="form-group">
-            <label for="">Fecha de inicio:</label>
+            <label for="">De inicio:</label>
             <input type="date" name="FechaInicioCurso" class="form-control" required>
         </div>
     </div>
 
     <div class="col-md-3">
         <div class="form-group">
-            <label for="">Fecha de terminacion:</label>
+            <label for="">De terminacion:</label>
             <input type="date" name="FechaFinCurso" class="form-control">
         </div>
-    </div>
+    </div>  
 
 </div>
 
@@ -224,7 +245,7 @@
         </div>
 
         <div class="col-md-3">
-            <input type="number" name="NumeroProfesoresCurso" class="form-control">
+            <input type="number" name="capacidadmaxima" class="form-control" placeholder="Capacidad maxima">
         </div>
 
         <div class="col-md-3">
@@ -237,54 +258,112 @@
     </div>
 
 </div>
-<br><br>
-<div class="row">
-  <div class="col-md-12">
-  <div class="col-md-4">
-      <div class="form-group">
-          <label for="">Aula Propuesta:</label>
-          <select class="form-control" name="AulaPropuesta">
-              <option value="">
-                  <?php fillOptionsSingle("aula",1) ?>
-              </option>
-          </select>
-      </div>
-  </div>
-</div>
+
+<br>
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-3 col-md-offset-1">        
+            <div class="alert alert-success alert-dismissable">
+                <a href="javascript:mostrar();" >  <input class="form-check-input" name=""  type="checkbox"  > CLICK PARA SELECCIONAR DIPLOMADO </a>
+                <div id="flotante" style="display:none;">
+                    <div class="form-check">
+                        <input class="form-check-input" name="DiplomadoDFT" value="1" type="radio" id="DiplomadoDFT">
+                        <label class="form-check-label" for="radio1">DFT </label> 
+                        <input class="form-check-input" name="DiplomadoDFT" value="2" type="radio" id="DiplomadoDFT" >
+                        <label class="form-check-label" for="radio1">DFTD</label>
+                        <div id="close"><a href="javascript:cerrar();">Cancelar</a></div>
+                        <input class=""   hidden="">
+                        </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="col-md-3 col-md-offset-1" >
+            <div class="alert alert-info alert-dismissable">
+                <label> CURSO </label>
+                <div class="form-check">
+                    <input class="form-check-input" name="CursoDocente" value="1" type="radio" id="CursoDocente">
+                    <label class="form-check-label" for="radio2">Docente </label> 
+                    <input class="form-check-input" name="CursoDocente" value="2" type="radio" id="CursoDocente" >
+                    <label class="form-check-label" for="radio2">Profesional</label>
+
+
+                        <div class="col-md-12 col-md-offset-1">
+                            <input class="form-check-input" name="CursoCertificacion" value="1" type="checkbox" id="CursoCertificacion" >
+                            <label class="form-check-label" for="radio2">Certificacion</label>
+
+                            <input class=""   hidden="">
+                        </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>  
 </div>
 
 
-<!--
+
+<script languague="javascript">
+        function mostrar() {
+            div = document.getElementById('flotante');
+            div.style.display = '';
+        }
+
+        function cerrar() {
+            div = document.getElementById('flotante');
+            div.style.display = 'none';
+        }
+</script>
+
+
 <script>
 
-
-
-function getNombreCarrera() {
-    var nomcarrera = document.querySelector("#NombreCarrera");
+function getNombres() {
+    var idDepartamento = document.querySelector("#IdDepartamentoDe");
     var request = new XMLHttpRequest();
     request.onload = function () {
       var response = this.response;
 
       if (typeof response === 'undefined' || response === "")
-      throw "No se recuperó la información de la respuesta a la petición."
+             throw "No se recuperó la información de la respuesta a la petición.";
 
       var res = JSON.parse(response);
-
-      if (res.status == 200) {
+ console.log(res);
+     
+       if (res.status == 200) {
         var data = res.data;
 
         if (data.length == 0)
         return;
-
+       
+       
         // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
-        document.querySelector('#NombreCarrera').value = data.NombreCarrera;
-        document.querySelector('#NombreDepartamento').value = data.NombreDepartamento;
-
+        document.querySelector('#NombreCompletoJefeDepto').value = data.NombreJefe;
+        document.querySelector('#NombreCompletoPresiAcad').value = data.NombrePresidente;
       }
     };
-    request.open('GET', 'api.php?oper=getcurso&nomcarrera='  + nomcarrera.value, true);
+    request.open('GET', 'api.php?oper=getnombres&idDepartamento='  + idDepartamento.value, true);
     request.send();
   }
 
 </script>
--->
+
+
+<script>
+    var elementoPaises = document.getElementById('DirigidoA')
+    var paisesElegidos = []
+
+    function elegirCarrera(element){
+        if (element.checked) {
+            paisesElegidos.push(element.value)
+        }else{
+            paisesElegidos.splice( paisesElegidos.indexOf( element.value ), 1 )
+        }
+        elementoPaises.value = paisesElegidos.join('')
+    }
+</script>
