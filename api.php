@@ -78,7 +78,7 @@ function getProfeCarrera($IdCarrera)
 
 function getIdProfesor ($NombreProfe)
 {
-    $lista = querySelect("SELECT IdProfesor FROM profesor WHERE "
+    $lista = querySelect("SELECT IdProfesor, IdCarrera FROM profesor WHERE "
             . "CONCAT(NombreProfesor,' ', ApellidoPaternoProfesor,' ', "
             . "ApellidoMaternoProfesor ) = '".$NombreProfe."' ");
     
