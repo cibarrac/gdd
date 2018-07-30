@@ -2,6 +2,7 @@
 session_start();
 include "model/common/common.php";
 include 'bs/QueryService.php';
+include_once 'bs/SQL.php'; 
 
 update();
 
@@ -11,7 +12,7 @@ function update()
     $firma = "sign";
     //$public = $_GET["ispublic"];
 
-    switch (ismenu()) {
+    switch (ismenu($_SESSION['username'])) {
         case 'su': $firma.="1";break;
         case 'admin': $firma.="2";break;
 
