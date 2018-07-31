@@ -6,7 +6,7 @@
 function createView($view) {
    include 'listViews.php';
   ?>
-<form class="form" action="post.php" method="post">
+<form class="form" action="post.php" method="post" onsubmit= "return validar();" >
           <!-- Parametros start -->
           <input type="hidden" name="view"  value="<?php echo $view;?>">
           <input type="hidden"  name="table"  value="<?php echo $table[$view];?>">
@@ -16,7 +16,7 @@ function createView($view) {
 
         <div class="container">
           <button type="submit"  id="submit" data-original-title="Contactos"
-          class="btn btn-success btn-fab btn-float" onclick="setAction('save')"> <i class="fa fa-save fa-2x"></i></button>
+          class="btn btn-success btn-fab btn-float" onclick=""> <i class="fa fa-save fa-2x"></i></button>
          <!--  <button type="submit" class="btn btn-warning" onclick="setAction('update')"> Editar</button>
          -->
         </div>
