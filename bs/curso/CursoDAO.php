@@ -132,4 +132,12 @@ class CursoDAO {
         else { return false; }
     }
     
+    public function validarProfesorRegistrado ($email)
+    {
+        $result = querySelect("SELECT CorreoProfesor FROM profesor WHERE "
+                . "CorreoProfesor = '".$email."' ");
+        if(count($result)>0) { return false; }
+        else { return true; }
+    }
+    
 }
