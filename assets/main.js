@@ -52,7 +52,44 @@ function isValid(curso) {
   alert(getElementById(curso).value);
 }
 
+function validar() 
+{
+  
+    var NombreProfesor, ApellidoPaternoProfesor,ApellidoMaternoProfesor, NumeroTelefonoProfesor, NumeroTarjetaProfesor, CarreraCursadaProfesor,PuestoProfesor, expresion;
 
+    NombreProfesor = document.getElementById('NombreProfesor').value;
+    ApellidoPaternoProfesor = document.getElementById('ApellidoPaternoProfesor').value;
+    ApellidoMaternoProfesor = document.getElementById('ApellidoMaternoProfesor').value;
+    NumeroTelefonoProfesor = document.getElementById('NumeroTelefonoProfesor').value;
+    NumeroTarjetaProfesor = document.getElementById('NumeroTarjetaProfesor').value;
+    CarreraCursadaProfesor = document.getElementById('CarreraCursadaProfesor').value;
+    PuestoProfesor = document.getElementById('PuestoProfesor').value;
+    expresion = /^[a-zA-Z ]*$/;
+     
+    if (NombreProfesor === "" || ApellidoPaternoProfesor === "" || ApellidoMaternoProfesor === "" || NumeroTelefonoProfesor === "" || NumeroTarjetaProfesor === "" || CarreraCursadaProfesor === "" || PuestoProfesor === "")
+    {
+         alert("Todos  los campos son obligatorios");
+        return false;            
+    } 
+    else if(isNaN(NumeroTelefonoProfesor))
+    {
+        alert("Numero de telefono invalido ");
+        return false;  
+    }
+    
+    else if(isNaN(NumeroTarjetaProfesor))
+    {
+        alert("Numero de tarjeta invalido ");
+        return false;  
+    }
+    
+    else if (!expresion.test(NombreProfesor && ApellidoPaternoProfesor && ApellidoMaternoProfesor))
+    {
+        alert("Ingresar solo letras en el nombre");
+        return false; 
+    }
+
+}
 
 function report(){
   window.location = "report.php?curso="+document.getElementById('curso').value; 
