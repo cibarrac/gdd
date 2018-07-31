@@ -11,6 +11,7 @@ function dialog($msg)
 {
     echo '<script> alert("'.$msg.'"); </script> ';
 }
+
 function validation(){
     $formData = getPOST_GET();
     $table = $formData['table'];
@@ -80,10 +81,24 @@ function validation(){
       
     }
     
+    
+    if($table == "profesor" )
+    {
+        $email =$formData['CorreoProfesor'];
+        
+        $profesorRegistrado = CursoService::getProfesorRegistrado($email);
+        
+        if($profesorRegistrado == false)
+        {
+            dialog('Usted ya se encuetra registrado');
+            return false;
+        }
+        else { return true; }
+    }
+    
+   
     else { return true; }
 }
-
-
 
 
 
