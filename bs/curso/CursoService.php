@@ -80,4 +80,10 @@ class CursoService
         return $cursoDAO->validaCursoAprobado($IdCurso);
     }
     
+    public static function getProfesorRegistrado($email)
+    {
+        $cursoDAO = new CursoDAO();
+        return $cursoDAO->validarProfesorRegistrado($email);
+    }
+    
 }
