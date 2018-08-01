@@ -84,12 +84,13 @@
 
 
 <div class="row">
+    
 <div class="col-md-6">
         <div class="from-group">
             <label for="">Inscribir al profesor:  </label>
             <select class="form-control"  name="NombreProfesorInscrito" id="NombreProfesorInscrito" onchange="getId()">
                 <option value=""> </option>
-                   <?php fillNombreCompletoProfesor() ?>
+                   <?php fillNombreCompletoProfesorPorJefe($_SESSION['username'])?>
           </select>
         </div>
     </div>
@@ -102,8 +103,8 @@
 <br><br>
 
   <?php
-
-
+   
+       
    ?>
 
 <script>
