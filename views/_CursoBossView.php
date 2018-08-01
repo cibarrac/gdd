@@ -27,9 +27,11 @@
     <div class="col-md-4">
             <div class="form-group">
                  <label for="">Del departamento de:</label>
-                  <input class="form-control" name="IdDepartamentoDe" readonly value="<?php echo OptieneDepartamento( $_SESSION['username'] )?>">
+                  <input class="form-control" id="IdDepartamentoDe" readonly value="<?php echo OptieneDepartamento( $_SESSION['username'] )?>">
             </div>
       </div>
+    
+    <input name="IdDepartamentoDe" hidden value="<?php echo getIdDepartamentoJefe( $_SESSION['username'] )?>" >
 
 </div>
 
