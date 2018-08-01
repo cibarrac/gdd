@@ -53,7 +53,7 @@
               <?php  $modal = new Modal('btn1',$view,$view,"Insertar ".$view);
               $modal->getContent();
 
-              $_subscribe = new Modal('inscripcion_modal', 'Inscripción al curso', '_Inscripciones', 'Inscribir');
+              $_subscribe = new Modal('inscripcion_modal', 'Inscripción al curso', '_InscripcionesBoss', 'Inscribir');
               $_subscribe->getContent(true);
               
               $_subscribe = new Modal('JefeDepto', 'Editar Jefe de departamento', '_JefedeptoBoss', 'editarBoss');
@@ -78,7 +78,7 @@
     <?php
     if($table == "curso")
     {
-      $idCarreraJefeDepto = getIdDepartamentoJefe( $_SESSION['username'] );
+      $idCarreraJefeDepto = getIdCarreraJefe( $_SESSION['username'] );
       $list = querySelect(SQL::$CURSOS_POR_CARRERA." '%".$idCarreraJefeDepto."%' ");
     }
     
