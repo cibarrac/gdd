@@ -10,9 +10,9 @@
          
            
 <?php
-    function fillNombreCompletoProfesor()
+    function fillNombreCompletoProfesorPorJefe($email)
     {   $col = 0;
-        $array = querySelect(SQL::$NOMBRE_COMPLETO_PROFESOR);
+        $array = querySelect(SQL::$NOMBRE_COMPLETO_PROFESOR_POR_JEFE." '".$email."' ");
         foreach ($array as $fila ) { ?>
             <option value="<?php echo $fila[$col]; ?>" >
                 <?php echo $fila[$col]; ?>
@@ -23,7 +23,7 @@
   
             
 <?php 
-    function ProfesoresPorCarrera(){
+    function ProfesoresPorCarrera($IdCarrera){
         $col=0;
         $array = querySelect(SQL::$PROFESORES_POR_CARRERA." ".$IdCarrera);
         foreach ($array as $fila) { ?>
@@ -92,16 +92,7 @@ function fillOptionsDouble($table, $col) {
      //else {return "user";}
 }?>
            
-    
-<?php function getIdDepartamentoJefe($email){
-    $col=0;
-    $lista = querySelect(SQL::$ID_JEFE_DEPOT_CURSO." '".$email."' ");
-    foreach ($lista as $fila){
-        return $fila[$col];
-    }
-}
-?>
-
+   
 
 <?php function getIdJefe($email){
     $col=0;
@@ -198,14 +189,21 @@ function fillOptionsDouble($table, $col) {
 <?php function OptieneDepartamento($correoJefe) {
     $col=0;
      $listaDepartamento = querySelect(SQL::$DEPARTAMENTO_JEFE." '".$correoJefe."' ");
-    foreach ($listaDepartamento as $fila) {
-      return $fila[$col];  
-}} ?>
-            
+    foreach ($listaDepartamento as $fila) { 
+        return $fila[$col]; 
+ }} ?>
+        
+        
+<?php function getIdDepartamentoJefe($correoJefe) {
+    $col=0;
+     $listaDepartamento = querySelect(SQL::$ID_DEPARTAMENTO_JEFE." '".$correoJefe."' ");
+    foreach ($listaDepartamento as $fila) { 
+        return $fila[$col]; 
+ }} ?>
+     
+        
 
-       
-
-                  
+                            
 <?php function fullpublic() {
     $k; $v;
      $lista = querySelect(SQL::$CURSO_PUBLIC);
