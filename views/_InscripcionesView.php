@@ -88,29 +88,29 @@
 
  <div class="row">
     
-    <!--<div class="col-md-4">
+    <div class="col-md-4">
         <div class="form-group">
-            <label for="" >Seleccione la carrera del profesor</label>
-            <select class="form-control" method="post" id="CarreraProfe" name="CarreraProfe" onchange="enviar_id(this.value);">
+            <label for="" >Seleccione la carrera o el departamento </label>
+            <select class="form-control" id="CarreraProfe" onchange="getProfesores()">
                 <option value="">Seleccione</option>
                 <option value="1">ISC</option>
-                <option value="3">IBQ</option>
-                <option value="5">IEM</option>
-                <option value="6">IGE</option>
-                <option value="7">ARQ</option>
-                <option value="8">LA</option>
-                <option value="9">CP</option>
-                <option value="10">CB</option>    
+                <option value="2">IBQ</option>
+                <option value="3">IEM</option>
+                <option value="4">IGE</option>
+                <option value="5">ARQ</option>
+                <option value="6">LA</option>
+                <option value="7">CP</option>
+                <option value="8">CB</option>    
             </select>
         </div>
-    </div> -->
+    </div> 
     
     <div class="col-md-6">
         <div class="from-group">
             <label for="">Inscribir al profesor:  </label>
             <select class="form-control"  name="NombreProfesorInscrito" id="NombreProfesorInscrito" onchange="getId()">
                 <option value=""> </option>
-                   <?php fillNombreCompletoProfesor() ?>
+                <script></script>
           </select>
         </div>
     </div>
@@ -195,6 +195,31 @@ function getCurso() {
   }
   
   
+  function getProfesores() {
+    var IdCarrera = document.querySelector("#CarreraProfe");
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+      var response = this.response;
+
+      if (typeof response === 'undefined' || response === "")
+             throw "No se recuperó la información de la respuesta a la petición.";
+
+      var res = JSON.parse(response);
+        console.log(res);
+     
+       if (res.status == 200) {
+        var data = res.data;
+
+        if (data.length == 0)
+        return;
+       
+        // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
+       
+      }
+    };
+    request.open('GET', 'api.php?oper=getProfeCarrera&IdCarrera='  + IdCarrera.value, true);
+    request.send();
+  }
   
   
   
