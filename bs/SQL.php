@@ -63,6 +63,10 @@ class SQL {
             . " INNER JOIN jefedepartamento ON IdDepartamento = IdDepartamentoJefe"
             . " WHERE CorreoJefe = ";
     
+    public static $ID_DEPARTAMENTO_JEFE = "SELECT IdDepartamento FROM departamento"
+            . " INNER JOIN jefedepartamento ON IdDepartamento = IdDepartamentoJefe"
+            . " WHERE CorreoJefe = ";
+    
     public static $CURSO_PUBLIC = "SELECT * FROM curso WHERE sign1=1 and sign2=1";
     
     
@@ -87,9 +91,10 @@ class SQL {
     
     public static $AULA_OCUPADA = "SELECT NumeroCurso, NombreCurso, AulaPropuesta, Turno FROM curso WHERE AulaPropuesta = ";
     
-    public static $NOMBRE_COMPLETO_PROFESOR = "SELECT CONCAT(NombreProfesor,' ', "
-            . "ApellidoPaternoProfesor,' ', ApellidoMaternoProfesor ) "
-            . "AS NombreCompleto FROM profesor";
+    public static $NOMBRE_COMPLETO_PROFESOR_POR_JEFE = "SELECT CONCAT(NombreProfesor,' '"
+            . ",ApellidoPaternoProfesor,' ', ApellidoMaternoProfesor ) AS "
+            . "NombreCompleto FROM profesor INNER JOIN jefedepartamento "
+            . "ON IdJefeInmediatoProfesor = IdJefeDepartamento WHERE CorreoJefe =";
     
     
     public static $PROFESORES_POR_CARRERA = "SELECT CONCAT(NombreProfesor,' ',ApellidoPaternoProfesor,' '"
@@ -102,11 +107,6 @@ class SQL {
     
     public static $ID_CARRERA_PROFESOR = "SELECT IdCarrera FROM profesor WHERE"
             . " CorreoProfesor = ";
-    
-    public static $ID_JEFE_DEPOT_CURSO = "SELECT IdCarrera FROM carrera, "
-            . "jefedepartamento WHERE carrera.IdDepartamentoCarrera = "
-            . "jefedepartamento.IdDepartamentoJefe AND "
-            . "jefedepartamento.CorreoJefe =";
     
     public static $ID_JEFE ="SELECT IdJefeDepartamento FROM jefedepartamento "
             . "WHERE CorreoJefe =";
