@@ -71,6 +71,24 @@ function validar()
          alert("Todos  los campos son obligatorios");
         return false;            
     } 
+    
+    else if (!expresion.test(NombreProfesor))
+    {
+        alert("Ingresar solo letras en el nombre");
+        return false; 
+    }
+    
+    else if (!expresion.test(ApellidoPaternoProfesor))
+    {
+        alert("Ingresar solo letras en el apellido paterno");
+        return false; 
+    }
+    
+     else if (!expresion.test(ApellidoMaternoProfesor))
+    {
+        alert("Ingresar solo letras en el apellido materno");
+        return false; 
+    }
     else if(isNaN(NumeroTelefonoProfesor))
     {
         alert("Numero de telefono invalido ");
@@ -83,11 +101,7 @@ function validar()
         return false;  
     }
     
-    else if (!expresion.test(NombreProfesor && ApellidoPaternoProfesor && ApellidoMaternoProfesor))
-    {
-        alert("Ingresar solo letras en el nombre");
-        return false; 
-    }
+    
 
 }
 
