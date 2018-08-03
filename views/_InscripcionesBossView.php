@@ -7,7 +7,7 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="">Nombre del curso: </label>
-      <select class="form-control" name="NombreCurso" id="NombreCurso" onchange="getCurso()" required>
+      <select class="form-control" name="NombreCurso" id="NombreCurso" onchange="getCurso()">
         <option value="Seleccionar"> Seleccionar</option>
         <?php
         $numero = fillOptionsSingle("curso",1)
@@ -96,6 +96,7 @@
     </div>
     
     <input type="text" name="IdProfesor" id="IdProfesor" hidden>
+    <input type="text" name="IdCarrera" id="IdCarrera" hidden>
     
 </div>
 
@@ -140,6 +141,35 @@ function getCurso() {
       }
     };
     request.open('GET', 'api.php?oper=getcurso&nomcurso='  + numcurso.value, true);
+    request.send();
+  }
+  
+  function getId() {
+    var nombreProfe = document.querySelector("#NombreProfesorInscrito");
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+      var response = this.response;
+
+      if (typeof response === 'undefined' || response === "")
+             throw "No se recuperó la información de la respuesta a la petición.";
+
+      var res = JSON.parse(response);
+        console.log(res);
+     
+       if (res.status == 200) {
+        var data = res.data;
+
+        if (data.length == 0)
+        return;
+       
+       
+        // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
+        document.querySelector('#IdProfesor').value = data.IdProfesor;
+        document.querySelector('#IdCarrera').value = data.IdCarrera;
+       
+      }
+    };
+    request.open('GET', 'api.php?oper=getIdProfesor&nombreProfe='  + nombreProfe.value, true);
     request.send();
   }
 
