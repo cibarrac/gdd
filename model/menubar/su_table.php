@@ -78,10 +78,8 @@
 	   $('#tabla').DataTable( {
     	   "oLanguage": {
             "sSearch": "Buscar "
-            }, 
-            dom: 'Bfrtip',
-            columnDefs: [ { targets: -1 } ],
-            buttons: ['columnsToggle' ] ,
+            }
+           
             
       });
      
