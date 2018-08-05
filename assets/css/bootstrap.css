@@ -6754,4 +6754,17 @@ button.close {
     display: none !important;
   }
 }
+
+
+
+.navbar-default .nav li a{
+  color: white;
+  
+}
+
+.navbar-default .nav ul a{
+  color: black;
+}
+
+
 /*# sourceMappingURL=bootstrap.css.map */
