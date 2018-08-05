@@ -11,31 +11,39 @@ if (isset($_SESSION['username'])) {
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="../css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="../css/main.css" rel="stylesheet" media="screen">
+    
+    <div class="col-lg-offset-4" >
+        <img  src="../../assets/logo/23.png" height="210"  >
+    </div>
+  
+    
   </head>
 
-  <body>
-    <div class="container">
-      <div class="container">
-       <img src="" alt="">
-      </div>
-      <form class="form-signin" name="form1" method="post" action="checklogin.php">
-        <h2 class="form-signin-heading"></h2>
-        <input name="myusername" id="myusername" type="text" class="form-control" placeholder="Nombre de usuario" autofocus>
-        <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="Contraseña">
-        <!-- The checkbox remember me is not implemented yet...
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-        -->
-        <button name="Submit" id="submit" class="btn btn-lg btn-info btn-block" type="submit">Iniciar</button>
-	    <a href="signup.php" name="Sign Up" id="signup" class="btn btn-lg btn-success btn-block" type="submit">Crear Cuenta</a>
+  <body style="background-color:#3F729B;">
+            
+      
+    <div class="container-fluid ">
+        <div class="col-lg-12">
+            <form class="form-signin" name="form1" method="post" action="checklogin.php">
+                <h2 class="form-signin-heading"></h2>
+                <input name="myusername" id="myusername" type="text" class="form-control" placeholder="Nombre de usuario" >
+                <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="Contraseña">
+         
+                <label class="form-signin-heading">
+                <input  type="checkbox"  value="remember-me"> Remember me
+                </label>
+        
+                <button name="Submit" id="submit" class="btn btn-lg btn-info btn-block" type="submit">Iniciar</button>
+                <a href="signup.php" name="Sign Up" id="signup" class="btn btn-lg btn-success btn-block" type="submit">Crear Cuenta</a>
 
-        <div id="message"></div>
-      </form>
-
-    </div> <!-- /container -->
+                <div id="message"></div>
+                </form>          
+        </div>    
+    </div>
+   
+     
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-2.2.4.min.js"></script>
