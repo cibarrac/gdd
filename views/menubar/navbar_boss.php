@@ -1,6 +1,21 @@
+<style>
+    #brand
+    {
+        height: 45px;
+    }
+    #brand-2
+    {
+        height: 55px;
+    }
+    #cerrar li a:hover
+    {
+        color: red;
+    }
+    
+</style>
 
  <!-- Fixed navbar JEFE DE DPTO-->
- <nav class="navbar navbar-inverse navbar-default  navbar-fixed-top">
+ <nav class="navbar navbar-default  navbar-fixed-top" style="background-color: #0d47a1;">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -9,7 +24,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"> </a>
+          <a class="navbar-brand" href="index.php"     style="padding: 4px;margin:auto">
+                <img id="brand" src="assets/logo/5.png" >
+            </a> 
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -104,7 +121,11 @@
 
                 </ul>
                </li>
-
+               
+            <a class="navbar-brand" href="index.php"     style="padding: 4px;margin:auto">
+                <img id="brand-2" src="assets/logo/23.png" >
+            </a> 
+               
         </div><!--/.nav-collapse -->
       </div>
     </nav>
