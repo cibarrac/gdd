@@ -14,6 +14,52 @@
 </head>
 <body> <br>
 <div class="container">
+    
+        <div class="row">
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="">Numerero y Nombre del Curso: ____________________________________________________________</label>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="" >Lugar:_______________________</label> 
+      </div>
+    </div>
+        
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="" >Horario:______________</label> 
+      </div>
+    </div>
+        
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="" >Periodo:________________</label> 
+      </div>
+    </div>
+     
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="" >Folio:______________</label> 
+      </div>
+    </div>    
+        
+     <div class="col-md-4">
+      <div class="form-group">
+        <label for="" >Instructor (es):_______________________</label> 
+      </div>
+    </div>  
+      
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="" >Duración:_______________________</label> 
+      </div>
+    </div>   
+      
+   </div>   
 <div class="row">
 
   <div class= "col-md-12">
