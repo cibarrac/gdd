@@ -15,51 +15,59 @@
 <body> <br>
 <div class="container">
     
-        <div class="row">
+   <div class="row">
 
     <div class="col-md-12">
       <div class="form-group">
-        <label for="">Numerero y Nombre del Curso: ____________________________________________________________</label>
+        <label for="">Numerero y Nombre del Curso: </label>
       </div>
     </div>
+       
+  </div>
 
+  <div class="row">
     <div class="col-md-4">
       <div class="form-group">
-        <label for="" >Lugar:_______________________</label> 
+        <label for="" >Lugar:</label> 
       </div>
     </div>
         
     <div class="col-md-2">
       <div class="form-group">
-        <label for="" >Horario:______________</label> 
+        <label for="" >Horario:</label> 
       </div>
     </div>
         
     <div class="col-md-2">
       <div class="form-group">
-        <label for="" >Periodo:________________</label> 
+        <label for="" >Periodo:</label> 
       </div>
     </div>
      
     <div class="col-md-2">
       <div class="form-group">
-        <label for="" >Folio:______________</label> 
+        <label for="" >Folio:</label> 
       </div>
     </div>    
+  </div>
+    
         
-     <div class="col-md-4">
+  <div class="row">
+      <div class="col-md-4">
       <div class="form-group">
-        <label for="" >Instructor (es):_______________________</label> 
+        <label for="" >Instructor (es): </label> 
       </div>
     </div>  
       
     <div class="col-md-3">
       <div class="form-group">
-        <label for="" >Duración:_______________________</label> 
+        <label for="" >Duración:</label> 
       </div>
-    </div>   
+    </div>     
+  </div>
+     
       
-   </div>   
+      
 <div class="row">
 
   <div class= "col-md-12">
