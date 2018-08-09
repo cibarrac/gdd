@@ -68,10 +68,10 @@ function getProfeCarrera($IdCarrera)
     $lista = querySelect("SELECT CONCAT(NombreProfesor,' ',ApellidoPaternoProfesor,' '"
             . ",ApellidoMaternoProfesor) AS NombreProfe FROM profesor "
             . "WHERE IdCarrera = '".$IdCarrera."'  ");
-    foreach ($lista as $fila) { ?>
-         <option value ="<?php echo $fila[$col]; ?>">
-            <?php echo $fila[$col]; ?>
-        </option> <?php 
+    if(count($lista)>0) {
+        return $lista;       
+    } else {
+        return ['idDepartamento' => $idCarrera, 'message' => 'No datos 5'];
     }
 }
 
