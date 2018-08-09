@@ -360,15 +360,15 @@ function getNombres() {
 
 
 <script>
-    var elementoPaises = document.getElementById('DirigidoA')
-    var paisesElegidos = []
+    var dirigidoA = document.getElementById('DirigidoA')
+    var carreraCheck = []
 
     function elegirCarrera(element){
         if (element.checked) {
-            paisesElegidos.push(element.value)
+            carreraCheck.push(element.value)
         }else{
-            paisesElegidos.splice( paisesElegidos.indexOf( element.value ), 1 )
+            carreraCheck.splice( carreraCheck.indexOf( element.value ), 1 )
         }
-        elementoPaises.value = paisesElegidos.join('')
+        dirigidoA.value = carreraCheck.join('')
     }
 </script>
