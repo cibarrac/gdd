@@ -43,7 +43,7 @@
                     <!--<li> <a class="dropdown-item"  href="index.php?view=_FichaTecnica">Ficha Tecnica</a></li> -->
                     <li> <a class="dropdown-item"  href="index.php?view=_Listas">Listas</a></li>
                     <li> <a class="dropdown-item"  href="index.php?view=_Aula">Registrar aula</a></li>
-                    <li><a class="dropdown-item"  href="index.php?view=_Profesor">Registrar profesor</a></li>
+                    <li><a class="dropdown-item"  href="index.php?view=_ProfesorSu">Registrar profesor</a></li>
                     <!-- <li>  <a class="dropdown-item"  href="index.php?view=_Materia">Registrar materia</a></li> -->
                     <li><a class="dropdown-item"  href="index.php?view=_Departamento">Registrar departamento</a></li>
                     <li><a class="dropdown-item"  href="index.php?view=_jefedepto">Registrar jefe de departamento</a></li>
