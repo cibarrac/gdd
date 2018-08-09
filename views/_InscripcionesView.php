@@ -209,10 +209,16 @@ function getCurso() {
      
        if (res.status == 200) {
         var data = res.data;
+        alert(data);
+         
 
         if (data.length == 0)
         return;
-       
+      
+        var x = document.getElementById("NombreProfesorInscrito");
+        var op = documnet.createElemt("op");
+        op.text = data;
+        x.add(op);
         // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
        
       }
