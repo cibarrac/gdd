@@ -5,7 +5,8 @@ $table = array('_InscripcionesUser' => 'inscripcion',
 '_Curso' => 'curso', //su, admin
 '_CursoBoss' => 'curso', //su, admin
 '_Instructor' => 'instructor',
-'_Profesor' => 'profesor', //user
+'_Profesor' => 'profesor',
+'_ProfesorSu' => 'profesor',  //user
 '_Encuensta' => 'encuesta', //user
 //'_CargarAsistencia' => 'Asistencias', //su, editor
 '_Aula' => 'aula', //su
