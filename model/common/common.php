@@ -235,4 +235,15 @@ function fillOptionsDouble($table, $col) {
         </option>
 <?php }}?>
 
+        
+<?php function TablaProfesorSU($id){
+    if($id == 0){
+        $lista = querySelect(SQL::$SELECCIONA_TODO." profesor");
+        return $lista;
+    }
+    else{
+        $lista = querySelect(SQL::$FILTRO_PROFESORES." ".$id);
+        return $lista;
+    }
+} ?>
             
