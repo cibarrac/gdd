@@ -52,7 +52,7 @@
     <table class="table table-hover table-striped table-responsive" id="tabla">
         <thead> <tr> <?php getheaders($table); ?> </tr>  </thead>
         <tbody>
-            <?php  
+            <?php
                 $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
                 $i = 0;
                 foreach($list as $row) {   ?>       
@@ -119,7 +119,7 @@
     request.open('GET', 'api.php?oper=getcurso&numcurso='  + numerocurso, true);
     request.send();
   }
-
-
-  </script>
+  
+  
+</script>
 
