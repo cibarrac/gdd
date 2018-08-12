@@ -13,13 +13,22 @@
     <script src="../../assets/js/bootstrap.js"></script>
 </head>
 <body> <br>
-<div class="container">
     
+<div class="container">
+    <?php
+    include '../../bs/curso/CursoService.php';
+    $id = $_GET['curso'];
+    
+    $cursoInfo = CursoService::getCursoInfo($id);
+    
+    foreach ($cursoInfo as $info)
+    {
+   ?>   
    <div class="row">
 
     <div class="col-md-12">
       <div class="form-group">
-        <label for="">Numerero y Nombre del Curso: </label>
+        <label for="">Numerero y Nombre del Curso: <?php echo $info->__GET('NumeroyNombreCurso'); ?> </label>
       </div>
     </div>
        
@@ -28,19 +37,19 @@
   <div class="row">
     <div class="col-md-4">
       <div class="form-group">
-        <label for="" >Lugar:</label> 
+        <label for="" >Lugar: <?php echo $info->__GET('Lugar'); ?></label> 
       </div>
     </div>
         
     <div class="col-md-2">
       <div class="form-group">
-        <label for="" >Horario:</label> 
+        <label for="" >Horario: <?php echo $info->__GET('Horario'); ?></label> 
       </div>
     </div>
         
     <div class="col-md-2">
       <div class="form-group">
-        <label for="" >Periodo:</label> 
+        <label for="" >Periodo: <?php echo $info->__GET('Periodo'); ?></label> 
       </div>
     </div>
      
@@ -55,7 +64,7 @@
   <div class="row">
       <div class="col-md-4">
       <div class="form-group">
-        <label for="" >Instructor (es): </label> 
+        <label for="" >Instructor: <?php echo $info->__GET('Instructor'); }?></label> 
       </div>
     </div>  
       
@@ -65,6 +74,7 @@
       </div>
     </div>     
   </div>
+    
      
       
       
@@ -83,13 +93,11 @@
                         <td>Firma</td>
   		</tr>
   </thead>
-  <?php  include '../../bs/curso/CursoService.php';
-    $id = $_GET['curso'];
-    $cursosList = CursoService::getAsistencias($id);
-    
-          foreach ($cursosList as $curso) {?>
+  <?php  
+          $cursosList = CursoService::getAsistencias($id);
+          foreach ($cursosList as $curso){ ?>
                 <tr >
-                    <td><?php echo $curso->__GET('NumeroCurso'); ?> </td>
+                    <td><?php echo $curso->__GET('NumeroProfe'); ?> </td>
                     <td><?php echo $curso->__GET('NumeroTarjeta'); ?></td>
                     <td><?php echo $curso->__GET('Grado'); ?></td>
                     <td><?php echo $curso->__GET('Participante'); ?></td>
