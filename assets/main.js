@@ -109,8 +109,8 @@ function report(){
   window.location = "report.php?curso="+document.getElementById('curso').value; 
    
 }
+
 function reportBy(id){
-  alert();
  get_("views/report/AsistenciaEntradaReport.php?curso="+id);  
 }
 
