@@ -3,6 +3,7 @@
 include '../../bs/QueryService.php';
 include '../../bs/SQL.php';
 include 'Curso.php';
+include 'CursoInfo.php';
 
 class CursoDAO {
     
@@ -31,10 +32,10 @@ class CursoDAO {
     public function cargarAsistencias($id) {
         $result= querySelect(SQL::$LISTA_ASISTENCIA." ".$id);
         $cursoList = array();
+        
         foreach($result as $row)
         {
-            $curso = new Curso();
-            $curso->__SET("NumeroCurso", $row['NumeroCurso']); 
+            $curso = new Curso(); 
             $curso->__SET("NumeroTarjeta", $row['NumeroTarjetaProfesor']);
             $curso->__SET("Grado", $row['GradoEstudiosProfesor']);
             $curso->__SET("Participante", $row['NombreProfesor']." ".$row['ApellidoPaternoProfesor']." ".$row['ApellidoMaternoProfesor']);
@@ -44,6 +45,23 @@ class CursoDAO {
             $cursoList [] = $curso;
         }
         return $cursoList;
+    }
+    
+    
+    public function cargarInfoCurso($id) {
+        $result = querySelect(SQL::$INFO_CURSO." ".$id);
+        $infoCurso = array();
+        foreach($result as $row)
+        {
+            $info = new CursoInfo();
+            $info->__SET("NumeroyNombreCurso", $row['NumeroCurso']." ".$row['NombreCurso']);
+            $info->__SET("Lugar", $row['AulaPropuesta']);
+            $info->__SET("Horario", $row['HoraInicioCurso']." ".$row['HoraFinCurso']);
+            $info->__SET("Periodo", $row['PeriodoCurso']);
+            $info->__SET("Instructor", $row['NombreCompletoInstructor']);
+            $infoCurso [] = $info;
+        }
+        return $infoCurso;
     }
     
     
