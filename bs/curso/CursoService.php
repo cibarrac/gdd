@@ -13,6 +13,11 @@ class CursoService
         return $cursoDAO->cargarAsistencias($id);
     }
     
+    public static function getCursoInfo($id){
+        $cursoDAO = new CursoDAO();
+        return $cursoDAO->cargarInfoCurso($id);
+    }
+    
     public static function getProfesorInscrito($IdProfesor, $IdCurso){
         $cursoDAO = new CursoDAO();
         return $cursoDAO->validarProfesorInscrito($IdProfesor, $IdCurso);
