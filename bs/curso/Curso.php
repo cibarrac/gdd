@@ -18,8 +18,7 @@ class Curso {
     private $DelDepartamentoDe;
     private $NombreCompletoJefeDepto;
     private $NombreCompletoPresiAcad;
-    private $NombreCompletoInstructor1;
-    private $NombreCompletoInstructor2;
+    private $NombreCompletoInstructor;
     private $AulaPropuesta;
     private $IdDepartamentoDe;
     public function __GET($k){ return $this->$k; } 
