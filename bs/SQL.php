@@ -16,6 +16,10 @@ class SQL {
             . "PROFESOR.IdProfesor = INSCRIPCION.IdProfesor AND "
             . "CARRERA.IdCarrera = PROFESOR.IdCarrera AND "
             . "INSCRIPCION.NumeroCurso = "; 
+    
+    public static $INFO_CURSO = "SELECT NumeroCurso, NombreCurso, AulaPropuesta,"
+            . " HoraInicioCurso, HoraFinCurso, PeriodoCurso, NombreCompletoInstructor"
+            . " FROM curso WHERE NumeroCurso = ";
 
   
     public static $SELECCIONA_TODO = "SELECT * FROM";
@@ -124,5 +128,7 @@ class SQL {
             . " WHERE CorreoJefe =";
     
     public static $INSCRIPCIONES_POR_JEFE = "SELECT * FROM inscripcion WHERE IdCarrera =";
+    
+    public static $FILTRO_PROFESORES ="SELECT * FROM profesor WHERE IdCarrera =";
 }
 
