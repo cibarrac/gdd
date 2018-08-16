@@ -246,4 +246,16 @@ function fillOptionsDouble($table, $col) {
         return $lista;
     }
 } ?>
-            
+
+        
+        
+<?php function getIdCarrera($abrev){
+    $col=0;
+    $lista = querySelect(SQL::$ID_CARRERA." '".$abrev."' ");
+    foreach($lista as $fila){
+        return $fila[$col];
+    }
+} ?>
+
+        
+        
