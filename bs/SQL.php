@@ -130,5 +130,7 @@ class SQL {
     public static $INSCRIPCIONES_POR_JEFE = "SELECT * FROM inscripcion WHERE IdCarrera =";
     
     public static $FILTRO_PROFESORES ="SELECT * FROM profesor WHERE IdCarrera =";
+    
+    public static $ID_CARRERA ="SELECT IdCarrera FROM carrera WHERE Abreviacion =";
 }
 
