@@ -46,28 +46,28 @@
             <input class="form-check-input" value="0" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >Para todas las careras</label>
             
-            <input class="form-check-input" value="1" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('ISC')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >ISC</label>
 
-            <input class="form-check-input" value="2" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('IBQ')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IBQ</label>
 
-            <input class="form-check-input" value="3" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('IEM')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IEM</label>
 
-            <input class="form-check-input" value="4" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('IGE')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IGE</label>
 
-            <input class="form-check-input" value="5" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('ARQ')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >ARQ</label>
 
-            <input class="form-check-input" value="6" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('LA')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >LA</label>
 
-            <input class="form-check-input" value="7" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('CP')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >CP</label> 
             
-            <input class="form-check-input" value="8" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('CB')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >CB</label> 
              
             <input type="text" id="DirigidoA" name="DirigidoA" hidden>
