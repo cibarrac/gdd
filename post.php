@@ -84,8 +84,7 @@ function validation(){
     
     if($table == "profesor" )
     {
-        $email =$formData['CorreoProfesor'];
-        
+        $email = $formData['CorreoProfesor'];
         $profesorRegistrado = CursoService::getProfesorRegistrado($email);
         
         if($profesorRegistrado == false)
@@ -96,7 +95,61 @@ function validation(){
         else { return true; }
     }
     
-   
+    
+    if($table == "jefedepartamento")
+    {
+        $idDepartamento = $formData['IdDepartamentoJefe'];     
+        $jefeRegistrado = CursoService::getJefeDepartamentoRegistrado($idDepartamento);
+        
+        if($jefeRegistrado == false)
+        {
+            dialog('El departamento ya cuenta con un jefe registrado');
+            return false;
+        }
+        else { return true; }
+    }
+    
+    
+    if($table == "departamento")
+    {
+        $nombreDepto = $formData['NombreDepartamento'];
+        $departamentoRegistrado = CursoService::getDepartamentoRegistrado($nombreDepto);
+        
+        if($departamentoRegistrado == false)
+        {
+            dialog('El departamento ya esta registrado');
+            return false;
+        }
+        else { return true; }
+    }
+    
+    
+    if($table == "carrera")
+    {
+        $nombreCarrera = $formData['NombreCarrera'];
+        $carreraRegistrada = CursoService::getCarreraRegistrada($nombreCarrera);
+        
+        if($carreraRegistrada == false)
+        {
+           dialog('La carrera ya esta registrada');
+           return false; 
+        }
+        else { return true; }
+    }
+    
+    if($table == "infoescuela")
+    {
+        $infoEscuela = CursoService::getInfoEscuela();
+        
+        if($infoEscuela == false)
+        {
+            dialog('La inforamcion de la institucion ya esta en el sistema');
+            return false;
+        }
+        else { return true; }
+    }
+    
+    
     else { return true; }
 }
 
