@@ -71,7 +71,7 @@ function getProfeCarrera($IdCarrera)
     if(count($lista)>0) {
         return $lista;       
     } else {
-        return ['idDepartamento' => $idCarrera, 'message' => 'No datos 5'];
+        return ['IdCarrera' => $IdCarrera, 'message' => 'No datos 5'];
     }
 }
 
@@ -85,8 +85,22 @@ function getIdProfesor ($NombreProfe)
     if(count($lista)>0) {
         return $lista[0];       
     } else {
-        return ['idDepartamento' => $NombreProfe, 'message' => 'No datos 6'];
+        return ['NombreProfe' => $NombreProfe, 'message' => 'No datos 6'];
     }
+}
+
+function getInfoCurso ($numeroCurso)
+{
+    $lista = querySelect("SELECT * FROM curso INNER JOIN departamento ON "
+        . "IdDepartamentoDe = IdDepartamento WHERE NumeroCurso =".$numeroCurso);
+    
+    if(count($lista)>0) {
+        return $lista[0];
+    }
+    else {
+        return ['NumeroCurso' => $numeroCurso, 'message' => 'No datos 7'];
+    }
+        
 }
 
 
@@ -122,6 +136,11 @@ if ($_GET['oper']) {
     elseif ($_GET ['oper']=='getProfeCarrera'){
         $IdCarrera = $_GET['IdCarrera'];
         echo json_encode(['status' => 200, 'data' => getProfeCarrera($IdCarrera)]);
+    }
+    
+    elseif ($_GET ['oper']=='getInfoCurso'){
+        $numeroCurso = $_GET['numeroCurso'];
+        echo json_encode(['status' => 200, 'data' => getInfoCurso($numeroCurso)]);
     }
     
     
