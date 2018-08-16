@@ -42,7 +42,7 @@
         <label for="">Departamento:</label>
           <select class="form-control" name="IdDepartamentoPresidente">
             <?php
-              fillOptionsNombresAndId("departamento",1);
+              fillOptionsNombresAndId("carrera",1);
             ?>
         </select>
       </div>
