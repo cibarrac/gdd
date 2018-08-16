@@ -158,4 +158,37 @@ class CursoDAO {
         else { return true; }
     }
     
+    public function validarJefeDepartamentoRegistrado ($idDepartamento)
+    {
+            $result = querySelect("SELECT IdDepartamentoJefe FROM jefedepartamento "
+                    . "WHERE IdDepartamentoJefe = '".$idDepartamento."' ");
+            if(count($result)>0) { return false; }
+            else { return true; }
+    }
+    
+    
+    public function validarDepartamentoRegistrado ($nombreDepto)
+    {
+        $result = querySelect("SELECT NombreDepartamento FROM departamento WHERE "
+                . "NombreDepartamento like '%".$nombreDepto."%' ");
+        if(count($result)>0) { return false; }
+        else { return true; }
+    }
+    
+    
+    public function validarCarreraRegistrada ($nombreCarrera)
+    {
+        $result = querySelect("SELECT NombreCarrera FROM carrera WHERE "
+                . "NombreCarrera = '".$nombreCarrera."' ");
+        if(count($result)>0) { return false; }
+        else { return true; }
+    }
+    
+    public function validarInfoEscula ()
+    {
+        $result = querySelect("SELECT * FROM infoescuela");
+        if(count($result)>0) { return false; }
+        else { return true; }
+    }
+    
 }

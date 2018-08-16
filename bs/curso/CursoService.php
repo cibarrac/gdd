@@ -91,4 +91,28 @@ class CursoService
         return $cursoDAO->validarProfesorRegistrado($email);
     }
     
+    public static function getJefeDepartamentoRegistrado($idDepartamento)
+    {
+        $cursoDAO = new CursoDAO();
+        return $cursoDAO->validarJefeDepartamentoRegistrado($idDepartamento);
+    }
+    
+    public static function getDepartamentoRegistrado($nombreDepto)
+    {
+        $cursoDAO = new CursoDAO();
+        return $cursoDAO->validarDepartamentoRegistrado($nombreDepto);
+    }
+    
+    public static function getCarreraRegistrada ($nombreCarrera)
+    {
+        $cursoDAO = new CursoDAO();
+        return $cursoDAO->validarCarreraRegistrada($nombreCarrera);
+    }
+    
+    public static function getInfoEscuela ()
+    {
+        $cursoDAO = new CursoDAO();
+        return $cursoDAO->validarInfoEscula();
+    }
+    
 }
