@@ -17,6 +17,7 @@
  <nav class="navbar navbar-default  navbar-fixed-top" style="background-color: #0d47a1;">
       <div class="container">
         <div class="navbar-header">
+            <p>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -36,21 +37,30 @@
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <!-- <li> <a class="dropdown-item"  href="index.php?view=_Diagnostico">D N borrador</a></li> -->
-                    <li> <a class="dropdown-item"  href="index.php?view=_Curso">Detectar Necesidades</a> </li>
-                    <li> <a class="dropdown-item"  href="index.php?view=_Asistencia">Asistencias</a> </li>
-                    <li> <a class="dropdown-item"  href="index.php?view=_Inscripciones">Inscripciones</a> </li>
-                    <li> <a class="dropdown-item"  href="index.php?view=_Instructor">Instructores</a> </li>
-                    <!--<li> <a class="dropdown-item"  href="index.php?view=_FichaTecnica">Ficha Tecnica</a></li> -->
-                    <li> <a class="dropdown-item"  href="index.php?view=_Listas">Listas</a></li>
-                    <li> <a class="dropdown-item"  href="index.php?view=_Aula">Registrar aula</a></li>
-                    <li><a class="dropdown-item"  href="index.php?view=_ProfesorSu">Registrar profesor</a></li>
-                    <!-- <li>  <a class="dropdown-item"  href="index.php?view=_Materia">Registrar materia</a></li> -->
+                    <li> <a class="dropdown-item"  href="index.php?view=_infoescuela">Informacion ITA</a></li>
                     <li><a class="dropdown-item"  href="index.php?view=_Departamento">Registrar departamento</a></li>
+                    <li><a class="dropdown-item"  href="index.php?view=_Carrera">Registrar carrera</a></li>
                     <li><a class="dropdown-item"  href="index.php?view=_jefedepto">Registrar jefe de departamento</a></li>
                     <li><a class="dropdown-item"  href="index.php?view=_PresidenteAcademia">Registrar presidente de academia</a></li>
-                    <li><a class="dropdown-item"  href="index.php?view=_Carrera">Registrar carrera</a></li>
+                    <li><a class="dropdown-item"  href="index.php?view=_ProfesorSu">Registrar profesor</a></li>
+                    <li> <a class="dropdown-item"  href="index.php?view=_Aula">Registrar aula</a></li>
+                    <li> <a class="dropdown-item"  href="index.php?view=_Curso">Detectar Necesidades</a> </li>
+                    <li> <a class="dropdown-item"  href="index.php?view=_Instructor">Instructores</a> </li>
+                    <li> <a class="dropdown-item"  href="index.php?view=_Inscripciones">Inscripciones</a> </li>
+                    <li> <a class="dropdown-item"  href="index.php?view=_Asistencia">Asistencias</a> </li>
+                    
+                    
+                    <!--<li> <a class="dropdown-item"  href="index.php?view=_FichaTecnica">Ficha Tecnica</a></li> -->
+                    <li> <a class="dropdown-item"  href="index.php?view=_Listas">Listas</a></li>
+                    
+                    
+                    <!-- <li>  <a class="dropdown-item"  href="index.php?view=_Materia">Registrar materia</a></li> -->
+                    
+                    
+                    
+                    
 
-                  <li>  <a class="dropdown-item"  href="index.php?view=_infoescuela">Info Escuela</a></li>
+                  
                         <!-- <li> <a class="dropdown-item"  href="#">Asignar jefe</a> </li>
 -->
 
@@ -105,6 +115,8 @@
 
 
           </ul>
+            
+           
 
           <ul class="nav navbar-nav navbar-right">
 
