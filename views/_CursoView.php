@@ -12,14 +12,14 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Presidente de academia</label>
-            <input type="text" class="form-control" name="NombreCompletoPresiAcad" id="NombreCompletoPresiAcad" readonly>         
+            <input type="text" class="form-control" name="NombreCompletoPresiAcad" readonly>         
         </div>
     </div>
     
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Jefe de departamento</label>
-            <input type="text" class="form-control" name="NombreCompletoJefeDepto" id="NombreCompletoJefeDepto" readonly>
+            <input type="text" class="form-control" name="NombreCompletoJefeDepto" readonly>
                    
         </div>
     </div>
@@ -28,7 +28,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Del departamento de</label>
-            <select class="form-control" name="IdDepartamentoDe" id="IdDepartamentoDe" onchange="getNombres()">
+            <select class="form-control" name="IdDepartamentoDe" onchange="getNombres()">
                 <option> </option>
                 <?php IdDepartamento()?>
             </select>
@@ -89,14 +89,14 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Nombre del curso:</label>
-            <textarea class="form-control" name="NombreCurso" id="NombreCurso" rows="1" cols="3"  required></textarea>
+            <textarea class="form-control" name="NombreCurso" rows="1" cols="3"  required></textarea>
         </div>
     </div>
 
     <div class="col-md-6">
         <div class="form-group">
               <label for="">Objetivo:</label>
-              <textarea class="form-control" name="ObjetivoCurso" id="ObjetivoCurso" rows="1" cols="3" required></textarea>
+              <textarea class="form-control" name="ObjetivoCurso" rows="1" cols="3" required></textarea>
         </div>
     </div>
 
@@ -108,7 +108,7 @@
 
     <div class="col-md-6">
         <label for="">Tipo de curso</label>
-        <select name="TipoCurso" id="TipoCurso" class="form-control">
+        <select name="TipoCurso" class="form-control">
             <option> </option>
             <option value="Generico">Generico</option>
             <option value="Especialidad">Especialidad</option>
@@ -118,7 +118,7 @@
     <div class="col-md-6">
           <div class="form-group">
               <label for="">Numero del curso:</label>
-              <input type="text" name="NumeroCurso" id="NumeroCurso" class="form-control">
+              <input type="text" name="NumeroCurso" class="form-control">
           </div>
     </div>
 
@@ -130,7 +130,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Intructor propuesto:</label>
-            <select class="form-control" name="NombreCompletoInstructor" id="NombreCompletoInstructor">
+            <select class="form-control" name="NombreCompletoInstructor" >
                 <option> </option>
                 <?php fillOptionsDouble("instructor",1) ?>
             </select>
@@ -140,7 +140,7 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="">Aula Propuesta:</label>
-          <select class="form-control" name="AulaPropuesta" id="AulaPropuesta" >
+          <select class="form-control" name="AulaPropuesta" >
               <option> </option>
                 <?php fillOptionsSingle("aula",1) ?>
           </select>
@@ -156,7 +156,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Turno</label>
-            <select class="form-control" name="Turno" id="Turno" required>
+            <select class="form-control" name="Turno" required>
                 <option value="M"> Matutino</option>
                 <option value="V"> Vespertino</option>
             </select>
@@ -166,7 +166,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Fecha limite de inscripcion:</label>
-            <input type="date" name="FechaLimite" id="FechaLimite" class="form-control">
+            <input type="date" name="FechaLimite"  class="form-control">
         </div>
     </div>
     
@@ -197,28 +197,28 @@
     <div class="col-md-3">
         <div class="form-group">
             <label for="">Inico:</label>
-            <input type="time" name="HoraInicioCurso" id="HoraInicioCurso" class="form-control" required>
+            <input type="time" name="HoraInicioCurso" class="form-control" required>
         </div>
     </div>
 
     <div class="col-md-3">
         <div class="form-group">
             <label for="">Fin:</label>
-            <input type="time" name="HoraFinCurso" id="HoraFinCurso" class="form-control" required>
+            <input type="time" name="HoraFinCurso" class="form-control" required>
         </div>
     </div>
 
     <div class="col-md-3">
         <div class="form-group">
             <label for="">De inicio:</label>
-            <input type="date" name="FechaInicioCurso" id="FechaInicioCurso" class="form-control" required>
+            <input type="date" name="FechaInicioCurso" class="form-control" required>
         </div>
     </div>
 
     <div class="col-md-3">
         <div class="form-group">
             <label for="">De terminacion:</label>
-            <input type="date" name="FechaFinCurso" id="FechaFinCurso" class="form-control">
+            <input type="date" name="FechaFinCurso" class="form-control">
         </div>
     </div>  
 
@@ -250,7 +250,7 @@
         </div>
 
         <div class="col-md-3">
-            <input type="number" name="capacidadmaxima" id="capacidadmaxima" class="form-control" placeholder="Capacidad maxima">
+            <input type="number" id="capacidadmaxima" class="form-control" placeholder="Capacidad maxima">
         </div>
 
         <div class="col-md-3">
