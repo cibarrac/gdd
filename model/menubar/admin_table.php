@@ -50,51 +50,48 @@ function createTable($view){
         include 'listViews.php';
         $table = $table[$view];
 
+        
        // include "Buscar.php";
         ?>
 
 
-        <div class="col-md-3">
-
-             <?php  $modal = new Modal('btn1',$view,$view,"Insertar ".$view);
-             $modal->getContent();
-
-             $_subscribe = new Modal('inscripcion_modal', 'Inscripción al curso', '_Inscripciones', 'Inscribir');
-             $_subscribe->getContent(true);
-
-
-
-             ?>
-       </div>
-
-
-       <br> <br>
-       <table class="table table-hover table-striped table-responsive" id="tabla">
-    <thead>
-       <tr>
-         <?php getheaders($table);
-         ?>
-
-       </tr>
-    </thead>
-    <tbody>
             <?php  
                 $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
                 $i = 0;
-                foreach($list as $row) {   ?>       
-                    <tr <?php if(isset($row['ispublic'])){
-                                 if($row['ispublic']==1){ echo "class='success'";} 
-                                 else {echo "class='warning'";}
-                           } ?> >
-                        <td> <?php evaluate_cursos($table,$row['NumeroCurso']); ?> </td>
-                          
-                        <?php $flag = true;
-                        foreach ($row as $col) {
-                            if($flag) { ?>
-                        <td> <?php echo $col; ?> </td>
-                                 <?php $flag = false; } else { $flag=true;} }  ?>                             
-                    </tr> <?php $i++; }  ?>
-        </tbody>
-   </table>
+                foreach($list as $row) { ?>
 
-<?php  } ?>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="thumbnail"  <?php
+                            if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;} 
+                                 else {echo "style= 'background-color: #fff9c4;'";} ?> > 
+                                
+                                <div class="caption">
+                                <h3><?php echo $row['NumeroCurso']." ".$row['NombreCurso'];?></h3>  
+                                <h4>Objetivo:</h4>
+                                <p><?php echo $row['ObjetivoCurso']; ?></p>
+                                <p>Horario: de <?php echo $row['HoraInicioCurso']." a ".$row['HoraFinCurso'];?> <br>  Fecha: del <?php echo $row['FechaInicioCurso']." al ".$row['FechaFinCurso'];?></p>
+                                <h4><p align="right"> Instructor (a): <?php echo $row['NombreCompletoInstructor']; ?> </p></h4>
+                                <p>Autorizado por desarrollo academico: <?php if($row['sign1']==1){ echo ' Si'; } else { echo ' No'; }?> </p>
+                                <p>Autorizado por subdireccion academica: <?php if($row['sign2']==1){ echo ' Si'; } else { echo ' No'; } ?></p>
+                                
+                                <button  type="checkbox" class="btn btn-warning fa fa-check-square-o" onclick="firmar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
+                                </button>
+                                <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);">
+                                </button>
+                                
+                                
+                        </div>
+                </div>
+            </div>
+        </div>    
+  
+  
+          
+                            
+                            
+       
+       
+                <?php  }} ?> 
+   
+
