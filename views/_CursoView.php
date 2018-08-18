@@ -1,6 +1,4 @@
-
-
-  <div class="row">
+<div class="row">
     <p><center>INSTITUTO TEGNOLOGICO DE ACAPULCO</center></p>
     <p><center>Subdireccion Academica</center></p>
     <p><center>DIAGNOSTICO DE NECESIDADES DE FORMACION Y ACTUALIZACION DOCENTE Y PROFESIONAL</center></p>
@@ -12,14 +10,14 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Presidente de academia</label>
-            <input type="text" class="form-control" name="NombreCompletoPresiAcad" readonly>         
+            <input type="text" class="form-control" name="NombreCompletoPresiAcad" id="NombreCompletoPresiAcad" readonly>         
         </div>
     </div>
     
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Jefe de departamento</label>
-            <input type="text" class="form-control" name="NombreCompletoJefeDepto" readonly>
+            <input type="text" class="form-control" name="NombreCompletoJefeDepto" id="NombreCompletoJefeDepto" readonly>
                    
         </div>
     </div>
@@ -28,7 +26,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Del departamento de</label>
-            <select class="form-control" name="IdDepartamentoDe" onchange="getNombres()">
+            <select class="form-control" name="IdDepartamentoDe" id="IdDepartamentoDe" onchange="getNombres()">
                 <option> </option>
                 <?php IdDepartamento()?>
             </select>
@@ -49,28 +47,28 @@
             <input class="form-check-input" value="0" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >Para todas las careras</label>
             
-            <input class="form-check-input" value="<?php echo getIdCarrera('ISC')?>" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="1" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >ISC</label>
 
-            <input class="form-check-input" value="<?php echo getIdCarrera('IBQ')?>" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="2" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IBQ</label>
 
-            <input class="form-check-input" value="<?php echo getIdCarrera('IEM')?>" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="3" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IEM</label>
 
-            <input class="form-check-input" value="<?php echo getIdCarrera('IGE')?>" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="4" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IGE</label>
 
-            <input class="form-check-input" value="<?php echo getIdCarrera('ARQ')?>" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="5" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >ARQ</label>
 
-            <input class="form-check-input" value="<?php echo getIdCarrera('LA')?>" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="6" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >LA</label>
 
-            <input class="form-check-input" value="<?php echo getIdCarrera('CP')?>" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="7" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >CP</label> 
             
-            <input class="form-check-input" value="<?php echo getIdCarrera('CB')?>" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="8" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >CB</label> 
              
             <input type="text" id="DirigidoA" name="DirigidoA" hidden>
@@ -130,7 +128,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Intructor propuesto:</label>
-            <select class="form-control" name="NombreCompletoInstructor" >
+            <select class="form-control" name="NombreCompletoInstructor">
                 <option> </option>
                 <?php fillOptionsDouble("instructor",1) ?>
             </select>
@@ -140,7 +138,7 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="">Aula Propuesta:</label>
-          <select class="form-control" name="AulaPropuesta" >
+          <select class="form-control" name="AulaPropuesta">
               <option> </option>
                 <?php fillOptionsSingle("aula",1) ?>
           </select>
@@ -156,7 +154,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Turno</label>
-            <select class="form-control" name="Turno" required>
+            <select class="form-control" name="Turno" id="Turno" required>
                 <option value="M"> Matutino</option>
                 <option value="V"> Vespertino</option>
             </select>
@@ -166,7 +164,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Fecha limite de inscripcion:</label>
-            <input type="date" name="FechaLimite"  class="form-control">
+            <input type="date" name="FechaLimite" class="form-control">
         </div>
     </div>
     
@@ -250,11 +248,11 @@
         </div>
 
         <div class="col-md-3">
-            <input type="number" id="capacidadmaxima" class="form-control" placeholder="Capacidad maxima">
+            <input type="number" name="capacidadmaxima" class="form-control" placeholder="Capacidad maxima">
         </div>
 
         <div class="col-md-3">
-            <select name="PeriodoCurso" id="PeriodoCurso" class="form-control">
+            <select name="PeriodoCurso" class="form-control">
                 <option value="Enero-Junio">Enero-Junio</option>
                 <option value="Enero-Junio">Agosto-Diciembre</option>
             </select>
