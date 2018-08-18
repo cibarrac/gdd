@@ -63,7 +63,7 @@ class CursoDAO {
         }
         return $infoCurso;
     }
-    
+     
     
     //validar que el profesor no este incrito en otro en el mismo curso 2 veces 
     public function validarProfesorInscrito($IdProfesor, $IdCurso){
