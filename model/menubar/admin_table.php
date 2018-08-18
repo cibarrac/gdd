@@ -57,7 +57,6 @@ function createTable($view){
 
             <?php  
                 $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
-                $i = 0;
                 foreach($list as $row) { ?>
 
                     <div class="row">
@@ -75,9 +74,9 @@ function createTable($view){
                                 <p>Autorizado por desarrollo academico: <?php if($row['sign1']==1){ echo ' Si'; } else { echo ' No'; }?> </p>
                                 <p>Autorizado por subdireccion academica: <?php if($row['sign2']==1){ echo ' Si'; } else { echo ' No'; } ?></p>
                                 
-                                <button  type="checkbox" class="btn btn-warning fa fa-check-square-o" onclick="firmar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
+                                <button  type="checkbox" class="btn btn-warning fa fa-check-square-o" onclick="firmar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);"> Autorizar
                                 </button>
-                                <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);">
+                                <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Imprimir lista
                                 </button>
                                 
                                 
