@@ -69,6 +69,37 @@ function getheaders($table) {
 
 
         <br> <br>
+        
+        <?php if($table == "curso")
+        {
+        
+      $idCarreraProfe = getIdCArreraProfe( $_SESSION['username'] );   
+      $list = querySelect(SQL::$CURSOS_POR_CARRERA." '%".$idCarreraProfe."%') AND ispublic = 1");
+      
+      foreach($list as $row) { ?>
+
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="thumbnail"  <?php
+                            if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;} 
+                                 else {echo "style= 'background-color: #fff9c4;'";} ?> > 
+                                
+                                <div class="caption">
+                                <h3><?php echo $row['NumeroCurso']." ".$row['NombreCurso'];?></h3>  
+                                <h4>Objetivo:</h4>
+                                <p><?php echo $row['ObjetivoCurso']; ?></p>
+                                <p>Horario: de <?php echo $row['HoraInicioCurso']." a ".$row['HoraFinCurso'];?> <br>  Fecha: del <?php echo $row['FechaInicioCurso']." al ".$row['FechaFinCurso'];?></p>
+                                <h4><p align="right"> Instructor (a): <?php echo $row['NombreCompletoInstructor']; ?> </p></h4>
+                    
+                                <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $row['NumeroCurso'];?>');"> Inscribir
+                                </button>       
+                                </div>
+                            </div>
+                        </div>
+                    </div> <?php
+    } }
+    else {
+     ?>
         <table class="table table-hover table-striped table-responsive" id="tabla">
      <thead>
         <tr>
@@ -82,19 +113,14 @@ function getheaders($table) {
 
     <?php
     
-    if($table == "curso")
-    {
-        
-      $idCarreraProfe = getIdCArreraProfe( $_SESSION['username'] );   
-      $list = querySelect(SQL::$CURSOS_POR_CARRERA." '%".$idCarreraProfe."%' AND ispublic = 1");
-    }
     
-    elseif($table == "profesor")
+    
+    if($table == "profesor")
     {
         $list = querySelect(SQL::$PERFIL_PROFESOR." '".$_SESSION['username']."' ");
     }
     
-    elseif($table == "inscripcion")
+    if($table == "inscripcion")
     {
         $list = querySelect(SQL::$INSCRIPCIONES_PROFESOR." '".$_SESSION['username']."') ");
     }
@@ -123,7 +149,7 @@ function getheaders($table) {
             </tbody>
     </table>
 
-<?php  } ?>
+ <?php  } }?>
 <script>
 
 <?php if (isset($_SESSION['data-user'])) {     ?>
