@@ -106,7 +106,7 @@ class SQL {
             . "WHERE IdCarrera = ";
     
     
-    public static $CURSOS_POR_CARRERA = "SELECT * FROM curso WHERE DirigidoA like '%0%' "
+    public static $CURSOS_POR_CARRERA = "SELECT * FROM curso WHERE (DirigidoA like '%0%' "
             . "OR DirigidoA like ";
     
     public static $ID_CARRERA_PROFESOR = "SELECT IdCarrera FROM profesor WHERE"
