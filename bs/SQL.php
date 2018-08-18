@@ -132,5 +132,10 @@ class SQL {
     public static $FILTRO_PROFESORES ="SELECT * FROM profesor WHERE IdCarrera =";
     
     public static $ID_CARRERA ="SELECT IdCarrera FROM carrera WHERE Abreviacion =";
+    
+    public static $ID_CARRERA_SU_ADMIN = "SELECT IdCarrera, NombreCarrera FROM carrera";
+    
+    public static $DIRIGIDO_A = "SELECT DirigidoA FROM curso WHERE DirigidoA like ";
+    
 }
 
