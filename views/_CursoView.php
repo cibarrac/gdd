@@ -47,31 +47,31 @@
             <input class="form-check-input" value="0" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >Para todas las careras</label>
             
-            <input class="form-check-input" value="1" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('ISC')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >ISC</label>
 
-            <input class="form-check-input" value="2" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('IBQ')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IBQ</label>
 
-            <input class="form-check-input" value="3" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('IEM')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IEM</label>
 
-            <input class="form-check-input" value="4" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('IEM')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >IGE</label>
 
-            <input class="form-check-input" value="5" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('ARQ')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >ARQ</label>
 
-            <input class="form-check-input" value="6" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('LA')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >LA</label>
 
-            <input class="form-check-input" value="7" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('CP')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >CP</label> 
             
-            <input class="form-check-input" value="8" type="checkbox" onclick="elegirCarrera(this)">
+            <input class="form-check-input" value="<?php echo getIdCarrera('CB')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >CB</label> 
              
-            <input type="text" id="DirigidoA" name="DirigidoA" hidden>
+            <input type="text" id="DirigidoA" name="DirigidoA" >
             
             <input type="text" hidden name="NumeroProfesoresCurso" value="0">
            
@@ -87,14 +87,14 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Nombre del curso:</label>
-            <textarea class="form-control" name="NombreCurso" rows="1" cols="3"  required></textarea>
+            <textarea class="form-control" name="NombreCurso" id="NombreCursoInt" rows="1" cols="3"  required></textarea>
         </div>
     </div>
 
     <div class="col-md-6">
         <div class="form-group">
               <label for="">Objetivo:</label>
-              <textarea class="form-control" name="ObjetivoCurso" rows="1" cols="3" required></textarea>
+              <textarea class="form-control" name="ObjetivoCurso" id="ObjetivoCurso" rows="1" cols="3" required></textarea>
         </div>
     </div>
 
@@ -106,7 +106,7 @@
 
     <div class="col-md-6">
         <label for="">Tipo de curso</label>
-        <select name="TipoCurso" class="form-control">
+        <select name="TipoCurso" id="TipoCursoInt"  class="form-control">
             <option> </option>
             <option value="Generico">Generico</option>
             <option value="Especialidad">Especialidad</option>
@@ -116,7 +116,7 @@
     <div class="col-md-6">
           <div class="form-group">
               <label for="">Numero del curso:</label>
-              <input type="text" name="NumeroCurso" class="form-control">
+              <input type="text" name="NumeroCurso" id="NumeroCursoInt" class="form-control">
           </div>
     </div>
 
@@ -128,7 +128,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Intructor propuesto:</label>
-            <select class="form-control" name="NombreCompletoInstructor">
+            <select class="form-control" name="NombreCompletoInstructor" id="NombreCompletoInstructor" >
                 <option> </option>
                 <?php fillOptionsDouble("instructor",1) ?>
             </select>
@@ -138,7 +138,7 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="">Aula Propuesta:</label>
-          <select class="form-control" name="AulaPropuesta">
+          <select class="form-control" name="AulaPropuesta" id="AulaPropuesta" >
               <option> </option>
                 <?php fillOptionsSingle("aula",1) ?>
           </select>
@@ -154,7 +154,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Turno</label>
-            <select class="form-control" name="Turno" id="Turno" required>
+            <select class="form-control" name="Turno" id="Turno"  required>
                 <option value="M"> Matutino</option>
                 <option value="V"> Vespertino</option>
             </select>
@@ -164,7 +164,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Fecha limite de inscripcion:</label>
-            <input type="date" name="FechaLimite" class="form-control">
+            <input type="date" name="FechaLimite" id="FechaLimite" class="form-control">
         </div>
     </div>
     
@@ -195,28 +195,28 @@
     <div class="col-md-3">
         <div class="form-group">
             <label for="">Inico:</label>
-            <input type="time" name="HoraInicioCurso" class="form-control" required>
+            <input type="time" name="HoraInicioCurso" id="HoraInicioCurso" class="form-control" required>
         </div>
     </div>
 
     <div class="col-md-3">
         <div class="form-group">
             <label for="">Fin:</label>
-            <input type="time" name="HoraFinCurso" class="form-control" required>
+            <input type="time" name="HoraFinCurso" id="HoraFinCurso" class="form-control" required>
         </div>
     </div>
 
     <div class="col-md-3">
         <div class="form-group">
             <label for="">De inicio:</label>
-            <input type="date" name="FechaInicioCurso" class="form-control" required>
+            <input type="date" name="FechaInicioCurso" id="FechaInicioCurso" class="form-control" required>
         </div>
     </div>
 
     <div class="col-md-3">
         <div class="form-group">
             <label for="">De terminacion:</label>
-            <input type="date" name="FechaFinCurso" class="form-control">
+            <input type="date" name="FechaFinCurso" id="FechaFinCurso" class="form-control">
         </div>
     </div>  
 
@@ -248,7 +248,7 @@
         </div>
 
         <div class="col-md-3">
-            <input type="number" name="capacidadmaxima" class="form-control" placeholder="Capacidad maxima">
+            <input type="number" name="capacidadmaxima" id="capacidadmaxima" class="form-control" placeholder="Capacidad maxima">
         </div>
 
         <div class="col-md-3">
