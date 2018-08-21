@@ -196,7 +196,7 @@ function update($id,$table) {
                   }
                   $i++;
       }
-                    $SQL_UPDATE = "UPDATE ". $table." SET ".$values." WHERE id = '".$id."'";
+                    $SQL_UPDATE = "UPDATE ". $table." SET ".$values." WHERE IdProfesor = '".$id."'";
                     echo $SQL_UPDATE;
                     queryUpdate($SQL_UPDATE);
 }
@@ -234,7 +234,7 @@ function isvalid() {
 }
 switch ($_POST['action']) {
           case 'save':  save($_POST['table']); break;
-          case 'update':  update($_POST['id'],$_POST['table']); break;
+          case 'update':  update($_POST['IdProfesor'],$_POST['table']); break;
           default: echo "Falta el atributo action en el formulario"; break;
 }
 $view = $_POST['view'];
