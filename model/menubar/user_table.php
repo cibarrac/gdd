@@ -1,3 +1,13 @@
+ <style>
+   .thumbnail{border: 0px solid #f00; padding: 20px 22px;
+-webkit-box-shadow: 20px 10px 26px 5px rgba(0,0,0,0.44);
+-moz-box-shadow: 14px 10px 26px 5px rgba(0,0,0,0.44);
+box-shadow: 10px 10px 26px 5px rgba(0,0,0,0.44);
+
+height: 400px;
+width: 650px;
+    } 
+</style>
 
  <?php
   function evaluate_cursos($table, $IdProfesor)
@@ -5,7 +15,7 @@
         if($table=="profesor") {
       ?>
       
-      <button type="checkbox" class="btn btn-success fa fa-pencil" data-toggle="modal" data-target="#editar_perfil" onclick="editarPerfil('<?php echo $IdProfesor;?>');" > Editar perfil  
+      <button type="checkbox" class="btn btn-success fa fa-pencil" data-toggle="modal" data-target="#editar_perfil"  > Editar perfil  
         </button>
 
 
@@ -65,8 +75,8 @@ function getheaders($table) {
               if($table == "profesor")
               {
              
-              $_perfil = new Modal('editar_perfil', 'Mis datos', '_Profesor', 'Editar');
-              $_perfil->getContent(true);
+             // $_perfil = new Modal('editar_perfil', 'Mis datos', '_Profesor', 'Editar');
+             // $_perfil->getContent(true);
               
               $modal = new Modal('btn1',$view,$view,"Insertar ".$view);
               $modal->getContent();
@@ -84,40 +94,40 @@ function getheaders($table) {
         {
         
       $idCarreraProfe = getIdCArreraProfe( $_SESSION['username'] );   
-      $list = querySelect(SQL::$CURSOS_POR_CARRERA." '%".$idCarreraProfe."%') AND ispublic = 1");
+      echo '<script> alert("'.$idCarreraProfe.'") </script>';
+      $list = querySelect(SQL::$CURSOS_POR_CARRERA." '%".$idCarreraProfe."%') ");
       
       foreach($list as $row) { 
           $result = querySelect(SQL::$TOTAL_INSCRPCIONES." ". $row['NumeroCurso'] );
           ?>
 
-                    <div class="row">
-                        <div class="col-md-12 ">
+                    
+                        <div class="col-md-6 ">
                             <div class="thumbnail"  <?php
                             if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;} 
                                  else {echo "style= 'background-color: #fff9c4;'";} ?> > 
                                 
                                 <div class="caption">
-                                <h3><?php echo $row['NumeroCurso']." ".$row['NombreCurso'];?></h3>  
+                                    <h3><p align="center"><b><?php echo $row['NumeroCurso']." ".$row['NombreCurso'];?> </b></p></h3>  
                                 <h4>Objetivo:</h4>
-                                <p><?php echo $row['ObjetivoCurso']; ?></p>
+                                <p ALIGN="justify"><?php echo $row['ObjetivoCurso']; ?></p>
                                 <p>Horario: de <?php echo $row['HoraInicioCurso']." a ".$row['HoraFinCurso'];?> <br>  Fecha: del <?php echo $row['FechaInicioCurso']." al ".$row['FechaFinCurso'];?></p>
                                 <p>Fecha limite para inscribirse: <?php echo $row['FechaLimite']; ?> </p>
-                                <p>Cupo para <?php echo $row['capacidadmaxima']." profesores  -"; ?> 
-                                Profesores inscritos: <?php  foreach ($result as $cantidad)
+                                <p> 
+                                 <?php  foreach ($result as $cantidad)
                                 { 
-                                if($cantidad['cantidad'] == $row['capacidadmaxima']){ echo $cantidad['cantidad']." curso lleno"; }
-                                elseif ($cantidad['cantidad'] > 0) { echo $cantidad['cantidad']; }
-                                else { echo 'No hay inscripciones'; }
+                                if($cantidad['cantidad'] == $row['capacidadmaxima']){ echo " Curso lleno"; }
+                                else { echo 'Cupo disponible'; }
                           
                                  } ?> </p>
-                                <h4><p align="right"> Instructor (a): <?php echo $row['NombreCompletoInstructor']; ?> </p></h4>
-                    
+                                <h4><p align="right"> <u><b>Instructor (a): <?php echo $row['NombreCompletoInstructor']; ?> </b></u></p></h4>
+                                <br>
                                 <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $row['NumeroCurso'];?>');"> Inscribirme
                                 </button>       
                                 </div>
                             </div>
                         </div>
-                    </div> <?php
+                    <?php
     } }
     else {
      ?>
@@ -141,7 +151,7 @@ function getheaders($table) {
         $list = querySelect(SQL::$PERFIL_PROFESOR." '".$_SESSION['username']."' ");
     }
     
-    if($table == "inscripcion")
+    elseif($table == "inscripcion")
     {
         $list = querySelect(SQL::$INSCRIPCIONES_PROFESOR." '".$_SESSION['username']."') ");
     }
