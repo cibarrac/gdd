@@ -1,4 +1,13 @@
+ <style>
+   .thumbnail{border: 0px solid #f00; padding: 20px 22px;
+-webkit-box-shadow: 20px 10px 26px 5px rgba(0,0,0,0.44);
+-moz-box-shadow: 14px 10px 26px 5px rgba(0,0,0,0.44);
+box-shadow: 10px 10px 26px 5px rgba(0,0,0,0.44);
 
+height: 400px;
+width: 650px;
+    } 
+</style>
  <?php
   function evaluate_cursos($table,$NumeroCurso , $IdJefeDepartamento)
   {
@@ -69,19 +78,29 @@
                 $list = querySelect(SQL::$CURSOS_POR_CARRERA." '%".$idCarreraJefeDepto."%') ");
                  foreach($list as $row) { ?>
 
-                    <div class="row">
-                        <div class="col-md-12 ">
+                    
+                        <div class="col-md-6 ">
                             <div class="thumbnail"  <?php
                             if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;} 
                                  else {echo "style= 'background-color: #fff9c4;'";} ?> > 
                                 
                                 <div class="caption">
-                                <h3><?php echo $row['NumeroCurso']." ".$row['NombreCurso'];?></h3>  
+                                    <h3><p align="center"><b><?php echo $row['NumeroCurso']." ".$row['NombreCurso'];?></b></p></h3>  
                                 <h4>Objetivo:</h4>
-                                <p><?php echo $row['ObjetivoCurso']; ?></p>
+                                <p ALIGN="justify"><?php echo $row['ObjetivoCurso']; ?></p>
                                 <p>Horario: de <?php echo $row['HoraInicioCurso']." a ".$row['HoraFinCurso'];?> <br>  Fecha: del <?php echo $row['FechaInicioCurso']." al ".$row['FechaFinCurso'];?></p>
-                                <h4><p align="right"> Instructor (a): <?php echo $row['NombreCompletoInstructor']; ?> </p></h4>
-                                <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Imprimir lista
+                                <p> <b>Desarrollo academico: <?php if($row['sign1']==1){ echo ' Autorizado  - '; } else { echo ' En revision  - '; }?> 
+                                Subdireccion academica: <?php if($row['sign2']==1){ echo ' Autorizado  - '; } else { echo ' En revision  - '; } ?></p></b>
+                                <p>Cupo para <?php echo $row['capacidadmaxima']." profesores    -"; ?> 
+                                Profesores inscritos: <?php  foreach ($result as $cantidad)
+                                { 
+                                if($cantidad['cantidad'] == $row['capacidadmaxima']){ echo $cantidad['cantidad']." curso lleno"; }
+                                elseif ($cantidad['cantidad'] > 0) { echo $cantidad['cantidad']; }
+                                else { echo 'No hay inscripciones'; }
+                          
+                                 } ?> </p>
+                                <h4><p align="right"> <u><b>Instructor (a): <?php echo $row['NombreCompletoInstructor']; ?> </b></u></p></h4>
+                                <br><button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Imprimir lista
                                 </button>
                                 <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $row['NumeroCurso'];?>');"> Inscribir
                                 </button>
@@ -93,7 +112,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> <?php }  }
+                   <?php }  }
                 
             else{
             
