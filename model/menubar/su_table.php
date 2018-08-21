@@ -35,13 +35,15 @@
         $table = $table[$view];  ?>
         <div class="col-md-3">
               <?php
-                $modalInsert = new Modal('btn1',$view,$view,"Insertar ".$view);
-                $modalInsert->getContent();
+                
                 $_subscribe = new Modal('inscripcion_modal', 'Inscripción al curso', '_Inscripciones', 'Inscribir');
                 $_subscribe->getContent(true);
                 
-                $_edit = new Modal('editar_modal', 'Editar', '_Curso', 'Editar');
-                $_edit->getContent(true);
+                //$_edit = new Modal('editar_modal', 'Editar', '_Curso', 'Editar');
+                //$_edit->getContent(true);
+                
+                $modalInsert = new Modal('btn1',$view,$view,"Insertar ".$view);
+                $modalInsert->getContent();
               ?>
         </div>
         
@@ -51,8 +53,14 @@
        <?php  if($table == "curso")
        {
          $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
-                foreach($list as $row) { ?>
-
+         
+                foreach($list as $row) { 
+                   $result = querySelect(SQL::$TOTAL_INSCRPCIONES." ". $row['NumeroCurso'] );
+                 
+                   
+                    ?>
+                            
+                
                     <div class="row">
                         <div class="col-md-12 ">
                             <div class="thumbnail"  <?php
@@ -64,10 +72,18 @@
                                 <h4>Objetivo:</h4>
                                 <p><?php echo $row['ObjetivoCurso']; ?></p>
                                 <p>Horario: de <?php echo $row['HoraInicioCurso']." a ".$row['HoraFinCurso'];?> <br>  Fecha: del <?php echo $row['FechaInicioCurso']." al ".$row['FechaFinCurso'];?></p>
-                                <h4><p align="right"> Instructor (a): <?php echo $row['NombreCompletoInstructor']; ?> </p></h4>
                                 <p>Autorizado por desarrollo academico: <?php if($row['sign1']==1){ echo ' Si'; } else { echo ' No'; }?> </p>
                                 <p>Autorizado por subdireccion academica: <?php if($row['sign2']==1){ echo ' Si'; } else { echo ' No'; } ?></p>
-                                
+                                <p>Cupo para <?php echo $row['capacidadmaxima']." profesores  -"; ?> 
+                                Profesores inscritos: <?php  foreach ($result as $cantidad)
+                                { 
+                                if($cantidad['cantidad'] == $row['capacidadmaxima']){ echo $cantidad['cantidad']." curso lleno"; }
+                                elseif ($cantidad['cantidad'] > 0) { echo $cantidad['cantidad']; }
+                                else { echo 'No hay inscripciones'; }
+                          
+                                 } ?> </p>
+                                <h4><p align="right"> Instructor (a): <?php echo $row['NombreCompletoInstructor']; ?> </p></h4>
+                               
                                 <button  type="checkbox" class="btn btn-warning fa fa-check-square-o" onclick="firmar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);"> Autorizar
                                 </button>
                                 <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Imprimir lista
@@ -75,7 +91,7 @@
                                 <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $row['NumeroCurso'];?>');"> Inscribir
                                 </button>
 
-                                <button type="checkbox" class="btn btn-success fa fa-pencil" data-toggle="modal" data-target="#editar_modal" onclick="infoCurso('<?php echo $row['NumeroCurso'];?>');" > Editar contenido  
+                                <button type="checkbox" class="btn btn-success fa fa-pencil" data-toggle="modal" data-target="#editar_modal"  > Editar contenido  
                                 </button>
                                 
                                 
@@ -177,13 +193,13 @@
         return;
 
      // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
-        document.querySelector('#NombreCompletoPresiAcad').value = data.NombreCompletoPresiAcad;
         document.querySelector('#NombreCompletoJefeDepto').value = data.NombreCompletoJefeDepto;
-        document.querySelector('#IdDepartamentoDe').value = data.NombreDepartamento;
-        document.querySelector('#NombreCurso').value = data.NombreCurso;
+        document.querySelector('#IdDepartamentoDe').value = data.IdDepartamentoDe;
+        document.querySelector('#DirigidoA').value = data.DirigidoA;
+        document.querySelector('#NombreCursoInt').value = data.NombreCurso;
         document.querySelector('#ObjetivoCurso').value = data.ObjetivoCurso;
-        document.querySelector('#NumeroCurso').value = data.NumeroCurso;
-        document.querySelector('#TipoCurso').value = data.TipoCurso;
+        document.querySelector('#TipoCursoInt').value = data.TipoCurso;
+        document.querySelector('#NumeroCursoInt').value = data.NumeroCurso;
         document.querySelector('#NombreCompletoInstructor').value = data.NombreCompletoInstructor;
         document.querySelector('#AulaPropuesta').value = data.AulaPropuesta;
         document.querySelector('#Turno').value = data.Turno;
