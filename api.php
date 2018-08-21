@@ -51,8 +51,8 @@ function DatosLaborales ($idDepartamento)
     $lista = querySelect("SELECT CARRERA.IdCarrera, CARRERA.NombreCarrera, "
         . "JEFE.IdJefeDepartamento, concat(JEFE.NombreJefeDepto,' ',JEFE.ApellidoPaternoJefeDepto,"
         . "' ',JEFE.ApellidoMaternoJefeDepto) AS NombreJefe from carrera CARRERA, "
-        . "jefedepartamento JEFE WHERE CARRERA.IdDepartamentoCarrera = '".$idDepartamento."' "
-        . " AND JEFE.IdDepartamentoJefe = '".$idDepartamento."'   ");
+        . "jefedepartamento JEFE WHERE CARRERA.IdDepartamentoCarrera = ".$idDepartamento." "
+        . " AND JEFE.IdDepartamentoJefe = ".$idDepartamento." ");
     if(count($lista)>0) {
         return $lista[0];       
     } else {
@@ -104,6 +104,18 @@ function getInfoCurso ($numeroCurso)
 }
 
 
+function getInfoProfesor($IdProfesor)
+{
+   $lista = querySelect("SELECT * FROM profesor WHERE IdProfesor = ".$IdProfesor);
+   if(count($lista)>0) {
+       return $lista[0];
+   }
+   else {
+       return ['NumeroCurso' => $IdProfesor, 'message' => 'No datos 8'];
+   }
+}
+
+
 
 if ($_GET['oper']) {
     if ($_GET['oper']=='getcurso') {
@@ -141,6 +153,11 @@ if ($_GET['oper']) {
     elseif ($_GET ['oper']=='getInfoCurso'){
         $numeroCurso = $_GET['numeroCurso'];
         echo json_encode(['status' => 200, 'data' => getInfoCurso($numeroCurso)]);
+    }
+    
+    elseif($_GET ['oper']=='getDatosProfesor'){
+        $IdProfesor = $_GET['IdProfesor'];
+        echo json_encode(['status' => 200, 'data' => getInfoProfesor($IdProfesor)]); 
     }
     
     
