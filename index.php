@@ -53,5 +53,5 @@ if(isset($_GET['view'])){  $contentView = $_GET['view']; } ?>
           } ?>
          </div> </div>
  </body>
-  <?php include "assets/buttonfloat.php"; include "assets/buttonfloat_res.php"; ?>
+  <?php //include "assets/buttonfloat.php"; include "assets/buttonfloat_res.php"; ?>
 </html>
