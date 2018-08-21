@@ -57,8 +57,10 @@ function createTable($view){
 
             <?php  
                 $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
-                foreach($list as $row) { ?>
-
+                foreach($list as $row) { 
+                     $result = querySelect(SQL::$TOTAL_INSCRPCIONES." ". $row['NumeroCurso'] );
+                     ?>
+                 
                     <div class="row">
                         <div class="col-md-12 ">
                             <div class="thumbnail"  <?php
@@ -70,11 +72,18 @@ function createTable($view){
                                 <h4>Objetivo:</h4>
                                 <p><?php echo $row['ObjetivoCurso']; ?></p>
                                 <p>Horario: de <?php echo $row['HoraInicioCurso']." a ".$row['HoraFinCurso'];?> <br>  Fecha: del <?php echo $row['FechaInicioCurso']." al ".$row['FechaFinCurso'];?></p>
+                                <p>Fecha limite para inscribirse: <?php echo $row['FechaLimite']; ?> </p>
+                                <p>Cupo para <?php echo $row['capacidadmaxima']." profesores  -"; ?> 
+                                Profesores inscritos: <?php  foreach ($result as $cantidad)
+                                { 
+                                if($cantidad['cantidad'] == $row['capacidadmaxima']){ echo $cantidad['cantidad']." curso lleno"; }
+                                elseif ($cantidad['cantidad'] > 0) { echo $cantidad['cantidad']; }
+                                else { echo 'No hay inscripciones'; }
+                          
+                                 } ?> </p>
                                 <h4><p align="right"> Instructor (a): <?php echo $row['NombreCompletoInstructor']; ?> </p></h4>
-                                <p>Autorizado por desarrollo academico: <?php if($row['sign1']==1){ echo ' Si'; } else { echo ' No'; }?> </p>
-                                <p>Autorizado por subdireccion academica: <?php if($row['sign2']==1){ echo ' Si'; } else { echo ' No'; } ?></p>
                                 
-                                <button  type="checkbox" class="btn btn-warning fa fa-check-square-o" onclick="firmar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);"> Autorizar
+                               <button  type="checkbox" class="btn btn-warning fa fa-check-square-o" onclick="firmar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);"> Autorizar
                                 </button>
                                 <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Imprimir lista
                                 </button>
