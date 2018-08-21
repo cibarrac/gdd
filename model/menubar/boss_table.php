@@ -66,7 +66,7 @@
             if($table == "curso")
             {
                 $idCarreraJefeDepto = getIdCarreraJefe( $_SESSION['username'] );
-                $list = querySelect(SQL::$CURSOS_POR_CARRERA." '%".$idCarreraJefeDepto."%' ");
+                $list = querySelect(SQL::$CURSOS_POR_CARRERA." '%".$idCarreraJefeDepto."%') ");
                  foreach($list as $row) { ?>
 
                     <div class="row">
@@ -119,7 +119,7 @@
         $list = querySelect(SQL::$PROFESORES_POR_JEFE." ".$idJefeDepto);
     }
     
-     if($table == "inscripcion")
+     elseif($table == "inscripcion")
     {
         $idCarreraJefe = getIdCarreraJefe($_SESSION['username']);
         $list = querySelect(SQL::$INSCRIPCIONES_POR_JEFE." ".$idCarreraJefe);
