@@ -1,5 +1,5 @@
 
-<input type="number" name="IdProfesor" hidden value="0">
+<input type="number" name="IdProfesor" id="IdProfesor" hidden >
 
   <!-- Formularaio para capturara los datos del profesor -->
 
@@ -37,7 +37,7 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="">Registro federal (rfc)</label>
-        <input type="text" class="form-control" name="RFCProfesor" >
+        <input type="text" class="form-control" name="RFCProfesor" id="RFCProfesor">
       </div>
     </div>
 
@@ -82,7 +82,7 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="">Grado de estudios</label>
-      <select class="form-control" name="GradoEstudiosProfesor" >
+      <select class="form-control" name="GradoEstudiosProfesor" id="GradoEstudiosProfesor" >
         <option value="Licenciado(a)">Licenciado(a)</option>
         <option value="Maestro(a)">Maestro(a)</option>
         <option value="Doctor(a)">Doctor(a)</option>
@@ -116,7 +116,7 @@
     </div>
   </div>
     
-    <input name="IdCarrera" id="IdCarrera" placeholder="idacarrera" hidden>
+    <input name="IdCarrera" id="IdCarreraAPI" placeholder="idcarrera" >
 
 </div>
 
@@ -127,7 +127,7 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="">Puesto actual</label>
-      <input type="text" class="form-control" name="PuestoProfesor" id="PuestoProfesor"  >
+      <input type="text" class="form-control" name="PuestoProfesor" id="PuestoProfesor" >
     </div>
   </div>
 
@@ -141,7 +141,7 @@
     
     
     
-    <input name="IdJefeInmediatoProfesor" id="IdJefeInmediatoProfesor" placeholder="idjefe" hidden=>
+    <input name="IdJefeInmediatoProfesor" id="IdJefeInmediatoProfesor" placeholder="idjefe" >
 
 </div>
 
@@ -166,7 +166,7 @@ function getDatosLaborales() {
         if (data.length == 0)
         return;
         // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
-        document.querySelector('#IdCarrera').value = data.IdCarrera;
+        document.querySelector('#IdCarreraAPI').value = data.IdCarrera;
         document.querySelector('#NombreCarreraProfesor').value = data.NombreCarrera;
         
         document.querySelector('#IdJefeInmediatoProfesor').value = data.IdJefeDepartamento;
