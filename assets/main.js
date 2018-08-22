@@ -122,6 +122,15 @@ function firmar(s,id){
    
 }
 
+
+function desautorizar(s,id){
+ respuesta =  confirm("Esta seguro que desea desautorizar el curso para que deje de ser publico para los profesores");
+ if(respuesta){
+  get_("desautorizar.php?curso="+id ); 
+ }  
+   
+}
+
 function get_(file) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
