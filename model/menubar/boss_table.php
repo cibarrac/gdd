@@ -4,7 +4,7 @@
 -moz-box-shadow: 14px 10px 26px 5px rgba(0,0,0,0.44);
 box-shadow: 10px 10px 26px 5px rgba(0,0,0,0.44);
 
-height: 400px;
+height: 480px;
 width: 650px;
     } 
 </style>
@@ -75,9 +75,12 @@ width: 650px;
             if($table == "curso")
             {
                 $idCarreraJefeDepto = getIdCarreraJefe( $_SESSION['username'] );
-                $list = querySelect(SQL::$CURSOS_POR_CARRERA." '%".$idCarreraJefeDepto."%') ");
-                 foreach($list as $row) { ?>
-
+                
+                $list = querySelect(SQL::$CURSOS_PARA_JEFE." '%".$idCarreraJefeDepto."%' ");
+                 foreach($list as $row) { 
+                     $result = querySelect(SQL::$TOTAL_INSCRPCIONES." ". $row['NumeroCurso'] );
+                     ?>
+                        
                     
                         <div class="col-md-6 ">
                             <div class="thumbnail"  <?php
