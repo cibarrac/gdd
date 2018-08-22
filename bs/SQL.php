@@ -109,6 +109,9 @@ class SQL {
     public static $CURSOS_POR_CARRERA = "SELECT * FROM curso WHERE  ispublic = 1  AND (DirigidoA like '%0%' "
             . "OR DirigidoA like ";
     
+    public static $CURSOS_PARA_JEFE = "SELECT * FROM curso WHERE   DirigidoA like '%0%' "
+            . "OR DirigidoA like ";
+    
     public static $ID_CARRERA_PROFESOR = "SELECT IdCarrera FROM profesor WHERE"
             . " CorreoProfesor = ";
     
