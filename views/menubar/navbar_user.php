@@ -39,9 +39,9 @@
                          Profesor <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li>  <a class="dropdown-item status_on" id="_Profesor" href="index.php?view=_Profesor">Mi perfil</a> </li>
-                  <li>  <a class="dropdown-item"  href="index.php?view=_InscripcionesUser">Inscripciones</a></li>
-                  <li>  <a class="dropdown-item"  href="index.php?view=_Curso">Mis cursos</a></li>
-                  <li>  <a class="dropdown-item"  href="#">Mis diplomas</a></li>
+                  <li>  <a class="dropdown-item"  href="index.php?view=_InscripcionesUser">Mis cursos</a></li>
+                  <li>  <a class="dropdown-item"  href="index.php?view=_Curso">Cursos ofertados</a></li>
+                 <!-- <li>  <a class="dropdown-item"  href="#">Mis diplomas</a></li> -->
 
                   <li> <a class="dropdown-item"  href="index.php?view=_Encuesta">Encuesta de eficiencia</a></li>
 
