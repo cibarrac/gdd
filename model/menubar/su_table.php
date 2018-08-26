@@ -1,13 +1,14 @@
- <style>
+<style>
    .thumbnail{border: 0px solid #f00; padding: 20px 22px;
 -webkit-box-shadow: 20px 10px 26px 5px rgba(0,0,0,0.44);
 -moz-box-shadow: 14px 10px 26px 5px rgba(0,0,0,0.44);
 box-shadow: 10px 10px 26px 5px rgba(0,0,0,0.44);
 
-height: 480px;
+height: 400px;
 width: 650px;
     } 
 </style>
+
 
 <?php
   function evaluate_cursos($table,$NumeroCurso)
@@ -46,28 +47,27 @@ width: 650px;
         $table = $table[$view];  ?>
         <div class="col-md-3">
               <?php
-                
+                $modalInsert = new Modal('btn1',$view,$view,"Insertar ".$view);
+                $modalInsert->getContent();
+                               
                 $_subscribe = new Modal('inscripcion_modal', 'Inscripción al curso', '_Inscripciones', 'Inscribir');
                 $_subscribe->getContent(true);
                 
-                //$_edit = new Modal('editar_modal', 'Editar', '_Curso', 'Editar');
-                //$_edit->getContent(true);
-                
-                $modalInsert = new Modal('btn1',$view,$view,"Insertar ".$view);
-                $modalInsert->getContent();
+                $_edit = new Modal('editar_modal', 'Editar', '_Curso', 'Editar');
+                $_edit->getContent(true);
               ?>
         </div>
         
 
        <br> <br>
        
-       <?php  if($table == "curso")
+      <?php  if($table == "curso")
        {
          $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
          
                 foreach($list as $row) { 
                    $result = querySelect(SQL::$TOTAL_INSCRPCIONES." ". $row['NumeroCurso'] );
-                   $date = querySelect("SELECT curdate()");
+                   
                  
                    
                     ?>
@@ -113,7 +113,7 @@ width: 650px;
                                 <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $row['NumeroCurso'];?>');"> Inscribir
                                 </button>
 
-                                <button type="checkbox" class="btn btn-success fa fa-pencil" data-toggle="modal" data-target="#editar_modal"  > Editar contenido  
+                                <button type="checkbox" id="bteditar" class="btn btn-success fa fa-pencil" data-toggle="modal" data-target="#editar_modal" > Editar contenido  
                                 </button>
                                 
                                 
@@ -123,6 +123,7 @@ width: 650px;
          <?php }   
        }
        else{
+
        ?>
     <table class="table table-hover table-striped table-responsive" id="tabla">
         <thead> <tr> <?php getheaders($table); ?> </tr>  </thead>
@@ -194,10 +195,10 @@ width: 650px;
     request.open('GET', 'api.php?oper=getcurso&numcurso='  + numerocurso, true);
     request.send();
   }
+  </script>
   
   
-  
-  
+  <script>
   function infoCurso(numeroCurso) {
     var request = new XMLHttpRequest();
     request.onload = function () {
@@ -215,13 +216,13 @@ width: 650px;
         return;
 
      // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
+        document.querySelector('#NombreCompletoPresiAcad').value = data.NombreCompletoPresiAcad;
         document.querySelector('#NombreCompletoJefeDepto').value = data.NombreCompletoJefeDepto;
-        document.querySelector('#IdDepartamentoDe').value = data.IdDepartamentoDe;
-        document.querySelector('#DirigidoA').value = data.DirigidoA;
-        document.querySelector('#NombreCursoInt').value = data.NombreCurso;
+        document.querySelector('#IdDepartamentoDe').value = data.NombreDepartamento;
+        document.querySelector('#NombreCurso').value = data.NombreCurso;
         document.querySelector('#ObjetivoCurso').value = data.ObjetivoCurso;
-        document.querySelector('#TipoCursoInt').value = data.TipoCurso;
-        document.querySelector('#NumeroCursoInt').value = data.NumeroCurso;
+        document.querySelector('#NumeroCurso').value = data.NumeroCurso;
+        document.querySelector('#TipoCurso').value = data.TipoCurso;
         document.querySelector('#NombreCompletoInstructor').value = data.NombreCompletoInstructor;
         document.querySelector('#AulaPropuesta').value = data.AulaPropuesta;
         document.querySelector('#Turno').value = data.Turno;
@@ -239,4 +240,6 @@ width: 650px;
   }
   
 </script>
+
+
 
