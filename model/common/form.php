@@ -8,9 +8,9 @@ function createView($view) {
   ?>
 <form class="form" action="post.php" method="post" onsubmit= "return validar();" >
           <!-- Parametros start -->
-          <input type="hidden" name="view"  value="<?php echo $view;?>">
-          <input type="hidden"  name="table"  value="<?php echo $table[$view];?>">
-          <input id="action" type="hidden"  name="action"  value="save">
+          <input hidden name="view"  value="<?php echo $view;?>">
+          <input hidden  name="table"  value="<?php echo $table[$view];?>">
+          <input hidden id="action" name="action" value="save">
           <!-- Parametros end -->
             <?php include "views/".$view."View.php";  ?>
 
