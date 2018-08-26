@@ -1,5 +1,5 @@
 
-<input type="number" name="IdProfesor" id="IdProfesor" hidden >
+<input  name="IdProfesor" id="IdProfesor" hidden >
 
   <!-- Formularaio para capturara los datos del profesor -->
 
@@ -116,7 +116,7 @@
     </div>
   </div>
     
-    <input name="IdCarrera" id="IdCarreraAPI" placeholder="idcarrera" >
+    <input name="IdCarrera" id="IdCarreraAPI" placeholder="idcarrera" hidden>
 
 </div>
 
@@ -141,7 +141,7 @@
     
     
     
-    <input name="IdJefeInmediatoProfesor" id="IdJefeInmediatoProfesor" placeholder="idjefe" >
+    <input name="IdJefeInmediatoProfesor" id="IdJefeInmediatoProfesor" placeholder="idjefe" hidden>
 
 </div>
 
