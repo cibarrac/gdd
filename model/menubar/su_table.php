@@ -53,8 +53,8 @@ width: 650px;
                 $_subscribe = new Modal('inscripcion_modal', 'Inscripción al curso', '_Inscripciones', 'Inscribir');
                 $_subscribe->getContent(true);
                 
-                $_edit = new Modal('editar_modal', 'Editar', '_Curso', 'Editar');
-                $_edit->getContent(true);
+                //$_edit = new Modal('editar_modal', 'Editar', '_Curso', 'Editar');
+                //$_edit->getContent(true);
               ?>
         </div>
         
@@ -113,8 +113,8 @@ width: 650px;
                                 <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $row['NumeroCurso'];?>');"> Inscribir
                                 </button>
 
-                                <button type="checkbox" id="bteditar" class="btn btn-success fa fa-pencil" data-toggle="modal" data-target="#editar_modal" > Editar contenido  
-                                </button>
+                                <!--<button type="checkbox" id="bteditar" class="btn btn-success fa fa-pencil" data-toggle="modal" data-target="#editar_modal" > Editar contenido  
+                                </button> -->
                                 
                                 
                         </div>
