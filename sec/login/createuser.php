@@ -30,7 +30,7 @@ if ($pw1 != $pw2) { echo '<div class="alert alert-danger alert-dismissable"><but
 
 } else {
     //Validation passed
-    if (isset($_POST['newuser']) && !empty(str_replace(' ', '', $_POST['newuser']))  && isset($_POST['password1'])  && !empty(str_replace(' ', '', $_POST['password1']))) {
+    if (isset($_POST['newuser']) && !empty(str_replace(' ', '', $_POST['newuser']))  && isset($_POST['password1'])  && !empty(str_replace(' ', '', $_POST['password1'])) ) {
 
         //Tries inserting into database and add response to variable
 

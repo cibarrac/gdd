@@ -6,8 +6,9 @@ $(document).ready(function(){
     var password = $("#password1").val();
     var password2 = $("#password2").val();
     var email = $("#email").val();
+    
 
-    if((username == "") || (password == "") || (email == "")) {
+    if((username == "") || (password == "") || (email == "") )   {
       $("#message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Please enter a username and a password</div>");
     }
     else {
