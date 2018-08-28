@@ -34,28 +34,23 @@
 
   <div class="row">
 
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="form-group">
         <label for="">Registro federal (rfc)</label>
-        <input type="text" class="form-control" name="RFCProfesor" id="RFCProfesor">
+        <input type="text" class="form-control" name="RFCProfesor" >
       </div>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="form-group">
         <label for="">Numero de telefono:</label>
         <input type="text" class="form-control" name="NumeroTelefonoProfesor" id="NumeroTelefonoProfesor">
       </div>
     </div>
 
-    <div class="col-md-3">
-      <div class="form-group">
-        <label for="">Correo</label>
-        <input type="email" class="form-control" readonly="readonly" name="CorreoProfesor" value="<?=$_SESSION['username']?>">
-      </div>
-    </div>
+    
       
-      <div class="col-md-3">
+      <div class="col-md-4">
           <div class="form-group">
               <label for="">Numero de tarjeta</label>
               <input type="text" class="form-control" name="NumeroTarjetaProfesor" id="NumeroTarjetaProfesor">
@@ -63,6 +58,34 @@
       </div>
 
   </div>
+
+<div class="row">
+    
+    <div class="col-md-3">
+      <div class="form-group">
+        <input name="newuser" id="newuser" type="text" class="form-control" placeholder="Usuario" autofocus>
+      </div>
+    </div>
+    
+     <div class="col-md-3">
+      <div class="form-group">
+        
+        <input type="email" class="form-control" placeholder="Correo" name="CorreoProfesor" >
+      </div>
+    </div>
+    
+     <div class="col-md-3">
+      <div class="form-group">
+        <input name="password" id="password1" type="password" class="form-control" placeholder="Contraseña">
+      </div>
+    </div>
+    
+    <div class="col-md-3">
+      <div class="form-group">
+        <input name="password_" id="password2" type="password" class="form-control" placeholder="Repite la contraseña">
+      </div>
+    </div>
+</div>
 
 
 
@@ -127,7 +150,10 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="">Puesto actual</label>
-      <input type="text" class="form-control" name="PuestoProfesor" id="PuestoProfesor" >
+      <select class="form-control" name="PuestoProfesor" id="PuestoProfesor">
+          <option value="Docente">Docente</option>
+          <option value="Jefe de departamento">Jefe de departamento</option>
+      </select>
     </div>
   </div>
 
