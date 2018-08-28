@@ -2,6 +2,7 @@
 <?php
 include 'bs/QueryService.php';
 include 'bs/curso/CursoService.php';
+include 'login/register.php';
 /**
  * COMO PARAMETRO SE RECIBE EL NOMBRE DE LA TABLA EN LA BASE DE DATOS
  * CADA CAMPO SE LEERA DEL ARREGLO POST O GET PARA CONCATENARLO EN UNA CADENA PARA CREAR UN INSERT
@@ -15,7 +16,8 @@ function dialog($msg)
 function validation(){
     $formData = getPOST_GET();
     $table = $formData['table'];
-     
+    
+    
     if($table=="inscripcion")
     {
         $IdCurso = $formData['NumeroCurso'];
