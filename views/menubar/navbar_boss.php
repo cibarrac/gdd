@@ -33,7 +33,7 @@
 
               <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                         Admin <span class="caret"></span></a>
+                         Jefe departamento <span class="caret"></span></a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <!-- <li> <a class="dropdown-item"  href="index.php?view=_Diagnostico">D N borrador</a></li> -->
