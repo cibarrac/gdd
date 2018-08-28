@@ -33,7 +33,7 @@
 
               <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                         Admin <span class="caret"></span></a>
+                         Desarrollo Academico <span class="caret"></span></a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <!-- <li> <a class="dropdown-item"  href="index.php?view=_Diagnostico">D N borrador</a></li> -->
@@ -47,11 +47,11 @@
                     <li> <a class="dropdown-item"  href="index.php?view=_Curso">Detectar Necesidades</a> </li>
                     <li> <a class="dropdown-item"  href="index.php?view=_Instructor">Instructores</a> </li>
                     <li> <a class="dropdown-item"  href="index.php?view=_Inscripciones">Inscripciones</a> </li>
-                    <li> <a class="dropdown-item"  href="index.php?view=_Asistencia">Asistencias</a> </li>
+                    <!--<li> <a class="dropdown-item"  href="index.php?view=_Asistencia">Asistencias</a> </li> -->
                     
                     
                     <!--<li> <a class="dropdown-item"  href="index.php?view=_FichaTecnica">Ficha Tecnica</a></li> -->
-                    <li> <a class="dropdown-item"  href="index.php?view=_Listas">Listas</a></li>
+                    <!--<li> <a class="dropdown-item"  href="index.php?view=_Listas">Listas</a></li>-->
                     
                     
                     <!-- <li>  <a class="dropdown-item"  href="index.php?view=_Materia">Registrar materia</a></li> -->
@@ -97,7 +97,7 @@
 
 
 
-            <li class="dropdown">
+            <!--<li class="dropdown">
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                          Asistente<span class="caret"></span></a>
 
@@ -106,11 +106,11 @@
 
                     <!-- <li> <a class="dropdown-item"  href="index.php?view=_Temario">Registrar temario</a></li> -->
 
-                     <!-- <li><a class="dropdown-item"  href="index.php?view=_Grado">Registrar grado</a></li> -->
+                     <!-- <li><a class="dropdown-item"  href="index.php?view=_Grado">Registrar grado</a></li> 
 
 
-                </ul>
-               </li>
+                </ul> 
+               </li>-->
 
 
 
