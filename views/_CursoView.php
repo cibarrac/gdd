@@ -253,8 +253,7 @@
 
         <div class="col-md-3">
             <select name="PeriodoCurso" class="form-control">
-                <option value="Enero-Junio">Enero-Junio</option>
-                <option value="Enero-Junio">Agosto-Diciembre</option>
+                <?php Periodo() ?>
             </select>
         </div>
 
