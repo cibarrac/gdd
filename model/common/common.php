@@ -20,6 +20,35 @@
         }
     }
 ?>
+            
+<?php
+    function fillNombreCompletoProfesor()
+    {   $col = 0;
+        $array = querySelect(SQL::$NOMBRE_COMPLETO_PROFESOR);
+        foreach ($array as $fila ) { ?>
+            <option value="<?php echo $fila[$col]; ?>" >
+                <?php echo $fila[$col]; ?>
+            </option>  <?php  
+        }
+    }
+?>
+            
+            
+<?php 
+    function Periodo(){
+    $col = 0;
+    $array = querySelect(SQL::$ANIO);
+    foreach($array as $fila) { ?> 
+            <option value=" <?php echo "Enero-Junio ".$fila[$col].""?>" >
+                <?php echo "Enero-Junio ".$fila[$col].""?>
+            </option>
+            
+            <option value=" <?php echo "Agosto-Diciembre ".$fila[$col].""?>" >
+                <?php echo "Agosto-Diciembre ".$fila[$col].""?>
+            </option> <?php
+            }
+    }
+?>
   
             
 <?php 
