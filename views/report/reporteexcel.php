@@ -37,8 +37,8 @@
 		            ->setCellValue('B3',  $titulosColumnas[1])
         		    ->setCellValue('C3',  $titulosColumnas[2])
             		->setCellValue('D3',  $titulosColumnas[3])
-                        ->setCellValue('E3',  $titulosColumnas[4])
-                        ->setCellValue('F3',  $titulosColumnas[5]);
+                        ->setCellValue('E3',  $titulosColumnas[4]);
+                        
 		
 		//Se agregan los datos de los alumnos
 		$i = 4;
@@ -48,8 +48,8 @@
 		            ->setCellValue('B'.$i,  $fila['NumeroTajetaProfesor'])
         		    ->setCellValue('C'.$i,  $fila['GradoEstudiosProfesor'])
                             ->setCellValue('D'.$i,  $fila['NombreProfesor']." ".$fila['ApellidoPaternoProfesor']." ".$fila['ApellidoMaternoProfesor'])
-                            ->setCellValue('E'.$i,  $fila['NombreCarrera'])
-                            ->setCallValue('F'.$i,  $fila['']);
+                            ->setCellValue('E'.$i,  $fila['NombreCarrera']);
+                            
 					$i++;
 		}
 		
@@ -162,7 +162,7 @@
 
 		// Se manda el archivo al navegador web, con el nombre que se indica (Excel2007)
 		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-		header('Content-Disposition: attachment;filename="Reportedealumnos.xlsx"');
+		header('Content-Disposition: attachment;filename="Reportedealumnos.xls"');
 		header('Cache-Control: max-age=0');
 
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2010');
