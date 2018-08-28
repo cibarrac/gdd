@@ -100,6 +100,10 @@ class SQL {
             . "NombreCompleto FROM profesor INNER JOIN jefedepartamento "
             . "ON IdJefeInmediatoProfesor = IdJefeDepartamento WHERE CorreoJefe =";
     
+    public static $NOMBRE_COMPLETO_PROFESOR = "SELECT CONCAT(NombreProfesor,' '"
+            . ",ApellidoPaternoProfesor,' ', ApellidoMaternoProfesor ) AS "
+            . "NombreCompleto FROM profesor"; 
+    
     
     public static $PROFESORES_POR_CARRERA = "SELECT CONCAT(NombreProfesor,' ',ApellidoPaternoProfesor,' '"
             . ",ApellidoMaternoProfesor) AS NombreProfe FROM profesor "
@@ -109,7 +113,7 @@ class SQL {
     public static $CURSOS_POR_CARRERA = "SELECT * FROM curso WHERE  ispublic = 1  AND (DirigidoA like '%0%' "
             . "OR DirigidoA like ";
     
-    public static $CURSOS_PARA_JEFE = "SELECT * FROM curso WHERE   DirigidoA like '%0%' "
+    public static $CURSOS_PARA_JEFE = "SELECT * FROM curso WHERE DirigidoA like '%0%' "
             . "OR DirigidoA like ";
     
     public static $ID_CARRERA_PROFESOR = "SELECT IdCarrera FROM profesor WHERE"
@@ -139,6 +143,8 @@ class SQL {
     public static $ID_CARRERA_SU_ADMIN = "SELECT IdCarrera, NombreCarrera FROM carrera";
     
     public static $DIRIGIDO_A = "SELECT DirigidoA FROM curso WHERE DirigidoA like ";
+    
+    public static $ANIO ="SELECT YEAR(NOW())";
     
 }
 
