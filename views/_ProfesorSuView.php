@@ -76,13 +76,13 @@
     
      <div class="col-md-3">
       <div class="form-group">
-        <input name="password1" id="password1" type="password" class="form-control" placeholder="Contraseña">
+        <input name="password" id="password1" type="password" class="form-control" placeholder="Contraseña">
       </div>
     </div>
     
     <div class="col-md-3">
       <div class="form-group">
-        <input name="password2" id="password2" type="password" class="form-control" placeholder="Repite la contraseña">
+        <input name="password_" id="password2" type="password" class="form-control" placeholder="Repite la contraseña">
       </div>
     </div>
 </div>
@@ -148,10 +148,13 @@
 
 <div class="row">
 
-  <div class="col-md-6">
+ <div class="col-md-6">
     <div class="form-group">
       <label for="">Puesto actual</label>
-      <input type="text" class="form-control" name="PuestoProfesor" id="PuestoProfesor"  >
+      <select class="form-control" name="PuestoProfesor" id="PuestoProfesor">
+          <option value="Docente">Docente</option>
+          <option value="Jefe de departamento">Jefe de departamento</option>
+      </select>
     </div>
   </div>
 
