@@ -88,6 +88,7 @@
 
  <div class="row">
     
+     <!--
     <div class="col-md-4">
         <div class="form-group">
             <label for="" >Seleccione la carrera o el departamento </label>
@@ -103,14 +104,14 @@
                 <option value="8">CB</option>    
             </select>
         </div>
-    </div> 
+    </div> -->
     
     <div class="col-md-6">
         <div class="from-group">
             <label for="">Inscribir al profesor:  </label>
             <select class="form-control"  name="NombreProfesorInscrito" id="NombreProfesorInscrito" onchange="getId()">
                 <option value=""> </option>
-                <script></script>
+                <?php fillNombreCompletoProfesor() ?>
           </select>
         </div>
     </div>
@@ -193,7 +194,10 @@ function getCurso() {
     request.open('GET', 'api.php?oper=getIdProfesor&nombreProfe='  + nombreProfe.value, true);
     request.send();
   }
+  </script>
   
+  
+   <script>
   
   function getProfesores() {
     var IdCarrera = document.querySelector("#CarreraProfe");
@@ -217,8 +221,13 @@ function getCurso() {
       
         var x = document.getElementById("NombreProfesorInscrito");
         var op = documnet.createElemt("op");
-        op.text = data;
-        x.add(op);
+        
+        for(var i = 0; i < data.length; i++)
+        {
+            op.text = data[i];
+            x.add(op);
+        }
+        
         // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
        
       }
