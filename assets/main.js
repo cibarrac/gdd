@@ -123,10 +123,18 @@ function firmar(s,id){
 }
 
 
-function desautorizar(s,id){
- respuesta =  confirm("Esta seguro que desea desautorizar el curso para que deje de ser publico para los profesores");
+function cancelar(s,id){
+ respuesta =  confirm("Esta seguro que desea cancelar, esto quire decir que el curso no se llevara a cavo y dejara de ser publico");
  if(respuesta){
-  get_("desautorizar.php?curso="+id ); 
+  get_("cancelar.php?curso="+id ); 
+ }  
+   
+}
+
+function revision(s,id){
+ respuesta =  confirm("Esta seguro que desea dejar en revision el curso, el curso volvera su estado inicial y podra ser autorizado o cancelado");
+ if(respuesta){
+  get_("revision.php?curso="+id ); 
  }  
    
 }
