@@ -74,7 +74,8 @@ function createTable($view){
                     
                         <div class="col-md-6 ">
                             <div class="thumbnail"  <?php
-                            if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;} 
+                            if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;}
+                            elseif($row['ispublic']==2){ echo "style= 'background-color: #ffcdd2;'" ;}
                                  else {echo "style= 'background-color: #fff9c4;'";} ?> > 
                                 
                                 <div class="caption">
@@ -84,8 +85,8 @@ function createTable($view){
                                 <p>Horario: de <?php echo $row['HoraInicioCurso']." a ".$row['HoraFinCurso'];?> <br>  Fecha: del <?php echo $row['FechaInicioCurso']." al ".$row['FechaFinCurso'];?></p>
                                 <p>Fecha limite para inscribirse: <?php echo $row['FechaLimite']; ?> </p>
                                 
-                                <p> <b>Desarrollo academico: <?php if($row['sign1']==1){ echo ' Autorizado  - '; } else { echo ' En revision  - '; }?> 
-                                Subdireccion academica: <?php if($row['sign2']==1){ echo ' Autorizado  - '; } else { echo ' En revision'; } ?></p></b>
+                                <p> <b>Desarrollo academico: <?php if($row['sign1']==1){ echo ' Autorizado  - '; }  elseif($row['sign1']==2){ echo 'Cancelado  - '; }  else { echo ' En revision  - '; }?> 
+                                Subdireccion academica: <?php if($row['sign2']==1){ echo ' Autorizado'; }  elseif($row['sign2']==2){ echo 'Cancelado'; } else { echo ' En revision'; } ?></p></b>
                                     
                                 <p>Cupo para <?php echo $row['capacidadmaxima']." profesores    -"; ?> 
                                 Profesores inscritos: <?php  foreach ($result as $cantidad)
@@ -98,13 +99,18 @@ function createTable($view){
                                 <h4><p align="right"> <u><b>Instructor (a): <?php echo $row['NombreCompletoInstructor']; ?> </b></u></p></h4>
                                 <br>
                                 
-                               <button  type="checkbox" class="btn btn-warning fa fa-check-square-o" <?php 
-                                 if($row['sign2'] == 0) {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?> onclick="firmar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);"> Autorizar
+                               <button  type="checkbox" class="btn btn-success fa fa-check-square-o" <?php
+                                if($row['sign2'] == 0) {echo ' style="display: inline" ' ; }
+                                else { echo ' style="display: none" '; } ?> onclick="firmar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso']; ?>);"> ¿Autorizar?
                                 </button>
+
+                                <button type="checkbox" class="btn btn-danger fa fa-ban"
+                                    <?php if ($row['sign2'] == 1) {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?>  onclick="cancelar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
+                                ¿Cancelar? </button>
                                 
-                                <button type="checkbox" class="btn btn-danger fa fa-ban" 
-                                    <?php if ($row['sign2'] == 1) {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?>  onclick="desautorizar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
-                                Desautorizar </button>
+                                 <button type="checkbox" class="btn btn-warning fa fa-ban"
+                                    <?php if ($row['sign2'] == 2) {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?>  onclick="revision(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
+                                En revision </button>
                                 
                                 <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Imprimir lista
                                 </button>
