@@ -14,7 +14,7 @@
            <div class="form-group">
                <label for="">Para los(as) profesores(as) de la(s) carrera(s) de:</label>
                 <select class="form-control" name="carrera"  >
-                   <?php fillOptionsSingle("carreras",1); ?>
+
                </select>
            </div>
        </div>
@@ -23,7 +23,7 @@
             <div class="form-group">
                  <label for="">Del departamento de:</label>
                   <select class="form-control" name="departamento" >
-                    <?php fillOptionsSingle("departamentos",1); ?>
+
                   </select>
             </div>
       </div>
@@ -38,7 +38,7 @@
         <div class="form-group">
             <label for="">Jefe del departamento academico</label>
               <select class="form-control" name="jefedepartamento" >
-                <?php fillOptionsSingle("departamentos",2);?>
+
               </select>
         </div>
     </div>
@@ -48,7 +48,7 @@
         <div class="form-group">
             <label for="">Presidente de academia</label>
               <select class="form-control" name="presidenteacademia" >
-                <?php fillOptionsDouble("presidenteAcademia",1);?>
+              
               </select>
         </div>
     </div>
