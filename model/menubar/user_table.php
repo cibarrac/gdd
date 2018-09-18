@@ -132,6 +132,110 @@ function getheaders($table) {
                         </div>
                      <?php
     } }
+    elseif($table == "profesor"){
+        $list = querySelect(SQL::$PERFIL_PROFESOR." '".$_SESSION['username']."' "); 
+        
+        ?>
+        
+        <div class="container"> 
+            <div class="row">
+                <div class="col-md-5  toppad  pull-right col-md-offset-3 "> </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+            
+            
+                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                            <h3 class="panel-title">Mis datos</h3>
+                            </div>
+                            
+                            
+                             <div class="panel-body">
+                                 <div class="row">
+                                     
+                                   <div class="col-md-3 col-lg-3 " align="center"> <img  alt="User Pic" src="assets/logo/fb2.jpg" class=" img-responsive"  /> 
+                        <br>
+                  Foto de perfil
+                  <br>
+                    <a href="#ventanaimg"  title="Subir foto de perfil" class="btn" data-toggle="modal"><span class="glyphicon glyphicon-upload"></span></a>                                   
+                    <a href="#ventanaDelimg" title="Borrar foto de perfil" data-toggle="modal" class="btn"><span class="glyphicon glyphicon-trash"></span></a>
+   
+                                     
+                                 </div>
+                                     
+                                 <div class=" col-md-9 col-lg-9 "> 
+                                    <table class="table table-user-information">
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td>Nombre completo:</td>
+
+                                                <td><?=$list[0]['NombreProfesor']?> <?=$list[0]['ApellidoPaternoProfesor']?> <?=$list[0]['ApellidoMaternoProfesor']?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Num tarjeta:</td>
+                                                <td><?=$list[0]['NumeroTarjetaProfesor']?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>RFC:</td>
+                                                <td><?=$list[0]['RFCProfesor']?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Correo</td>
+                                                <td><?=$list[0]['Correo']?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grado de estudios</td>
+                                                <td><?=$list[0]['GradoEstudiosProfesor']?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Carrera </td>
+                                                <td><?=$list[0]['NombreCarreraProfesor']?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Puesto</td>
+                                                <td><?=$list[0]['PuestoProfesor']?></td>
+                                            </tr>
+                   
+                                            <tr>
+                                                <td>Numero de telefono</td>
+                                                <td><?=$list[0]['NumeroTelefonoProfesor']?></td>
+                                                
+                                        </tbody>
+                                    </table>
+                                </div>  
+                                     
+                                     
+                                     
+                                     
+                                     
+                             </div>
+                                 
+                                 
+                                 <div class="panel-footer">
+                 	    <a href="#ventanate2" class="btn" title="Actualizar datos" data-toggle="modal"><span class="glyphicon glyphicon-edit"></span> Actualiazar datos</a>
+                            <a href="#ventanaPASS" class="btn" title="Contraseña" data-toggle="modal"><span class="glyphicon glyphicon-lock"></span>Cambiar mi contraseña</a>
+
+                            </div>
+                        </div>
+                    
+                    </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     <?php   
+        
+    }
+    
     else {
      ?>
         <table class="table table-hover table-striped table-responsive" id="tabla">
@@ -149,12 +253,7 @@ function getheaders($table) {
     
     
     
-    if($table == "profesor")
-    {
-        $list = querySelect(SQL::$PERFIL_PROFESOR." '".$_SESSION['username']."' ");
-    }
-    
-    elseif($table == "inscripcion")
+    if($table == "inscripcion")
     {
         $list = querySelect(SQL::$INSCRIPCIONES_PROFESOR." '".$_SESSION['username']."') ");
     }
@@ -166,7 +265,7 @@ function getheaders($table) {
 
     $i = 0;
 
-    foreach($list as $row) {   ?>       
+    foreach($list as $row) {   ?>     
                     <tr <?php if(isset($row['ispublic'])){
                                  if($row['ispublic']==1){ echo "class='success'";} 
                                  else {echo "class='warning'";}
