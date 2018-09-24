@@ -106,11 +106,12 @@ width: 650px;
                                 </button>
 
                                 <button type="checkbox" class="btn btn-danger fa fa-ban"
-                                    <?php if ($row['sign1'] == 1) {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?>  onclick="cancelar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
+                                    <?php if ( $row['sign1'] == 1 )
+                                        {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?>  onclick="cancelar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
                                 ¿Cancelar? </button>
                                 
-                                 <button type="checkbox" class="btn btn-warning fa fa-ban"
-                                    <?php if ($row['sign1'] == 2) {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?>  onclick="revision(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
+                                 <button type="checkbox" class="btn btn-warning fa fa-arrow-left"
+                                    <?php if ( $row['sign1'] == 2 ) {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?>  onclick="revision(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
                                 En revision </button>
 
                                 <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Imprimir lista
