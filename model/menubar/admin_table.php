@@ -108,7 +108,7 @@ function createTable($view){
                                     <?php if ($row['sign2'] == 1) {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?>  onclick="cancelar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
                                 ¿Cancelar? </button>
                                 
-                                 <button type="checkbox" class="btn btn-warning fa fa-ban"
+                                 <button type="checkbox" class="btn btn-warning fa fa-arrow-left"
                                     <?php if ($row['sign2'] == 2) {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?>  onclick="revision(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
                                 En revision </button>
                                 
