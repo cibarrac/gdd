@@ -12,21 +12,16 @@ width: 650px;
  <?php
   function evaluate_cursos($table, $IdProfesor)
   {
-        if($table=="profesor") {
-      ?>
-      
-      <button type="checkbox" class="btn btn-success fa fa-pencil" data-toggle="modal" data-target="#editar_perfil" onclick="editarPerfil('<?php echo $IdProfesor;?>');" > Editar perfil  
-        </button>
+        
 
 
-<?php
 /*
      //En esta parte se pondria el evento click, que asociará el id del curso, obtendrá los datos y los enviara a
      //la vista _InscripcionesView.php
 */
     }
 
-  }
+  
   function evaluate_profile() {
 
 
@@ -134,7 +129,7 @@ function getheaders($table) {
     } }
     elseif($table == "profesor"){
         $list = querySelect(SQL::$PERFIL_PROFESOR." '".$_SESSION['username']."' "); 
-        
+         foreach($list as $row) { 
         ?>
         
         <div class="container"> 
@@ -156,7 +151,7 @@ function getheaders($table) {
                                    <div class="col-md-3 col-lg-3 " align="center"> <img  alt="User Pic" src="assets/logo/fb2.jpg" class=" img-responsive"  /> 
                         <br>
                   Foto de perfil
-                  <br>
+                    <br>
                     <a href="#ventanaimg"  title="Subir foto de perfil" class="btn" data-toggle="modal"><span class="glyphicon glyphicon-upload"></span></a>                                   
                     <a href="#ventanaDelimg" title="Borrar foto de perfil" data-toggle="modal" class="btn"><span class="glyphicon glyphicon-trash"></span></a>
    
@@ -213,8 +208,8 @@ function getheaders($table) {
                                  
                                  
                                  <div class="panel-footer">
-                 	    <a href="#ventanate2" class="btn" title="Actualizar datos" data-toggle="modal"><span class="glyphicon glyphicon-edit"></span> Actualiazar datos</a>
-                            <a href="#ventanaPASS" class="btn" title="Contraseña" data-toggle="modal"><span class="glyphicon glyphicon-lock"></span>Cambiar mi contraseña</a>
+                                    <button type="checkbox" class="btn fa fa-pencil" data-toggle="modal" data-target="#editar_perfil" onclick="editarPerfil('<?php echo $row['IdProfesor'];?>');" > Editar perfil  
+                                    </button>
 
                             </div>
                         </div>
@@ -232,7 +227,7 @@ function getheaders($table) {
         
         
         
-     <?php   
+         <?php   }
         
     }
     
