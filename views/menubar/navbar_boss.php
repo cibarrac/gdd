@@ -41,8 +41,8 @@
                     <li> <a class="dropdown-item"  href="index.php?view=_CursoBoss">Detectar Necesidades </a> </li>
                     <li> <a class="dropdown-item"  href="index.php?view=_InscripcionesBoss">Inscripciones</a> </li>
                     <li> <a class="dropdown-item"  href="index.php?view=_Instructor">Instructores</a> </li>
-                    <!--<li> <a class="dropdown-item"  href="index.php?view=_FichaTecnica">Ficha Tecnica</a></li> -->
-                    <li> <a class="dropdown-item"  href="index.php?view=_Listas">Listas</a></li>
+                    <!--<li> <a class="dropdown-item"  href="index.php?view=_FichaTecnica">Ficha Tecnica</a></li> 
+                    <li> <a class="dropdown-item"  href="index.php?view=_Listas">Listas</a></li>-->
                     <li> <a class="dropdown-item"  href="index.php?view=_Aula">Registrar aula</a></li>
                     <li><a class="dropdown-item"  href="index.php?view=_Profesor">Registrar profesor</a></li>
                     <!-- <li>  <a class="dropdown-item"  href="index.php?view=_Materia">Registrar materia</a></li> -->
