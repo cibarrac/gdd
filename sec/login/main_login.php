@@ -28,7 +28,7 @@ if (isset($_SESSION['username'])) {
         <div class="col-lg-12">
             <form class="form-signin" name="form1" method="post" action="checklogin.php">
                 <h2 class="form-signin-heading"></h2>
-                <input name="myusername" id="myusername" type="text" class="form-control" placeholder="Nombre de usuario" >
+                <input name="myusername" id="myusername" type="text" class="form-control" placeholder="Correo electronico" >
                 <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="Contraseña">
          
                 <label class="form-signin-heading">
