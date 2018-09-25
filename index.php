@@ -6,7 +6,8 @@ include_once 'model/common/common.php';
 include_once "model/common/Modal.php";
 include_once 'model/common/form.php';
 include 'bs/SQL.php'; 
-include "sec/login/loginheader.php"; 
+include "sec/login/loginheader.php";
+if(isset($_GET['view'])){  $contentView = $_GET['view']; }
 ?>
 
 <!DOCTYPE html>
