@@ -21,7 +21,7 @@ class Database {
         }
         return self::$_instance;
     }
-    // Constructor
+    // Constructor :: check conection in sec/login/dbconf.php is equal
     private function __construct() {
         
         switch (gethostname()) {
