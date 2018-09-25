@@ -27,6 +27,7 @@ class Database {
         switch (gethostname()) {
             case "C":    $this->_connection = new mysqli("localhost", "root", "root", "gdd"); break;
             case "ANALISTA-DBA": $this->_connection =  new mysqli("localhost","root","X@viF10r3s", "gdd"); break;
+            case "mail.innsytech.com": $this->_connection =  new mysqli("innsytech.com","devlab_gdd","Get7usa7", "devlab_gdd"); break;
             default:     $this->_connection = new mysqli("localhost", "root", "Get7usa7", "gdd");
         }
         ;
