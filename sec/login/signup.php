@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -30,8 +29,8 @@ if (isset($_SESSION['username'])) {
         
       
         
-        <input name="newuser" id="newuser" type="text" class="form-control" placeholder="Usuario" autofocus>
-        <input name="email" id="email" type="text" class="form-control" placeholder="Correo">
+        <input name="newuser" id="newuser" type="text" class="form-control" placeholder="Nombre completo" autofocus>
+        <input name="email" id="email" type="text" class="form-control" placeholder="Correo electronico">
        
         <br>
         <input name="password1" id="password1" type="password" class="form-control" placeholder="Contraseña">
