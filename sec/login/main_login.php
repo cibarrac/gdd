@@ -32,7 +32,7 @@ if (isset($_SESSION['username'])) {
                 <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="Contraseña">
          
                 <label class="form-signin-heading">
-                <input  type="checkbox"  value="remember-me"> Remember me
+                <input  type="checkbox"  value="remember-me"> Recordar acceso
                 </label>
         
                 <button name="Submit" id="submit" class="btn btn-lg btn-info btn-block" type="submit">Iniciar</button>
