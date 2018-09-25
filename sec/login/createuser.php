@@ -58,5 +58,4 @@ if ($pw1 != $pw2) { echo '<div class="alert alert-danger alert-dismissable"><but
     }
 }
 
-header("location: /");
 ?>
