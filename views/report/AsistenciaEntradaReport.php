@@ -28,7 +28,7 @@
 
     <div class="col-md-12">
       <div class="form-group">
-        <label for="">Numerero y Nombre del Curso: <?php echo $info->__GET('NumeroyNombreCurso'); ?> </label>
+        <label for="">Numero y Nombre del Curso: <?php echo $info->__GET('NumeroyNombreCurso'); ?> </label>
       </div>
     </div>
 
@@ -83,161 +83,163 @@
   <div class= "col-md-12">
     <table class="table table-bordered" >
       <thead style="background:#dad9d9">
-          <tr align="center" style="color: #000000">
-  			<td>No.</td>
-  			<td>Numero tarjeta</td>
-  			<td>Grado</td>
-  			<td>Participante</td>
-                        <td>Departamento/Carrera</td>
-                        <td>RFC</td>
-                        <td>Firma</td>
-  		</tr>
-  </thead>
+        <tr align="center" style="color: #000000">
+    			<td>No.</td>
+    			<td>Numero tarjeta</td>
+    			<td>Grado</td>
+    			<td>Participante</td>
+          <td>Departamento/Carrera</td>
+          <td>RFC</td>
+          <td>Firma</td>
+  		  </tr>
+      </thead>
+
   <?php
-          $cursosList = CursoService::getAsistencias($id);
-          foreach ($cursosList as $curso){ ?>
-                <tr >
-                    <td><?php echo $curso->__GET('NumeroProfe'); ?> </td>
-                    <td><?php echo $curso->__GET('NumeroTarjeta'); ?></td>
-                    <td><?php echo $curso->__GET('Grado'); ?></td>
-                    <td><?php echo $curso->__GET('Participante'); ?></td>
-                    <td><?php echo $curso->__GET('Carrera'); ?></td>
-                    <td><?php echo $curso->__GET('RFC'); ?></td>
-                    <td><?php echo $curso->__GET('Firma'); ?></td>
-                </tr>
-  	<?php }
+      $cursosList = CursoService::getAsistencias($id);
+      foreach ($cursosList as $curso)
+        { ?>
+          <tr >
+            <td><?php echo $curso->__GET('NumeroProfe'); ?> </td>
+            <td><?php echo $curso->__GET('NumeroTarjeta'); ?></td>
+            <td><?php echo $curso->__GET('Grado'); ?></td>
+            <td><?php echo $curso->__GET('Participante'); ?></td>
+            <td><?php echo $curso->__GET('Carrera'); ?></td>
+            <td><?php echo $curso->__GET('RFC'); ?></td>
+            <td><?php echo $curso->__GET('Firma'); ?></td>
+          </tr>
+	<?php }
+
+    include_once '../../bs/QueryService.php';
+
+    $info = querySelect("SELECT NumeroCurso, NombreCurso, AulaPropuesta, "
+    ."HoraInicioCurso, HoraFinCurso, PeriodoCurso, NombreCompletoInstructor".
+    " FROM curso WHERE NumeroCurso = ".$id);
+
+    $list = querySelect("SELECT INSCRIPCION.NombreCurso, PROFESOR.NombreProfesor,"
+    ." PROFESOR.ApellidoPaternoProfesor, PROFESOR.ApellidoMaternoProfesor,"
+    ." PROFESOR.NumeroTarjetaProfesor, PROFESOR.GradoEstudiosProfesor,"
+    ." INSCRIPCION.NumeroCurso, CARRERA.NombreCarrera from profesor PROFESOR,"
+    ." inscripcion INSCRIPCION, carrera CARRERA WHERE PROFESOR.IdProfesor"
+    ." = INSCRIPCION.IdProfesor AND CARRERA.IdCarrera = PROFESOR.IdCarrera AND"
+    ." INSCRIPCION.NumeroCurso = ".$id);
+    if(count($info)> 0 &&  count($list)> 0)
+    {
+      // Camino a los include
+       set_include_path(get_include_path() . PATH_SEPARATOR . '../Classes/');
+       // PHPExcel
+       require_once '../../assets/lib/PHPExcel/PHPExcel.php';
+       // PHPExcel_IOFactory
+       include '../../assets/lib/PHPExcel/PHPExcel/IOFactory.php';
+       // Creamos un objeto PHPExcel
+       $objPHPExcel = new PHPExcel();
+       // Leemos un archivo Excel 2007
+       $objReader = PHPExcel_IOFactory::createReader('Excel2007');
+       $objPHPExcel = $objReader->load("../../report1.xlsx");
+       // Indicamos que se pare en la hoja uno del libro
+       $objPHPExcel->setActiveSheetIndex(1);
+       //Escribimos en la hoja en la celda B1
+
+       foreach ($info as $fila)
+       {
+         $objPHPExcel->setActiveSheetIndex(0)
+         ->setCellValue('C7',  $fila['NumeroCurso']." ".$fila['NombreCurso'])
+         ->setCellValue('C10',  $fila['AulaPropuesta'])
+         ->setCellValue('C11',  $fila['PeriodoCurso'])
+         ->setCellValue('H11',  $fila['HoraInicioCurso']." a ".$fila['HoraFinCurso'])
+         ->setCellValue('C13',  $fila['NombreCompletoInstructor']);
+       }
+
+       $i = 16;
+       foreach ($list as $fila)
+       {
+         $objPHPExcel->setActiveSheetIndex(0)
+         ->setCellValue('B'.$i,  $fila['NumeroTarjetaProfesor'])
+         ->setCellValue('C'.$i,  $fila['GradoEstudiosProfesor'])
+         ->setCellValue('D'.$i,  $fila['NombreProfesor']." ".$fila['ApellidoPaternoProfesor']." ".$fila['ApellidoMaternoProfesor'])
+         ->setCellValue('E'.$i,  $fila['NombreCarrera']);
+         $i++;
+       }
+
+       //Guardamos el archivo en formato Excel 2007
+       //Si queremos trabajar con Excel 2003, basta cambiar el 'Excel2007' por 'Excel5' y el nombre del archivo de salida cambiar su formato por '.xls'
+
+       $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+       $objWriter->save("../../AsistenciaDiaria".$id.".xls");
+
+    }
+    else
+    {
+      print_r('No hay resultados para mostrar lista');
+    }
 
 
-        include_once '../../bs/QueryService.php';
+/*
+    $infoC = querySelect("SELECT NumeroCurso, NombreCurso, AulaPropuesta,"
+    ." HoraInicioCurso, HoraFinCurso, PeriodoCurso, NombreCompletoInstructor"
+    ." FROM curso WHERE NumeroCurso = ".$id);
 
-        $info = querySelect("SELECT NumeroCurso, NombreCurso, AulaPropuesta, "
-        ."HoraInicioCurso, HoraFinCurso, PeriodoCurso, NombreCompletoInstructor".
-        " FROM curso WHERE NumeroCurso = ".$id);
+    $listC = querySelect("SELECT INSCRIPCION.NombreCurso, PROFESOR.NombreProfesor,"
+    ." PROFESOR.ApellidoPaternoProfesor, PROFESOR.ApellidoMaternoProfesor,"
+    ." PROFESOR.NumeroTarjetaProfesor, PROFESOR.GradoEstudiosProfesor,"
+    ." INSCRIPCION.NumeroCurso, CARRERA.NombreCarrera from profesor PROFESOR,"
+    ." inscripcion INSCRIPCION, carrera CARRERA WHERE PROFESOR.IdProfesor"
+    ." = INSCRIPCION.IdProfesor AND CARRERA.IdCarrera = PROFESOR.IdCarrera AND"
+    ." INSCRIPCION.NumeroCurso = ".$id);
+    if(count($infoC)> 0 &&  count($listC)> 0)
+    {
+     // Camino a los include
+      set_include_path(get_include_path() . PATH_SEPARATOR . '../Classes/');
+      // PHPExcel
+      require_once '../../assets/lib/PHPExcel/PHPExcel.php';
+      // PHPExcel_IOFactory
+      include '../../assets/lib/PHPExcel/PHPExcel/IOFactory.php';
+      // Creamos un objeto PHPExcel
+      $objPHPExcel = new PHPExcel();
+      // Leemos un archivo Excel 2007
+      $objReader = PHPExcel_IOFactory::createReader('Excel2007');
+      $objPHPExcel = $objReader->load("../../ConcentradoAsistencia.xlsx");
+      // Indicamos que se pare en la hoja uno del libro
+      $objPHPExcel->setActiveSheetIndex(1);
+      //Escribimos en la hoja en la celda B1
 
-        $list = querySelect("SELECT INSCRIPCION.NombreCurso, PROFESOR.NombreProfesor,"
-        ." PROFESOR.ApellidoPaternoProfesor, PROFESOR.ApellidoMaternoProfesor,"
-        ." PROFESOR.NumeroTarjetaProfesor, PROFESOR.GradoEstudiosProfesor,"
-        ." INSCRIPCION.NumeroCurso, CARRERA.NombreCarrera from profesor PROFESOR,"
-        ." inscripcion INSCRIPCION, carrera CARRERA WHERE PROFESOR.IdProfesor"
-        ." = INSCRIPCION.IdProfesor AND CARRERA.IdCarrera = PROFESOR.IdCarrera AND"
-        ." INSCRIPCION.NumeroCurso = ".$id);
-      	if(count($info)> 0 &&  count($list)> 0)
-        {
-          // Camino a los include
-           set_include_path(get_include_path() . PATH_SEPARATOR . '../Classes/');
-           // PHPExcel
-           require_once '../../assets/lib/PHPExcel/PHPExcel.php';
-           // PHPExcel_IOFactory
-           include '../../assets/lib/PHPExcel/PHPExcel/IOFactory.php';
-           // Creamos un objeto PHPExcel
-           $objPHPExcel = new PHPExcel();
-           // Leemos un archivo Excel 2007
-           $objReader = PHPExcel_IOFactory::createReader('Excel2007');
-           $objPHPExcel = $objReader->load("../../report1.xlsx");
-           // Indicamos que se pare en la hoja uno del libro
-           $objPHPExcel->setActiveSheetIndex(1);
-           //Escribimos en la hoja en la celda B1
+      foreach ($infoC as $fila)
+      {
+        $objPHPExcel->setActiveSheetIndex(0)
+        ->setCellValue('H7',  $fila['NumeroCurso']." ".$fila['NombreCurso'])
+        ->setCellValue('E10',  $fila['AulaPropuesta'])
+        ->setCellValue('Y10',  $fila['PeriodoCurso'])
+        ->setCellValue('R10',  $fila['HoraInicioCurso']." a ".$fila['HoraFinCurso'])
+        ->setCellValue('F12',  $fila['NombreCompletoInstructor']);
+      }
 
-           foreach ($info as $fila)
-           {
-             $objPHPExcel->setActiveSheetIndex(0)
-             ->setCellValue('C7',  $fila['NumeroCurso']." ".$fila['NombreCurso'])
-             ->setCellValue('C10',  $fila['AulaPropuesta'])
-             ->setCellValue('C11',  $fila['PeriodoCurso'])
-             ->setCellValue('H11',  $fila['HoraInicioCurso']." a ".$fila['HoraFinCurso'])
-             ->setCellValue('C13',  $fila['NombreCompletoInstructor']);
-           }
-
-           $i = 16;
-           foreach ($list as $fila)
-           {
-             $objPHPExcel->setActiveSheetIndex(0)
-             ->setCellValue('B'.$i,  $fila['NumeroTarjetaProfesor'])
-             ->setCellValue('C'.$i,  $fila['GradoEstudiosProfesor'])
-             ->setCellValue('D'.$i,  $fila['NombreProfesor']." ".$fila['ApellidoPaternoProfesor']." ".$fila['ApellidoMaternoProfesor'])
-             ->setCellValue('E'.$i,  $fila['NombreCarrera']);
-             $i++;
-           }
-
-           //Guardamos el archivo en formato Excel 2007
-           //Si queremos trabajar con Excel 2003, basta cambiar el 'Excel2007' por 'Excel5' y el nombre del archivo de salida cambiar su formato por '.xls'
-
-           $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-           $objWriter->save("../../AsistenciaDiaria".$id."".$info['NombreCurso'].".xls");
-
+      $i = 17;
+      foreach ($listC as $fila)
+       {
+          $objPHPExcel->setActiveSheetIndex(0)
+          ->setCellValue('D'.$i,  $fila['NumeroTarjetaProfesor'])
+          ->setCellValue('F'.$i,  $fila['GradoEstudiosProfesor'])
+          ->setCellValue('H'.$i,  $fila['NombreProfesor']." ".$fila['ApellidoPaternoProfesor']." ".$fila['ApellidoMaternoProfesor'])
+          ->setCellValue('T'.$i,  $fila['NombreCarrera']);
+          $i++;
         }
-      	else
-        {
-      		print_r('No hay resultados para mostrar lista');
-      	}
+
+
+      // Color rojo al texto
+
+      //Guardamos el archivo en formato Excel 2007
+      //Si queremos trabajar con Excel 2003, basta cambiar el 'Excel2007' por 'Excel5' y el nombre del archivo de salida cambiar su formato por '.xls'
+
+      $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+      $objWriter->save("../../ConcentradoAsistencia".$id."".$info1['NombreCurso'].".xls");
+
+    }
+    else{
+      print_r('No hay resultados para mostrar Concentrado');
+    } */
 
 
 
-        /*
-                $info = querySelect("SELECT NumeroCurso, NombreCurso, AulaPropuesta,"
-                ." HoraInicioCurso, HoraFinCurso, PeriodoCurso, NombreCompletoInstructor"
-                ." FROM curso WHERE NumeroCurso = ".$id);
 
-                $list = querySelect("SELECT INSCRIPCION.NombreCurso, PROFESOR.NombreProfesor,"
-                ." PROFESOR.ApellidoPaternoProfesor, PROFESOR.ApellidoMaternoProfesor,"
-                ." PROFESOR.NumeroTarjetaProfesor, PROFESOR.GradoEstudiosProfesor,"
-                ." INSCRIPCION.NumeroCurso, CARRERA.NombreCarrera from profesor PROFESOR,"
-                ." inscripcion INSCRIPCION, carrera CARRERA WHERE PROFESOR.IdProfesor"
-                ." = INSCRIPCION.IdProfesor AND CARRERA.IdCarrera = PROFESOR.IdCarrera AND"
-                ." INSCRIPCION.NumeroCurso = ".$id);
-              	if(count($info)> 0 &&  count($list)> 0)
-                {
-
-                         // Camino a los include
-                          set_include_path(get_include_path() . PATH_SEPARATOR . '../Classes/');
-                          // PHPExcel
-                          require_once '../../assets/lib/PHPExcel/PHPExcel.php';
-                          // PHPExcel_IOFactory
-                          include '../../assets/lib/PHPExcel/PHPExcel/IOFactory.php';
-                          // Creamos un objeto PHPExcel
-                          $objPHPExcel = new PHPExcel();
-                          // Leemos un archivo Excel 2007
-                          $objReader = PHPExcel_IOFactory::createReader('Excel2007');
-                          $objPHPExcel = $objReader->load("../../ConcentradoAsistencia.xlsx");
-                          // Indicamos que se pare en la hoja uno del libro
-                          $objPHPExcel->setActiveSheetIndex(1);
-                          //Escribimos en la hoja en la celda B1
-
-                          foreach ($info as $fila)
-                          {
-                              $objPHPExcel->setActiveSheetIndex(0)
-                              ->setCellValue('H7',  $fila['NumeroCurso']." ".$fila['NombreCurso'])
-                              ->setCellValue('E10',  $fila['AulaPropuesta'])
-                              ->setCellValue('Y10',  $fila['PeriodoCurso'])
-                              ->setCellValue('R10',  $fila['HoraInicioCurso']." a ".$fila['HoraFinCurso'])
-                              ->setCellValue('F12',  $fila['NombreCompletoInstructor']);
-                          }
-
-                          $i = 17;
-                          foreach ($list as $fila)
-                           {
-                              $objPHPExcel->setActiveSheetIndex(0)
-                              ->setCellValue('D'.$i,  $fila['NumeroTarjetaProfesor'])
-                              ->setCellValue('F'.$i,  $fila['GradoEstudiosProfesor'])
-                              ->setCellValue('H'.$i,  $fila['NombreProfesor']." ".$fila['ApellidoPaternoProfesor']." ".$fila['ApellidoMaternoProfesor'])
-                              ->setCellValue('T'.$i,  $fila['NombreCarrera']);
-                              $i++;
-        		                }
-
-
-                          // Color rojo al texto
-
-                          //Guardamos el archivo en formato Excel 2007
-                          //Si queremos trabajar con Excel 2003, basta cambiar el 'Excel2007' por 'Excel5' y el nombre del archivo de salida cambiar su formato por '.xls'
-
-                          $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-                          $objWriter->save("../../ConcentradoAsistencia".$id."".$info1['NombreCurso'].".xls");
-
-                }
-              	else{
-              		print_r('No hay resultados para mostrar Concentrado');
-              	}
-                */
     ?>
   	</table>
     </div>
@@ -246,13 +248,8 @@
 
   <div class="row">
     <div class="col-md-6">
-      <a href="<?php echo "AsistenciaDiaria".$id."".$info['NombreCurso'].".xls" ?>">Descargue el formato de registro de asistecia diaria</a>
+      <a href="<?php echo "AsistenciaDiaria".$id.".xls" ?>">Descargue el formato de registro de asistecia diaria</a>
     </div>
-
-    <div class="col-md-6">
-      <a href="<?php echo "ConcentradoAsistencia".$id."".$info['NombreCurso'].".xls" ?>">Descargue el concentrado del curso aqui</a>
-    </div>
-
   </div>
 </div>
 </body>
