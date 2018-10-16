@@ -31,7 +31,7 @@ if(isset($_GET['view'])) {
 
 
 
-<html lang="en"> <head> <title> Bienvenido  Mel Ojeda...</title>
+<html lang="en"> <head> <title> Bienvenido  Mel Ojeda 2...</title>
 
         <meta charset="utf-8">
 
