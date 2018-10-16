@@ -4,7 +4,7 @@
 
 $PATH = "model/menubar/";
 
-$contentView = ""; 
+$contentView = "";
 
 include_once 'bs/QueryService.php';
 
@@ -14,13 +14,13 @@ include_once "model/common/Modal.php";
 
 include_once 'model/common/form.php';
 
-include 'bs/SQL.php'; 
+include 'bs/SQL.php';
 
 
-include "sec/login/loginheader.php"; 
+include "sec/login/loginheader.php";
 
-if(isset($_GET['view'])) { 
-  
+if(isset($_GET['view'])) {
+
    $contentView = $_GET['view'];
  }
 
@@ -31,13 +31,11 @@ if(isset($_GET['view'])) {
 
 
 
-<html lang="en"> <head> <title> Bienvenido <?php 
-
-    if (isset($_SESSION['username'])) { echo $_SESSION['username']; } ?></title>
+<html lang="en"> <head> <title> Bienvenido  Mel Ojeda...</title>
 
         <meta charset="utf-8">
 
-        
+
 
         <meta charset="utf-8">
 
@@ -49,7 +47,7 @@ if(isset($_GET['view'])) {
 
          <script src="https://code.jquery.com/jquery-1.12.4.js" charset="utf-8"></script>
 
-       
+
 
        <!-- <script src="assets/js/jquery-1.11.3.min.js"></script> -->
 
@@ -57,9 +55,9 @@ if(isset($_GET['view'])) {
 
         <script type="text/javascript" src="assets/main.js"></script>
 
-        
 
-        
+
+
 
        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
@@ -71,9 +69,9 @@ if(isset($_GET['view'])) {
 
         <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js" charset="utf-8"></script>
 
-        
 
-        
+
+
 
 </head> <body>
 
@@ -114,4 +112,3 @@ if(isset($_GET['view'])) {
   <?php //include "assets/buttonfloat.php"; include "assets/buttonfloat_res.php"; ?>
 
 </html>
-
