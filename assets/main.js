@@ -114,6 +114,10 @@ function reportBy(id){
  get_("../views/report/AsistenciaEntradaReport.php?curso="+id);
 }
 
+function asisBy(id){
+ get_("../views/report/ConcentradoAsistencia.php?curso="+id);
+}
+
 function firmar(s,id){
  respuesta =  confirm("Esta seguro que desea firmar el curso para que sea publico para los profesores");
  if(respuesta){
