@@ -130,6 +130,10 @@ width: 650px;
 
                                 <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Mostrar lista
                                 </button>
+
+                                <button class="btn btn-info fa fa-print" onclick="asisBy(<?php echo $row['NumeroCurso'];?>);"> Concentrado
+                                </button>
+
                                 <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $row['NumeroCurso'];?>');"> Inscribir
                                 </button>
 
