@@ -13,17 +13,17 @@
     <script src="../../assets/js/bootstrap.js"></script>
 </head>
 <body> <br>
-    
+
 <div class="container">
     <?php
     include '../../bs/curso/CursoService.php';
     $id = $_GET['curso'];
-    
+
     $cursoInfo = CursoService::getCursoInfo($id);
-    
+
     foreach ($cursoInfo as $info)
     {
-   ?>   
+   ?>
    <div class="row">
 
     <div class="col-md-12">
@@ -31,53 +31,53 @@
         <label for="">Numerero y Nombre del Curso: <?php echo $info->__GET('NumeroyNombreCurso'); ?> </label>
       </div>
     </div>
-       
+
   </div>
 
   <div class="row">
     <div class="col-md-4">
       <div class="form-group">
-        <label for="" >Lugar: <?php echo $info->__GET('Lugar'); ?></label> 
+        <label for="" >Lugar: <?php echo $info->__GET('Lugar'); ?></label>
       </div>
     </div>
-        
+
     <div class="col-md-2">
       <div class="form-group">
-        <label for="" >Horario: <?php echo $info->__GET('Horario'); ?></label> 
+        <label for="" >Horario: <?php echo $info->__GET('Horario'); ?></label>
       </div>
     </div>
-        
+
     <div class="col-md-2">
       <div class="form-group">
-        <label for="" >Periodo: <?php echo $info->__GET('Periodo'); ?></label> 
+        <label for="" >Periodo: <?php echo $info->__GET('Periodo'); ?></label>
       </div>
     </div>
-     
+
     <div class="col-md-2">
       <div class="form-group">
-        <label for="" >Folio:</label> 
+        <label for="" >Folio:</label>
       </div>
-    </div>    
+    </div>
   </div>
-    
-        
+
+
   <div class="row">
       <div class="col-md-4">
       <div class="form-group">
-        <label for="" >Instructor: <?php echo $info->__GET('Instructor'); }?></label> 
+        <label for="" >Instructor: <?php echo $info->__GET('Instructor'); }?></label>
       </div>
-    </div>  
-      
+    </div>
+
     <div class="col-md-3">
       <div class="form-group">
-        <label for="" >Duración:</label> 
+        <label for="" >Duración:</label>
       </div>
-    </div>     
+    </div>
   </div>
-    
-     
-      
-      
+
+
+
+
 <div class="row">
 
   <div class= "col-md-12">
@@ -93,7 +93,7 @@
                         <td>Firma</td>
   		</tr>
   </thead>
-  <?php  
+  <?php
           $cursosList = CursoService::getAsistencias($id);
           foreach ($cursosList as $curso){ ?>
                 <tr >
@@ -104,19 +104,156 @@
                     <td><?php echo $curso->__GET('Carrera'); ?></td>
                     <td><?php echo $curso->__GET('RFC'); ?></td>
                     <td><?php echo $curso->__GET('Firma'); ?></td>
-                </tr>                     
-  	<?php } ?>
+                </tr>
+  	<?php }
+
+
+        include_once '../../bs/QueryService.php';
+
+        $info = querySelect("SELECT NumeroCurso, NombreCurso, AulaPropuesta, "
+        ."HoraInicioCurso, HoraFinCurso, PeriodoCurso, NombreCompletoInstructor".
+        " FROM curso WHERE NumeroCurso = ".$id);
+
+        $list = querySelect("SELECT INSCRIPCION.NombreCurso, PROFESOR.NombreProfesor,"
+        ." PROFESOR.ApellidoPaternoProfesor, PROFESOR.ApellidoMaternoProfesor,"
+        ." PROFESOR.NumeroTarjetaProfesor, PROFESOR.GradoEstudiosProfesor,"
+        ." INSCRIPCION.NumeroCurso, CARRERA.NombreCarrera from profesor PROFESOR,"
+        ." inscripcion INSCRIPCION, carrera CARRERA WHERE PROFESOR.IdProfesor"
+        ." = INSCRIPCION.IdProfesor AND CARRERA.IdCarrera = PROFESOR.IdCarrera AND"
+        ." INSCRIPCION.NumeroCurso = ".$id);
+      	if(count($info)> 0 &&  count($list)> 0)
+        {
+          // Camino a los include
+           set_include_path(get_include_path() . PATH_SEPARATOR . '../Classes/');
+           // PHPExcel
+           require_once '../../assets/lib/PHPExcel/PHPExcel.php';
+           // PHPExcel_IOFactory
+           include '../../assets/lib/PHPExcel/PHPExcel/IOFactory.php';
+           // Creamos un objeto PHPExcel
+           $objPHPExcel = new PHPExcel();
+           // Leemos un archivo Excel 2007
+           $objReader = PHPExcel_IOFactory::createReader('Excel2007');
+           $objPHPExcel = $objReader->load("../../report1.xlsx");
+           // Indicamos que se pare en la hoja uno del libro
+           $objPHPExcel->setActiveSheetIndex(1);
+           //Escribimos en la hoja en la celda B1
+
+           foreach ($info as $fila)
+           {
+             $objPHPExcel->setActiveSheetIndex(0)
+             ->setCellValue('C7',  $fila['NumeroCurso']." ".$fila['NombreCurso'])
+             ->setCellValue('C10',  $fila['AulaPropuesta'])
+             ->setCellValue('C11',  $fila['PeriodoCurso'])
+             ->setCellValue('H11',  $fila['HoraInicioCurso']." a ".$fila['HoraFinCurso'])
+             ->setCellValue('C13',  $fila['NombreCompletoInstructor']);
+           }
+
+           $i = 16;
+           foreach ($list as $fila)
+           {
+             $objPHPExcel->setActiveSheetIndex(0)
+             ->setCellValue('B'.$i,  $fila['NumeroTarjetaProfesor'])
+             ->setCellValue('C'.$i,  $fila['GradoEstudiosProfesor'])
+             ->setCellValue('D'.$i,  $fila['NombreProfesor']." ".$fila['ApellidoPaternoProfesor']." ".$fila['ApellidoMaternoProfesor'])
+             ->setCellValue('E'.$i,  $fila['NombreCarrera']);
+             $i++;
+           }
+
+           //Guardamos el archivo en formato Excel 2007
+           //Si queremos trabajar con Excel 2003, basta cambiar el 'Excel2007' por 'Excel5' y el nombre del archivo de salida cambiar su formato por '.xls'
+
+           $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+           $objWriter->save("../../AsistenciaDiaria".$id."".$info['NombreCurso'].".xls");
+
+        }
+      	else
+        {
+      		print_r('No hay resultados para mostrar lista');
+      	}
+
+
+
+        /*
+                $info = querySelect("SELECT NumeroCurso, NombreCurso, AulaPropuesta,"
+                ." HoraInicioCurso, HoraFinCurso, PeriodoCurso, NombreCompletoInstructor"
+                ." FROM curso WHERE NumeroCurso = ".$id);
+
+                $list = querySelect("SELECT INSCRIPCION.NombreCurso, PROFESOR.NombreProfesor,"
+                ." PROFESOR.ApellidoPaternoProfesor, PROFESOR.ApellidoMaternoProfesor,"
+                ." PROFESOR.NumeroTarjetaProfesor, PROFESOR.GradoEstudiosProfesor,"
+                ." INSCRIPCION.NumeroCurso, CARRERA.NombreCarrera from profesor PROFESOR,"
+                ." inscripcion INSCRIPCION, carrera CARRERA WHERE PROFESOR.IdProfesor"
+                ." = INSCRIPCION.IdProfesor AND CARRERA.IdCarrera = PROFESOR.IdCarrera AND"
+                ." INSCRIPCION.NumeroCurso = ".$id);
+              	if(count($info)> 0 &&  count($list)> 0)
+                {
+
+                         // Camino a los include
+                          set_include_path(get_include_path() . PATH_SEPARATOR . '../Classes/');
+                          // PHPExcel
+                          require_once '../../assets/lib/PHPExcel/PHPExcel.php';
+                          // PHPExcel_IOFactory
+                          include '../../assets/lib/PHPExcel/PHPExcel/IOFactory.php';
+                          // Creamos un objeto PHPExcel
+                          $objPHPExcel = new PHPExcel();
+                          // Leemos un archivo Excel 2007
+                          $objReader = PHPExcel_IOFactory::createReader('Excel2007');
+                          $objPHPExcel = $objReader->load("../../ConcentradoAsistencia.xlsx");
+                          // Indicamos que se pare en la hoja uno del libro
+                          $objPHPExcel->setActiveSheetIndex(1);
+                          //Escribimos en la hoja en la celda B1
+
+                          foreach ($info as $fila)
+                          {
+                              $objPHPExcel->setActiveSheetIndex(0)
+                              ->setCellValue('H7',  $fila['NumeroCurso']." ".$fila['NombreCurso'])
+                              ->setCellValue('E10',  $fila['AulaPropuesta'])
+                              ->setCellValue('Y10',  $fila['PeriodoCurso'])
+                              ->setCellValue('R10',  $fila['HoraInicioCurso']." a ".$fila['HoraFinCurso'])
+                              ->setCellValue('F12',  $fila['NombreCompletoInstructor']);
+                          }
+
+                          $i = 17;
+                          foreach ($list as $fila)
+                           {
+                              $objPHPExcel->setActiveSheetIndex(0)
+                              ->setCellValue('D'.$i,  $fila['NumeroTarjetaProfesor'])
+                              ->setCellValue('F'.$i,  $fila['GradoEstudiosProfesor'])
+                              ->setCellValue('H'.$i,  $fila['NombreProfesor']." ".$fila['ApellidoPaternoProfesor']." ".$fila['ApellidoMaternoProfesor'])
+                              ->setCellValue('T'.$i,  $fila['NombreCarrera']);
+                              $i++;
+        		                }
+
+
+                          // Color rojo al texto
+
+                          //Guardamos el archivo en formato Excel 2007
+                          //Si queremos trabajar con Excel 2003, basta cambiar el 'Excel2007' por 'Excel5' y el nombre del archivo de salida cambiar su formato por '.xls'
+
+                          $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+                          $objWriter->save("../../ConcentradoAsistencia".$id."".$info1['NombreCurso'].".xls");
+
+                }
+              	else{
+              		print_r('No hay resultados para mostrar Concentrado');
+              	}
+                */
+    ?>
   	</table>
     </div>
   </div>
-  
-<div class="row">
-     <div class="col-md-6">
-         <label for="">MC. DANIEL MULATO AGUERO</label>
-     </div>
-     <div class="col-md-6">
-        <label for="">  MC. NOE CASTELLANOS BEBOLLEDO. </label></div>
-     </div>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <a href="<?php echo "AsistenciaDiaria".$id."".$info['NombreCurso'].".xls" ?>">Descargue el formato de registro de asistecia diaria</a>
+    </div>
+
+    <div class="col-md-6">
+      <a href="<?php echo "ConcentradoAsistencia".$id."".$info['NombreCurso'].".xls" ?>">Descargue el concentrado del curso aqui</a>
+    </div>
+
+  </div>
 </div>
 </body>
 </html>

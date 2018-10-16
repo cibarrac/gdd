@@ -10,32 +10,30 @@ width: 650px;
 </style>
 
 
-<?php
-  function evaluate_cursos($table,$NumeroCurso)
-  {
-    if($table=="curso") {
-      ?>
-
-<?php
-/*
-     //En esta parte se pondria el evento click, que asociará el id del curso, obtendrá los datos y los enviara a
-     //la vista _InscripcionesView.php
-*/
-
-    }
-}
-
-
-?>
-
 <!-- Inicio Tabla Cusos ****************************************************************************************************************-->
 
  <?php
 
  function getheaders($table) {
 
+    if($table == "infoescuela"){
+      $fields = querySelect(SQL::$HEADER_INFOITA);
+    }
+    elseif($table == "carrera"){
+      $fields = querySelect(SQL::$HEADER_CARRERA);
+    }
+    elseif($table == "jefedepartamento"){
+      $fields = querySelect(SQL::$HEADER_JEFE);
+    }
+    elseif($table == "profesor"){
+      $fields = querySelect(SQL::$HEADER_PROFESOR);
+    }
+    elseif($table == "inscripcion"){
+      $fields = querySelect(SQL::$HEADER_INSCRIPCION);
+    }
+    else{
      $fields = querySelect("describe ".$table);
-     echo "<th class='header'> Operacion</th>";
+   }
      foreach ($fields as $field) {
          echo "<th class='header'>". $field[0] ."</th>";
      }
@@ -58,7 +56,23 @@ width: 650px;
               ?>
         </div>
 
-
+<!-- /btn Filtrar -->
+        <div class="row">
+          <div class="col-lg-offset-10">
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtrar por: <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Periodo</a></li>
+                  <li><a href="#">Año</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Todos los cursos</a></li>
+                </ul>
+              </div><!-- /btn-group -->
+            </div>
+          </div>
+        </div>
+<!-- /Fin btn  Filtrar -->
        <br> <br>
 
       <?php  if($table == "curso")
@@ -109,12 +123,12 @@ width: 650px;
                                     <?php if ( $row['sign1'] == 1 )
                                         {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?>  onclick="cancelar(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
                                 ¿Cancelar? </button>
-                                
+
                                  <button type="checkbox" class="btn btn-warning fa fa-arrow-left"
                                     <?php if ( $row['sign1'] == 2 ) {echo ' style="display: inline" ' ; } else { echo ' style="display: none" '; } ?>  onclick="revision(<?php echo $row['NumeroCurso'];?>,<?php echo $row['NumeroCurso'];?>);">
                                 En revision </button>
 
-                                <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Imprimir lista
+                                <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Mostrar lista
                                 </button>
                                 <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $row['NumeroCurso'];?>');"> Inscribir
                                 </button>
@@ -131,18 +145,36 @@ width: 650px;
        else{
 
        ?>
-    <table class="table table-hover table-striped table-responsive" id="tabla">
-        <thead> <tr> <?php getheaders($table); ?> </tr>  </thead>
+   <div class="container">
+    <table class="table table-striped table-responsive table-bordered" id="tabla">
+        <thead> <tr class="info"> <?php getheaders($table); ?> </tr>  </thead>
         <tbody>
             <?php
+
+                if($table == "infoescuela"){
+                  $list = querySelect(SQL::$INFO_ITA);
+                }
+                elseif($table == "carrera"){
+                  $list = querySelect(SQL::$SELECT_CARRERA);
+                }
+                elseif($table == "jefedepartamento"){
+                  $list = querySelect(SQL::$SELECT_JEFE);
+                }
+                elseif ($table == "profesor") {
+                  $list = querySelect(SQL::$SELECT_PROFE_SU);
+                }
+                elseif ($table == "inscripcion") {
+                  $list = querySelect(SQL::$INSCRIPCION_SU);
+                }
+                else{
                 $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
+                }
                 $i = 0;
                 foreach($list as $row) {   ?>
                     <tr <?php if(isset($row['ispublic'])){
                                  if($row['ispublic']==1){ echo "class='success'";}
                                  else {echo "class='warning'";}
                            } ?> >
-                        <td> <?php evaluate_cursos($table,$row['NumeroCurso']); ?> </td>
 
                         <?php $flag = true;
                         foreach ($row as $col) {
@@ -152,7 +184,8 @@ width: 650px;
                     </tr> <?php $i++; }  ?>
         </tbody>
     </table>
- <?php  }} ?>
+  </div>
+ <?php  } } ?>
 <!-- Fin Tabla Curso ****************************************************************************************************************-->
 <!-- Inicio Tabla Inscripcion ****************************************************************************************************************-->
 <script>

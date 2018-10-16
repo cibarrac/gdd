@@ -48,46 +48,16 @@
       </div>
     </div>
 
-    
-      
+
+
       <div class="col-md-4">
           <div class="form-group">
               <label for="">Numero de tarjeta</label>
               <input type="text" class="form-control" name="NumeroTarjetaProfesor" id="NumeroTarjetaProfesor">
-          </div>   
+          </div>
       </div>
 
   </div>
-
-<div class="row">
-    
-    <div class="col-md-3">
-      <div class="form-group">
-        <input name="newuser" id="newuser" type="text" class="form-control" placeholder="Usuario" autofocus>
-      </div>
-    </div>
-    
-     <div class="col-md-3">
-      <div class="form-group">
-        
-        <input type="email" class="form-control" placeholder="Correo" name="CorreoProfesor" >
-      </div>
-    </div>
-    
-     <div class="col-md-3">
-      <div class="form-group">
-        <input name="password" id="password1" type="password" class="form-control" placeholder="Contraseña">
-      </div>
-    </div>
-    
-    <div class="col-md-3">
-      <div class="form-group">
-        <input name="password_" id="password2" type="password" class="form-control" placeholder="Repite la contraseña">
-      </div>
-    </div>
-</div>
-
-   
 
 
 <!--datos academicos-->
@@ -126,6 +96,7 @@
     <div class="form-group">
       <label for="">Unidad responsable(Departamento)</label>
       <select class="form-control" name="IdDepartamentoProfesor" id="IdDepartamentoProfesor"  onchange="getDatosLaborales()">
+        <option> </option>
       <?php
       fillOptionsNombresAndId("departamento",1);
       ?>
@@ -139,7 +110,7 @@
       <input class="form-control" name="NombreCarreraProfesor" id="NombreCarreraProfesor"  readonly>
     </div>
   </div>
-    
+
     <input name="IdCarrera" id="IdCarrera" placeholder="idacarrera" hidden>
 
 </div>
@@ -165,9 +136,9 @@
       <input class="form-control" name="JefeInmediatoProfesor" id="JefeInmediatoProfesor"  readonly>
     </div>
   </div>
-    
-    
-    
+
+
+
     <input name="IdJefeInmediatoProfesor" id="IdJefeInmediatoProfesor" placeholder="idjefe" hidden=>
 
 </div>
@@ -176,7 +147,7 @@
 
 <script>
 function getDatosLaborales() {
-    var idDepartamento = document.querySelector("#IdDepartamentoProfesor"); 
+    var idDepartamento = document.querySelector("#IdDepartamentoProfesor");
     var request = new XMLHttpRequest();
     request.onload = function () {
       var response = this.response;
@@ -186,7 +157,7 @@ function getDatosLaborales() {
 
       var res = JSON.parse(response);
  console.log(res);
-     
+
        if (res.status == 200) {
         var data = res.data;
 
@@ -195,10 +166,10 @@ function getDatosLaborales() {
         // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
         document.querySelector('#IdCarrera').value = data.IdCarrera;
         document.querySelector('#NombreCarreraProfesor').value = data.NombreCarrera;
-        
+
         document.querySelector('#IdJefeInmediatoProfesor').value = data.IdJefeDepartamento;
         document.querySelector('#JefeInmediatoProfesor').value = data.NombreJefe;
-        
+
       }
     };
     request.open('GET', 'api.php?oper=getDatosLaborales&idDepartamento='  + idDepartamento.value, true);
@@ -206,5 +177,3 @@ function getDatosLaborales() {
   }
 
 </script>
-
-

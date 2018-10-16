@@ -3,7 +3,7 @@ Este metodo obtiene el html que esta en el archivo file(ruta del archivo)
 y lo incrusta en la etiqueta div en la pagina index.php con el atributo id=content
 **/
 /**
- * 
+ *
  */
 function getView(file) {
   var xhttp = new XMLHttpRequest();
@@ -13,8 +13,8 @@ function getView(file) {
     }
   };
   xhttp.open("GET", "views/"+file, true);
- 
-  xhttp.send();  
+
+  xhttp.send();
 }
 
 /** establece pagina de inicio navbar.php  $( "#start" ).click(function() {
@@ -22,7 +22,7 @@ function getView(file) {
 });**/
 
 /**
- * 
+ *
  */
 $(document).on("click",".dropdown-item", function () {
    var page = $(this).attr('id');
@@ -30,31 +30,31 @@ $(document).on("click",".dropdown-item", function () {
 });
 
 /**
- * 
+ *
  */
 $(document).on("click",".nav-link", function () {
    var page = $(this).attr('id');
      getView(page+"View.php");
 });
 /**
- * 
- * @param {*} state 
+ *
+ * @param {*} state
  */
 function setAction(state){
-      document.getElementById('action').value = state; 
-      alert(document.getElementById('action').value); 
+      document.getElementById('action').value = state;
+      alert(document.getElementById('action').value);
 }
 /**
- * 
- * @param {*}  
+ *
+ * @param {*}
  */
 function isValid(curso) {
   alert(getElementById(curso).value);
 }
 
-function validar() 
+function validar()
 {
-  
+
     var NombreProfesor, ApellidoPaternoProfesor,ApellidoMaternoProfesor, NumeroTelefonoProfesor, NumeroTarjetaProfesor, CarreraCursadaProfesor,PuestoProfesor, expresion;
 
     NombreProfesor = document.getElementById('NombreProfesor').value;
@@ -65,78 +65,84 @@ function validar()
     CarreraCursadaProfesor = document.getElementById('CarreraCursadaProfesor').value;
     PuestoProfesor = document.getElementById('PuestoProfesor').value;
     expresion = /^[a-zA-Z ]*$/;
-     
+
     if (NombreProfesor === "" || ApellidoPaternoProfesor === "" || ApellidoMaternoProfesor === "" || NumeroTelefonoProfesor === "" || NumeroTarjetaProfesor === "" || CarreraCursadaProfesor === "" || PuestoProfesor === "")
     {
          alert("Todos  los campos son obligatorios");
-        return false;            
-    } 
-    
+        return false;
+    }
+
     else if (!expresion.test(NombreProfesor))
     {
         alert("Ingresar solo letras en el nombre");
-        return false; 
+        return false;
     }
-    
+
     else if (!expresion.test(ApellidoPaternoProfesor))
     {
         alert("Ingresar solo letras en el apellido paterno");
-        return false; 
+        return false;
     }
-    
+
      else if (!expresion.test(ApellidoMaternoProfesor))
     {
         alert("Ingresar solo letras en el apellido materno");
-        return false; 
+        return false;
     }
     else if(isNaN(NumeroTelefonoProfesor))
     {
         alert("Numero de telefono invalido ");
-        return false;  
+        return false;
     }
-    
+
     else if(isNaN(NumeroTarjetaProfesor))
     {
         alert("Numero de tarjeta invalido ");
-        return false;  
+        return false;
     }
-    
-    
+
+
 
 }
 
 function report(){
-  window.location = "report.php?curso="+document.getElementById('curso').value; 
-   
+  window.location = "report.php?curso="+document.getElementById('curso').value;
+
 }
 
 function reportBy(id){
- get_("views/report/AsistenciaEntradaReport.php?curso="+id);  
+ get_("../views/report/AsistenciaEntradaReport.php?curso="+id);
 }
 
 function firmar(s,id){
  respuesta =  confirm("Esta seguro que desea firmar el curso para que sea publico para los profesores");
  if(respuesta){
-  get_("firmar.php?curso="+id ); 
- }  
-   
+  get_("firmar.php?curso="+id );
+ }
+
 }
 
 
 function cancelar(s,id){
  respuesta =  confirm("Esta seguro que desea cancelar, esto quire decir que el curso no se llevara a cavo y dejara de ser publico");
  if(respuesta){
-  get_("cancelar.php?curso="+id ); 
- }  
-   
+  get_("cancelar.php?curso="+id );
+ }
+
 }
 
 function revision(s,id){
  respuesta =  confirm("Esta seguro que desea dejar en revision el curso, el curso volvera su estado inicial y podra ser autorizado o cancelado");
  if(respuesta){
-  get_("revision.php?curso="+id ); 
- }  
-   
+  get_("revision.php?curso="+id );
+ }
+}
+
+function salircurso( idcurso){
+  respuesta = confirm("¿Esta seguro que desea salir del curso?");
+  if(respuesta){
+    get_("salircurso.php?idcurso="+idcurso);
+  }
 }
 
 function get_(file) {
@@ -147,8 +153,8 @@ function get_(file) {
     }
   };
   xhttp.open("GET", file, true);
- 
-  xhttp.send();  
+
+  xhttp.send();
 }
 
 
@@ -162,9 +168,9 @@ alert("Seleccionando valor");
   //request(document.getElementById(origen).value,origen);
    alert(document.getElementById(origen).value);
  } catch (error) {
-   alert(error);___ 
+   alert(error);___
  }
-  
+
 });
 function request(id,origen) {
 
@@ -175,12 +181,12 @@ function request(id,origen) {
     }
   };
   xhttp.open("GET", "options.php?id="+id+"&origen="+origen, true);
- 
-  xhttp.send();  
+
+  xhttp.send();
 }
 /** Fech
- 
-   use in navbar.php 
+
+   use in navbar.php
 $( "#start" ).click(function() {
     getView('model.php');
 });

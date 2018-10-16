@@ -30,7 +30,7 @@
 
 
 <div class="row">
-    
+
   <div class="col-md-3">
     <div class="form-group">
       <label for="">Fecha de inicio:</label>
@@ -44,7 +44,7 @@
       <input type="date" name="FechaFin" id="FechaFin" class="form-control"readonly=”readonly” >
     </div>
   </div>
-    
+
 </div>
 
 
@@ -87,27 +87,29 @@
 
 
  <div class="row">
-    
-     <!--
+
+
     <div class="col-md-4">
         <div class="form-group">
             <label for="" >Seleccione la carrera o el departamento </label>
-            <select class="form-control" id="CarreraProfe" onchange="getProfesores()">
-                <option value="">Seleccione</option>
-                <option value="1">ISC</option>
-                <option value="2">IBQ</option>
-                <option value="3">IEM</option>
-                <option value="4">IGE</option>
-                <option value="5">ARQ</option>
-                <option value="6">LA</option>
-                <option value="7">CP</option>
-                <option value="8">CB</option>    
-            </select>
+            <button type="button" class="btn btn-info">ISC</button>
+            <button type="button" class="btn btn-success">IBQ</button>
+            <button type="button" class="btn btn-primary">IEM</button>
+            <button type="button" class="btn btn-default">IGE</button>
+            <button type="button" class="btn btn-warning">ARQ</button>
+            <button type="button" class="btn btn-primary">LA</button>
+            <button type="button" class="btn btn-danger">CP</button>
+            <button type="button" class="btn btn-success">CB</button>
+
         </div>
-    </div> -->
-    
+    </div>
+
+
+
     <div class="col-md-6">
         <div class="from-group">
+
+
             <label for="">Inscribir al profesor:  </label>
             <select class="form-control"  name="NombreProfesorInscrito" id="NombreProfesorInscrito" onchange="getId()">
                 <option value=""> </option>
@@ -115,10 +117,10 @@
           </select>
         </div>
     </div>
-    
+
     <input type="text" name="IdProfesor" id="IdProfesor" hidden>
     <input type="text" name="IdCarrera" id="IdCarrera" hidden>
-    
+
 </div>
 
 
@@ -142,14 +144,14 @@ function getCurso() {
 
       var res = JSON.parse(response);
  console.log(res);
-     
+
        if (res.status == 200) {
         var data = res.data;
 
         if (data.length == 0)
         return;
-       
-       
+
+
         // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
         document.querySelector('#NumeroCurso').value = data.NumeroCurso;
         document.querySelector('#FechaInicio').value = data.FechaInicioCurso;
@@ -164,8 +166,8 @@ function getCurso() {
     request.open('GET', 'api.php?oper=getcurso&nomcurso='  + numcurso.value, true);
     request.send();
   }
-  
-  
+
+
   function getId() {
     var nombreProfe = document.querySelector("#NombreProfesorInscrito");
     var request = new XMLHttpRequest();
@@ -177,28 +179,28 @@ function getCurso() {
 
       var res = JSON.parse(response);
         console.log(res);
-     
+
        if (res.status == 200) {
         var data = res.data;
 
         if (data.length == 0)
         return;
-       
-       
+
+
         // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
         document.querySelector('#IdProfesor').value = data.IdProfesor;
         document.querySelector('#IdCarrera').value = data.IdCarrera;
-       
+
       }
     };
     request.open('GET', 'api.php?oper=getIdProfesor&nombreProfe='  + nombreProfe.value, true);
     request.send();
   }
   </script>
-  
-  
+
+
    <script>
-  
+
   function getProfesores() {
     var IdCarrera = document.querySelector("#CarreraProfe");
     var request = new XMLHttpRequest();
@@ -210,33 +212,33 @@ function getCurso() {
 
       var res = JSON.parse(response);
         console.log(res);
-     
+
        if (res.status == 200) {
         var data = res.data;
         alert(data);
-         
+
 
         if (data.length == 0)
         return;
-      
+
         var x = document.getElementById("NombreProfesorInscrito");
         var op = documnet.createElemt("op");
-        
+
         for(var i = 0; i < data.length; i++)
         {
             op.text = data[i];
             x.add(op);
         }
-        
+
         // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
-       
+
       }
     };
     request.open('GET', 'api.php?oper=getProfeCarrera&IdCarrera='  + IdCarrera.value, true);
     request.send();
   }
-  
-  
-  
+
+
+
 
 </script>

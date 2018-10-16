@@ -1,7 +1,7 @@
 <div class="row">
     <p><center>INSTITUTO TEGNOLOGICO DE ACAPULCO</center></p>
     <p><center>Subdireccion Academica</center></p>
-    <p><center>DIAGNOSTICO DE NECESIDADES DE FORMACION Y ACTUALIZACION DOCENTE Y PROFESIONAL</center></p>
+    <p><center>DIAGNOSTICO DE NECESIDADES DE FORMACIÓN Y ACTUALIZACIÓN DOCENTE Y PROFESIONAL</center></p>
   </div>
 
 
@@ -10,19 +10,19 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Presidente de academia</label>
-            <input type="text" class="form-control" name="NombreCompletoPresiAcad" id="NombreCompletoPresiAcad" readonly>         
+            <input type="text" class="form-control" name="NombreCompletoPresiAcad" id="NombreCompletoPresiAcad" readonly>
         </div>
     </div>
-    
+
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Jefe de departamento</label>
             <input type="text" class="form-control" name="NombreCompletoJefeDepto" id="NombreCompletoJefeDepto" readonly>
-                   
+
         </div>
     </div>
 
-    
+
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Del departamento de</label>
@@ -33,20 +33,20 @@
         </div>
     </div>
 
-    
-    
-    
+
+
+
 </div>
 
 
 <div class="row">
     <div class="col-md-12">
         <label>Para los profesores de: </label>
-        <div class="form-group">   
-            
+        <div class="form-group">
+
             <input class="form-check-input" value="0" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >Para todas las careras</label>
-            
+
             <input class="form-check-input" value="<?php echo getIdCarrera('ISC')?>" type="checkbox" onclick="elegirCarrera(this)">
             <label class="form-check-label" >ISC</label>
 
@@ -66,18 +66,18 @@
             <label class="form-check-label" >LA</label>
 
             <input class="form-check-input" value="<?php echo getIdCarrera('CP')?>" type="checkbox" onclick="elegirCarrera(this)">
-            <label class="form-check-label" >CP</label> 
-            
+            <label class="form-check-label" >CP</label>
+
             <input class="form-check-input" value="<?php echo getIdCarrera('CB')?>" type="checkbox" onclick="elegirCarrera(this)">
-            <label class="form-check-label" >CB</label> 
-             
+            <label class="form-check-label" >CB</label>
+
             <input type="text" id="DirigidoA" name="DirigidoA" hidden>
-            
+
             <input type="text" hidden name="NumeroProfesoresCurso" value="0">
-           
+
         </div>
     </div>
-      
+
 </div>
 
 
@@ -134,7 +134,7 @@
             </select>
         </div>
     </div>
-    
+
     <div class="col-md-6">
         <div class="form-group">
           <label for="">Aula Propuesta:</label>
@@ -144,13 +144,13 @@
           </select>
       </div>
     </div>
-    
+
 </div>
 
 
 
 <div class="row">
-    
+
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Turno</label>
@@ -160,14 +160,14 @@
             </select>
         </div>
     </div>
-    
+
     <div class="col-md-6">
         <div class="form-group">
             <label for="">Fecha limite de inscripcion:</label>
             <input type="date" name="FechaLimite" id="FechaLimite" class="form-control">
         </div>
     </div>
-    
+
 </div>
 
 
@@ -218,7 +218,7 @@
             <label for="">De terminacion:</label>
             <input type="date" name="FechaFinCurso" id="FechaFinCurso" class="form-control">
         </div>
-    </div>  
+    </div>
 
 </div>
 
@@ -265,14 +265,14 @@
 
 <div class="container">
     <div class="row">
-        
-        <div class="col-md-3 col-md-offset-1">        
+
+        <div class="col-md-3 col-md-offset-1">
             <div class="alert alert-success alert-dismissable">
                 <a href="javascript:mostrar();" >  <input class="form-check-input" name=""  type="checkbox"  > CLICK PARA SELECCIONAR DIPLOMADO </a>
                 <div id="flotante" style="display:none;">
                     <div class="form-check">
                         <input class="form-check-input" name="DiplomadoDFT" value="1" type="radio" id="DiplomadoDFT">
-                        <label class="form-check-label" for="radio1">DFT </label> 
+                        <label class="form-check-label" for="radio1">DFT </label>
                         <input class="form-check-input" name="DiplomadoDFT" value="2" type="radio" id="DiplomadoDFT" >
                         <label class="form-check-label" for="radio1">DFTD</label>
                         <div id="close"><a href="javascript:cerrar();">Cancelar</a></div>
@@ -290,7 +290,7 @@
                 <label> CURSO </label>
                 <div class="form-check">
                     <input class="form-check-input" name="CursoDocente" value="1" type="radio" id="CursoDocente">
-                    <label class="form-check-label" for="radio2">Docente </label> 
+                    <label class="form-check-label" for="radio2">Docente </label>
                     <input class="form-check-input" name="CursoDocente" value="2" type="radio" id="CursoDocente" >
                     <label class="form-check-label" for="radio2">Profesional</label>
 
@@ -304,8 +304,8 @@
                 </div>
             </div>
         </div>
-        
-    </div>  
+
+    </div>
 </div>
 
 
@@ -336,14 +336,14 @@ function getNombres() {
 
       var res = JSON.parse(response);
  console.log(res);
-     
+
        if (res.status == 200) {
         var data = res.data;
 
         if (data.length == 0)
         return;
-       
-       
+
+
         // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
         document.querySelector('#NombreCompletoJefeDepto').value = data.NombreJefe;
         document.querySelector('#NombreCompletoPresiAcad').value = data.NombrePresidente;

@@ -6,43 +6,30 @@ box-shadow: 10px 10px 26px 5px rgba(0,0,0,0.44);
 
 height: 480px;
 width: 650px;
-    } 
+    }
 </style>
- <?php
-  function evaluate_cursos($table,$NumeroCurso , $IdJefeDepartamento)
-  {
-        if($table=="curso") {
-      ?>
-    
-
-<?php
-
-}
- elseif($table=="jefedepartamento") { //Boton para editar el jefe de departamento
-     ?>
-         <button  type="checkbox" class="btn btn-info fa fa-edit" data-toggle="modal" data-target="#JefeDepto" onclick="editarBoss (<?php echo $IdJefeDepartamento;?>,<?php echo $IdJefeDepartamento;?>);"> </button>
-     <?php
-    
-}
-
-  }
-  
-?>
-
 
 
  <?php
-
-
 
  function getheaders($table) {
-     
-     $fields = querySelect("describe ".$table);
-     echo "<th class='header'> Operacion</th>";	 
+
+   if($table == "inscripcion"){
+     $fields = querySelect(SQL::$HEADER_INSCRIPCION);
+   }
+   elseif ($table == "profesor") {
+     $fields = querySelect(SQL::$HEADER_PROFESOR);
+   }
+   elseif ($table == "instructor") {
+     $fields = querySelect(SQL::$HEADER_INSTRUCTOR);
+   }
+   else{
+     $fields = querySelect('describe '.$table);
+   }
      foreach ($fields as $field) {
          echo "<th class='header'>". $field[0] ."</th>";
-     }    
-    
+     }
+
  }
 
 
@@ -53,16 +40,16 @@ width: 650px;
 
         // include "Buscar.php";
          ?>
- 
 
-         <div class="col-md-3">
+
+       <div class="col-md-3">
 
               <?php  $modal = new Modal('btn1',$view,$view,"Insertar ".$view);
               $modal->getContent();
 
               $_subscribe = new Modal('inscripcion_modal', 'Inscripción al curso', '_InscripcionesBoss', 'Inscribir');
               $_subscribe->getContent(true);
-              
+
               $_subscribe = new Modal('JefeDepto', 'Editar Jefe de departamento', '_JefedeptoBoss', 'editarBoss');
               $_subscribe->getContent(true);
 
@@ -71,107 +58,121 @@ width: 650px;
 
 
         <br> <br>
-        <?php 
+        <?php
             if($table == "curso")
             {
                 $idCarreraJefeDepto = getIdCarreraJefe( $_SESSION['username'] );
-                
+
                 $list = querySelect(SQL::$CURSOS_PARA_JEFE." '%".$idCarreraJefeDepto."%' ");
-                 foreach($list as $row) { 
+                 foreach($list as $row) {
                      $result = querySelect(SQL::$TOTAL_INSCRPCIONES." ". $row['NumeroCurso'] );
                      ?>
-                        
-                    
+
+
                         <div class="col-md-6 ">
                             <div class="thumbnail"  <?php
-                            if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;} 
-                                 else {echo "style= 'background-color: #fff9c4;'";} ?> > 
-                                
+                            if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;}
+                                 else {echo "style= 'background-color: #fff9c4;'";} ?> >
+
                                 <div class="caption">
-                                    <h3><p align="center"><b><?php echo $row['NumeroCurso']." ".$row['NombreCurso'];?></b></p></h3>  
+                                    <h3><p align="center"><b><?php echo $row['NumeroCurso']." ".$row['NombreCurso'];?></b></p></h3>
                                 <h4>Objetivo:</h4>
                                 <p ALIGN="justify"><?php echo $row['ObjetivoCurso']; ?></p>
                                 <p>Horario: de <?php echo $row['HoraInicioCurso']." a ".$row['HoraFinCurso'];?> <br>  Fecha: del <?php echo $row['FechaInicioCurso']." al ".$row['FechaFinCurso'];?></p>
-                                <p> <b>Desarrollo academico: <?php if($row['sign1']==1){ echo ' Autorizado  - '; } else { echo ' En revision  - '; }?> 
+                                <p> <b>Desarrollo academico: <?php if($row['sign1']==1){ echo ' Autorizado  - '; } else { echo ' En revision  - '; }?>
                                 Subdireccion academica: <?php if($row['sign2']==1){ echo ' Autorizado  - '; } else { echo ' En revision  - '; } ?></p></b>
-                                <p>Cupo para <?php echo $row['capacidadmaxima']." profesores    -"; ?> 
+                                <p>Cupo para <?php echo $row['capacidadmaxima']." profesores    -"; ?>
                                 Profesores inscritos: <?php  foreach ($result as $cantidad)
-                                { 
+                                {
                                 if($cantidad['cantidad'] == $row['capacidadmaxima']){ echo $cantidad['cantidad']." curso lleno"; }
                                 elseif ($cantidad['cantidad'] > 0) { echo $cantidad['cantidad']; }
                                 else { echo 'No hay inscripciones'; }
-                          
+
                                  } ?> </p>
                                 <h4><p align="right"> <u><b>Instructor (a): <?php echo $row['NombreCompletoInstructor']; ?> </b></u></p></h4>
-                                <br><button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Imprimir lista
+                                <br><button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $row['NumeroCurso'];?>);"> Mostrar lista
                                 </button>
                                 <button  type="checkbox" class="btn btn-default fa fa-drivers-license"  data-toggle="modal" data-target="#inscripcion_modal" onclick="inscribir('<?php echo $row['NumeroCurso'];?>');"> Inscribir
                                 </button>
 
-                               <!-- <button type="checkbox" class="btn btn-success fa fa-pencil" data-toggle="modal" data-target="#editar_modal" onclick="infoCurso('<?php echo $row['NumeroCurso'];?>');" > Editar contenido  
+                               <!-- <button type="checkbox" class="btn btn-success fa fa-pencil" data-toggle="modal" data-target="#editar_modal" onclick="infoCurso('<?php echo $row['NumeroCurso'];?>');" > Editar contenido
                                 </button> -->
-                                
-                                
+
+
                                 </div>
                             </div>
                         </div>
                    <?php }  }
-                
-            else{
-            
-        ?>
-        
-        <table class="table table-hover table-striped table-responsive" id="tabla">
-     <thead>
-        <tr>
-          <?php getheaders($table);
-          ?>
 
+            else{
+
+        ?>
+   <div class="container">
+    <table class="table table-striped table-responsive table-bordered" id="tabla">
+     <thead >
+        <tr class="info"  >
+          <?php getheaders($table); ?>
         </tr>
      </thead>
      <tbody>
 
 
     <?php
-    
-    
+
+
     if($table == "profesor")
     {
         $idJefeDepto = getIdJefe($_SESSION['username']);
         $list = querySelect(SQL::$PROFESORES_POR_JEFE." ".$idJefeDepto);
     }
-    
+
      elseif($table == "inscripcion")
     {
         $idCarreraJefe = getIdCarreraJefe($_SESSION['username']);
         $list = querySelect(SQL::$INSCRIPCIONES_POR_JEFE." ".$idCarreraJefe);
     }
-    
-    
+
+    elseif($table == "instructor")
+   {
+       $list = querySelect(SQL::$SELEC_INSTRUCTOR);
+   }
+
+
     else
     {
       $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
     }
-    
+
     $i = 0;
-    foreach($list as $row) {   ?>       
+    foreach($list as $row) {   ?>
                     <tr <?php if(isset($row['ispublic'])){
-                                 if($row['ispublic']==1){ echo "class='success'";} 
+                                 if($row['ispublic']==1){ echo "class='success'";}
                                  else {echo "class='warning'";}
                            } ?> >
-                        <td> <?php evaluate_cursos($table,$row['NumeroCurso']); ?> </td>
-                          
+
                         <?php $flag = true;
                         foreach ($row as $col) {
                             if($flag) { ?>
                         <td> <?php echo $col; ?> </td>
-                                 <?php $flag = false; } else { $flag=true;} }  ?>                             
+                                 <?php $flag = false; } else { $flag=true;} }  ?>
                     </tr> <?php $i++; }  ?>
             </tbody>
     </table>
-
+ </div>
  <?php  } }?>
 <script>
+
+$(document).ready(function() {
+   $('#tabla').DataTable( {
+       "oLanguage": {
+          "sSearch": "Buscar "
+          }
+
+
+    });
+
+
+});
 
   function inscribir(numerocurso) {
     var request = new XMLHttpRequest();
@@ -206,4 +207,3 @@ width: 650px;
   }
 
 </script>
-

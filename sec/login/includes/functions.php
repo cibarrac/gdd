@@ -63,7 +63,7 @@ function mySqlErrors($response)
             break;
 
         default:
-            echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>An error occurred... try again</div>";
+            echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ha ocurrido un error...intente de nuevo</div>";
 
     }
 };
