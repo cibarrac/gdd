@@ -28,7 +28,7 @@
 
     <div class="col-md-12">
       <div class="form-group">
-        <label for="">Numero y Nombre del Curso: <?php echo$info->__GET('NumeroyNombreCurso'); ?> </label>
+        <label for="">Numero y Nombre del Curso: <?php echo $info->__GET('NumeroyNombreCurso'); ?> </label>
       </div>
     </div>
 
@@ -111,17 +111,18 @@
 
     include_once '../../bs/QueryService.php';
 
-    $info = querySelect("SELECT NumeroCurso, NombreCurso, AulaPropuesta,"
-    ." HoraInicioCurso, HoraFinCurso, PeriodoCurso, NombreCompletoInstructor"
-    ." FROM curso WHERE NumeroCurso = ".$id);
+    $info = querySelect("SELECT NumeroCurso, NombreCurso, AulaPropuesta, "
+    ."HoraInicioCurso, HoraFinCurso, PeriodoCurso, NombreCompletoInstructor".
+    " FROM curso WHERE NumeroCurso = ".$id);
 
     $list = querySelect("SELECT INSCRIPCION.NombreCurso, PROFESOR.NombreProfesor,"
     ." PROFESOR.ApellidoPaternoProfesor, PROFESOR.ApellidoMaternoProfesor,"
-    ." PROFESOR.NumeroTarjetaProfesor, PROFESOR.GradoEstudiosProfesor,"
-    ." INSCRIPCION.NumeroCurso, CARRERA.NombreCarrera from profesor PROFESOR,"
-    ." inscripcion INSCRIPCION, carrera CARRERA WHERE PROFESOR.IdProfesor"
-    ." = INSCRIPCION.IdProfesor AND CARRERA.IdCarrera = PROFESOR.IdCarrera AND"
-    ." INSCRIPCION.NumeroCurso = ".$id);
+    ." PROFESOR.NumeroTarjetaProfesor, PROFESOR.RFCProfesor, PROFESOR.GradoEstudiosProfesor,"
+    ." PROFESOR.PuestoProfesor, INSCRIPCION.NumeroCurso, DEPARTAMENTO.NombreDepartamento, CARRERA.Abreviacion"
+    ." from profesor PROFESOR, inscripcion INSCRIPCION, carrera CARRERA,"
+    ." departamento DEPARTAMENTO WHERE PROFESOR.IdProfesor = INSCRIPCION.IdProfesor"
+    ." AND CARRERA.IdCarrera = PROFESOR.IdCarrera AND DEPARTAMENTO.IdDepartamento"
+    ." = CARRERA.IdDepartamentoCarrera AND INSCRIPCION.NumeroCurso =".$id);
     if(count($info)> 0 &&  count($list)> 0)
     {
      // Camino a los include
@@ -134,9 +135,9 @@
       $objPHPExcel = new PHPExcel();
       // Leemos un archivo Excel 2007
       $objReader = PHPExcel_IOFactory::createReader('Excel2007');
-      $objPHPExcel = $objReader->load("../../report1.xlsx");
+      $objPHPExcel = $objReader->load("../../Concentradodeasistencia.xlsx");
       // Indicamos que se pare en la hoja uno del libro
-      $objPHPExcel->setActiveSheetIndex(1);
+      $objPHPExcel->setActiveSheetIndex(0);
       //Escribimos en la hoja en la celda B1
 
       foreach ($info as $fila)
@@ -156,7 +157,10 @@
           ->setCellValue('D'.$i,  $fila['NumeroTarjetaProfesor'])
           ->setCellValue('F'.$i,  $fila['GradoEstudiosProfesor'])
           ->setCellValue('H'.$i,  $fila['NombreProfesor']." ".$fila['ApellidoPaternoProfesor']." ".$fila['ApellidoMaternoProfesor'])
-          ->setCellValue('T'.$i,  $fila['NombreCarrera']);
+          ->setCellValue('P'.$i,  $fila['RFCProfesor'] )
+          ->setCellValue('T'.$i,  $fila['NombreDepartamento'])
+          ->setCellValue('AA'.$i,  $fila['Abreviacion'])
+          ->setCellValue('AC'.$i,  $fila['PuestoProfesor']);
           $i++;
         }
 
