@@ -66,7 +66,7 @@ if (isset($_SESSION['username'])) {
 
 
 
-      <input name="newuser" id="newuser" type="text" class="form-control" placeholder="Nombre" > <!--Inputs que ya estaban (funciona) -->
+      <input name="newuser" id="newuser" type="text" class="form-control" placeholder="Usuario" > <!--Inputs que ya estaban (funciona) -->
 
 
 
