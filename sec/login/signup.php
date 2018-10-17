@@ -68,17 +68,7 @@ if (isset($_SESSION['username'])) {
 
       <input name="newuser" id="newuser" type="text" class="form-control" placeholder="Nombre" > <!--Inputs que ya estaban (funciona) -->
 
-      <input type="text" class="form-control" name="NombreProfesor"  id="NombreProfesor" placeholder="Nombre Profesor" >
 
-      <input type="text" class="form-control" name="ApellidoPaternoProfesor" id="ApellidoPaternoProfesor"  placeholder="Apellido paterno">
-
-      <input type="text" class="form-control" name="ApellidoMaternoProfesor" id="ApellidoMaternoProfesor"placeholder="Apellido materno" >
-
-      <input type="text" class="form-control" name="RFCProfesor" placeholder="Registro federal (rfc)"  >
-
-      <input type="text" class="form-control" name="NumeroTelefonoProfesor" id="NumeroTelefonoProfesor" placeholder="Numero de telefono:">
-
-      <input type="text" class="form-control" name="NumeroTarjetaProfesor" id="NumeroTarjetaProfesor"placeholder="Numero de tarjeta" >
 
 
       <br>

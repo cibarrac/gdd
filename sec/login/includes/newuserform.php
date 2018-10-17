@@ -1,7 +1,7 @@
 <?php
 class NewUserForm extends DbConn
 {
-    public function createUser($usr, $uid, $email, $pw, $newpw,$name,$app,$amp,$rfc,$phone,$card)
+    public function createUser($usr, $uid, $email, $pw)
     {
         try {
 
@@ -17,19 +17,6 @@ class NewUserForm extends DbConn
             $stmt->execute();
 
             $err = '';
-
-
-
-              $stmt2 = $db->conn->prepare("INSERT INTO profesor (NombreProfesor, ApellidoPaternoProfesor, ApellidoMaternoProfesor, RFCProfesor, NumeroTelefonoProfesor, NumeroTarjetaProfesor, CorreoProfesor)
-              VALUES (:NombreProfesor, :ApellidoPaternoProfesor, :ApellidoMaternoProfesor, :RFCProfesor, :NumeroTelefonoProfesor, :NumeroTarjetaProfesor, :CorreoProfesor )");
-              $stmt2->bindParam(':NombreProfesor', $name);
-              $stmt2->bindParam(':ApellidoPaternoProfesor', $app);
-              $stmt2->bindParam(':ApellidoMaternoProfesor', $amp);
-              $stmt2->bindParam(':RFCProfesor', $rfc);
-              $stmt2->bindParam(':NumeroTelefonoProfesor', $phone);
-              $stmt2->bindParam(':NumeroTarjetaProfesor', $card);
-              $stmt2->bindParam(':CorreoProfesor', $email);
-              $stmt2->execute();
 
         } catch (PDOException $e) {
 

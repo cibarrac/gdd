@@ -4,7 +4,7 @@ require 'includes/functions.php';
 include_once 'config.php';
 
 
-function register($newuser ,$pw1 , $pw2, $email, $newpw,$name,$app,$amp,$rfc,$phone,$card){
+function register($newuser ,$pw1 , $pw2, $email){
 
 
     //Pull username, generate new ID and hash password
@@ -39,7 +39,7 @@ function register($newuser ,$pw1 , $pw2, $email, $newpw,$name,$app,$amp,$rfc,$ph
 
             $a = new NewUserForm;
 
-            $response = $a->createUser($newuser, $newid, $newemail, $newpw, $newpw,$name,$app,$amp,$rfc,$phone,$card);
+            $response = $a->createUser($newuser, $newid, $newemail, $newpw, $newpw);
 
             //Success
             if ($response == 'true') {
