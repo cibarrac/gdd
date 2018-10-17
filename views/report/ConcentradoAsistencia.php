@@ -143,24 +143,24 @@
       foreach ($info as $fila)
       {
         $objPHPExcel->setActiveSheetIndex(0)
-        ->setCellValue('H7',  $fila['NumeroCurso']." ".$fila['NombreCurso'])
-        ->setCellValue('E10',  $fila['AulaPropuesta'])
-        ->setCellValue('Y10',  $fila['PeriodoCurso'])
-        ->setCellValue('R10',  $fila['HoraInicioCurso']." a ".$fila['HoraFinCurso'])
-        ->setCellValue('F12',  $fila['NombreCompletoInstructor']);
+        ->setCellValue('D7',  $fila['NumeroCurso']." ".$fila['NombreCurso'])
+        ->setCellValue('B10',  $fila['AulaPropuesta'])
+        ->setCellValue('U10',  $fila['PeriodoCurso'])
+        ->setCellValue('N10',  $fila['HoraInicioCurso']." a ".$fila['HoraFinCurso'])
+        ->setCellValue('B12',  $fila['NombreCompletoInstructor']);
       }
 
       $i = 17;
       foreach ($list as $fila)
        {
           $objPHPExcel->setActiveSheetIndex(0)
-          ->setCellValue('D'.$i,  $fila['NumeroTarjetaProfesor'])
-          ->setCellValue('F'.$i,  $fila['GradoEstudiosProfesor'])
-          ->setCellValue('H'.$i,  $fila['NombreProfesor']." ".$fila['ApellidoPaternoProfesor']." ".$fila['ApellidoMaternoProfesor'])
-          ->setCellValue('P'.$i,  $fila['RFCProfesor'] )
-          ->setCellValue('T'.$i,  $fila['NombreDepartamento'])
-          ->setCellValue('AA'.$i,  $fila['Abreviacion'])
-          ->setCellValue('AC'.$i,  $fila['PuestoProfesor']);
+         // ->setCellValue('D'.$i,  $fila['NumeroTarjetaProfesor'])
+          ->setCellValue('B'.$i,  $fila['GradoEstudiosProfesor'])
+          ->setCellValue('D'.$i,  $fila['NombreProfesor']." ".$fila['ApellidoPaternoProfesor']." ".$fila['ApellidoMaternoProfesor'])
+          ->setCellValue('L'.$i,  $fila['RFCProfesor'] )
+          ->setCellValue('P'.$i,  $fila['NombreDepartamento'])
+          ->setCellValue('W'.$i,  $fila['Abreviacion'])
+          ->setCellValue('Y'.$i,  $fila['PuestoProfesor']);
           $i++;
         }
 
