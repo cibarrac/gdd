@@ -213,4 +213,6 @@ class SQL {
 
       public static $INSCRIPCION_SU ="SELECT NumeroCurso, NombreProfesorInscrito,"
               . " NombreCurso,Aula FROM inscripcion";
+
+      public static $VERIFICAR_ESTATUS_PROFESOR ="SELECT Estado FROM profesor where CorreoProfesor = ";
 }
