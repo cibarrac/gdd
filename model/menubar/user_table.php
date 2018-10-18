@@ -14,6 +14,8 @@ width: 650px;
 
 
  <?php
+session_start();
+
 
 function getheaders($table) {
 
@@ -24,6 +26,7 @@ function getheaders($table) {
      }
 
  }
+ 
 
 
  function createTable($view){
@@ -128,10 +131,24 @@ function getheaders($table) {
                      <?php
     } }
     elseif($table == "profesor"){
+
+        $valida = querySelect(SQL::$VERIFICAR_ESTATUS_PROFESOR." '".$_SESSION['username']."' ");
+        foreach($valida as $col)
+        {
+            if($col['Estado'] == 0)
+            {
+                echo ' <div class= "container"> <div class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Aun no esta autorizado, contacte con su jefe inmediato
+                </div>  </div>';
+            }
+        }
+       
         $list = querySelect(SQL::$PERFIL_PROFESOR." '".$_SESSION['username']."' ");
          foreach($list as $row) {
         ?>
-
+            
         <div class="container">
             <div class="row">
                 <div class="col-md-5  toppad  pull-right col-md-offset-3 "> </div>
