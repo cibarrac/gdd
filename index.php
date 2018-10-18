@@ -31,7 +31,7 @@ if(isset($_GET['view'])) {
 
 
 
-<html lang="en"> <head> <title> Bienvenido  Mel Ojeda 2...</title>
+<html lang="en"> <head> <title> Bienvenido  </title>
 
         <meta charset="utf-8">
 
@@ -85,27 +85,36 @@ if(isset($_GET['view'])) {
 
   ?>
 
-<div class="container-fluid">
+  <div class="container-fluid">
+    <div id="content">
+      <?php 
+      if(isset($_GET['view'])) 
+      {
+        $role = ismenu($_SESSION['username']);
 
-          <div id="content">
+        if( $role == 'su')
+        {
+          include $PATH.'su_table.php'; createTable($contentView);   
+        }
 
-           <?php if(isset($_GET['view'])) {
+        elseif ($role == 'user')
+        {    
+          include $PATH.'user_table.php'; createTable($contentView);  
+        }
 
-                      $role = ismenu($_SESSION['username']);
+        elseif ($role == 'admin') 
+        {  
+          include $PATH.'admin_table.php'; createTable($contentView); 
+        }
 
-                    if( $role == 'su')      {    include $PATH.'su_table.php'; createTable($contentView);   }
+        elseif($role == 'boss') 
+        {    
+          include $PATH.'boss_table.php';  createTable($contentView);
+        }
 
-                    elseif ($role == 'user'){    include $PATH.'user_table.php';createTable($contentView);  }
-
-                    elseif ($role == 'admin') {  include $PATH.'admin_table.php';createTable($contentView); }
-
-                    elseif($role == 'boss') {    include $PATH.'boss_table.php';  createTable($contentView);
-
-             }
-
-          } ?>
-
-         </div> </div>
+      } ?>
+    </div> 
+  </div>
 
  </body>
 
