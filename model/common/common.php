@@ -120,6 +120,17 @@ function fillOptionsDouble($table, $col) {
      //}
      //else {return "user";}
 }?>
+
+
+
+<?php function getRoleOfUserMail($username) 
+{
+    $listaMenu = querySelect(SQL::$SELECCIONA_ROLE." '".$username."'");
+        foreach ($listaMenu as $fila) 
+        {
+            return $fila['role'];  
+        }          
+}?>
            
    
 
