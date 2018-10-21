@@ -149,6 +149,15 @@ function salircurso( idcurso){
   }
 }
 
+function verificarCuenta(estado,correo)
+{
+  resp= confirm("¿Verificar que el profesor pertenece al departamento ?");
+  if(resp)
+  {
+    get_("verificaProfesor.php?correo="+correo+'&estado='+estado);
+  }
+}
+
 function get_(file) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
