@@ -73,7 +73,6 @@
 
             <input type="text" id="DirigidoA" name="DirigidoA" hidden>
 
-            <input type="text" hidden name="NumeroProfesoresCurso" value="0">
 
         </div>
     </div>
