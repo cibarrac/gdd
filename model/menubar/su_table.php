@@ -55,24 +55,6 @@ width: 650px;
                 //$_edit->getContent(true);
               ?>
         </div>
-
-<!-- /btn Filtrar -->
-        <div class="row">
-          <div class="col-lg-offset-10">
-            <div class="input-group">
-              <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtrar por: <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Periodo</a></li>
-                  <li><a href="#">Año</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Todos los cursos</a></li>
-                </ul>
-              </div><!-- /btn-group -->
-            </div>
-          </div>
-        </div>
-<!-- /Fin btn  Filtrar -->
        <br> <br>
 
       <?php  if($table == "curso")
