@@ -21,8 +21,13 @@ include 'login/register.php';
 function dialog($msg)
 
 {
+    $view = $_POST['view'];
+    echo '<script> alert("'.$msg.'");
+        window.location.href="index.php";
+         </script> ';
 
-    echo '<script> alert("'.$msg.'"); </script> ';
+
+  
 
 }
 
@@ -434,7 +439,7 @@ function getPOST_GET() {
 
     if(!empty($_POST)){
 
-         echo "Es un post <br>";
+         echo " <br>";
 
          return $_POST;
 
@@ -442,7 +447,7 @@ function getPOST_GET() {
 
     else if(!empty($_GET)) {
 
-      echo "Es un get<br>";
+      echo " <br>";
 
       return $_GET;
 
@@ -480,21 +485,12 @@ switch ($_POST['action']) {
 
 }
 
-$view = $_POST['view'];
 
 
 
 
 
-//echo'<script type="text/javascript"> alert("Tarea Guardada"); '
 
-//. 'window.location.href="index.php"; </script>';
-
-
-
-
-
-//header('location:index.php?view='.$view);
 
 
 
