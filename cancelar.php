@@ -12,7 +12,7 @@ function update()
     $firma = "sign";
     //$public = $_GET["ispublic"];
 
-    switch (ismenu($_SESSION['username'])) {
+    switch (getRoleOfUserMail($_SESSION['username'])) {
         case 'su': $firma.="1";break;
         case 'admin': $firma.="2";break;
 
