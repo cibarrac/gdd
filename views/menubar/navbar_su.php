@@ -42,6 +42,7 @@
                     <li><a class="dropdown-item"  href="index.php?view=_Carrera">Registrar carrera</a></li>
                     <li><a class="dropdown-item"  href="index.php?view=_jefedepto">Registrar jefe de departamento</a></li>
                     <li><a class="dropdown-item"  href="index.php?view=_PresidenteAcademia">Registrar presidente de academia</a></li>
+                    <li><a class="dropdown-item"  href="index.php?view=_Aula">Registrar aula</a></li>
                    </ul>
                    
              </li>
@@ -55,7 +56,6 @@
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item"  href="index.php?view=_ProfesorSu">Registrar profesor</a></li>
-                    <li><a class="dropdown-item"  href="index.php?view=_Aula">Registrar aula</a></li>
                     <li><a class="dropdown-item"  href="index.php?view=_Curso">Detectar Necesidades</a> </li>
                     <li><a class="dropdown-item"  href="index.php?view=_Instructor">Instructores</a> </li>
                     <li><a class="dropdown-item"  href="index.php?view=_Inscripciones">Inscripciones</a> </li>
