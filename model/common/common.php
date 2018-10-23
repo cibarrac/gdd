@@ -115,7 +115,7 @@ function fillOptionsDouble($table, $col) {
 <?php function getRoleOfUserMail($email) 
 {
     $listaMenu = querySelect(SQL::$SELECCIONA_ROLE." '".$email."'");
-        foreach ($listaMenu as $fila) 
+        foreach ($listaMenu as $fila)  
         {
             return $fila['role'];  
         }          
