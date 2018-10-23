@@ -108,24 +108,13 @@ function fillOptionsDouble($table, $col) {
 <?php }} ?>          
            
         
-          
-              
-<?php function ismenu($email) {
-    //if(isset($SESSION['username'])) {
-      
-    $listaMenu = querySelect(SQL::$SELECCIONA_ROLE." '".$email."'");
-        foreach ($listaMenu as $fila) {
-            return $fila['role'];  
-        }          
-     //}
-     //else {return "user";}
-}?>
+        
 
 
 
-<?php function getRoleOfUserMail($username) 
+<?php function getRoleOfUserMail($email) 
 {
-    $listaMenu = querySelect(SQL::$SELECCIONA_ROLE." '".$username."'");
+    $listaMenu = querySelect(SQL::$SELECCIONA_ROLE." '".$email."'");
         foreach ($listaMenu as $fila) 
         {
             return $fila['role'];  
