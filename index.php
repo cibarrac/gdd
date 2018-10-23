@@ -12,7 +12,7 @@
     include "sec/login/loginheader.php";
     
     $contentView = "";
-    $role = ismenu($_SESSION['username']);
+    $role = getRoleOfUserMail($_SESSION['username']);
     
     if(isset($_GET['view'])) {
               $contentView = $_GET['view'];
