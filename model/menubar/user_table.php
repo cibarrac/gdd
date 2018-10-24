@@ -1,13 +1,3 @@
-<style>
-   .thumbnail{border: 0px solid #f00; padding: 20px 22px;
--webkit-box-shadow: 20px 10px 26px 5px rgba(0,0,0,0.44);
--moz-box-shadow: 14px 10px 26px 5px rgba(0,0,0,0.44);
-box-shadow: 10px 10px 26px 5px rgba(0,0,0,0.44);
-
-height: 400px;
-width: 650px;
-    }
-</style>
 
 
 
@@ -137,7 +127,7 @@ function getheaders($table) {
          foreach($list as $row) {
         ?>
             
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-5  toppad  pull-right col-md-offset-3 "> </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
@@ -238,7 +228,7 @@ function getheaders($table) {
 
     else {
      ?>
- <div class="container">
+ <div class="container-fluid">
     <table class="table table-bordered table-striped table-responsive" id="tabla">
      <thead>
         <tr class="info">

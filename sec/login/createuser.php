@@ -41,7 +41,7 @@ if ($pw1 != $pw2) { echo '<div class="alert alert-danger alert-dismissable"><but
         //Success
         if ($response == 'true') {
 
-            echo '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'. $signupthanks .'</div><div id="returnVal" style="display:none;">true</div>';
+            echo '<br><br> <div class="alert alert-success"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> '.  $signupthanks .'</div><div id="returnVal" style="display:none;">true</div>';
 
             //Send verification email
             //$m = new MailSender;

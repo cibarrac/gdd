@@ -1,16 +1,3 @@
-<!-- <style>
-   .thumbnail{border: 0px solid #f00; padding: 20px 22px;
--webkit-box-shadow: 20px 10px 26px 5px rgba(0,0,0,0.44);
--moz-box-shadow: 14px 10px 26px 5px rgba(0,0,0,0.44);
-box-shadow: 10px 10px 26px 5px rgba(0,0,0,0.44);
-
-height: 400px;
-width: 650px;
-    }
-</style>
--->
-
-
 <!-- Inicio Tabla Cusos ****************************************************************************************************************-->
 
  <?php
@@ -132,7 +119,7 @@ width: 650px;
        else{
 
        ?>
-   <div class="container">
+   <div class="container-fluid">
     <table class="table table-striped table-responsive table-bordered" id="tabla">
         <thead> <tr class="info"> <?php getheaders($table); ?> </tr>  </thead>
         <tbody>

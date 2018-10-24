@@ -16,7 +16,7 @@ function createView($view) {
 
         <div class="container">
           <button type="submit"  id="submit" data-original-title="Contactos"
-          class="btn btn-success btn-fab btn-float" onclick=""> <i class="fa fa-save fa-2x"></i></button>
+          class="btn btn-success" > Guardar</button>
          <button type="submit" class="btn btn-warning" onclick="setAction('update')"> Editar</button>
          
         </div>

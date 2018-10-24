@@ -1,11 +1,7 @@
-
-
 <?php
 
 include 'bs/QueryService.php';
-
 include 'bs/curso/CursoService.php';
-
 include 'login/register.php';
 
 /**
@@ -16,32 +12,18 @@ include 'login/register.php';
 
  */
 
-
-
-function dialog($msg)
-
-{
+function dialog($msg){
     $view = $_POST['view'];
     echo '<script> alert("'.$msg.'");
         window.location.href="index.php";
          </script> ';
-
-
-  
-
 }
-
-
 
 function validation(){
 
     $formData = getPOST_GET();
 
     $table = $formData['table'];
-
-    
-
-    
 
     if($table=="inscripcion")
 
@@ -63,11 +45,6 @@ function validation(){
 
         $turno = CursoService::getTurnoCurso($IdCurso, $IdProfesor);
 
-       
-
-       
-
-        
 
         if($cursoAprobado == false)
 
@@ -79,10 +56,6 @@ function validation(){
 
         }
 
-        
-
-        
-
         if($profesor == false)
 
         {
@@ -92,8 +65,6 @@ function validation(){
             return false;
 
         } 
-
-        
 
         elseif($fechalimite == false)
 
@@ -105,8 +76,6 @@ function validation(){
 
         }
 
-        
-
         elseif($cupo == false)
 
         {
@@ -116,8 +85,6 @@ function validation(){
             return false;
 
         }
-
-        
 
         elseif($turno == false)
 
@@ -135,10 +102,6 @@ function validation(){
 
     }
 
-
-
-    
-
     if($table=="curso")
 
     {
@@ -152,8 +115,7 @@ function validation(){
         $aula = CursoService::getAulaDisponible($idAula, $turno);
 
         
-
-        if($aula == false)
+       if($aula == false)
 
         {
 
@@ -161,19 +123,12 @@ function validation(){
 
             return false;
 
-        }
-
-        
+        } 
 
         else { return true; }
 
-      
-
     }
 
-    
-
-    
 
     if($table == "profesor" )
 
@@ -199,10 +154,6 @@ function validation(){
 
     }
 
-    
-
-    
-
     if($table == "jefedepartamento")
 
     {
@@ -226,10 +177,6 @@ function validation(){
         else { return true; }
 
     }
-
-    
-
-    
 
     if($table == "departamento")
 
@@ -256,9 +203,6 @@ function validation(){
     }
 
     
-
-    
-
     if($table == "carrera")
 
     {
@@ -283,8 +227,6 @@ function validation(){
 
     }
 
-    
-
     if($table == "infoescuela")
 
     {
@@ -306,20 +248,11 @@ function validation(){
         else { return true; }
 
     }
-
-    
-
-    
+  
 
     else { return true; }
 
 }
-
-
-
-
-
-
 
 function save($table) {
 
@@ -361,7 +294,7 @@ function save($table) {
 
                   }
 
-                  else{echo "No se guardó"; }
+                  else{dialog('No se guardó'); }
 
                  
 
@@ -484,19 +417,3 @@ switch ($_POST['action']) {
           default: echo "Falta el atributo action en el formulario"; break;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

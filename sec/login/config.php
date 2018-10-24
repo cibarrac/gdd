@@ -33,7 +33,7 @@ $smtp_security = 'ssl';//ssl, tls or ''
 $verifymsg = 'Click this link to verify your new account!'; //Verify email message
 $active_email = 'Your new account is now active! Click this link to log in!';//Active email message, / Thank you for signing up! You will receive an email shortly confirming the verification of your account.
 //LOGIN FORM RESPONSE MESSAGES/ERRORS
-$signupthanks = 'Gracias por registrarse ! Revise su correo para activar su cuenta ';
+$signupthanks = 'Gracias por registrarse ! Inicie sesion para capturar su informacion personal, al completarlo comuniquese con su jefe inmediato para activar su cuenta y asi poder seleccionar cursos.  ';
 $activemsg = 'Your account has been verified! You may now login at <br><a href="'.$signin_url.'">'.$signin_url.'</a>';
 
 //DO NOT TOUCH BELOW THIS LINE

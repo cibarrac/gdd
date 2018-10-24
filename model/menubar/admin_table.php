@@ -1,14 +1,3 @@
- <style>
-   .thumbnail{border: 0px solid #f00; padding: 20px 22px;
--webkit-box-shadow: 20px 10px 26px 5px rgba(0,0,0,0.44);
--moz-box-shadow: 14px 10px 26px 5px rgba(0,0,0,0.44);
-box-shadow: 10px 10px 26px 5px rgba(0,0,0,0.44);
-
-height: 480px;
-width: 650px;
-    }
-</style>
-
 <?php
  function evaluate_cursos($table,$NumeroCurso)
  {
@@ -119,12 +108,4 @@ function createTable($view){
                         </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
                 <?php  }} ?>
