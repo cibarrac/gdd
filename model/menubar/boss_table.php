@@ -1,3 +1,5 @@
+ <!--
+ 
  <style>
 
    .thumbnail{border: 0px solid #f00; padding: 20px 22px;
@@ -15,6 +17,8 @@ height: 480px;
 width: 650px;
 
     }
+
+    -->
 
 </style>
 
