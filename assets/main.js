@@ -130,7 +130,7 @@ function firmar(s,id){
 function cancelar(s,id){
  respuesta =  confirm("Esta seguro que desea cancelar, esto quire decir que el curso no se llevara a cavo y dejara de ser publico");
  if(respuesta){
-  get_("cancelar.php?curso="+id );
+  get_("../bs/curso/CursoCancelar.php?curso="+id );
  }
 
 }
@@ -138,14 +138,14 @@ function cancelar(s,id){
 function revision(s,id){
  respuesta =  confirm("Esta seguro que desea dejar en revision el curso, el curso volvera su estado inicial y podra ser autorizado o cancelado");
  if(respuesta){
-  get_("revision.php?curso="+id );
+  get_("../bs/curso/CursoEnRevision.php?curso="+id );
  }
 }
 
 function salircurso( idcurso){
   respuesta = confirm("¿Esta seguro que desea salir del curso?");
   if(respuesta){
-    get_("salircurso.php?idcurso="+idcurso);
+    get_("../bs/curso/SalirCurso.php?idcurso="+idcurso);
   }
 }
 
@@ -154,7 +154,7 @@ function verificarCuenta(estado,correo)
   resp= confirm("¿Verificar que el profesor pertenece al departamento ?");
   if(resp)
   {
-    get_("verificaProfesor.php?correo="+correo+'&estado='+estado);
+    get_("../bs/curso/verificaProfesor.php?correo="+correo+'&estado='+estado);
   }
 }
 
