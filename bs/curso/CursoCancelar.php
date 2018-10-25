@@ -1,15 +1,13 @@
 <?php
 session_start();
 include "../../model/common/common.php";
-include '../bs/QueryService.php';
-include_once '../bs/SQL.php'; 
+include '../QueryService.php';
+include_once '../SQL.php'; 
 
 update();
 
 function update()
 {
-
-    echo '<script>alert("Entra :v")</script>' ;
 
     $NumeroCurso = $_GET['curso'];
     $firma = "sign";
