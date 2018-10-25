@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-include "model/common/common.php";
-include 'bs/QueryService.php';
-include_once 'bs/SQL.php';
+include "../../model/common/common.php";
+include '../QueryService.php';
+include_once '../SQL.php'; 
 
 borrar();
 
