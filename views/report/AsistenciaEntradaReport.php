@@ -134,7 +134,7 @@
        $objPHPExcel = new PHPExcel();
        // Leemos un archivo Excel 2007
        $objReader = PHPExcel_IOFactory::createReader('Excel2007');
-       $objPHPExcel = $objReader->load("../../report1.xlsx");
+       $objPHPExcel = $objReader->load("../../assets/docs/report1.xlsx");
        // Indicamos que se pare en la hoja uno del libro
        $objPHPExcel->setActiveSheetIndex(1);
        //Escribimos en la hoja en la celda B1
@@ -164,7 +164,7 @@
        //Si queremos trabajar con Excel 2003, basta cambiar el 'Excel2007' por 'Excel5' y el nombre del archivo de salida cambiar su formato por '.xls'
 
        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-       $objWriter->save("../../AsistenciaDiaria".$id.".xls");
+       $objWriter->save("../../assets/docs/AsistenciaDiaria".$id.".xls");
 
     }
     else
@@ -248,7 +248,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      <a href="<?php echo "AsistenciaDiaria".$id.".xls" ?>">Descargue el formato de registro de asistecia diaria</a>
+      <a href="<?php echo "../../assets/docs/AsistenciaDiaria".$id.".xls" ?>">Descargue el formato de registro de asistecia diaria</a>
     </div>
   </div>
 </div>
