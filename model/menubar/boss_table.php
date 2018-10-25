@@ -1,4 +1,3 @@
-
  <?php
 
 
@@ -31,53 +30,6 @@ function evaluaProfesor($table, $Estado, $CorreoProfe)
   }
 
 }
-
-
-
-
-
- function getheaders($table) {
-
-
-
-   if($table == "inscripcion"){
-
-     $fields = querySelect(SQL::$HEADER_INSCRIPCION);
-     $fields = querySelect(SQL::$HEADER_INSCRIPCION);
-   }
-
-   elseif ($table == "profesor") {
-
-     $fields = querySelect(SQL::$HEADER_PROFESOR);
-
-   }
-
-   elseif ($table == "instructor") {
-
-     $fields = querySelect(SQL::$HEADER_INSTRUCTOR);
-
-   }
-
-   else{
-
-     $fields = querySelect('describe '.$table);
-
-   }
-
-     foreach ($fields as $field) {
-
-         echo "<th class='header'>". $field[0] ."</th>";
-
-     }
-
-
-
- }
-
-
-
-
-
  function createTable($view){
 
 
@@ -100,7 +52,9 @@ function evaluaProfesor($table, $Estado, $CorreoProfe)
 
 
 
-              <?php  $modal = new Modal('btn1',$view,$view,"Insertar ".$view);
+              <?php  
+              
+              $modal = new Modal('btn1',$view,$view,"Insertar ".$view);
 
               $modal->getContent();
 

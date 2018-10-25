@@ -1,66 +1,23 @@
-<?php
- function evaluate_cursos($table,$NumeroCurso)
- {
-       if($table=="curso") {
-     ?>
+<?php function evaluate_cursos($table,$NumeroCurso) {
+       if($table=="curso") { ?>
 
     <button  type="checkbox" class="btn btn-warning fa fa-check-square-o" onclick="firmar(<?php echo $NumeroCurso;?>,<?php echo $NumeroCurso;?>);">
     </button>
 
     <button class="btn btn-info fa fa-print" onclick="reportBy(<?php echo $NumeroCurso;?>);">
     </button>
-
 <?php
 /*
     //En esta parte se pondria el evento click, que asociará el id del curso, obtendrá los datos y los enviara a
     //la vista _InscripcionesView.php
 */
-}
-
- }
-
-
-?>
-
-
-
-<?php
-/**
- *
-
-
-
- */
-
-
-function getheaders($table) {
-
-     $fields = querySelect("describe ".$table);
-     echo "<th class='header'> Operacion</th>";
-     foreach ($fields as $field) {
-         echo "<th class='header'>". $field[0] ."</th>";
-     }
-
-
-}
-
-
+}}
 function createTable($view){
         include 'listViews.php';
         $table = $table[$view];
-
-
-       // include "Buscar.php";
-        ?>
-
-
-            <?php
-                $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
+        $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
                 foreach($list as $row) {
-                     $result = querySelect(SQL::$TOTAL_INSCRPCIONES." ". $row['NumeroCurso'] );
-                     ?>
-
-
+                     $result = querySelect(SQL::$TOTAL_INSCRPCIONES." ". $row['NumeroCurso'] ); ?>
                         <div class="col-md-6 ">
                             <div class="thumbnail"  <?php
                             if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;}

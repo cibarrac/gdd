@@ -286,5 +286,83 @@ function fillOptionsDouble($table, $col) {
     }
 } ?>
 
+<?php 
+
+function getheaders($table) {
+
+    switch ($table) {
+      case 'infoescuela':      $fields = querySelect(SQL::$HEADER_INFOITA);     break;
+      case 'carrera':          $fields = querySelect(SQL::$HEADER_CARRERA);     break; 
+      case 'jefedepartamento': $fields = querySelect(SQL::$HEADER_JEFE);        break; 
+      case 'profesor':         $fields = querySelect(SQL::$HEADER_PROFESOR);    break; 
+      case 'inscripcion':      $fields = querySelect(SQL::$HEADER_INSCRIPCION); break;
+      case 'instructor' :      $fields = querySelect(SQL::$HEADER_INSTRUCTOR);   break; 
+      case 'curso':            $fields = querySelect(SQL::$HEADER_CURSOS);      break;
+      default: $fields = querySelect("describe ".$table); break;
+    
+    }
+     foreach ($fields as $field) {
+         echo "<th  class='header header_2'>". $field[0] ."</th>";
+     }
+  }
+
+  function getDataList($table) {
+    $list;
+
+    switch ($table) {
+        case 'instructor':  $list = querySelect(SQL::$SELEC_INSTRUCTOR);     break;
+        case 'infoescuela': $list = querySelect(SQL::$INFO_ITA);             break;
+        case 'carrera':    $list = querySelect(SQL::$SELECT_CARRERA);        break;
+        case 'jefedepartamento':     $list = querySelect(SQL::$SELECT_JEFE); break;
+        case 'profesor':         $list = querySelect(SQL::$SELECT_PROFE_SU); break;        
+        case 'inscripcion':    $list = querySelect(SQL::$INSCRIPCION_SU);    break;
+     
+        default: $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);      break; 
+    }
+
+     
+     return $list;
+
+  }
+  function td_($val)
+  {
+      echo "<td class='item'>".$val."</td>";   
+  }
+  function addTag($tag)
+  {
+      echo "<".$tag.">";
+  }
+  function showDataList($list)
+  {
+    $i = 0;
+    foreach($list as $row) {   ?>
+        
+        <tr <?php if(isset($row['ispublic'])){
+                     if($row['ispublic']==1){ echo "class='success'";}
+                     else {echo "class='warning'";}
+               } ?> > <?php $flag = true;
+            foreach ($row as $col) {
+              if($flag) 
+              { 
+                           td_($col); 
+                           $flag = false; 
+               } 
+               else 
+               { 
+                   $flag=true;
+               } }  
+              ?>
+         </tr> <?php $i++; 
+        }}  
+?>
+  
+
+
+
+
+
+
+
+
         
         

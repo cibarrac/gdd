@@ -1,34 +1,11 @@
-
-
-
-
-
- <?php
+<?php
 session_start();
 
-
-
-function getheaders($table) {
-
-     $fields = querySelect(SQL::$HEADER_CURSOS);
-
-     foreach ($fields as $field) {
-         echo "<th class='header'>". $field[0] ."</th>";
-     }
-
- }
- 
-
-
- function createTable($view){
+function createTable($view){
          include 'listViews.php';
-         $table = $table[$view];
+         $table = $table[$view]; ?>
 
-        // include "Buscar.php";
-         ?>
-
-
-         <div class="col-md-3">
+<div class="col-md-3">
 
               <?php
               if($table == "curso")
