@@ -64,7 +64,7 @@ function validar()
     NumeroTarjetaProfesor = document.getElementById('NumeroTarjetaProfesor').value;
     CarreraCursadaProfesor = document.getElementById('CarreraCursadaProfesor').value;
     PuestoProfesor = document.getElementById('PuestoProfesor').value;
-    expresion = /^[a-zA-Z ]*$/;
+    expresion = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/; //expresion regular para validar la entrada de datos.
 
     if (NombreProfesor === "" || ApellidoPaternoProfesor === "" || ApellidoMaternoProfesor === "" || NumeroTelefonoProfesor === "" || NumeroTarjetaProfesor === "" || CarreraCursadaProfesor === "" || PuestoProfesor === "")
     {
@@ -128,7 +128,7 @@ function firmar(s,id){
 
 
 function cancelar(s,id){
- respuesta =  confirm("Esta seguro que desea cancelar, esto quire decir que el curso no se llevara a cavo y dejara de ser publico");
+ respuesta =  confirm("¿Esta seguro que desea cancelar?, esto quiere decir que el curso no se llevará a cabo y dejará de ser público");
  if(respuesta){
   get_("../bs/curso/CursoCancelar.php?curso="+id );
  }

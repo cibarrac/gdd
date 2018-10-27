@@ -225,7 +225,7 @@
     <div class="col-md-12">
         <table class="table table-bordered">
             <tr>
-                <th class="col-md-3">Asigfnatura que se requiere formacion o actualizacion</th>
+                <th class="col-md-3">Asignatura que se requiere formacion o actualizacion</th>
                 <th class="col-md-3">Contenidos tematicos en los que se requiere la formacion o actualizacion</th>
                 <th class="col-md-3">Numero de profesores que la requieren</th>
                 <th class="col-md-3">Periodo en el que se requiere la formacion o actualizacion (Enero-Junio, Agosto-Diciembre)</th>
