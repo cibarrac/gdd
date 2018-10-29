@@ -19,233 +19,220 @@ function dialog($msg){
          </script> ';
 }
 
+function isValidProfesor()
+{
+    $email = $formData['CorreoProfesor'];
+    $profesorRegistrado = CursoService::getProfesorRegistrado($email);
+    if($profesorRegistrado == false)
+    {
+        dialog('Usted ya se encuetra registrado');
+        return false;
+    }
+    else { 
+        return true; 
+    }
+}
+function isValidCurso() {
+
+    $idAula = $formData['AulaPropuesta'];
+    $turno = $formData['Turno'];
+    $aula = CursoService::getAulaDisponible($idAula, $turno);
+    if($aula == false)
+    {
+       dialog('El aula propuesta esta ocupada, seleccione otra');
+       return false;
+    } 
+    else { 
+        return true; 
+    }
+}
+
+function isValidInscripcion() {
+    $IdCurso = $formData['NumeroCurso'];
+
+    $IdProfesor = $formData['IdProfesor'];
+    $cursoAprobado = CursoService::getCursoAprobado($IdCurso);
+    $profesor = CursoService::getProfesorInscrito($IdProfesor, $IdCurso); 
+    $fechalimite = CursoService::getFechaLimiteInscripcion($IdCurso);
+    $cupo = CursoService::getLimiteCurso($IdCurso);
+    $turno = CursoService::getTurnoCurso($IdCurso, $IdProfesor);
+
+    if($cursoAprobado == false) {
+
+        dialog('No puede hacer una inscripcion, el curso no esta apobado');
+
+        return false;
+
+    }
+
+    if($profesor == false)
+
+    {
+
+        dialog('No se puede inscribir, ya esta inscrito');
+
+        return false;
+
+    } 
+
+    elseif($fechalimite == false)
+
+    {
+
+        dialog('No puede inscribirse al curso, la fecha limite expiro ');
+
+        return false;   
+
+    }
+
+    elseif($cupo == false)
+
+    {
+
+        dialog('No puede inscribirse al curso, el curso esta lleno');
+
+        return false;
+
+    }
+
+    elseif($turno == false)
+
+    {
+
+        dialog('No puede inscrirse al curso, ya tiene un curso en el mismo turno');
+
+        return false;
+
+    }
+
+    
+
+    else { return true; }
+   
+}
+function isValidJefe()
+{
+    $idDepartamento = $formData['IdDepartamentoJefe'];     
+
+    $jefeRegistrado = CursoService::getJefeDepartamentoRegistrado($idDepartamento);
+
+    
+
+    if($jefeRegistrado == false)
+
+    {
+
+        dialog('El departamento ya cuenta con un jefe registrado');
+
+        return false;
+
+    }
+
+    else { return true; }
+}
+function isValidDepartamento()
+{
+    $nombreDepto = $formData['NombreDepartamento'];
+
+    $departamentoRegistrado = CursoService::getDepartamentoRegistrado($nombreDepto);
+
+    
+
+    if($departamentoRegistrado == false)
+
+    {
+
+        dialog('El departamento ya esta registrado');
+
+        return false;
+
+    }
+
+    else { return true; }
+}
+
+function isValidCarrera()
+{
+    $nombreCarrera = $formData['NombreCarrera'];
+
+    $carreraRegistrada = CursoService::getCarreraRegistrada($nombreCarrera);
+
+    
+
+    if($carreraRegistrada == false)
+
+    {
+
+       dialog('La carrera ya esta registrada');
+
+       return false; 
+
+    }
+
+    else { return true; }
+}
+function isValidEscuela()
+{
+    $infoEscuela = CursoService::getInfoEscuela();
+
+        
+
+    if($infoEscuela == false)
+
+    {
+
+        dialog('La inforamcion de la institucion ya esta en el sistema');
+
+        return false;
+
+    }
+
+    else { return true; }
+}
 function validation(){
 
     $formData = getPOST_GET();
 
     $table = $formData['table'];
-
-    if($table=="inscripcion")
-
-    {
-
-        $IdCurso = $formData['NumeroCurso'];
-
-        $IdProfesor = $formData['IdProfesor'];
-
+     
+    switch ($table) {
         
-
-        $cursoAprobado = CursoService::getCursoAprobado($IdCurso);
-
-        $profesor = CursoService::getProfesorInscrito($IdProfesor, $IdCurso); 
-
-        $fechalimite = CursoService::getFechaLimiteInscripcion($IdCurso);
-
-        $cupo = CursoService::getLimiteCurso($IdCurso);
-
-        $turno = CursoService::getTurnoCurso($IdCurso, $IdProfesor);
-
-
-        if($cursoAprobado == false)
-
-        {
-
-            dialog('No puede hacer una inscripcion, el curso no esta apobado');
-
-            return false;
-
-        }
-
-        if($profesor == false)
-
-        {
-
-            dialog('No se puede inscribir, ya esta inscrito');
-
-            return false;
-
-        } 
-
-        elseif($fechalimite == false)
-
-        {
-
-            dialog('No puede inscribirse al curso, la fecha limite expiro ');
-
-            return false;   
-
-        }
-
-        elseif($cupo == false)
-
-        {
-
-            dialog('No puede inscribirse al curso, el curso esta lleno');
-
-            return false;
-
-        }
-
-        elseif($turno == false)
-
-        {
-
-            dialog('No puede inscrirse al curso, ya tiene un curso en el mismo turno');
-
-            return false;
-
-        }
-
+        case '"inscripcion"': return isValidInscripcion(); break;
         
-
-        else { return true; }
-
+        default:
+            # code...
+            break;
     }
 
     if($table=="curso")
-
     {
-
-        $idAula = $formData['AulaPropuesta'];
-
-        $turno = $formData['Turno'];
-
-        
-
-        $aula = CursoService::getAulaDisponible($idAula, $turno);
-
-        
-       if($aula == false)
-
-        {
-
-            dialog('El aula propuesta esta ocupada, seleccione otra');
-
-            return false;
-
-        } 
-
-        else { return true; }
-
+           return isValidCurso();
     }
-
-
     if($table == "profesor" )
-
     {
-
-        $email = $formData['CorreoProfesor'];
-
-        $profesorRegistrado = CursoService::getProfesorRegistrado($email);
-
-        
-
-        if($profesorRegistrado == false)
-
-        {
-
-            dialog('Usted ya se encuetra registrado');
-
-            return false;
-
-        }
-
-        else { return true; }
-
+          return isValidProfesor();
     }
-
     if($table == "jefedepartamento")
-
     {
-
-        $idDepartamento = $formData['IdDepartamentoJefe'];     
-
-        $jefeRegistrado = CursoService::getJefeDepartamentoRegistrado($idDepartamento);
-
-        
-
-        if($jefeRegistrado == false)
-
-        {
-
-            dialog('El departamento ya cuenta con un jefe registrado');
-
-            return false;
-
-        }
-
-        else { return true; }
-
+          return isValidJefe();
     }
 
     if($table == "departamento")
 
     {
 
-        $nombreDepto = $formData['NombreDepartamento'];
-
-        $departamentoRegistrado = CursoService::getDepartamentoRegistrado($nombreDepto);
-
-        
-
-        if($departamentoRegistrado == false)
-
-        {
-
-            dialog('El departamento ya esta registrado');
-
-            return false;
-
-        }
-
-        else { return true; }
+       return isValidDepartamento();
 
     }
-
-    
     if($table == "carrera")
-
-    {
-
-        $nombreCarrera = $formData['NombreCarrera'];
-
-        $carreraRegistrada = CursoService::getCarreraRegistrada($nombreCarrera);
-
-        
-
-        if($carreraRegistrada == false)
-
-        {
-
-           dialog('La carrera ya esta registrada');
-
-           return false; 
-
-        }
-
-        else { return true; }
-
-    }
+     {
+       return isValidCarrera();
+     }
 
     if($table == "infoescuela")
-
     {
 
-        $infoEscuela = CursoService::getInfoEscuela();
-
-        
-
-        if($infoEscuela == false)
-
-        {
-
-            dialog('La inforamcion de la institucion ya esta en el sistema');
-
-            return false;
-
-        }
-
-        else { return true; }
+      return isValidEscuela();
 
     }
   
@@ -371,22 +358,14 @@ function show($list) {
 function getPOST_GET() {
 
     if(!empty($_POST)){
-
          echo " <br>";
-
          return $_POST;
-
     }
-
     else if(!empty($_GET)) {
-
       echo " <br>";
-
       return $_GET;
 
-    }
-
-    echo '<script type="text/javascript">alert("Guardado");</script>';
+    } 
 
 }
 

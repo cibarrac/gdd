@@ -121,31 +121,26 @@ function asisBy(id){
 function firmar(s,id){
  respuesta =  confirm("Esta seguro que desea firmar el curso para que sea publico para los profesores");
  if(respuesta){
-  get_("firmar.php?curso="+id );
+  get_("../bs/curso/CursoController.php?curso="+id+"&action=sign");
  }
-
 }
-
-
 function cancelar(s,id){
  respuesta =  confirm("¿Esta seguro que desea cancelar?, esto quiere decir que el curso no se llevará a cabo y dejará de ser público");
  if(respuesta){
-  get_("../bs/curso/CursoCancelar.php?curso="+id );
+  get_("../bs/curso/CursoController.php?curso="+id +"&action=cancel");
  }
-
 }
-
 function revision(s,id){
- respuesta =  confirm("Esta seguro que desea dejar en revision el curso, el curso volvera su estado inicial y podra ser autorizado o cancelado");
+ respuesta =  confirm("Esta seguro que desea dejar en revision el curso,, el curso volvera su estado inicial y podra ser autorizado o cancelado");
  if(respuesta){
-  get_("../bs/curso/CursoEnRevision.php?curso="+id );
+  get_("../bs/curso/CursoController.php?curso="+id+"&action=revision");
  }
 }
 
 function salircurso( idcurso){
   respuesta = confirm("¿Esta seguro que desea salir del curso?");
   if(respuesta){
-    get_("../bs/curso/SalirCurso.php?idcurso="+idcurso);
+    get_("../bs/curso/CursoController.php?idcurso="+idcurso+"&action=exit");
   }
 }
 
