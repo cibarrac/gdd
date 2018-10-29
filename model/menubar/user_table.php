@@ -46,7 +46,7 @@ function createTable($view){
           ?>
 
 
-                        <div class="col-md-6 ">
+                        <div class="col-md-4 ">
                             <div class="thumbnail"  <?php
                             if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;}
                                  else {echo "style= 'background-color: #fff9c4;'";} ?> >

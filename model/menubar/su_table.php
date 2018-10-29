@@ -2,7 +2,7 @@
 
  <?php function getCursoItem($result,$row) { ?>
  
- <div class="col-md-6 ">
+ <div class="col-md-4 ">
         <div class="thumbnail"  <?php if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;}
                                   elseif($row['ispublic']==2){ echo "style= 'background-color: #ffcdd2;'" ;}
                                    else {echo "style= 'background-color: #fff9c4;'";} ?> >
