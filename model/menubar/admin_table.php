@@ -18,7 +18,7 @@ function createTable($view){
         $list = querySelect(SQL::$SELECCIONA_TODO." ".$table);
                 foreach($list as $row) {
                      $result = querySelect(SQL::$TOTAL_INSCRPCIONES." ". $row['NumeroCurso'] ); ?>
-                        <div class="col-md-6 ">
+                        <div class="col-md-4 ">
                             <div class="thumbnail"  <?php
                             if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;}
                             elseif($row['ispublic']==2){ echo "style= 'background-color: #ffcdd2;'" ;}
