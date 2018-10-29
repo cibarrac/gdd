@@ -5,6 +5,24 @@ include_once '../SQL.php';
 
 session_start();
 
+function verificaProfesor()
+{
+    $correo = $_GET['correo'];
+    $Estado = $_GET['estado'];
+  
+  
+    switch ($Estado)
+  
+    {
+      case 0:  $SQL = "UPDATE profesor SET Estado = 0 WHERE CorreoProfesor = '".$correo."'"; break;
+      case 1:  $SQL = "UPDATE profesor SET Estado = 1 WHERE CorreoProfesor = '".$correo."'"; break;
+    }
+  
+   queryUpdate($SQL);
+  
+}
+
+
 function sign_curso()
 {
     $NumeroCurso = $_GET['curso'];
@@ -82,6 +100,7 @@ function CursoController($action)
         case 'cancel': cancel_curso();  break;
         case 'revision': revision(); break;
         case 'sign' : sign_curso(); break;
+        case 'verify' : verificaProfesor(); break;
         
         default:
            

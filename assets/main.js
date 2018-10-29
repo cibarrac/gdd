@@ -149,7 +149,7 @@ function verificarCuenta(estado,correo)
   resp= confirm("¿Verificar que el profesor pertenece al departamento ?");
   if(resp)
   {
-    get_("../bs/curso/verificaProfesor.php?correo="+correo+'&estado='+estado);
+    get_("../bs/curso/CursoController.php?correo="+correo+'&estado='+estado+"&action=verify");
   }
 }
 
