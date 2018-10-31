@@ -277,8 +277,6 @@ function save($table) {
 
                   queryInsert($SQL_INSERT);
 
-                  echo $SQL_INSERT;
-
                   }
 
                   else{dialog('No se guardó'); }
