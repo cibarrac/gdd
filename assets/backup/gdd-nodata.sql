@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `aula` (
   `UbicacionAula` text NOT NULL,
   `TipoAula` text NOT NULL,
   PRIMARY KEY (`IdAula`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- La exportación de datos fue deseleccionada.
 -- Volcando estructura para tabla devlab_gdd.carrera
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `inscripcion` (
   CONSTRAINT `inscripcion_ibfk_3` FOREIGN KEY (`IdInstructor2`) REFERENCES `instructor` (`IdInstructor`),
   CONSTRAINT `inscripcion_ibfk_4` FOREIGN KEY (`IdProfesor`) REFERENCES `profesor` (`IdProfesor`),
   CONSTRAINT `inscripcion_ibfk_5` FOREIGN KEY (`IdAula`) REFERENCES `aula` (`IdAula`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- La exportación de datos fue deseleccionada.
 -- Volcando estructura para tabla devlab_gdd.instructor
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `loginAttempts` (
   `Username` varchar(65) DEFAULT NULL,
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 -- La exportación de datos fue deseleccionada.
 -- Volcando estructura para tabla devlab_gdd.members
@@ -181,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `username` varchar(65) NOT NULL DEFAULT '',
   `password` varchar(65) NOT NULL DEFAULT '',
   `email` varchar(65) NOT NULL,
-  `verified` tinyint(1) NOT NULL DEFAULT '0',
+  `verified` tinyint(1) NOT NULL DEFAULT '1',
   `mod_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `role` varchar(6) NOT NULL DEFAULT 'user',
   PRIMARY KEY (`id`),
@@ -198,11 +198,11 @@ CREATE TABLE IF NOT EXISTS `presidenteacademia` (
   `ApellidoPaternoPresidenteAcad` text NOT NULL,
   `ApellidoMaternoPresidenteAcad` text NOT NULL,
   `CorreoPresidente` varchar(65) NOT NULL,
-  `IdDepartamentoPresidente` int(11) NOT NULL,
+  `IdCarreraPresidente` int(11) NOT NULL,
   PRIMARY KEY (`IdPresidenteAcademia`),
-  KEY `IdDepartamentoPresidente` (`IdDepartamentoPresidente`),
-  CONSTRAINT `presidenteacademia_ibfk_1` FOREIGN KEY (`IdDepartamentoPresidente`) REFERENCES `departamento` (`IdDepartamento`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  KEY `IdCarreraPresidente` (`IdCarreraPresidente`),
+  CONSTRAINT `presidenteacademia_ibfk_1` FOREIGN KEY (`IdCarreraPresidente`) REFERENCES `carrera` (`IdCarrera`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- La exportación de datos fue deseleccionada.
 -- Volcando estructura para tabla devlab_gdd.profesor
@@ -225,9 +225,4 @@ CREATE TABLE IF NOT EXISTS `profesor` (
   `NombreCarreraProfesor` text,
   `Estado` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`IdProfesor`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
-
-
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;

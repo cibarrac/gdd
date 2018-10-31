@@ -13,7 +13,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Presidente de academia</label>
-            <input class="form-control" name="NombreCompletoPresiAcad" readonly value="<?php echo OptienePresidente($_SESSION['username'])?>">
+            <input class="form-control" name="NombreCompletoPresiAcad" readonly value="<?php echo OptienePresidente( $_SESSION['username'] )?>">
         </div>
     </div>
     

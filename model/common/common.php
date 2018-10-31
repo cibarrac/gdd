@@ -196,7 +196,7 @@ function fillOptionsDouble($table, $col) {
     $col=0;
     $listaPresidente = querySelect(SQL::$PRESIDENTE_ACADEMIA." '".$correo."' ");
         foreach ($listaPresidente as $fila) { 
-             return $fila[$col] . " " . $fila[$col+1] . " " . $fila[$col+2];
+             return $fila[$col]." ".$fila[$col+1]." ".$fila[$col+2];
 }} ?>
                   
                  
@@ -205,10 +205,13 @@ function fillOptionsDouble($table, $col) {
                   
 <?php function OptieneCarrera($correoJefe) {
     $col=0;
-     $listaCarrera = querySelect(SQL::$CARRERA_JEFE." ".$correoJefe);
-    foreach ($listaCarrera as $fila) {
-         return $fila[$col];
-}} ?>
+     $listaCarrera = querySelect(SQL::$CARRERA_JEFE." '".$correoJefe."' ");
+    foreach ($listaCarrera as $fila) { ?>
+        <option value="<?php echo $fila[$col]; ?>" >
+            <?php echo $fila[$col+1]; ?>
+        </option>
+<?php }
+} ?>
 
         
 

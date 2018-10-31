@@ -53,13 +53,13 @@ class SQL {
         . " jefedepartamento ON IdJefeInmediatoProfesor = IdJefeDepartamento WHERE"
         . " CorreoJefe = ";
 
-    public static $PRESIDENTE_ACADEMIA = "SELECT NombrePresidenteAcad, "
-        . "ApellidoPaternoPresidenteAcad, ApellidoMaternoPresidenteAcad FROM"
-        . " presidenteacademia INNER JOIN jefedepartamento ON"
-        . " IdDepartamentoPresidente = IdDepartamentoJefe"
-        . " WHERE CorreoJefe = ";
+    public static $PRESIDENTE_ACADEMIA = "SELECT NombrePresidenteAcad,"
+    ." ApellidoPaternoPresidenteAcad, ApellidoMaternoPresidenteAcad FROM"
+    ." presidenteacademia, carrera, jefedepartamento WHERE carrera.IdCarrera"
+    ." = presidenteacademia.IdCarreraPresidente AND carrera.IdDepartamentoCarrera"
+    ." = jefedepartamento.IdDepartamentoJefe AND jefedepartamento.CorreoJefe = ";
 
-    public static $CARRERA_JEFE = "SELECT NombreCarrera FROM carrera INNER JOIN"
+    public static $CARRERA_JEFE = "SELECT IdCarrera, NombreCarrera FROM carrera INNER JOIN"
             . " jefedepartamento ON IdDepartamentoCarrera = IdDepartamentoJefe"
             . " WHERE CorreoJefe = ";
 
