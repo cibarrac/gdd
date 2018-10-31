@@ -2,53 +2,32 @@
 
 
 
-
-
   <div class="row">
 
-
-
     <div class="col-md-4">
-
         <div class="form-group">
-
           <label for="">Nombre(s): </label>
-
           <input type="text" name="NombrePresidenteAcad" class="form-control" >
-
         </div>
-
     </div>
 
 
 
     <div class="col-md-4">
-
         <div class="form-group">
-
             <label for="">Apellido paterno:</label>
-
             <input type="text" name="ApellidoPaternoPresidenteAcad" class="form-control">
-
         </div>
-
     </div>
 
 
 
     <div class="col-md-4">
-
         <div class="form-group">
-
           <label for="">Apellido materno:</label>
-
           <input type="text" name="ApellidoMaternoPresidenteAcad" class="form-control">
-
         </div>
-
     </div>
-
-
 
   </div>
 
@@ -61,15 +40,10 @@
 
 
     <div class="col-md-6">
-
       <div class="form-group">
-
         <label for="">Correo: </label>
-
         <input type="email" name="CorreoPresidente" class="form-control">
-
       </div>
-
     </div>
 
 
@@ -77,23 +51,15 @@
 
 
     <div class="col-md-6">
-
       <div class="form-group">
-
-        <label for="">Departamento:</label>
-
-          <select class="form-control" name="IdDepartamentoPresidente">
-
+        <label for="">Carrera:</label>
+          <select class="form-control" name="IdCarreraPresidente">
+            <option value=""> </option>
             <?php
-
-              fillOptionsNombresAndId("departamento",1);
-
+              OptieneCarrera($_SESSION['username']);
             ?>
-
         </select>
-
       </div>
-
     </div>
 
 
