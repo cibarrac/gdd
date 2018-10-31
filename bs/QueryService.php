@@ -27,7 +27,7 @@ function queryInsert($sql) {
         die("Connection failed: " . $conn->connect_error);
     }
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -42,7 +42,7 @@ function queryUpdate($sql) {
     }
     echo $sql;
     if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully";
+        echo "";
     } else {
         echo "Error updating record: " . $conn->error .$sql;
     }
@@ -58,7 +58,7 @@ function queryDelete($sql) {
     }
     
     if ($conn->query($sql) === TRUE) {
-        echo "Record deleted successfully";
+        echo "";
     } else {
         echo "Error deleting record: " . $conn->error;
     }
