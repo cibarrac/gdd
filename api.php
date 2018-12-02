@@ -115,6 +115,19 @@ function getInfoProfesor($IdProfesor)
    }
 }
 
+function getNumeroCurso($nombre)
+{
+    $lista = querySelect("SELECT NumeroCurso FROM curso WHERE NombreCurso = '".$nombre."' ");
+    if(count($lista)>0)
+    {
+        return $lista[0];
+    }
+    else
+    {
+        return ['NumeroCurso' => $nombre, 'message' => 'No datos 9'];
+    }
+}
+
 
 
 if ($_GET['oper']) {
@@ -158,6 +171,11 @@ if ($_GET['oper']) {
     elseif($_GET ['oper']=='getDatosProfesor'){
         $IdProfesor = $_GET['IdProfesor'];
         echo json_encode(['status' => 200, 'data' => getInfoProfesor($IdProfesor)]); 
+    }
+
+    elseif($_GET ['oper'] == 'getnumerocurso'){
+        $nombre = $_GET['nombrecurso'];
+        echo json_encode(['status' => 200, 'data' => getNumeroCurso($nombre)]);         
     }
     
     
