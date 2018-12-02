@@ -3,9 +3,11 @@
  <?php function getCursoItem($result,$row) { ?>
  
  <div class="col-md-4 ">
-        <div class="thumbnail"  <?php if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;}
-                                  elseif($row['ispublic']==2){ echo "style= 'background-color: #ffcdd2;'" ;}
-                                   else {echo "style= 'background-color: #fff9c4;'";} ?> >
+    <div class="thumbnail" 
+      <?php if($row['ispublic']==1){ echo "style= 'background-color: #b9f6ca;'" ;}
+            elseif($row['ispublic']==2){ echo "style= 'background-color: #ffcdd2;'" ;}
+            else {echo "style= 'background-color: #fff9c4;'";} 
+      ?> >
 
           <div class="caption">
              <h3><p align="center"><b><?php echo $row['NumeroCurso']." ".$row['NombreCurso'];?></b></p></h3>
@@ -72,6 +74,36 @@ function createTable($view){
                         $result = querySelect(SQL::$TOTAL_INSCRPCIONES." ". $row['NumeroCurso'] );
                            getCursoItem($result,$row);                       
               }} 
+                           elseif($table == "asistencias") 
+                          {?>
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                  <div class="form-group">
+                                   <label for="">Numero del curso: </label>
+                                     <input type="text" class="form-control" name="NumeroCurso" id="NumeroCursoM" readonly>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label for="">Nombre del curso: </label>
+                                      <select class="form-control" name="NombreCurso" id="NombrecursoM" onchange="asistencia()" required>
+                                        <option value="Seleccionar"> Seleccionar</option>
+                                        <?php
+                                        $nombreCurso = fillOptionsSingle("curso",1)
+                                            ?>
+                                      </select>
+                                  </div>
+                                </div>
+
+                            </div>  
+             <?php    
+             
+             
+
+              }
+
               else {?>
                   <div class="container-fluid">
                     <table class="table table-striped table-responsive table-bordered" id="tabla">
@@ -176,4 +208,35 @@ function createTable($view){
     request.send();
   }
 
+</script>
+
+
+
+<script>
+ function asistencia() {
+  var nombrecurso = document.querySelector("#NombrecursoM");
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+      var response = this.response;
+
+      if (typeof response === 'undefined' || response === "")
+      throw "No se recuperó la información de la respuesta a la petición."
+
+      var res = JSON.parse(response);
+
+      if (res.status == 200) {
+        var data = res.data;
+
+        if (data.length == 0)
+        return;
+
+     // Las propiedades del objeto 'data' deben ser igual al nombre del campo SQL
+       
+        document.querySelector('#NumeroCursoM').value = data.NumeroCurso;
+      
+      }
+    };
+    request.open('GET', 'api.php?oper=getnumerocurso&nombrecurso='  + nombrecurso.value, true);
+    request.send();
+  }
 </script>
