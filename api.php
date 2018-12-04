@@ -32,12 +32,15 @@ function fillOptionsInscriptionByNum($numero)
 
 function NombresJefePresi($idDepartamento)
 {
-    $lista = querySelect("SELECT concat(JEFE.NombreJefeDepto,' ',JEFE.ApellidoPaternoJefeDepto,' '"
-            . ",JEFE.ApellidoMaternoJefeDepto) AS NombreJefe, concat(PRESI.NombrePresidenteAcad,' '"
-            . ",PRESI.ApellidoPaternoPresidenteAcad,' ',PRESI.ApellidoMaternoPresidenteAcad)"
-            . " AS NombrePresidente FROM  jefedepartamento JEFE, presidenteacademia PRESI "
-            . "WHERE JEFE.IdDepartamentoJefe ='".$idDepartamento."' AND "
-            . "PRESI.IdDepartamentoPresidente = '".$idDepartamento."' ");
+    $lista = querySelect("SELECT concat(JEFEDEPARTAMENTO.NombreJefeDepto,' "
+    ."',JEFEDEPARTAMENTO.ApellidoPaternoJefeDepto,' ',JEFEDEPARTAMENTO.ApellidoMaternoJefeDepto) "
+    ."AS NombreJefe, concat(PRESIDENTEACADEMIA.NombrePresidenteAcad,' "
+    ."',PRESIDENTEACADEMIA.ApellidoPaternoPresidenteAcad,' "
+    ."',PRESIDENTEACADEMIA.ApellidoMaternoPresidenteAcad) AS NombrePresidente FROM "
+    ."jefedepartamento JEFEDEPARTAMENTO, presidenteacademia PRESIDENTEACADEMIA, carrera "
+    ."CARRERA wHERE CARRERA.IdDepartamentoCarrera = '".$idDepartamento."' AND "
+    ."JEFEDEPARTAMENTO.IdDepartamentoJefe = '".$idDepartamento."' AND "
+    ."PRESIDENTEACADEMIA.IdCarreraPresidente = CARRERA.IdCarrera");
         if (count($lista)>0) {
             return $lista[0]; 
         } else {
