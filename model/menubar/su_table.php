@@ -97,6 +97,13 @@ function createTable($view){
                                   </div>
                                 </div>
 
+                                <div class="form-group">
+                                  <a href="#" class="btn btn-primary" id="simple_alert">Simple alerta</a>
+                                  <a href="#" class="btn btn-success" id="simple_confirm">Confirmacion</a>
+                                  <a href="#" class="btn btn-danger" id="simple_prompt">Logueo</a>
+
+                                </div>
+
                             </div>  
              <?php    
              
