@@ -8,7 +8,7 @@ $table = array('_InscripcionesUser' => 'inscripcion',
 '_Profesor' => 'profesor',
 '_ProfesorSu' => 'profesor',  //user
 '_Encuensta' => 'encuesta', //user
-//'_CargarAsistencia' => 'Asistencias', //su, editor
+'_Asistencia' => 'asistencias', //su, editor
 '_Aula' => 'aula', //su
 '_Carrera' => 'carrera', //sus
 '_Departamento' => 'departamento', //su
