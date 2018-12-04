@@ -32,7 +32,7 @@
     {
         $("#simple_alert").click (function() 
         {
-            alertify.alert("esta es mi pagina de alerta");
+            alertify.alert("Este es un boton");
         });
 
 
